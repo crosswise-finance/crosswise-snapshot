@@ -1,0 +1,575 @@
+const fs = require("fs");
+const { ethers, network } = require("hardhat");
+const pairAbi = require("../_supporting/abi_lp.json");
+
+const transactionFiles = [
+    {
+        file: "TxHistory - Router.csv",
+        contract: "router",
+        methods: [
+            { description: "Add Liquidity", code: "addLiquidity", params: ["address", "address", "uint", "uint", "uint", "uint", "address", "uint"] }, // Checked
+            { description: "Add Liquidity ETH", code: "addLiquidityETH", params: ["address", "uint", "uint", "uint", "address", "uint"] }, // Checked
+            { description: "Pause Price Guard", code: "pausePriceGuard", params: ['address', 'bool'] }, // Checked
+            { description: "Remove Liquidity", code: "removeLiquidity", params: ["address", "address", "uint", "uint", "uint", "address", "uint"] }, // Checked
+            { description: "Remove Liquidity ETH", code: "removeLiquidityETH", params: ["address", "uint", "uint", "uint", "address", "uint"] }, // Checked
+            { description: "Remove Liquidity ETH With Permit", code: "removeLiquidityETHWithPermit", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"]  }, // Chekced
+            { description: "Remove Liquidity ETH With Permit Supporting Fee On Transfer Tokens", code: "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Checked
+            { description: "Remove Liquidity With Permit", code: "removeLiquidityWithPermit", params: ["address", "address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Checked
+            { description: "Set Anti Whale", code: "setAntiWhale", params: ["address", "bool"] }, // Checked
+            { description: "Setwhitelist Token", code: "setwhitelistToken", params: ["address", "bool"] }, // Checked
+            { description: "Set Max Spread Tolerance", code: "setMaxSpreadTolerance", params: ["address", "uint256"] }, // Checked
+            { description: "Swap ETH For Exact Tokens", code: "swapETHForExactTokens", params: ["uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Swap Exact ETH For Tokens", code: "swapExactETHForTokens", params: ["uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Swap Exact ETH For Tokens Supporting Fee On Transfer Tokens", code: "swapExactETHForTokensSupportingFeeOnTransferTokens", params: ["uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Swap Exact Tokens For ETH", code: "swapExactTokensForETH", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Swap Exact Tokens For Tokens", code: "swapExactTokensForTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Swap Exact Tokens For Tokens Supporting Fee On Transfer Tokens", code: "swapExactTokensForTokensSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"]  }, //Checked
+            { description: "Swap Tokens For Exact Tokens", code: "swapTokensForExactTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Swap Exact Tokens For ETH Supporting Fee On Transfer Tokens", code: "swapExactTokensForETHSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
+        ],
+    },
+    {
+        file: "TxHistory - CrssBnb.csv",
+        contract: "crssbnb",
+        methods: [
+            { description: "Approve", code: "approve", params: ["address", "uint"] }, // Checked
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] }, // Checked
+            { description: "Sync", code: "sync", params: [] } // Checked
+        ],
+    },
+    {
+        file: "TxHistory - CrssBusd.csv",
+        contract: "crssbusd",
+        methods: [
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - Crss11.csv",
+        contract: "crssV11",
+        methods: [
+            { description: "Set Swap And Liquify Enabled", code: "setSwapAndLiquifyEnabled", params: ['bool'] }, // Checked
+            { description: "Claim V1Token", code: "claimV1Token", params: [] }, // Checked
+            { description: "Transfer Ownership", code: "transferOwnership", params: ["address"] }, // Checked
+            { description: "Init_router", code: "init_router", params: ["address"] }, // Checked
+            { description: "Approve", code: "approve", params: ["address", "uint256"] }, // Checked
+            { description: "Set Excluded From Anti Whale", code: "setExcludedFromAntiWhale", params: ["address", "bool"] }, // Checked
+            { description: "Set White List", code: "setWhiteList", params: ["address", "bool"] }, // Checked
+            { description: "Transfer", code: "transfer", params: ["address", "uint256"] }, // Checked
+            { description: "Increase Allowance", code: "increaseAllowance", params: ["address", "uint256"] }, // Checked
+        ],
+    },
+    {
+        file: "TxHistory - Master.csv",
+        contract: "masterChef",
+        methods: [
+            { description: "Add", code: "add", params: ["uint256" , "address" , "uint256", "address", "bool"] }, // Checked
+            { description: "Set Crss Referral", code: "setCrssReferral", params: ["address"] }, // Checked
+            { description: "Transfer Ownership", code: "transferOwnership", params: ["address"] }, // Checked
+            { description: "Mass Stake Reward", code: "massStakeReward", params: ["uint256[]"] }, // checked
+            { description: "Mass Harvest", code: "massHarvest", params: ["uint256[]"] }, // Checked
+            { description: "Deposit", code: "deposit", params: ["uint256", "uint256", "address", "bool", "bool"] }, // Checked
+            { description: "Withdraw", code: "withdraw", params: ["uint256", "uint256"] }, // Checked
+            { description: "Earn", code: "earn", params: ["uint256"] }, // Checked
+            { description: "Set Trusted Forwarder", code: "setTrustedForwarder", params: ["address"] }, // Checked
+            { description: "Mass Update Pools", code: "massUpdatePools", params: [] }, // Checked
+            { description: "Update Emission Rate", code: "updateEmissionRate", params: ["uint256"] }, // Checked
+            { description: "Set Dev Address", code: "setDevAddress", params: ["address"] }, // Checked
+            { description: "Set Treasury Address", code: "setTreasuryAddress", params: ["address"] },// Checked
+            { description: "Emergency Withdraw", code: "emergencyWithdraw", params: ["uint256"] },// Checked
+            { description: "Leave Staking", code: "leaveStaking", params: ["uint256"] },// Checked
+            { description: "Enter Staking", code: "enterStaking", params: ["uint256"] },// Checked
+            { description: "Set", code: "set", params: ["uint256", "uint256", "uint256", "address", "bool"] },// Checked
+            { description: "Update Pool", code: "updatePool", params: ["uint256"] },// Checked
+        ],
+    },
+    {
+        file: "TxHistory - XCrss.csv",
+        contract: "xcrss",
+        methods: [
+            { description: "Initialize", code: "initialize", params: ["address", "address", "address"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint256"] },
+            { description: "Approve", code: "approve", params: ["address", "uint256"] }
+        ],
+    },
+    // {
+    //     file: "TxHistory - CrssUSDC.csv",
+    //     contract: "crssusdc",
+    //     methods: [
+    //         { description: "Skim", code: "skim", params: ["address"] },
+    //         { description: "Approve", code: "approve", params: ["address", "uint"] }
+    //     ],
+    // },
+    {
+        file: "TxHistory - WethBnb.csv",
+        contract: "wethbnb",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - AdaBnb.csv",
+        contract: "adabnb",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - BnbBusd.csv",
+        contract: "bnbbusd",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - BnbLink.csv",
+        contract: "bnblink",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - BtcbBnb.csv",
+        contract: "btcbBnb",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - BusdUsdc.csv",
+        contract: "busdusdc",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - CakeBnb.csv",
+        contract: "cakebnb",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+    {
+        file: "TxHistory - DotBnb.csv",
+        contract: "dotbnb",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
+        ],
+    },
+];
+
+const attackBlockNumeber = 14465249;
+const attackTxHash = "0xd02e444d0ef7ff063e3c2cecceba67eae832acf3f9cf817733af9139145f479b";
+const knownAccounts = {
+    CRSS_BNB: "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC",
+    CRSS_BUSD: "0xB9B09264779733B8657b9B86970E3DB74561c237",
+    PRESALE: "0x0999ba9aEA33DcA5B615fFc9F8f88D260eAB74F1",
+    CRSSV1: "0x55eCCd64324d35CB56F3d3e5b1544a9D18489f71",
+    CRSSV11: "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb",
+    ROUTER: "0x8B6e0Aa1E9363765Ea106fa42Fc665C691443b63",
+    MASTER: "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B",
+    XCRSS: "0x27DF46ddd86D9b7afe3ED550941638172eB2e623",
+    WBNB: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    ATTACKER: "0x748346113b6d61870aa0961c6d3fb38742fc5089",
+    FACTORY: "0x47b30B5eD46101473ED2AEc7b9046aaCb6fd4bBC",
+};
+
+let failTxs = 0
+
+function formatCSV(dataArray, element) {
+    let result = [];
+    let errors = 0;
+    // The array[0] contains all the
+    // header columns so we store them
+    // in headers array
+    let headers = dataArray[0].trim().split(",")
+
+    // Since headers are separated, we
+    // need to traverse remaining n-1 rows.
+    for (let i = 1; i < dataArray.length - 1; i++) {
+        let success = true;
+        let obj = {}
+
+        let str = dataArray[i].trim()
+        let s = ''
+
+        let properties = str.split(",")
+
+        for (let j in headers) {
+            if (headers[j] == 'Method') {
+                const index = element.methods.map(e => e.description).indexOf(properties[j])
+                if (index < 0) {
+                    if(i == 1) {
+                        success = false;
+                        continue;
+                    } else {
+                        throw(`Non-registered method ${properties[j]}`)
+                    }
+                }
+                obj[headers[j]] = element.methods[index].code
+            } else if(headers[j] == 'Status' && properties[j] != '') {
+                failTxs ++;
+                // success = false;
+            } else {
+                obj[headers[j]] = properties[j]
+            }
+        }
+        obj.contract = element.contract
+        // Add the generated object to our
+        // result dataArray
+        if (success) {
+            result.push(obj)
+        } else {
+            errors ++;
+        }
+    }
+    console.log("Failed: ", failTxs)
+    return {result, errors}
+}
+
+function realCSVFile(basefolder, element) {
+    let txList = [];
+    const path = basefolder + '/' + element.file;
+    if (fs.existsSync(path)) {
+        let data = fs.readFileSync(path, 'utf-8');
+        data = data.replace(/"/g, "")
+        txList = data.split("\n")
+    }
+    const result = formatCSV(txList, element)
+    return result
+    // Read the file into txList which is an Array of txes.
+    // A tx is an object 
+    // - that represent a line of the csv file, or, equivalently, a transaction on the contract.
+    // - this has attribute names equal to the column names of the csv file.
+    // Add to each object an attribute named "contract" having the "contract" value found in the file.
+    // Replace the "Method" value with the corresponding "code" value found in the file.
+    // 'Txhash', 'UnixTimestamp', and 'ContractAddress' should be a string value.
+    // Exclude constructor transactions.
+}
+
+function getSystemTxList(basefolder) {
+    let sysTxList = [];
+
+    transactionFiles.forEach(element => {
+        const {result: txList, errors} = realCSVFile(basefolder, element);
+        console.log(`${element.contract}: ${txList.length}, errors: ${errors}`)
+        sysTxList.push(...txList);
+    });
+
+    return sysTxList;
+}
+
+async function deployContracts() {
+    [theOwner, Alice, Bob, Charlie] = await ethers.getSigners();
+
+    const devTo = Alice.address
+    const buyBackTo = Bob.address
+    // deploy all crosswise v1 contracts using hardhat-deploy.
+    // contracts is an Array of contracts, with a signer rich of eth for gas fees.
+    // a contract is an object { name: contractName, object: hardhat-deploy contract object }
+
+    const Factory = await ethers.getContractFactory("CrosswiseFactory");
+    const factory = await Factory.deploy(theOwner.address)
+    console.log("Factory Deployed: ", factory.address);
+
+    const WBNB = await ethers.getContractFactory("WBNB")
+    const wbnb = await WBNB.deploy();
+    console.log("WBNB deployed: ", wbnb.address)
+    
+    const PriceConsumer = await ethers.getContractFactory("ChainLinkPriceConsumer");
+    const priceConsumer = await PriceConsumer.deploy()
+    console.log("Price Consumer Deployed: ", priceConsumer.address)
+
+    const Router = await ethers.getContractFactory("CrosswiseRouter");
+    const router = await Router.deploy(factory.address, wbnb.address, priceConsumer.address, theOwner.address)
+    console.log("Router deployed at: ", router.address)
+
+    const Crss = await ethers.getContractFactory("CrssToken");
+    const crssV11 = await Crss.deploy(devTo, buyBackTo);
+    console.log("Crss deployed at: ", crssV11.address)
+
+    const xCrss = await ethers.getContractFactory("xCrssToken");
+    const xcrss = await xCrss.deploy();
+    console.log("xCrss deployed at: ", xcrss.address)
+
+    const startBlock = await ethers.provider.getBlock("latest");;
+    const MasterChef = await ethers.getContractFactory("MasterChef")
+    const masterChef=  await MasterChef.deploy(crssV11.address, xcrss.address, router.address, devTo, buyBackTo, startBlock.number)
+    console.log("Masterchef deployed at: ", masterChef.address)
+
+    const TrustedForwarder = await ethers.getContractFactory("TrustedForwarder")
+    const trustedForwarder = await TrustedForwarder.deploy();
+    console.log("TrustedForwarder deployed: ", trustedForwarder.address)
+
+    await network.provider.send("evm_mine");
+
+    const MockBUSD = await ethers.getContractFactory("MockBUSD")
+    const busd = await MockBUSD.deploy("MOCK", "MBUSD")
+    console.log("BUSD deployed: ", busd.address);
+    const btcb = await MockBUSD.deploy("MOCKBTCB", "MBTCB")
+    console.log("BTCB deployed: ", btcb.address);
+    const cake = await MockBUSD.deploy("MOCKCAKE", "MCAKE")
+    console.log("CAKE deployed: ", cake.address);
+    const usdc = await MockBUSD.deploy("MOCKUSDC", "MUSDC")
+
+    await network.provider.send("evm_mine");
+
+    console.log("USDC deployed: ", usdc.address);
+    const dot = await MockBUSD.deploy("MOCKDOT", "MDOT")
+    console.log("DOT deployed: ", dot.address);
+    const weth = await MockBUSD.deploy("MOCKWETH", "MWETH")
+    console.log("WETH deployed: ", weth.address);
+    const ada = await MockBUSD.deploy("MOCKADA", "MADA")
+    console.log("ADA deployed: ", ada.address);
+    const link = await MockBUSD.deploy("MOCKLINK", "MLINK")
+    console.log("Link deployed: ", link.address);
+
+    await network.provider.send("evm_mine");
+
+    await factory.createPair(crssV11.address, wbnb.address);
+    await network.provider.send("evm_mine");
+    const crssbnbAddr = await factory.getPair(crssV11.address, wbnb.address)
+    console.log("Crss-BNB: ", crssbnbAddr)
+    crssbnb = new ethers.Contract(crssbnbAddr, pairAbi, theOwner);
+    
+    await factory.createPair(crssV11.address, busd.address);
+    await network.provider.send("evm_mine");
+    const crssbusdAddr = await factory.getPair(crssV11.address, busd.address)
+    console.log("Crss-Busd: ", crssbusdAddr)
+    crssbusd = new ethers.Contract(crssbusdAddr, pairAbi, theOwner);
+    
+    await factory.createPair(weth.address, wbnb.address);
+    await network.provider.send("evm_mine");
+    const wethbnbAddr = await factory.getPair(weth.address, wbnb.address)
+    console.log("WETH-BNB: ", wethbnbAddr)
+    wethbnb = new ethers.Contract(wethbnbAddr, pairAbi, theOwner);
+    
+    await factory.createPair(ada.address, wbnb.address);
+    await network.provider.send("evm_mine");
+    const adabnbAddr = await factory.getPair(ada.address, wbnb.address)
+    console.log("Ada-Bnb: ", adabnbAddr)
+    adabnb = new ethers.Contract(adabnbAddr, pairAbi, theOwner);
+
+    
+    await factory.createPair(wbnb.address, busd.address);
+    await network.provider.send("evm_mine");
+    const bnbbusdAddr = await factory.getPair(wbnb.address, busd.address)
+    console.log("Bnb-Busd: ", bnbbusdAddr)
+    bnbbusd = new ethers.Contract(bnbbusdAddr, pairAbi, theOwner);
+    
+    await factory.createPair(wbnb.address, link.address);
+    await network.provider.send("evm_mine");
+    const bnblinkAddr = await factory.getPair(wbnb.address, link.address)
+    console.log("Bnb-Link: ", bnblinkAddr)
+    bnblink = new ethers.Contract(bnblinkAddr, pairAbi, theOwner);
+    
+    await factory.createPair(btcb.address, wbnb.address);
+    await network.provider.send("evm_mine");
+    const btcbbnbAddr = await factory.getPair(btcb.address, wbnb.address)
+    console.log("Btcb-Bnb: ", btcbbnbAddr)
+    btcbbnb = new ethers.Contract(btcbbnbAddr, pairAbi, theOwner);
+    
+    await factory.createPair(busd.address, usdc.address);
+    await network.provider.send("evm_mine");
+    const busdusdcAddr = await factory.getPair(busd.address, usdc.address)
+    console.log("Busd-usdc: ", busdusdcAddr)
+    busdusdc = new ethers.Contract(busdusdcAddr, pairAbi, theOwner);
+
+    await factory.createPair(cake.address, wbnb.address);
+    await network.provider.send("evm_mine");
+    const cakebnbAddr = await factory.getPair(cake.address, wbnb.address)
+    console.log("Cake-Bnb: ", cakebnbAddr)
+    cakebnb = new ethers.Contract(cakebnbAddr, pairAbi, theOwner);
+
+    
+    await factory.createPair(dot.address, wbnb.address);
+    await network.provider.send("evm_mine");
+    const dotbnbAddr = await factory.getPair(dot.address, wbnb.address)
+    console.log("Dot-Bnb: ", dotbnbAddr)
+    dotbnb = new ethers.Contract(dotbnbAddr, pairAbi, theOwner);
+
+    await factory.createPair(crssV11.address, usdc.address);
+    await network.provider.send("evm_mine");
+    const crssusdcAddr = await factory.getPair(crssV11.address, usdc.address)
+    console.log("Crss-usdc: ", crssusdcAddr)
+    crssusdc = new ethers.Contract(crssusdcAddr, pairAbi, theOwner);
+
+    await network.provider.send("evm_mine");
+
+    console.log("Factory Hash: ", await factory.INIT_CODE_PAIR_HASH())
+    const contracts = {
+        factory,
+        router,
+        crssV11,
+        xcrss,
+        masterChef,
+        busd,
+        weth,
+        wbnb,
+        btcb,
+        cake,
+        dot,
+        ada,
+        usdc,
+        link,
+        crssbnb,
+        crssbusd,
+        crssusdc,
+        dotbnb,
+        cakebnb,
+        btcbbnb,
+        adabnb,
+        busdusdc,
+        bnblink,
+        wethbnb,
+        bnbbusd,
+        trustedForwarder
+    }
+    return contracts;
+}
+
+function takeSanpshots(contracts) {
+    let snapshots;
+    return snapshots;
+}
+
+function readTransfers() {
+    const transfers = []
+    const fileNames = [
+        'CRSSV11.json', 
+        'BNB_ADA.json', 
+        'BNB_BTCB.json', 
+        'BNB_BUSD.json', 
+        'BNB_CAKE.json', 
+        'BNB_DOT.json', 
+        'BNB_ETH.json', 
+        'BNB_LINK.json', 
+        'CRSS_BNB.json', 
+        'CRSS_USDC.json', 
+        'CRSS_BUSD.json', 
+        'USDT_BUSD.json'
+    ];
+    console.log("Transfer Types: ", fileNames.length);
+    // for (let i=0; i < 1; i++) {
+    for (let i=0; i < fileNames.length; i++) {
+        const path = `./_supporting/transfers/${fileNames[i]}`;
+        const data = fs.readFileSync(path, 'utf-8')
+        const trList = JSON.parse(data);
+        console.log(trList.length);
+        transfers.push(...trList);
+
+    }
+    console.log("Total: ", transfers.length)
+    const len = transfers.filter(t => t.blockNumber == '14280167')
+    console.log("FIrst Tx: ", len)
+    return transfers
+}
+
+function searchExternalTxs(txs, transfers) {
+    const txHashes = txs.map(tx => tx.Txhash)
+    const externalHashes = []
+    transfers.map(t => {
+        const hash = t.transactionHash
+        const index = txHashes.indexOf(hash)
+        if (index < 0 && externalHashes.indexOf(hash) < 0) {
+            externalHashes.push(hash)
+        }
+    })
+    fs.writeFileSync("ExternalTransactions.txt", externalHashes.join("\n"))
+    console.log("External Total: ", externalHashes.length)
+}
+
+async function getTransactionInBlock(block, rpc) {
+    const provider = new ethers.providers.JsonRpcProvider(rpc);
+    const blockData = await provider.getBlock(Number(block));
+    return blockData
+}
+
+async function orderTransfers(txs, transfers, rpcProvider, filename) {
+    const txHashes = txs.map(tx => tx.Txhash)
+    transfers = transfers.sort((a, b) => Number(a.blockNumber) - Number(b.blockNumber));
+
+    for (let i=0;i<transfers.length; i++) {
+        if (i < transfers.length -1 && transfers[i].blockNumber == transfers[i + 1].blockNumber) {
+            const blockNo = transfers[i].blockNumber;
+            const lastIndex = transfers.map(o => o.blockNumber).lastIndexOf(blockNo);
+            const subData = transfers.slice(i, lastIndex + 1);
+            console.log("SubData: ", i, lastIndex, blockNo)
+            const blockData = await getTransactionInBlock(blockNo, rpcProvider)
+            subData.sort((a, b) => {
+                if (a.transactionHash == b.transactionHash) {
+                    return a.logIndex - b.logIndex;
+                } else {
+                    const aIndex = blockData.transactions.indexOf(a.transactionHash)
+                    const bIndex = blockData.transactions.indexOf(b.transactionHash)
+                    if (aIndex < 0 || bIndex < 0) {
+                        const log = `Tx: ${blockData.number}\n${blockData.transactions}\nA: ${a.transactionHash}, ${a.blockNumber}\nB: ${b.transactionHash}, ${b.Blockno}`
+                        fs.writeFileSync("order_log.txt", log);
+                        throw (`Not exist in ${blockNo} block`)
+                    }
+                    return aIndex - bIndex
+                }
+            })
+            for (let j = 0; j < subData.length; j++) {
+                fs.appendFileSync(filename, JSON.stringify(subData[j]) + "\n");
+            }
+            i = lastIndex;
+        } else {
+            fs.appendFileSync(filename, JSON.stringify(transfers[i]) + "\n");
+        }
+    }
+
+    transfers.sort((a, b) => {
+        const aTx = a.transactionHash
+        const bTx = b.transactionHash
+        const aIndex = txHashes.indexOf(aTx)
+        const bIndex = txHashes.indexOf(bTx)
+        if (aIndex < 0 || bIndex < 0) {
+            console.log(a, b)
+            throw(`Error: Non registered Transfer`)
+        }
+        if (aTx == bTx) {
+            return a.logIndex - b.logIndex
+        } else {
+            return aIndex - bIndex
+        }
+    })
+    return transfers
+}
+
+exports.transactionFiles = transactionFiles;
+exports.attackBlockNumebr = attackBlockNumeber;
+exports.attackTxHash = attackTxHash;
+exports.knownAccounts = knownAccounts;
+exports.getSystemTxList = getSystemTxList;
+exports.deployContracts = deployContracts;
+exports.takeSanpshots = takeSanpshots;
+exports.readTransfers = readTransfers;
+exports.orderTransfers = orderTransfers;
+exports.searchExternalTxs = searchExternalTxs;
