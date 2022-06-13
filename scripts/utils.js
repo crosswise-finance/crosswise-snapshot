@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { ethers, network } = require("hardhat");
 const pairAbi = require("../_supporting/abi_lp.json");
+require("colors")
 
 const transactionFiles = [
     {
@@ -12,7 +13,7 @@ const transactionFiles = [
             { description: "Pause Price Guard", code: "pausePriceGuard", params: ['address', 'bool'] }, // Checked
             { description: "Remove Liquidity", code: "removeLiquidity", params: ["address", "address", "uint", "uint", "uint", "address", "uint"] }, // Checked
             { description: "Remove Liquidity ETH", code: "removeLiquidityETH", params: ["address", "uint", "uint", "uint", "address", "uint"] }, // Checked
-            { description: "Remove Liquidity ETH With Permit", code: "removeLiquidityETHWithPermit", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"]  }, // Chekced
+            { description: "Remove Liquidity ETH With Permit", code: "removeLiquidityETHWithPermit", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Chekced
             { description: "Remove Liquidity ETH With Permit Supporting Fee On Transfer Tokens", code: "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Checked
             { description: "Remove Liquidity With Permit", code: "removeLiquidityWithPermit", params: ["address", "address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Checked
             { description: "Set Anti Whale", code: "setAntiWhale", params: ["address", "bool"] }, // Checked
@@ -23,7 +24,7 @@ const transactionFiles = [
             { description: "Swap Exact ETH For Tokens Supporting Fee On Transfer Tokens", code: "swapExactETHForTokensSupportingFeeOnTransferTokens", params: ["uint", "address[]", "address", "uint"] }, // Checked
             { description: "Swap Exact Tokens For ETH", code: "swapExactTokensForETH", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
             { description: "Swap Exact Tokens For Tokens", code: "swapExactTokensForTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
-            { description: "Swap Exact Tokens For Tokens Supporting Fee On Transfer Tokens", code: "swapExactTokensForTokensSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"]  }, //Checked
+            { description: "Swap Exact Tokens For Tokens Supporting Fee On Transfer Tokens", code: "swapExactTokensForTokensSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, //Checked
             { description: "Swap Tokens For Exact Tokens", code: "swapTokensForExactTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
             { description: "Swap Exact Tokens For ETH Supporting Fee On Transfer Tokens", code: "swapExactTokensForETHSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
         ],
@@ -65,7 +66,7 @@ const transactionFiles = [
         file: "TxHistory - Master.csv",
         contract: "masterChef",
         methods: [
-            { description: "Add", code: "add", params: ["uint256" , "address" , "uint256", "address", "bool"] }, // Checked
+            { description: "Add", code: "add", params: ["uint256", "address", "uint256", "address", "bool"] }, // Checked
             { description: "Set Crss Referral", code: "setCrssReferral", params: ["address"] }, // Checked
             { description: "Transfer Ownership", code: "transferOwnership", params: ["address"] }, // Checked
             { description: "Mass Stake Reward", code: "massStakeReward", params: ["uint256[]"] }, // checked
@@ -94,14 +95,14 @@ const transactionFiles = [
             { description: "Approve", code: "approve", params: ["address", "uint256"] }
         ],
     },
-    // {
-    //     file: "TxHistory - CrssUSDC.csv",
-    //     contract: "crssusdc",
-    //     methods: [
-    //         { description: "Skim", code: "skim", params: ["address"] },
-    //         { description: "Approve", code: "approve", params: ["address", "uint"] }
-    //     ],
-    // },
+    {
+        file: "TxHistory - CrssUSDC.csv",
+        contract: "crssusdc",
+        methods: [
+            { description: "Skim", code: "skim", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint"] }
+        ],
+    },
     {
         file: "TxHistory - WethBnb.csv",
         contract: "wethbnb",
@@ -225,16 +226,16 @@ function formatCSV(dataArray, element) {
             if (headers[j] == 'Method') {
                 const index = element.methods.map(e => e.description).indexOf(properties[j])
                 if (index < 0) {
-                    if(i == 1) {
+                    if (i == 1) {
                         success = false;
                         continue;
                     } else {
-                        throw(`Non-registered method ${properties[j]}`)
+                        throw (`Non-registered method ${properties[j]}`)
                     }
                 }
                 obj[headers[j]] = element.methods[index].code
-            } else if(headers[j] == 'Status' && properties[j] != '') {
-                failTxs ++;
+            } else if (headers[j] == 'Status' && properties[j] != '') {
+                failTxs++;
                 // success = false;
             } else {
                 obj[headers[j]] = properties[j]
@@ -246,11 +247,11 @@ function formatCSV(dataArray, element) {
         if (success) {
             result.push(obj)
         } else {
-            errors ++;
+            errors++;
         }
     }
     console.log("Failed: ", failTxs)
-    return {result, errors}
+    return { result, errors }
 }
 
 function realCSVFile(basefolder, element) {
@@ -277,11 +278,12 @@ function getSystemTxList(basefolder) {
     let sysTxList = [];
 
     transactionFiles.forEach(element => {
-        const {result: txList, errors} = realCSVFile(basefolder, element);
+        const { result: txList, errors } = realCSVFile(basefolder, element);
         console.log(`${element.contract}: ${txList.length}, errors: ${errors}`)
         sysTxList.push(...txList);
     });
 
+    console.log("\nTotal Transactions: ".green, sysTxList.length)
     return sysTxList;
 }
 
@@ -301,7 +303,7 @@ async function deployContracts() {
     const WBNB = await ethers.getContractFactory("WBNB")
     const wbnb = await WBNB.deploy();
     console.log("WBNB deployed: ", wbnb.address)
-    
+
     const PriceConsumer = await ethers.getContractFactory("ChainLinkPriceConsumer");
     const priceConsumer = await PriceConsumer.deploy()
     console.log("Price Consumer Deployed: ", priceConsumer.address)
@@ -320,7 +322,7 @@ async function deployContracts() {
 
     const startBlock = await ethers.provider.getBlock("latest");;
     const MasterChef = await ethers.getContractFactory("MasterChef")
-    const masterChef=  await MasterChef.deploy(crssV11.address, xcrss.address, router.address, devTo, buyBackTo, startBlock.number)
+    const masterChef = await MasterChef.deploy(crssV11.address, xcrss.address, router.address, devTo, buyBackTo, startBlock.number)
     console.log("Masterchef deployed at: ", masterChef.address)
 
     const TrustedForwarder = await ethers.getContractFactory("TrustedForwarder")
@@ -357,44 +359,44 @@ async function deployContracts() {
     const crssbnbAddr = await factory.getPair(crssV11.address, wbnb.address)
     console.log("Crss-BNB: ", crssbnbAddr)
     crssbnb = new ethers.Contract(crssbnbAddr, pairAbi, theOwner);
-    
+
     await factory.createPair(crssV11.address, busd.address);
     await network.provider.send("evm_mine");
     const crssbusdAddr = await factory.getPair(crssV11.address, busd.address)
     console.log("Crss-Busd: ", crssbusdAddr)
     crssbusd = new ethers.Contract(crssbusdAddr, pairAbi, theOwner);
-    
+
     await factory.createPair(weth.address, wbnb.address);
     await network.provider.send("evm_mine");
     const wethbnbAddr = await factory.getPair(weth.address, wbnb.address)
     console.log("WETH-BNB: ", wethbnbAddr)
     wethbnb = new ethers.Contract(wethbnbAddr, pairAbi, theOwner);
-    
+
     await factory.createPair(ada.address, wbnb.address);
     await network.provider.send("evm_mine");
     const adabnbAddr = await factory.getPair(ada.address, wbnb.address)
     console.log("Ada-Bnb: ", adabnbAddr)
     adabnb = new ethers.Contract(adabnbAddr, pairAbi, theOwner);
 
-    
+
     await factory.createPair(wbnb.address, busd.address);
     await network.provider.send("evm_mine");
     const bnbbusdAddr = await factory.getPair(wbnb.address, busd.address)
     console.log("Bnb-Busd: ", bnbbusdAddr)
     bnbbusd = new ethers.Contract(bnbbusdAddr, pairAbi, theOwner);
-    
+
     await factory.createPair(wbnb.address, link.address);
     await network.provider.send("evm_mine");
     const bnblinkAddr = await factory.getPair(wbnb.address, link.address)
     console.log("Bnb-Link: ", bnblinkAddr)
     bnblink = new ethers.Contract(bnblinkAddr, pairAbi, theOwner);
-    
+
     await factory.createPair(btcb.address, wbnb.address);
     await network.provider.send("evm_mine");
     const btcbbnbAddr = await factory.getPair(btcb.address, wbnb.address)
     console.log("Btcb-Bnb: ", btcbbnbAddr)
     btcbbnb = new ethers.Contract(btcbbnbAddr, pairAbi, theOwner);
-    
+
     await factory.createPair(busd.address, usdc.address);
     await network.provider.send("evm_mine");
     const busdusdcAddr = await factory.getPair(busd.address, usdc.address)
@@ -407,7 +409,7 @@ async function deployContracts() {
     console.log("Cake-Bnb: ", cakebnbAddr)
     cakebnb = new ethers.Contract(cakebnbAddr, pairAbi, theOwner);
 
-    
+
     await factory.createPair(dot.address, wbnb.address);
     await network.provider.send("evm_mine");
     const dotbnbAddr = await factory.getPair(dot.address, wbnb.address)
@@ -462,32 +464,29 @@ function takeSanpshots(contracts) {
 function readTransfers() {
     const transfers = []
     const fileNames = [
-        'CRSSV11.json', 
-        'BNB_ADA.json', 
-        'BNB_BTCB.json', 
-        'BNB_BUSD.json', 
-        'BNB_CAKE.json', 
-        'BNB_DOT.json', 
-        'BNB_ETH.json', 
-        'BNB_LINK.json', 
-        'CRSS_BNB.json', 
-        'CRSS_USDC.json', 
-        'CRSS_BUSD.json', 
-        'USDT_BUSD.json'
+        'CRSSV11.json',
+        'BNB_ADA.json',
+        'BNB_BTCB.json',
+        'BNB_BUSD.json',
+        'BNB_CAKE.json',
+        'BNB_DOT.json',
+        'BNB_ETH.json',
+        'BNB_LINK.json',
+        'CRSS_BNB.json',
+        'CRSS_USDC.json',
+        'CRSS_BUSD.json',
+        'USDT_BUSD.json',
+        'XCRSS.json'
     ];
-    console.log("Transfer Types: ", fileNames.length);
-    // for (let i=0; i < 1; i++) {
-    for (let i=0; i < fileNames.length; i++) {
-        const path = `./_supporting/transfers/${fileNames[i]}`;
+    for (let i = 0; i < fileNames.length; i++) {
+        const path = `./events/${fileNames[i]}`;
         const data = fs.readFileSync(path, 'utf-8')
         const trList = JSON.parse(data);
         console.log(trList.length);
         transfers.push(...trList);
 
     }
-    console.log("Total: ", transfers.length)
-    const len = transfers.filter(t => t.blockNumber == '14280167')
-    console.log("FIrst Tx: ", len)
+    console.log("\nTotal transfers: ".green, transfers.length)
     return transfers
 }
 
@@ -501,8 +500,8 @@ function searchExternalTxs(txs, transfers) {
             externalHashes.push(hash)
         }
     })
-    fs.writeFileSync("ExternalTransactions.txt", externalHashes.join("\n"))
-    console.log("External Total: ", externalHashes.length)
+    fs.writeFileSync("./_snapshot/transfer/externalTransactions.json", JSON.stringify(externalHashes))
+    console.log("external Total: ", externalHashes.length)
 }
 
 async function getTransactionInBlock(block, rpc) {
@@ -515,8 +514,8 @@ async function orderTransfers(txs, transfers, rpcProvider, filename) {
     const txHashes = txs.map(tx => tx.Txhash)
     transfers = transfers.sort((a, b) => Number(a.blockNumber) - Number(b.blockNumber));
 
-    for (let i=0;i<transfers.length; i++) {
-        if (i < transfers.length -1 && transfers[i].blockNumber == transfers[i + 1].blockNumber) {
+    for (let i = 0; i < transfers.length; i++) {
+        if (i < transfers.length - 1 && transfers[i].blockNumber == transfers[i + 1].blockNumber) {
             const blockNo = transfers[i].blockNumber;
             const lastIndex = transfers.map(o => o.blockNumber).lastIndexOf(blockNo);
             const subData = transfers.slice(i, lastIndex + 1);
@@ -552,7 +551,7 @@ async function orderTransfers(txs, transfers, rpcProvider, filename) {
         const bIndex = txHashes.indexOf(bTx)
         if (aIndex < 0 || bIndex < 0) {
             console.log(a, b)
-            throw(`Error: Non registered Transfer`)
+            throw (`Error: Non registered Transfer`)
         }
         if (aTx == bTx) {
             return a.logIndex - b.logIndex

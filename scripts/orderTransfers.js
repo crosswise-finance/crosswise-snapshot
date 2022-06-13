@@ -1,60 +1,44 @@
-
-
-const hre = require("hardhat");
 const fs = require("fs");
 const ethers = require("ethers")
-const crosswise1 = require("./crosswise-v1");
-const ethereum = require("./ethereum");
-// const persistence = require("./persistence");
-// const report = require("./report");
-
-//const { transactionFiles, attackBlockNumeber, attackTxHash, knownAccounts, attackBlockNumebr } = require("./crosswise-v1");
-// const { DECIMALS, weiToEthEn, weiToEth, ethToWei, uiAddr, myExpectRevert, findEvent, retrieveEvent } = require("./library");
-
-// var theOwner, Alice, Bob, Charlie;
-
-// const zero_address = "0x0000000000000000000000000000000000000000";
-
-
+const utils = require("./utils");
+const ethereum = require("./ethereum")
 
 async function main() {
 
-    // basefolder = "./_supporting";
-    // var sysTxList = crosswise1.getSystemTxList(basefolder);
-    // console.log("Total: ", sysTxList.length)
+    const basefolder = "./_supporting";
+    const sysTxList = utils.getSystemTxList(basefolder);
     const rpcProvider = "https://bsc-dataseed2.defibit.io/"; // --------- use Infura
-    
-    const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
-    const blockData = await provider.getTransaction("0x03a305ba724b064c5dd3ea5345871ddf8e362592c0c840cde798919ef6379d74");
-    fs.writeFileSync("BLOCK.txt", JSON.stringify(blockData)) 
 
-    // ethereum.getOrderedSystemTxList(0, sysTxList, crosswise1.attackTxHash, rpcProvider);
-    // var orderedSysTxList = fs.readFileSync("orderTx-xcrss.txt", 'utf-8');
+    const orderTxPath = './_snapshot/transactions/orderedTx.json'
+    const txs = await ethereum.getOrderedSystemTxList(0, sysTxList, utils.attackTxHash, rpcProvider, orderTxPath);
+    // const orderedSysTxList = fs.readFileSync("orderTx-xcrss.txt", 'utf-8');
     // orderedSysTxList = "[" + orderedSysTxList.split("\n").join(",").toString() + "]"
     // orderedSysTxList = JSON.parse(orderedSysTxList)
     // ethereum.populateSysTxListWithArguments(0, orderedSysTxList.length, orderedSysTxList, rpcProvider);
-    
+
     // To get mint amount of claim V11 Function through the data from all the transfers
     // getClaimV11History()
-    
-    // var txs = fs.readFileSync("Final.txt", 'utf-8');
+
+    // const txs = fs.readFileSync("Final.txt", 'utf-8');
     // txs = "[" + txs.trim().split("\n").join(",").toString() + "]"
     // txs = JSON.parse(txs)
-    
-    // var contracts = await crosswise1.deployContracts('hardhat');
-    // var userHistory = await ethereum.applySystemTxes(contracts, txs);
-    // var snapshots = await crosswise1.takeSanpshots(contracts);
+
+    console.log("Total Transactions", txs.length)
+
+    // const contracts = await utils.deployContracts('hardhat');
+    // const userHistory = await ethereum.applySystemTxes(contracts, txs);
+    // const snapshots = await utils.takeSanpshots(contracts);
 
     // persistence.saveSnapshots(snapshots);
     // persistence.saveUserHistory(userHistory);
-    // const transfers = crosswise1.readTransfers()
-    // crosswise1.searchExternalTxs(txs, transfers)
-    // crosswise1.orderTransfers(txs, transfers, rpcProvider, 'orderedTransfers.txt')
-    // fs.writeFileSync("orderedTransfers.json", orderedTransfers)
+    const transfers = utils.readTransfers()
+    utils.searchExternalTxs(txs, transfers)
+    utils.orderTransfers(txs, transfers, rpcProvider, 'orderedTransfers.txt')
+    fs.writeFileSync("_snapshot/trnasfer/orderedTransfers.json", orderedTransfers)
 
     // reports = report.generateUserReports(userHistory);
 
-    // console.log("main...", crosswise1.transactionFiles, crosswise1.attackBlockNumebr, crosswise1.attackTxHash, crosswise1.knownAccounts.CRSS_BNB);   
+    // console.log("main...", utils.transactionFiles, utils.attackBlockNumebr, utils.attackTxHash, utils.knownAccounts.CRSS_BNB);   
 }
 
 function getClaimV11History() {
@@ -68,11 +52,11 @@ function getClaimV11History() {
     orderedSysTxList = JSON.parse(orderedSysTxList)
     // orderedSysTxList = orderedSysTxList.filter(c => c.Method == "claimV1Token");
 
-    for (let i=0;i<orderedSysTxList.length; i++) {
+    for (let i = 0; i < orderedSysTxList.length; i++) {
         if (orderedSysTxList[i].Method == "claimV1Token") {
             const txHis = orderedSysTxList[i];
             const index = transferTxList.indexOf(txHis.Txhash);
-    
+
             let amount;
             if (index < 0) {
                 // throw(`index 0 ${i}`)
@@ -90,13 +74,13 @@ function getClaimV11History() {
 
 function writeBalancesToExcel(balances, filename) {
 
-    var csv = 'Account, Contract, Balance_wei, Balance_CRSS\n';
+    const csv = 'Account, Contract, Balance_wei, Balance_CRSS\n';
     balances.forEach(function (row) {
         console.log(row)
         if (true) {  //row[1] != 0 ) {
             csv += `${row[0]}, `;
 
-            var contract = " ";
+            const contract = " ";
             for (i = 0; i < Object.values(knownAccounts).length; i++) {
                 if (row[0] == Object.values(knownAccounts)[i]) {
                     contract = Object.keys(knownAccounts)[i];
@@ -120,11 +104,11 @@ function writeBalancesToExcel(balances, filename) {
 
 function writeTransfersToExcel(transfers, filename) {
 
-    var csv = 'Sender, Contract, Recipient, Contract, Amount_wei, Amount_CRSS\n';
+    const csv = 'Sender, Contract, Recipient, Contract, Amount_wei, Amount_CRSS\n';
     transfers.forEach(function (row) {
         if (true) {  //row[1] != 0 ) {
             csv += `${row[0]}, `;
-            var contract = " ";
+            let contract = " ";
             for (i = 0; i < Object.values(knownAccounts).length; i++) {
                 if (row[0] == Object.values(knownAccounts)[i]) {
                     contract = Object.keys(knownAccounts)[i];
@@ -134,7 +118,7 @@ function writeTransfersToExcel(transfers, filename) {
             csv += contract + ",";
 
             csv += `${row[1]}, `;
-            var contract = " ";
+            contract = " ";
             for (i = 0; i < Object.values(knownAccounts).length; i++) {
                 if (row[1] == Object.values(knownAccounts)[i]) {
                     contract = Object.keys(knownAccounts)[i];

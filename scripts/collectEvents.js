@@ -73,7 +73,21 @@ async function main() {
 	const [theOwner] = await ethers.getSigners();
 
 	// The list of tokens to get transfer history
-	const tokenList = ['CRSSV11', 'XCRSS', 'CRSS_BNB', 'CRSS_BUSD', 'BNB_BUSD', 'USDT_BUSD', 'BNB_ETH', 'BNB_BTCB', 'BNB_CAKE', 'BNB_ADA', 'BNB_DOT', 'BNB_LINK', 'CRSS_BUSD', 'BNB_BUSD', 'USDT_BUSD', 'BNB_ETH', 'BNB_BTCB', 'BNB_CAKE', 'BNB_ADA', 'BNB_DOT', 'BNB_LINK'];
+	const tokenList = [
+		'CRSSV11',
+		'XCRSS',
+		'CRSS_BNB',
+		'CRSS_BUSD',
+		'CRSS_USDC',
+		'BNB_BUSD',
+		'USDT_BUSD',
+		'BNB_ETH',
+		'BNB_BTCB',
+		'BNB_CAKE',
+		'BNB_ADA',
+		'BNB_DOT',
+		'BNB_LINK'
+	];
 	/**
 	 * Loop through Token List 
 	 */
@@ -81,7 +95,7 @@ async function main() {
 		if (i === 0)
 			await getTransferHistory(tokenList[0], process.env[tokenList[0]], abi_crss, theOwner);
 		else if (i === 1)
-			await getTransferHistory(tokenList[0], process.env[tokenList[1]], abi_xcrss, theOwner);
+			await getTransferHistory(tokenList[1], process.env[tokenList[1]], abi_xcrss, theOwner);
 		else
 			await getTransferHistory(tokenList[i], process.env[tokenList[i]], abi_lp, theOwner);
 	}
