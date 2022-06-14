@@ -1,16 +1,15 @@
 const fs = require("fs");
-const ethers = require("ethers")
 const utils = require("./utils");
-const ethereum = require("./ethereum")
+const { getOrderedSystemTxList } = require("./utils")
 
 async function main() {
 
     const basefolder = "./_supporting";
     const sysTxList = utils.getSystemTxList(basefolder);
-    const rpcProvider = "https://bsc-dataseed2.defibit.io/"; // --------- use Infura
+    const rpcProvider = "https://bsc-dataseed2.defibit.io/";
 
     const orderTxPath = './_snapshot/transactions/orderedTx.json'
-    const txs = await ethereum.getOrderedSystemTxList(0, sysTxList, utils.attackTxHash, rpcProvider, orderTxPath);
+    const txs = await getOrderedSystemTxList(0, sysTxList, utils.attackTxHash, rpcProvider, orderTxPath);
 
     console.log("Total Transactions", txs.length)
 }

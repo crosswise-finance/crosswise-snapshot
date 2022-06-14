@@ -1,7 +1,5 @@
 const fs = require("fs");
 
-const masterchef = "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B"
-
 const excludeAddr = [
     "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B".toLowerCase(),
     "0x530B338261F8686e49403D1b5264E7a1E169F06b".toLowerCase(),

@@ -30,7 +30,8 @@ async function getTransferHistory(tokenName, tokenAddress, abi, owner) {
 	let transferEvents;
 
 	// Track from 14270000 to 14680000 (Jan 11 - Jan 25)
-	let bn_prev = 14270000, bn_end = 14680000, delta = 1000;
+	let bn_prev = 14614000, bn_end = 14680000, delta = 1000;
+	// let bn_prev = 14270000, bn_end = 14680000, delta = 1000;
 	let totalEvents = 0;
 
 	const start = new Date();
@@ -76,9 +77,9 @@ async function main() {
 	const tokenList = [
 		'CRSSV11',
 		'XCRSS',
+		'CRSS_USDC',
 		'CRSS_BNB',
 		'CRSS_BUSD',
-		'CRSS_USDC',
 		'BNB_BUSD',
 		'USDT_BUSD',
 		'BNB_ETH',
@@ -91,11 +92,12 @@ async function main() {
 	/**
 	 * Loop through Token List 
 	 */
-	for (let i = 0; i < tokenList.length; i++) {
-		if (i === 0)
-			await getTransferHistory(tokenList[0], process.env[tokenList[0]], abi_crss, theOwner);
-		else if (i === 1)
-			await getTransferHistory(tokenList[1], process.env[tokenList[1]], abi_xcrss, theOwner);
+	// for (let i = 0; i < tokenList.length; i++) {
+	for (let i = 0; i < 3; i++) {
+		if (i === 0) { }
+		// await getTransferHistory(tokenList[0], process.env[tokenList[0]], abi_crss, theOwner);
+		else if (i === 1) { }
+		// await getTransferHistory(tokenList[1], process.env[tokenList[1]], abi_xcrss, theOwner);
 		else
 			await getTransferHistory(tokenList[i], process.env[tokenList[i]], abi_lp, theOwner);
 	}

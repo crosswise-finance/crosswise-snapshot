@@ -8,34 +8,34 @@ const transactionFiles = [
         file: "TxHistory - Router.csv",
         contract: "router",
         methods: [
-            { description: "Add Liquidity", code: "addLiquidity", params: ["address", "address", "uint", "uint", "uint", "uint", "address", "uint"] }, // Checked
-            { description: "Add Liquidity ETH", code: "addLiquidityETH", params: ["address", "uint", "uint", "uint", "address", "uint"] }, // Checked
-            { description: "Pause Price Guard", code: "pausePriceGuard", params: ['address', 'bool'] }, // Checked
-            { description: "Remove Liquidity", code: "removeLiquidity", params: ["address", "address", "uint", "uint", "uint", "address", "uint"] }, // Checked
-            { description: "Remove Liquidity ETH", code: "removeLiquidityETH", params: ["address", "uint", "uint", "uint", "address", "uint"] }, // Checked
+            { description: "Add Liquidity", code: "addLiquidity", params: ["address", "address", "uint", "uint", "uint", "uint", "address", "uint"] },
+            { description: "Add Liquidity ETH", code: "addLiquidityETH", params: ["address", "uint", "uint", "uint", "address", "uint"] },
+            { description: "Pause Price Guard", code: "pausePriceGuard", params: ['address', 'bool'] },
+            { description: "Remove Liquidity", code: "removeLiquidity", params: ["address", "address", "uint", "uint", "uint", "address", "uint"] },
+            { description: "Remove Liquidity ETH", code: "removeLiquidityETH", params: ["address", "uint", "uint", "uint", "address", "uint"] },
             { description: "Remove Liquidity ETH With Permit", code: "removeLiquidityETHWithPermit", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Chekced
-            { description: "Remove Liquidity ETH With Permit Supporting Fee On Transfer Tokens", code: "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Checked
-            { description: "Remove Liquidity With Permit", code: "removeLiquidityWithPermit", params: ["address", "address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] }, // Checked
-            { description: "Set Anti Whale", code: "setAntiWhale", params: ["address", "bool"] }, // Checked
-            { description: "Setwhitelist Token", code: "setwhitelistToken", params: ["address", "bool"] }, // Checked
-            { description: "Set Max Spread Tolerance", code: "setMaxSpreadTolerance", params: ["address", "uint256"] }, // Checked
-            { description: "Swap ETH For Exact Tokens", code: "swapETHForExactTokens", params: ["uint", "address[]", "address", "uint"] }, // Checked
-            { description: "Swap Exact ETH For Tokens", code: "swapExactETHForTokens", params: ["uint", "address[]", "address", "uint"] }, // Checked
-            { description: "Swap Exact ETH For Tokens Supporting Fee On Transfer Tokens", code: "swapExactETHForTokensSupportingFeeOnTransferTokens", params: ["uint", "address[]", "address", "uint"] }, // Checked
-            { description: "Swap Exact Tokens For ETH", code: "swapExactTokensForETH", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
-            { description: "Swap Exact Tokens For Tokens", code: "swapExactTokensForTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Remove Liquidity ETH With Permit Supporting Fee On Transfer Tokens", code: "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens", params: ["address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] },
+            { description: "Remove Liquidity With Permit", code: "removeLiquidityWithPermit", params: ["address", "address", "uint", "uint", "uint", "address", "uint", "bool", "uint8", "bytes32", "bytes32"] },
+            { description: "Set Anti Whale", code: "setAntiWhale", params: ["address", "bool"] },
+            { description: "Setwhitelist Token", code: "setwhitelistToken", params: ["address", "bool"] },
+            { description: "Set Max Spread Tolerance", code: "setMaxSpreadTolerance", params: ["address", "uint256"] },
+            { description: "Swap ETH For Exact Tokens", code: "swapETHForExactTokens", params: ["uint", "address[]", "address", "uint"] },
+            { description: "Swap Exact ETH For Tokens", code: "swapExactETHForTokens", params: ["uint", "address[]", "address", "uint"] },
+            { description: "Swap Exact ETH For Tokens Supporting Fee On Transfer Tokens", code: "swapExactETHForTokensSupportingFeeOnTransferTokens", params: ["uint", "address[]", "address", "uint"] },
+            { description: "Swap Exact Tokens For ETH", code: "swapExactTokensForETH", params: ["uint", "uint", "address[]", "address", "uint"] },
+            { description: "Swap Exact Tokens For Tokens", code: "swapExactTokensForTokens", params: ["uint", "uint", "address[]", "address", "uint"] },
             { description: "Swap Exact Tokens For Tokens Supporting Fee On Transfer Tokens", code: "swapExactTokensForTokensSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, //Checked
-            { description: "Swap Tokens For Exact Tokens", code: "swapTokensForExactTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
-            { description: "Swap Exact Tokens For ETH Supporting Fee On Transfer Tokens", code: "swapExactTokensForETHSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"] }, // Checked
+            { description: "Swap Tokens For Exact Tokens", code: "swapTokensForExactTokens", params: ["uint", "uint", "address[]", "address", "uint"] },
+            { description: "Swap Exact Tokens For ETH Supporting Fee On Transfer Tokens", code: "swapExactTokensForETHSupportingFeeOnTransferTokens", params: ["uint", "uint", "address[]", "address", "uint"] },
         ],
     },
     {
         file: "TxHistory - CrssBnb.csv",
         contract: "crssbnb",
         methods: [
-            { description: "Approve", code: "approve", params: ["address", "uint"] }, // Checked
-            { description: "Transfer", code: "transfer", params: ["address", "uint"] }, // Checked
-            { description: "Sync", code: "sync", params: [] } // Checked
+            { description: "Approve", code: "approve", params: ["address", "uint"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint"] },
+            { description: "Sync", code: "sync", params: [] }
         ],
     },
     {
@@ -51,33 +51,33 @@ const transactionFiles = [
         file: "TxHistory - Crss11.csv",
         contract: "crssV11",
         methods: [
-            { description: "Set Swap And Liquify Enabled", code: "setSwapAndLiquifyEnabled", params: ['bool'] }, // Checked
-            { description: "Claim V1Token", code: "claimV1Token", params: [] }, // Checked
-            { description: "Transfer Ownership", code: "transferOwnership", params: ["address"] }, // Checked
-            { description: "Init_router", code: "init_router", params: ["address"] }, // Checked
-            { description: "Approve", code: "approve", params: ["address", "uint256"] }, // Checked
-            { description: "Set Excluded From Anti Whale", code: "setExcludedFromAntiWhale", params: ["address", "bool"] }, // Checked
-            { description: "Set White List", code: "setWhiteList", params: ["address", "bool"] }, // Checked
-            { description: "Transfer", code: "transfer", params: ["address", "uint256"] }, // Checked
-            { description: "Increase Allowance", code: "increaseAllowance", params: ["address", "uint256"] }, // Checked
+            { description: "Set Swap And Liquify Enabled", code: "setSwapAndLiquifyEnabled", params: ['bool'] },
+            { description: "Claim V1Token", code: "claimV1Token", params: [] },
+            { description: "Transfer Ownership", code: "transferOwnership", params: ["address"] },
+            { description: "Init_router", code: "init_router", params: ["address"] },
+            { description: "Approve", code: "approve", params: ["address", "uint256"] },
+            { description: "Set Excluded From Anti Whale", code: "setExcludedFromAntiWhale", params: ["address", "bool"] },
+            { description: "Set White List", code: "setWhiteList", params: ["address", "bool"] },
+            { description: "Transfer", code: "transfer", params: ["address", "uint256"] },
+            { description: "Increase Allowance", code: "increaseAllowance", params: ["address", "uint256"] },
         ],
     },
     {
         file: "TxHistory - Master.csv",
         contract: "masterChef",
         methods: [
-            { description: "Add", code: "add", params: ["uint256", "address", "uint256", "address", "bool"] }, // Checked
-            { description: "Set Crss Referral", code: "setCrssReferral", params: ["address"] }, // Checked
-            { description: "Transfer Ownership", code: "transferOwnership", params: ["address"] }, // Checked
-            { description: "Mass Stake Reward", code: "massStakeReward", params: ["uint256[]"] }, // checked
-            { description: "Mass Harvest", code: "massHarvest", params: ["uint256[]"] }, // Checked
-            { description: "Deposit", code: "deposit", params: ["uint256", "uint256", "address", "bool", "bool"] }, // Checked
-            { description: "Withdraw", code: "withdraw", params: ["uint256", "uint256"] }, // Checked
-            { description: "Earn", code: "earn", params: ["uint256"] }, // Checked
-            { description: "Set Trusted Forwarder", code: "setTrustedForwarder", params: ["address"] }, // Checked
-            { description: "Mass Update Pools", code: "massUpdatePools", params: [] }, // Checked
-            { description: "Update Emission Rate", code: "updateEmissionRate", params: ["uint256"] }, // Checked
-            { description: "Set Dev Address", code: "setDevAddress", params: ["address"] }, // Checked
+            { description: "Add", code: "add", params: ["uint256", "address", "uint256", "address", "bool"] },
+            { description: "Set Crss Referral", code: "setCrssReferral", params: ["address"] },
+            { description: "Transfer Ownership", code: "transferOwnership", params: ["address"] },
+            { description: "Mass Stake Reward", code: "massStakeReward", params: ["uint256[]"] },
+            { description: "Mass Harvest", code: "massHarvest", params: ["uint256[]"] },
+            { description: "Deposit", code: "deposit", params: ["uint256", "uint256", "address", "bool", "bool"] },
+            { description: "Withdraw", code: "withdraw", params: ["uint256", "uint256"] },
+            { description: "Earn", code: "earn", params: ["uint256"] },
+            { description: "Set Trusted Forwarder", code: "setTrustedForwarder", params: ["address"] },
+            { description: "Mass Update Pools", code: "massUpdatePools", params: [] },
+            { description: "Update Emission Rate", code: "updateEmissionRate", params: ["uint256"] },
+            { description: "Set Dev Address", code: "setDevAddress", params: ["address"] },
             { description: "Set Treasury Address", code: "setTreasuryAddress", params: ["address"] },// Checked
             { description: "Emergency Withdraw", code: "emergencyWithdraw", params: ["uint256"] },// Checked
             { description: "Leave Staking", code: "leaveStaking", params: ["uint256"] },// Checked
@@ -514,6 +514,8 @@ async function orderTransfers(txs, transfers, rpcProvider, filename) {
     const txHashes = txs.map(tx => tx.Txhash)
     transfers = transfers.sort((a, b) => Number(a.blockNumber) - Number(b.blockNumber));
 
+    fs.writeFileSync(filename, "[");
+
     for (let i = 0; i < transfers.length; i++) {
         if (i < transfers.length - 1 && transfers[i].blockNumber == transfers[i + 1].blockNumber) {
             const blockNo = transfers[i].blockNumber;
@@ -536,30 +538,106 @@ async function orderTransfers(txs, transfers, rpcProvider, filename) {
                 }
             })
             for (let j = 0; j < subData.length; j++) {
-                fs.appendFileSync(filename, JSON.stringify(subData[j]) + "\n");
+                fs.appendFileSync(filename, JSON.stringify(subData[j]) + ',' + "\n");
             }
             i = lastIndex;
         } else {
-            fs.appendFileSync(filename, JSON.stringify(transfers[i]) + "\n");
+            fs.appendFileSync(filename, JSON.stringify(transfers[i]) + ',' + "\n");
         }
     }
 
-    transfers.sort((a, b) => {
-        const aTx = a.transactionHash
-        const bTx = b.transactionHash
-        const aIndex = txHashes.indexOf(aTx)
-        const bIndex = txHashes.indexOf(bTx)
-        if (aIndex < 0 || bIndex < 0) {
-            console.log(a, b)
-            throw (`Error: Non registered Transfer`)
-        }
-        if (aTx == bTx) {
-            return a.logIndex - b.logIndex
+    let data = fs.readFileSync(filename, 'utf-8')
+    data = data.slice(0, -1)
+    console.log(typeof data, data.length, data.slice(0, -1), data.slice(0, -1).length)
+    fs.writeFileSync(filename, data.slice(0, -1) + "]");
+
+    // transfers.sort((a, b) => {
+    //     const aTx = a.transactionHash
+    //     const bTx = b.transactionHash
+    //     const aIndex = txHashes.indexOf(aTx)
+    //     const bIndex = txHashes.indexOf(bTx)
+    //     if (aIndex < 0 || bIndex < 0) {
+    //         console.log(a, b)
+    //         throw (`Error: Non registered Transfer`)
+    //     }
+    //     if (aTx == bTx) {
+    //         return a.logIndex - b.logIndex
+    //     } else {
+    //         return aIndex - bIndex
+    //     }
+    // })
+    // return transfers
+}
+
+
+async function getOrderedSystemTxList(startBlock, sysTxList, BoundaryTxHash, rpcProvider, filename) {
+    let orderedSysTxList;
+
+    orderedSysTxList = sysTxList.sort((a, b) => Number(a.Blockno) - Number(b.Blockno));
+
+    let startIndex = orderedSysTxList.map(o => o.Blockno).indexOf(startBlock.toString());
+    if (startIndex < 0) startIndex = 0
+    console.log("Start Index: ", startIndex, "To: ", orderedSysTxList.length)
+
+    fs.writeFileSync(filename, "[");
+    for (let i = startIndex; i < orderedSysTxList.length; i++) {
+        if (i < orderedSysTxList.length - 1 && orderedSysTxList[i].Blockno == orderedSysTxList[i + 1].Blockno) {
+            const blockNo = orderedSysTxList[i].Blockno;
+            const lastIndex = orderedSysTxList.map(o => o.Blockno).lastIndexOf(blockNo);
+            const subData = orderedSysTxList.slice(i, lastIndex + 1);
+            const blockData = await getTransactionInBlock(blockNo, rpcProvider)
+            subData.sort((a, b) => {
+                const aIndex = blockData.transactions.indexOf(a.Txhash)
+                const bIndex = blockData.transactions.indexOf(b.Txhash)
+                if (aIndex < 0 || bIndex < 0) {
+                    const log = `Tx: ${blockData.number}\n${blockData.transactions}\nA: ${a.Txhash}, ${a.Blockno}\nB: ${b.Txhash}, ${b.Blockno}`
+                    fs.writeFileSync("order_log.txt", log);
+                    throw (`Not exist in ${blockNo} block`)
+                }
+                return aIndex - bIndex
+            })
+            for (let j = 0; j < subData.length; j++) {
+                if (i === orderedSysTxList.length - 1)
+                    fs.appendFileSync(filename, JSON.stringify(subData[j]) + "\n");
+                else
+                    fs.appendFileSync(filename, JSON.stringify(subData[j]) + ',' + "\n");
+            }
+            console.log(`From ${i} to ${lastIndex} are in same block`.yellow)
+            i = lastIndex;
         } else {
-            return aIndex - bIndex
+            if (i === orderedSysTxList.length - 1)
+                fs.appendFileSync(filename, JSON.stringify(orderedSysTxList[i]) + "\n");
+            else
+                fs.appendFileSync(filename, JSON.stringify(orderedSysTxList[i]) + "," + "\n");
         }
-    })
-    return transfers
+    }
+    fs.appendFileSync(filename, "]");
+
+    return orderedSysTxList;
+}
+
+async function getTransactionInBlock(block, rpc) {
+    const provider = new ethers.providers.JsonRpcProvider(rpc);
+    const blockData = await provider.getBlock(Number(block));
+    return blockData
+}
+
+async function populateSysTxListWithArguments(start, end, orderedSysTxList, rpc, filename) {
+    const provider = new ethers.providers.JsonRpcProvider(rpc);
+    for (let i = start; i < end; i++) {
+        const transaction = await provider.getTransaction(orderedSysTxList[i].Txhash)
+        const txParam = `0x${transaction.data.slice(10)}`;
+        const abiCoder = new ethers.utils.AbiCoder
+        const method = orderedSysTxList[i].Method
+        const contract = orderedSysTxList[i].contract
+        const contractIndex = transactionFiles.map(t => t.contract).indexOf(contract)
+        if (contractIndex < 0) throw ("Invalid Contract")
+        const methodIndex = transactionFiles[contractIndex].methods.map(m => m.code).indexOf(method)
+        // if (methodIndex < 0) continue
+        const data = abiCoder.decode(transactionFiles[contractIndex].methods[methodIndex].params, txParam)
+        orderedSysTxList[i].params = data;
+        fs.appendFileSync(filename, JSON.stringify(orderedSysTxList[i]) + "\n")
+    }
 }
 
 exports.transactionFiles = transactionFiles;
@@ -572,3 +650,5 @@ exports.takeSanpshots = takeSanpshots;
 exports.readTransfers = readTransfers;
 exports.orderTransfers = orderTransfers;
 exports.searchExternalTxs = searchExternalTxs;
+exports.getOrderedSystemTxList = getOrderedSystemTxList;
+exports.populateSysTxListWithArguments = populateSysTxListWithArguments;
