@@ -622,7 +622,6 @@ async function populateSysTxListWithArguments(start, end, orderedSysTxList, rpc,
     fs.writeFileSync(filename, "[");
     for (let i = start; i < end; i++) {
         const transaction = await provider.getTransaction(orderedSysTxList[i].Txhash)
-        console.log(transaction)
         const txParam = `0x${transaction.data.slice(10)}`;
         const abiCoder = new ethers.utils.AbiCoder
         const method = orderedSysTxList[i].Method
