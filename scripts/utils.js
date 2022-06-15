@@ -185,22 +185,6 @@ const transactionFiles = [
     },
 ];
 
-const attackBlockNumeber = 14465249;
-const attackTxHash = "0xd02e444d0ef7ff063e3c2cecceba67eae832acf3f9cf817733af9139145f479b";
-const knownAccounts = {
-    CRSS_BNB: "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC",
-    CRSS_BUSD: "0xB9B09264779733B8657b9B86970E3DB74561c237",
-    PRESALE: "0x0999ba9aEA33DcA5B615fFc9F8f88D260eAB74F1",
-    CRSSV1: "0x55eCCd64324d35CB56F3d3e5b1544a9D18489f71",
-    CRSSV11: "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb",
-    ROUTER: "0x8B6e0Aa1E9363765Ea106fa42Fc665C691443b63",
-    MASTER: "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B",
-    XCRSS: "0x27DF46ddd86D9b7afe3ED550941638172eB2e623",
-    WBNB: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-    ATTACKER: "0x748346113b6d61870aa0961c6d3fb38742fc5089",
-    FACTORY: "0x47b30B5eD46101473ED2AEc7b9046aaCb6fd4bBC",
-};
-
 let failTxs = 0
 
 function formatCSV(dataArray, element) {
@@ -548,7 +532,6 @@ async function orderTransfers(txs, transfers, rpcProvider, filename) {
 
     let data = fs.readFileSync(filename, 'utf-8')
     data = data.slice(0, -1)
-    console.log(typeof data, data.length, data.slice(0, -1), data.slice(0, -1).length)
     fs.writeFileSync(filename, data.slice(0, -1) + "]");
 
     // transfers.sort((a, b) => {
@@ -573,6 +556,7 @@ async function orderTransfers(txs, transfers, rpcProvider, filename) {
 async function getOrderedSystemTxList(startBlock, sysTxList, BoundaryTxHash, rpcProvider, filename) {
     let orderedSysTxList;
 
+    // Sort Transaction list according to its blocknumber
     orderedSysTxList = sysTxList.sort((a, b) => Number(a.Blockno) - Number(b.Blockno));
 
     let startIndex = orderedSysTxList.map(o => o.Blockno).indexOf(startBlock.toString());
@@ -580,15 +564,24 @@ async function getOrderedSystemTxList(startBlock, sysTxList, BoundaryTxHash, rpc
     console.log("Start Index: ", startIndex, "To: ", orderedSysTxList.length)
 
     fs.writeFileSync(filename, "[");
+
+    // Loop through list and sort ones included in same block
     for (let i = startIndex; i < orderedSysTxList.length; i++) {
         if (i < orderedSysTxList.length - 1 && orderedSysTxList[i].Blockno == orderedSysTxList[i + 1].Blockno) {
+            // Get the list of transactions included in one block number, let's call it subData
             const blockNo = orderedSysTxList[i].Blockno;
             const lastIndex = orderedSysTxList.map(o => o.Blockno).lastIndexOf(blockNo);
             const subData = orderedSysTxList.slice(i, lastIndex + 1);
+
+            // Get Blockdata of current block number
             const blockData = await getTransactionInBlock(blockNo, rpcProvider)
+
+            // Sort Subdata
             subData.sort((a, b) => {
                 const aIndex = blockData.transactions.indexOf(a.Txhash)
                 const bIndex = blockData.transactions.indexOf(b.Txhash)
+
+                // If blockdata does not have one of these tractions, throw error
                 if (aIndex < 0 || bIndex < 0) {
                     const log = `Tx: ${blockData.number}\n${blockData.transactions}\nA: ${a.Txhash}, ${a.Blockno}\nB: ${b.Txhash}, ${b.Blockno}`
                     fs.writeFileSync("order_log.txt", log);
@@ -596,6 +589,8 @@ async function getOrderedSystemTxList(startBlock, sysTxList, BoundaryTxHash, rpc
                 }
                 return aIndex - bIndex
             })
+
+            // Save sorted result to a file
             for (let j = 0; j < subData.length; j++) {
                 if (i === orderedSysTxList.length - 1)
                     fs.appendFileSync(filename, JSON.stringify(subData[j]) + "\n");
@@ -624,8 +619,10 @@ async function getTransactionInBlock(block, rpc) {
 
 async function populateSysTxListWithArguments(start, end, orderedSysTxList, rpc, filename) {
     const provider = new ethers.providers.JsonRpcProvider(rpc);
+    fs.writeFileSync(filename, "[");
     for (let i = start; i < end; i++) {
         const transaction = await provider.getTransaction(orderedSysTxList[i].Txhash)
+        console.log(transaction)
         const txParam = `0x${transaction.data.slice(10)}`;
         const abiCoder = new ethers.utils.AbiCoder
         const method = orderedSysTxList[i].Method
@@ -636,14 +633,16 @@ async function populateSysTxListWithArguments(start, end, orderedSysTxList, rpc,
         // if (methodIndex < 0) continue
         const data = abiCoder.decode(transactionFiles[contractIndex].methods[methodIndex].params, txParam)
         orderedSysTxList[i].params = data;
+        console.log(orderedSysTxList[i].Txhash, method)
         fs.appendFileSync(filename, JSON.stringify(orderedSysTxList[i]) + "\n")
     }
+
+    let data = fs.readFileSync(filename, 'utf-8')
+    data = data.slice(0, -1)
+    fs.writeFileSync(filename, data.slice(0, -1) + "]");
 }
 
 exports.transactionFiles = transactionFiles;
-exports.attackBlockNumebr = attackBlockNumeber;
-exports.attackTxHash = attackTxHash;
-exports.knownAccounts = knownAccounts;
 exports.getSystemTxList = getSystemTxList;
 exports.deployContracts = deployContracts;
 exports.takeSanpshots = takeSanpshots;

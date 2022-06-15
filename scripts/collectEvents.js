@@ -92,12 +92,11 @@ async function main() {
 	/**
 	 * Loop through Token List 
 	 */
-	// for (let i = 0; i < tokenList.length; i++) {
-	for (let i = 0; i < 3; i++) {
-		if (i === 0) { }
-		// await getTransferHistory(tokenList[0], process.env[tokenList[0]], abi_crss, theOwner);
-		else if (i === 1) { }
-		// await getTransferHistory(tokenList[1], process.env[tokenList[1]], abi_xcrss, theOwner);
+	for (let i = 0; i < tokenList.length; i++) {
+		if (i === 0)
+			await getTransferHistory(tokenList[0], process.env[tokenList[0]], abi_crss, theOwner);
+		else if (i === 1)
+			await getTransferHistory(tokenList[1], process.env[tokenList[1]], abi_xcrss, theOwner);
 		else
 			await getTransferHistory(tokenList[i], process.env[tokenList[i]], abi_lp, theOwner);
 	}
