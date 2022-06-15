@@ -1,6 +1,6 @@
 const fs = require("fs")
 const { utils } = require("ethers")
-const { zeroAddress, attackTxHash } = require("./constants")
+const { zeroAddress, attackTxHash, lastFarmTxBeforeExploit } = require("./constants")
 const { toLower } = require("./library")
 
 require('dotenv').config()
@@ -41,9 +41,27 @@ const tokens = {
     XCRSS: process.env.XCRSS,
 }
 
+const pools = [
+    process.env.CRSSV11,
+    process.env.CRSS_BNB,
+    process.env.CRSS_BUSD,
+    process.env.BNB_BUSD,
+    process.env.USDT_BUSD,
+    process.env.BNB_ETH,
+    process.env.BNB_BTCB,
+    process.env.BNB_CAKE,
+    process.env.BNB_ADA,
+    process.env.BNB_DOT,
+    process.env.BNB_LINK
+]
+
+const totalShare = []
+const totalLock = []
+
 const main = () => {
     const transferPath = "./_snapshot/transfer/orderedTransfers.json"
     const transactionPath = "./_snapshot/transactions/orderedTx.json"
+    const msTxPath = "./_snapshot/transactions/masterchefTxWithParams.json"
 
     let transfers = fs.readFileSync(transferPath, 'utf-8')
     transfers = JSON.parse(transfers)
@@ -57,18 +75,30 @@ const main = () => {
     // const users = snapShotWallet(transfers)
     // console.log("Total Users: ", users.length)
 
+    let msTxs = fs.readFileSync(msTxPath, 'utf-8')
+    msTxs = JSON.parse(msTxs)
+    console.log("Total Masterchef Transactions: ".yellow, msTxs.length)
+
     // Get Snapshot of assets deposited in masterchef contract
-    snapshotMasterchef(txs, transfers)
+    snapshotMasterchef(msTxs, transfers)
 
 }
 
 const snapshotMasterchef = (txs, transfers) => {
     let state = "beforeAttack"
+    const lastTxBeforeExploit = ""
+
     const savePath = "./_snapshot/user_assets/"
 
     // Loop through transactions and pick transactions that manipulate balances in masterchef
-    const txType = ["deposit", "withdraw", "emergencyWithdraw"]
+    const txType = ["deposit", "withdraw", "emergencyWithdraw", "earn"]
     const depositType = ["deposit", "enterStaking"]
+
+    // Prepare total share and total locked value for simulate deposit and withdraw as contract does
+    for (let i = 0; i < pools.length; i++) {
+        totalShare.push(utils.parseEther("0"))
+        totalLock.push(utils.parseEther("0"))
+    }
 
     const masterchefTx = txs.filter((tx) => txType.indexOf(tx.Method) >= 0 && tx.ErrCode === "")
 
@@ -84,18 +114,21 @@ const snapshotMasterchef = (txs, transfers) => {
         const txHash = masterchefTx[i].Txhash
         const caller = toLower(masterchefTx[i].From)
         const method = masterchefTx[i].Method
+        const pid = Number(masterchefTx[i].params[0].hex)
+
+        if (method === 'earn') {
+            earn(txHash, pid, transfers)
+        }
 
         // Pick out main transfer that delievered token to masterchef addressconst txHash = transfers[i].transactionHash
         console.log(`Transaction ${i}: ${txHash}`)
-        if (txHash === attackTxHash && state === 'beforeAttack') {
+        if (txHash === lastFarmTxBeforeExploit) {
             fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
             state = "afterAttack"
-            convertUserInfoToBignum(users)
-        } else if (txHash != attackTxHash && state === 'afterAttack') {
-            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
+            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(users))
             state = "current"
             convertUserInfoToBignum(users)
-        } else if (i === transfers.length - 1) {
+        } else if (i === masterchefTx.length - 1) {
             fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
             convertUserInfoToBignum(users)
         }
@@ -116,7 +149,6 @@ const snapshotMasterchef = (txs, transfers) => {
             else return false
         })
         if (transfer.length == 0) {
-            console.log("No Deposit".red, txHash, caller, method)
             // If no deposit registered
             continue;
             // throw (Error("No transfer was occured"))
@@ -127,12 +159,77 @@ const snapshotMasterchef = (txs, transfers) => {
 
         const direction = method === 'deposit' ? 1 : 0
         const amount = utils.parseEther(utils.formatEther(transfer[0].args[2].hex))
-        moveToken(caller, getTokenName(transfer[0].address), amount, direction, txHash, users)
+        const tokenName = getTokenName(transfer[0].address)
+
+        // If moved amount is Zero, skip out
+        if (toNum(amount) === 0) {
+            console.log("Moved 0 ", tokenName, txHash)
+            continue
+        }
+
+        if (method === 'deposit') {
+
+            moveToken(caller, tokenName, amount, direction, txHash, users)
+            const index = users.map(u => u.address).indexOf(caller)
+
+            // User deposit action
+            if (masterchefTx[i].params[4]) {
+
+                // If user select auto compound on, register auto compound pool to this user and manipulate total share and lock
+                if (users[index].autoPool && users[index].autoPool.indexOf(pid) < 0) {
+                    users[index].autoPool.push(pid)
+                } else if (!users[index].autoPool) {
+                    users[index].autoPool = [pid]
+                }
+
+                let share = amount
+                if (toNum(totalLock[pid]) > 0) {
+                    share = amount.mul(totalShare[pid]).div(totalLock[pid])
+                    if (toNum(share) == 0 && toNum(totalShare[pid]) == 0)
+                        share = amount.div(totalLock[pid])
+                }
+                totalShare[pid] = totalShare[pid].add(share)
+                totalLock[pid] = totalLock[pid].add(amount)
+            }
+        } else if (method === 'withdraw') {
+            const index = users.map(u => u.address).indexOf(caller)
+
+            // When user withdraw
+            let lockedAmount, shareRemoved
+            const userAmount = users[index].assets[tokenName]
+            const isAuto = users[index].autoPool && users[index].autoPool.indexOf(pid) >= 0
+
+            if (isAuto) {
+                lockedAmount = userAmount.mul(totalLock[pid]).div(totalShare[pid])
+                shareRemoved = amount.mul(totalShare[pid]).div(totalLock[pid])
+
+                if (lockedAmount.eq(userAmount)) users[index].assets[tokenName] = utils.parseEther("0")
+
+                totalShare[pid] = totalShare[pid].sub(shareRemoved)
+                totalLock[pid] = totalLock[pid].sub(amount)
+            } else {
+                lockedAmount = userAmount
+                shareRemoved = amount
+            }
+            // console.log(users[index], tokenName)
+            users[index].assets[tokenName] = users[index].assets[tokenName].sub(shareRemoved)
+        }
     }
 
     return users
 }
 
+const earn = (tx, pid, transfers) => {
+    // Get token Address of issued pool id
+    const token = pools[pid]
+
+    // Capture main transfer that mints LP token as auto compounding
+    const transfer = transfers.filter((transfer) => transfer.transactionHash === tx && transfer.address === token)
+    if (transfer.length === 0) return
+
+    const amount = utils.parseEther(utils.formatEther(transfer[0].args[2]))
+    totalLock[pid] = totalLock[pid].add(amount)
+}
 /**
  * 
  * @param {transfers Event Hisotry} transfers 
@@ -172,7 +269,7 @@ const snapShotWallet = (transfers) => {
         const amount = utils.parseEther(utils.formatEther(transfers[i].args[2].hex))
 
         // If moved amount is Zero, skip out
-        if (Number(utils.formatEther(amount)) === 0) {
+        if (toNum(amount) === 0) {
             console.log("Moved 0 ", tokenName, txHash)
             continue
         }
@@ -270,6 +367,10 @@ const getTokenName = (addr) => {
     const tokenAddrs = Object.values(tokens)
     const index = tokenAddrs.indexOf(addr)
     return tokenNames[index]
+}
+
+const toNum = (bigNum) => {
+    return Number(utils.formatEther(bigNum))
 }
 
 main()

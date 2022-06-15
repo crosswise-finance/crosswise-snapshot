@@ -3,3 +3,5 @@ exports.zeroAddress = "0x0000000000000000000000000000000000000000"
 exports.attackBlockNumeber = 14465249
 
 exports.attackTxHash = "0xd02e444d0ef7ff063e3c2cecceba67eae832acf3f9cf817733af9139145f479b"
+
+exports.lastFarmTxBeforeExploit = "0x9326ea1be5b614564fc3da3f17f16e581a96ac801064ba1c82e09abe23500458"
