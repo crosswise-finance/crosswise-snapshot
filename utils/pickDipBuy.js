@@ -57,14 +57,15 @@ const main = async () => {
         }
     })
 
-    // await getTokenMovement(txs)
-    fs.writeFileSync(`./_snapshot/report/dipbuy/bnbTx.json`, JSON.stringify(bnbTxs))
-    fs.writeFileSync(`./_snapshot/report/dipbuy/busdTx.json`, JSON.stringify(busdTxs))
-    fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
+    // fs.writeFileSync(`./_snapshot/report/dipbuy/bnbTx.json`, JSON.stringify(bnbTxs))
+    // fs.writeFileSync(`./_snapshot/report/dipbuy/busdTx.json`, JSON.stringify(busdTxs))
+    // fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
 
     // await getBNBMovement(bnbTxs, transfersAfter)
-    await getBUDSMovement(bnbTxs, transfersAfter)
+    await getBUDSMovement(busdTxs, transfersAfter)
+    await getUSDTMovement(usdtTxs, transfersAfter)
 
+    analysisDip('./_snapshot/report/dipBuy/bnbSeller.json')
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
 
@@ -139,6 +140,77 @@ const getBUDSMovement = async (txs, transfersAfter) => {
     }
     fs.writeFileSync("./_snapshot/report/dipBuy/busdSeller.json", JSON.stringify(dipBuyers))
 }
+const getUSDTMovement = async (txs, transfersAfter) => {
+    const rpcProvider = "https://bsc-dataseed1.defibit.io/";
+    const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
+
+    const dipBuyers = []
+
+    let totalUsdt = 0
+    let totalCrss = 0
+
+    for (let i = 0; i < txs.length; i++) {
+        const tx = txs[i]
+        console.log("Tx: ", txs[i], i)
+        const data = await provider.getTransactionReceipt(txs[i])
+
+        const logs = data.logs.filter(log => log.topics[0] === transferHash)
+        const tokenTransfers = logs.map(log => ({
+            from: `0x${log.topics[1].slice(26)}`,
+            to: `0x${log.topics[2].slice(26)}`,
+            amount: utils.formatEther(log.data),
+            token: log.address
+        }))
+        const caller = data.from
+        const to = data.to
+
+        let usdt = 0
+        let crss = 0
+        let transfers = transfersAfter.filter(t => tx === t.transactionHash)
+
+        // Calculate crss token output throughout transaction
+        transfers = transfers.filter(t => {
+            const fromPool = usdtPools.indexOf(t.args[0].toLowerCase()) >= 0
+            const isCrss = t.address.toLowerCase() === CRSS
+            const toCaller = t.args[1].toLowerCase() === caller.toLowerCase()
+
+            if (fromPool && isCrss && toCaller) {
+                crss += Number(utils.formatEther(t.args[2]))
+                return true
+            } else return false
+        })
+
+
+        if (transfers.length === 0 || crss === 0) {
+            console.log("Zero Crss minted")
+            continue
+        }
+
+        // Calculate Busd token output
+        transfers = tokenTransfers.filter(t => {
+            const toPool = usdtPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const isUsdt = t.token.toLowerCase() === USDT
+            const fromCaller = t.args[0].toLowerCase() === caller.toLowerCase()
+            if (toPool && isUsdt && fromCaller) {
+                usdt += Number(t.amount)
+                return true
+            } else return false
+        })
+
+        console.log("USDT: ", usdt, "CRSS: ", crss)
+        totalUsdt += usdt
+        totalCrss += crss
+        console.log("Total: ", totalUsdt, totalCrss)
+
+        dipBuyers.push({
+            account: caller,
+            amount: crss,
+            usdt: usdt,
+            txHash: tx
+        })
+    }
+    fs.writeFileSync("./_snapshot/report/dipBuy/busdSeller.json", JSON.stringify(dipBuyers))
+}
 
 const getBNBMovement = async (txs, transfersAfter) => {
     const rpcProvider = "https://bsc-dataseed1.defibit.io/";
@@ -196,6 +268,22 @@ const getBNBMovement = async (txs, transfersAfter) => {
 
     fs.writeFileSync("./_snapshot/report/dipBuy/bnbSeller.json", JSON.stringify(dipBuyers))
 
+}
+
+const analysisDip = (path) => {
+    let data = fs.readFileSync(path, 'utf-8')
+    data = JSON.parse(data)
+
+    let bnb = 0
+    let crss = 0
+    for (let i = 0; i < data.length; i++) {
+        bnb += data[i].bnb
+        crss += data[i].crss
+    }
+
+    console.log("Total: ", bnb, crss)
+    data = data.sort((a, b) => b.bnb - a.bnb)
+    fs.writeFileSync("./_snapshot/report/dipBuy/bnbSellerSorted.json", JSON.stringify(data))
 }
 
 main()
