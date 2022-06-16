@@ -62,11 +62,11 @@ const main = async () => {
     // fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
 
     // await getBNBMovement(bnbTxs, transfersAfter)
-    await getBUDSMovement(busdTxs, transfersAfter)
-    await getUSDTMovement(usdtTxs, transfersAfter)
+    // await getBUDSMovement(busdTxs, transfersAfter)
+    // await getUSDTMovement(usdtTxs, transfersAfter)
 
-    analysisDip('./_snapshot/report/dipBuy/bnbSeller.json')
-    // analysisDip('./_snapshot/report/dipBuy/busdSeller.json')
+    analysisDip('./_snapshot/report/dipBuy/bnbSeller')
+    analysisDip('./_snapshot/report/dipBuy/busdSeller')
     // analysisDip('./_snapshot/report/dipBuy/usdtSeller.json')
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
@@ -195,9 +195,9 @@ const getUSDTMovement = async (txs, transfersAfter) => {
 
         // Calculate Busd token output
         transfers = tokenTransfers.filter(t => {
-            const toPool = usdtPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const toPool = usdtPools.indexOf(t.to.toLowerCase()) >= 0
             const isUsdt = t.token.toLowerCase() === USDT
-            const fromCaller = t.args[0].toLowerCase() === caller.toLowerCase()
+            const fromCaller = t.from.toLowerCase() === caller.toLowerCase()
             if (toPool && isUsdt && fromCaller) {
                 usdt += Number(t.amount)
                 return true
@@ -216,7 +216,7 @@ const getUSDTMovement = async (txs, transfersAfter) => {
             txHash: tx
         })
     }
-    fs.writeFileSync("./_snapshot/report/dipBuy/busdSeller.json", JSON.stringify(dipBuyers))
+    fs.writeFileSync("./_snapshot/report/dipBuy/usdtSeller.json", JSON.stringify(dipBuyers))
 }
 
 const getBNBMovement = async (txs, transfersAfter) => {
@@ -278,19 +278,21 @@ const getBNBMovement = async (txs, transfersAfter) => {
 }
 
 const analysisDip = (path) => {
-    let data = fs.readFileSync(path, 'utf-8')
+    let data = fs.readFileSync(`${path}.json`, 'utf-8')
     data = JSON.parse(data)
 
     let bnb = 0
+    let busd = 0
     let crss = 0
     for (let i = 0; i < data.length; i++) {
         bnb += data[i].bnb
-        crss += data[i].crss
+        busd += data[i].busd
+        crss += data[i].amount
     }
 
-    console.log("Total: ", bnb, crss)
+    console.log("Total: ", bnb, busd, crss)
     data = data.sort((a, b) => b.bnb - a.bnb)
-    fs.writeFileSync("./_snapshot/report/dipBuy/bnbSellerSorted.json", JSON.stringify(data))
+    fs.writeFileSync(`${path}Sorted.json`, JSON.stringify(data))
 }
 
 main()

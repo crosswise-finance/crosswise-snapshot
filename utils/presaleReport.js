@@ -11,6 +11,22 @@ async function main() {
     const users = []
     let vest1 = 0;
     let vest2 = 0;
+
+    let round1Total = 0
+    let round2Total = 0
+    let round1Circle = 0
+    let round2Circle = 0
+
+    for (let i = 0; i < presale1.length; i++) {
+        round1Total += Number(presale1[i].total)
+        round1Circle += Number(presale1[i].withdrawAmount)
+    }
+
+    for (let i = 0; i < presale2.length; i++) {
+        round2Total += Number(presale2[i].total)
+        round2Circle += Number(presale2[i].withdrawAmount)
+    }
+
     for (let i = 0; i < presale1.length; i++) {
         const user = {
             address: presale1[i].address,
@@ -19,25 +35,30 @@ async function main() {
             deposit: Number(presale1[i].depositAmount),
             history: [presale1[i]]
         }
-        if (presale1[i].depositTime > vest1) {
-            vest1 = presale1[i].depositTime
-        }
-        for (let j = 0; j < presale2.length; j++) {
-            if (presale2[j].depositTime > vest2) {
-                vest2 = presale2[j].depositTime
-            }
-            if (presale2[j].address.toLowerCase() == user.address.toLowerCase()) {
-                user.total += Number(presale2[j].total)
-                user.withdraw += Number(presale2[j].withdrawAmount)
-                user.deposit += Number(presale2[j].depositAmount)
-                user.history.push(presale2[j])
-            }
-        }
         users.push(user)
     }
+
+    for (let j = 0; j < presale2.length; j++) {
+        const index = users.map(u => u.address).indexOf(presale2[j].address)
+        if (index < 0) {
+            const user = {
+                address: presale2[j].address,
+                total: Number(presale2[j].total),
+                withdraw: Number(presale2[j].withdrawAmount),
+                deposit: Number(presale2[j].depositAmount),
+                history: [presale2[j]]
+            }
+            users.push(user)
+        } else {
+            users[index].total += Number(presale2[j].total)
+            users[index].withdraw += Number(presale2[j].withdrawAmount)
+            users[index].deposit += Number(presale2[j].depositAmount)
+            users[index].history.push(presale2[j])
+        }
+    }
+
     users.sort((a, b) => b.total - a.total)
     console.log("Final Users: ", users.length);
-    console.log("Latest vest: ", vest1, vest2)
     fs.writeFileSync("./_snapshot/presale/presaleInfo.json", JSON.stringify(users))
 
     let total = 0;
@@ -46,6 +67,9 @@ async function main() {
         total += users[i].total;
         circulation += users[i].withdraw;
     }
+
+    console.log("Round 1: ", round1Total, round1Circle)
+    console.log("Round 2: ", round2Total, round2Circle)
     console.log("Total: ", total, circulation)
 }
 
