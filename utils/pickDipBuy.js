@@ -102,8 +102,7 @@ const getBNBMovement = async (txs, transfersAfter) => {
     let totalCrss = 0
 
     fs.writeFileSync("bnbDipBuyers.json", "[")
-    // for (let i = 0; i < txs.length; i++) {
-    for (let i = 500; i < 505; i++) {
+    for (let i = 0; i < txs.length; i++) {
         const tx = txs[i]
         // const tx = "0xf19e321ddd422a2ed5723e3576a2cd06e46354c09ccb2ddd6b1bdc119c34b1be"
         console.log("Tx: ", tx, i)
