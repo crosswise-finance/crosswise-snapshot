@@ -77,7 +77,7 @@ async function main() {
 	const tokenList = [
 		'CRSSV11',
 		'XCRSS',
-		'CRSS_USDC',
+		'CRSS_USDT',
 		'CRSS_BNB',
 		'CRSS_BUSD',
 		'BNB_BUSD',

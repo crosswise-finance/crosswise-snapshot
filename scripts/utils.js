@@ -96,8 +96,8 @@ const transactionFiles = [
         ],
     },
     {
-        file: "TxHistory - CrssUSDC.csv",
-        contract: "crssusdc",
+        file: "TxHistory - CrssUSDT.csv",
+        contract: "crssusdt",
         methods: [
             { description: "Skim", code: "skim", params: ["address"] },
             { description: "Approve", code: "approve", params: ["address", "uint"] }
@@ -154,8 +154,8 @@ const transactionFiles = [
         ],
     },
     {
-        file: "TxHistory - BusdUsdc.csv",
-        contract: "busdusdc",
+        file: "TxHistory - BusdUsdt.csv",
+        contract: "busdusdt",
         methods: [
             { description: "Skim", code: "skim", params: ["address"] },
             { description: "Approve", code: "approve", params: ["address", "uint"] },
@@ -322,11 +322,11 @@ async function deployContracts() {
     console.log("BTCB deployed: ", btcb.address);
     const cake = await MockBUSD.deploy("MOCKCAKE", "MCAKE")
     console.log("CAKE deployed: ", cake.address);
-    const usdc = await MockBUSD.deploy("MOCKUSDC", "MUSDC")
+    const usdt = await MockBUSD.deploy("MOCKUSDT", "MUSDT")
 
     await network.provider.send("evm_mine");
 
-    console.log("USDC deployed: ", usdc.address);
+    console.log("USDT deployed: ", usdt.address);
     const dot = await MockBUSD.deploy("MOCKDOT", "MDOT")
     console.log("DOT deployed: ", dot.address);
     const weth = await MockBUSD.deploy("MOCKWETH", "MWETH")
@@ -381,11 +381,11 @@ async function deployContracts() {
     console.log("Btcb-Bnb: ", btcbbnbAddr)
     btcbbnb = new ethers.Contract(btcbbnbAddr, pairAbi, theOwner);
 
-    await factory.createPair(busd.address, usdc.address);
+    await factory.createPair(busd.address, usdt.address);
     await network.provider.send("evm_mine");
-    const busdusdcAddr = await factory.getPair(busd.address, usdc.address)
-    console.log("Busd-usdc: ", busdusdcAddr)
-    busdusdc = new ethers.Contract(busdusdcAddr, pairAbi, theOwner);
+    const busdusdtAddr = await factory.getPair(busd.address, usdt.address)
+    console.log("Busd-usdt: ", busdusdtAddr)
+    busdusdt = new ethers.Contract(busdusdtAddr, pairAbi, theOwner);
 
     await factory.createPair(cake.address, wbnb.address);
     await network.provider.send("evm_mine");
@@ -400,11 +400,11 @@ async function deployContracts() {
     console.log("Dot-Bnb: ", dotbnbAddr)
     dotbnb = new ethers.Contract(dotbnbAddr, pairAbi, theOwner);
 
-    await factory.createPair(crssV11.address, usdc.address);
+    await factory.createPair(crssV11.address, usdt.address);
     await network.provider.send("evm_mine");
-    const crssusdcAddr = await factory.getPair(crssV11.address, usdc.address)
-    console.log("Crss-usdc: ", crssusdcAddr)
-    crssusdc = new ethers.Contract(crssusdcAddr, pairAbi, theOwner);
+    const crssusdtAddr = await factory.getPair(crssV11.address, usdt.address)
+    console.log("Crss-usdt: ", crssusdtAddr)
+    crssusdt = new ethers.Contract(crssusdtAddr, pairAbi, theOwner);
 
     await network.provider.send("evm_mine");
 
@@ -422,16 +422,16 @@ async function deployContracts() {
         cake,
         dot,
         ada,
-        usdc,
+        usdt,
         link,
         crssbnb,
         crssbusd,
-        crssusdc,
+        crssusdt,
         dotbnb,
         cakebnb,
         btcbbnb,
         adabnb,
-        busdusdc,
+        busdusdt,
         bnblink,
         wethbnb,
         bnbbusd,
@@ -457,7 +457,7 @@ function readTransfers() {
         'BNB_ETH.json',
         'BNB_LINK.json',
         'CRSS_BNB.json',
-        'CRSS_USDC.json',
+        'CRSS_USDT.json',
         'CRSS_BUSD.json',
         'USDT_BUSD.json',
         'XCRSS.json'

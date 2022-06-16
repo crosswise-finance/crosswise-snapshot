@@ -1,6 +1,6 @@
 const fs = require("fs")
 const { utils } = require("ethers")
-const { zeroAddress, attackTxHash, lastFarmTxBeforeExploit } = require("./constants")
+const { zeroAddress, attackTxHash1, attackTxHash4, lastFarmTxBeforeExploit, firstFarmTxAfterExploit, devWallet } = require("./constants")
 const { toLower } = require("./library")
 
 require('dotenv').config()
@@ -28,7 +28,7 @@ require("colors")
 const tokens = {
     CRSS_BNB: process.env.CRSS_BNB,
     CRSS_BUSD: process.env.CRSS_BUSD,
-    CRSS_USDC: process.env.CRSS_USDC,
+    CRSS_USDT: process.env.CRSS_USDT,
     BNB_BUSD: process.env.BNB_BUSD,
     USDT_BUSD: process.env.USDT_BUSD,
     BNB_ETH: process.env.BNB_ETH,
@@ -86,13 +86,12 @@ const main = () => {
 
 const snapshotMasterchef = (txs, transfers) => {
     let state = "beforeAttack"
-    const lastTxBeforeExploit = ""
 
     const savePath = "./_snapshot/user_assets/"
 
     // Loop through transactions and pick transactions that manipulate balances in masterchef
     const txType = ["deposit", "withdraw", "emergencyWithdraw", "earn"]
-    const depositType = ["deposit", "enterStaking"]
+    const depositType = ["deposit"]
 
     // Prepare total share and total locked value for simulate deposit and withdraw as contract does
     for (let i = 0; i < pools.length; i++) {
@@ -125,15 +124,18 @@ const snapshotMasterchef = (txs, transfers) => {
         if (txHash === lastFarmTxBeforeExploit) {
             fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
             state = "afterAttack"
-            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(users))
-            state = "current"
             convertUserInfoToBignum(users)
-        } else if (i === masterchefTx.length - 1) {
+        } else if (state === 'afterAttack' && txHash === firstFarmTxAfterExploit) {
+            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
+            convertUserInfoToBignum(users)
+            state = "current"
+        }
+        else if (i === masterchefTx.length - 1) {
             fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
             convertUserInfoToBignum(users)
         }
 
-        const transfer = transfers.filter((transfer) => {
+        let transfer = transfers.filter((transfer) => {
             if (transfer.transactionHash !== txHash) return false
 
             const from = toLower(transfer.args[0])
@@ -141,7 +143,7 @@ const snapshotMasterchef = (txs, transfers) => {
             const token = toLower(transfer.address)
 
             // If this is a Crss token transfer, it is just crss reward
-            if (token === toLower(process.env.CRSSV11) || token === toLower(process.env.XCRSS)) return false
+            if ((pid !== 0 && token === toLower(process.env.CRSSV11)) || token === toLower(process.env.XCRSS)) return false
 
             // When user deposit or enterstaking, tokne transfers from user address to masterchef address
             if (depositType.indexOf(method) >= 0 && caller === from) return true
@@ -153,8 +155,11 @@ const snapshotMasterchef = (txs, transfers) => {
             continue;
             // throw (Error("No transfer was occured"))
         } else if (transfer.length > 1) {
-            console.log("Double Deposit".red, txHash, transfer)
-            throw (Error("Duble Deposit happended in one transaction"))
+            if (toLower(transfer[0].address) === toLower(process.env.CRSSV11)) transfer = transfer.slice(-1)
+            else {
+                console.log("Double Deposit".red, txHash, transfer)
+                throw (Error("Duble Deposit happended in one transaction"))
+            }
         }
 
         const direction = method === 'deposit' ? 1 : 0
@@ -212,7 +217,25 @@ const snapshotMasterchef = (txs, transfers) => {
                 shareRemoved = amount
             }
             // console.log(users[index], tokenName)
-            users[index].assets[tokenName] = users[index].assets[tokenName].sub(shareRemoved)
+            users[index].assets[tokenName] = userAmount.sub(shareRemoved)
+
+            users[index].transactions.push({
+                from: utils.formatEther(userAmount), token: tokenName, to: utils.formatEther(users[index].assets[tokenName]), txHash
+            })
+        } else {
+            const index = users.map(u => u.address).indexOf(caller)
+            const userAmount = users[index].assets[tokenName]
+            const isAuto = users[index].autoPool && users[index].autoPool.indexOf(pid) >= 0
+            if (isAuto) {
+                const amount = userAmount.mul(totalLock[pid]).div(totalShare[pid])
+                totalShare[pid] = totalShare[pid].sub(userAmount)
+                totalLock[pid] = totalLock[pid].sub(amount)
+            }
+            users[index].assets[tokenName] = utils.parseEther("0")
+
+            users[index].transactions.push({
+                from: utils.formatEther(userAmount), token: tokenName, to: utils.parseEther("0"), txHash
+            })
         }
     }
 
@@ -247,11 +270,12 @@ const snapShotWallet = (transfers) => {
         const txHash = transfers[i].transactionHash
         console.log(`Transaction ${i}: ${txHash}, ${utils.formatEther(transfers[i].args[2].hex)}`)
 
-        if (txHash === attackTxHash && state === 'beforeAttack') {
+        if (txHash === attackTxHash1 && state === 'beforeAttack') {
             fs.writeFileSync(`${savePath}${state}.json`, JSON.stringify(convertUserInfoToReadable(users)))
-            state = "afterAttack"
             convertUserInfoToBignum(users)
-        } else if (txHash != attackTxHash && state === 'afterAttack') {
+        } else if (txHash === attackTxHash4) {
+            state = "afterAttack"
+        } else if (txHash != attackTxHash4 && state === 'afterAttack') {
             fs.writeFileSync(`${savePath}${state}.json`, JSON.stringify(convertUserInfoToReadable(users)))
             state = "current"
             convertUserInfoToBignum(users)
