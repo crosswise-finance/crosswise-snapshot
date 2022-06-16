@@ -66,6 +66,8 @@ const main = async () => {
     await getUSDTMovement(usdtTxs, transfersAfter)
 
     analysisDip('./_snapshot/report/dipBuy/bnbSeller.json')
+    // analysisDip('./_snapshot/report/dipBuy/busdSeller.json')
+    // analysisDip('./_snapshot/report/dipBuy/usdtSeller.json')
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
 
@@ -79,9 +81,10 @@ const getBUDSMovement = async (txs, transfersAfter) => {
     let totalCrss = 0
 
     for (let i = 0; i < txs.length; i++) {
-        const tx = txs[i]
-        console.log("Tx: ", txs[i], i)
-        const data = await provider.getTransactionReceipt(txs[i])
+        const tx = "0x259f92476e04e6f69bfb6a0f57cf20cb0c7202502fd6fb812bdf2271b61c1986"
+        // const tx = txs[i]
+        console.log("Tx: ", tx, i)
+        const data = await provider.getTransactionReceipt(tx)
 
         const logs = data.logs.filter(log => log.topics[0] === transferHash)
         const tokenTransfers = logs.map(log => ({
@@ -117,9 +120,9 @@ const getBUDSMovement = async (txs, transfersAfter) => {
 
         // Calculate Busd token output
         transfers = tokenTransfers.filter(t => {
-            const toPool = busdPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const toPool = busdPools.indexOf(t.to.toLowerCase()) >= 0
             const isBusd = t.token.toLowerCase() === BUSD
-            const fromCaller = t.args[0].toLowerCase() === caller.toLowerCase()
+            const fromCaller = t.from.toLowerCase() === caller.toLowerCase()
             if (toPool && isBusd && fromCaller) {
                 busd += Number(t.amount)
                 return true
@@ -127,6 +130,11 @@ const getBUDSMovement = async (txs, transfersAfter) => {
         })
 
         console.log("Busd: ", busd, "CRSS: ", crss)
+        if (transfers.length === 0 || busd === 0) {
+            console.log("Zero BUSD sent")
+            continue
+        }
+
         totalBusd += busd
         totalCrss += crss
         console.log("Total: ", totalBusd, totalCrss)
