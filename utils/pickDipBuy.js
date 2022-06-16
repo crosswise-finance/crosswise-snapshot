@@ -81,8 +81,7 @@ const getBUDSMovement = async (txs, transfersAfter) => {
     let totalCrss = 0
 
     for (let i = 0; i < txs.length; i++) {
-        const tx = "0x259f92476e04e6f69bfb6a0f57cf20cb0c7202502fd6fb812bdf2271b61c1986"
-        // const tx = txs[i]
+        const tx = txs[i]
         console.log("Tx: ", tx, i)
         const data = await provider.getTransactionReceipt(tx)
 
