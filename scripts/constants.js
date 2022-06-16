@@ -19,3 +19,7 @@ exports.exploiter = "0x748346113b6d61870aa0961c6d3fb38742fc5089"
 exports.exploiteContract = "0x530b338261f8686e49403d1b5264e7a1e169f06b"
 
 exports.devWallet = "0x2A479056FaC97b62806cc740B11774E6598B1649"
+
+exports.presale1 = "0xAd3f5A4526fbEd82A865d1BaeF14153488f86487"
+
+exports.presale2 = "0x3DC2b7E5dc5274C2d603342E73D1d0A9DE96796A"

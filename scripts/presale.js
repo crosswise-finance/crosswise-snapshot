@@ -1,10 +1,7 @@
 const fs = require("fs")
-// const ethers = require("ethers")
+const { presale1, presale2 } = require("./constants")
 const { abi: presale_abi } = require("../artifacts/contracts/PreSale1.sol/Presale.json")
 const { abi: presale2_abi } = require("../artifacts/contracts/Presale2.sol/PresaleV2.json")
-
-const presale1 = "0xAd3f5A4526fbEd82A865d1BaeF14153488f86487"
-const presale2 = "0x3DC2b7E5dc5274C2d603342E73D1d0A9DE96796A"
 
 const getPresaleInfo = async (address, abi, round) => {
     [theOwner] = await ethers.getSigners();
@@ -21,7 +18,7 @@ const getPresaleInfo = async (address, abi, round) => {
         user.withdrawAmount = ethers.utils.formatEther(userInfo.withdrawAmount)
         user.depositAmount = ethers.utils.formatEther(userInfo.depositAmount)
         console.log(i, user)
-        fs.appendFileSync(`_snapshot/presale${round}.json`, JSON.stringify(user) + ",")
+        fs.appendFileSync(`_snapshot/presale/presale${round}.json`, JSON.stringify(user) + ",")
     }
 }
 

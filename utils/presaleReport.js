@@ -38,7 +38,7 @@ async function main() {
     users.sort((a, b) => b.total - a.total)
     console.log("Final Users: ", users.length);
     console.log("Latest vest: ", vest1, vest2)
-    fs.writeFileSync("./_snapshot/presaleInfo.json", JSON.stringify(users))
+    fs.writeFileSync("./_snapshot/presale/presaleInfo.json", JSON.stringify(users))
 
     let total = 0;
     let circulation = 0;

@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { presale1, presale2 } = require("../scripts/constants")
 const ethers = require("ethers")
 const colors = require("colors")
 
@@ -13,6 +14,8 @@ const lpPrice = {
     BNB_LINK: 158.5,
     USDT_BUSD: 2,
 }
+
+const deadAddress = "0x000000000000000000000000000000000000dead"
 
 const lpAddr = {
     CRSS_BNB: "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC",
@@ -65,6 +68,9 @@ function main() {
         const index = beforeUsers.map(b => b.address).indexOf(afterUsers[i].address)
         if (index < 0) console.log("Attack Account: ", afterUsers[i].address)
     }
+
+    calcV1Holder("Crss")
+    calcV1Holder("CrssV1")
 }
 
 function calcUsdBal(fileName, users, total, fund) {
@@ -176,7 +182,7 @@ function getAssetInfo(fileName) {
 
     // Summarize asset info
     for (let i = 0; i < walletData.length; i++) {
-        // if (excludeAddr.indexOf(walletData[i].address.toLowerCase()) >= 0) continue;
+        if (excludeAddr.indexOf(walletData[i].address.toLowerCase()) >= 0) continue;
         const keys = Object.keys(walletData[i].assets)
         for (let j = 0; j < keys.length; j++) {
             walletData[i].assets[keys[j]] = Number(walletData[i].assets[keys[j]])
@@ -200,6 +206,33 @@ function getAssetInfo(fileName) {
 
     fs.writeFileSync(`_snapshot/report/Sum_balance_${fileName}.json`, JSON.stringify(users))
     return users;
+}
+
+function calcV1Holder(version) {
+    const path = `./_supporting/${version}Holders.csv`
+    let data = fs.readFileSync(path, 'utf-8')
+    data = data.replace(/"/g, "")
+    list = data.trim().split("\n")
+    list = list.slice(1)
+    const users = []
+    let total = 0
+
+    list.forEach(info => {
+        const user = info.trim().split(",")
+        if (user.length == 3 && user[0].toLowerCase() != presale1.toLowerCase() && user[0].toLowerCase() != presale2.toLowerCase() && user[0].toLowerCase() != deadAddress) {
+            users.push({
+                address: user[0],
+                amount: user[1]
+            })
+
+            total += Number(user[1])
+        }
+    })
+
+    users.sort((a, b) => Number(b.amount) - Number(a.amount))
+
+    console.log(`Total ${version} holders: `, users.filter(u => Number(u.amount) > 0.00000001).length, total)
+    fs.writeFileSync(`./_snapshot/report/${version}holder.json`, JSON.stringify(users))
 }
 
 main()

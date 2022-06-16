@@ -72,8 +72,8 @@ const main = () => {
     console.log("Total Transactions: ".yellow, txs.length)
 
     // Get Snapshot of assets in users' wallet
-    // const users = snapShotWallet(transfers)
-    // console.log("Total Users: ", users.length)
+    const users = snapShotWallet(transfers)
+    console.log("Total Users: ", users.length)
 
     let msTxs = fs.readFileSync(msTxPath, 'utf-8')
     msTxs = JSON.parse(msTxs)
@@ -89,6 +89,7 @@ const snapshotMasterchef = (txs, transfers) => {
 
     const savePath = "./_snapshot/user_assets/"
 
+    const minusAmount = []
     // Loop through transactions and pick transactions that manipulate balances in masterchef
     const txType = ["deposit", "withdraw", "emergencyWithdraw", "earn"]
     const depositType = ["deposit"]
@@ -115,8 +116,21 @@ const snapshotMasterchef = (txs, transfers) => {
         const method = masterchefTx[i].Method
         const pid = Number(masterchefTx[i].params[0].hex)
 
+
         if (method === 'earn') {
             earn(txHash, pid, transfers)
+            continue
+        }
+
+        let requestAmount
+        if (method !== 'emergencyWithdraw') {
+            requestAmount = Number(utils.formatEther(masterchefTx[i].params[1].hex))
+
+            if (requestAmount === 0) {
+                console.log("Requested zero amount")
+                continue
+            }
+
         }
 
         // Pick out main transfer that delievered token to masterchef addressconst txHash = transfers[i].transactionHash
@@ -174,8 +188,17 @@ const snapshotMasterchef = (txs, transfers) => {
 
         if (method === 'deposit') {
 
-            moveToken(caller, tokenName, amount, direction, txHash, users)
-            const index = users.map(u => u.address).indexOf(caller)
+            let index = users.map(u => u.address).indexOf(caller)
+
+            if (index < 0) {
+                const user = {
+                    address: caller,
+                    assets: {},
+                    transactions: []
+                }
+                users.push(user)
+                index = users.length - 1
+            }
 
             // User deposit action
             if (masterchefTx[i].params[4]) {
@@ -195,7 +218,10 @@ const snapshotMasterchef = (txs, transfers) => {
                 }
                 totalShare[pid] = totalShare[pid].add(share)
                 totalLock[pid] = totalLock[pid].add(amount)
-            }
+                moveToken(caller, tokenName, share, direction, txHash, users)
+            } else
+                moveToken(caller, tokenName, amount, direction, txHash, users)
+
         } else if (method === 'withdraw') {
             const index = users.map(u => u.address).indexOf(caller)
 
@@ -217,7 +243,23 @@ const snapshotMasterchef = (txs, transfers) => {
                 shareRemoved = amount
             }
             // console.log(users[index], tokenName)
+            if (userAmount.lt(shareRemoved)) {
+                const minus = Number(utils.formatEther(shareRemoved.sub(userAmount)))
+                minusAmount[tokenName] = minusAmount[tokenName] ? minusAmount[tokenName] + minus : minus
+
+                users[index].assets[tokenName] = utils.parseEther("0")
+                // if (toLower(transfer[0].address) === toLower(process.env.CRSSV11)) {
+                //     continue
+                // } else {
+                //     console.log(isAuto, users[index], txHash, requestAmount, utils.formatEther(shareRemoved), totalShare[pid], totalLock[pid])
+                //     throw (Error("Not enough LP"))
+                // }
+            }
             users[index].assets[tokenName] = userAmount.sub(shareRemoved)
+
+            if (Number(utils.formatEther(users[index].assets[tokenName])) == 0 && isAuto) {
+                autoPool = users[index].autoPool.splice(users[index].autoPool.indexOf(pid), 1)
+            }
 
             users[index].transactions.push({
                 from: utils.formatEther(userAmount), token: tokenName, to: utils.formatEther(users[index].assets[tokenName]), txHash
@@ -238,7 +280,7 @@ const snapshotMasterchef = (txs, transfers) => {
             })
         }
     }
-
+    console.log(minusAmount)
     return users
 }
 
@@ -273,7 +315,8 @@ const snapShotWallet = (transfers) => {
         if (txHash === attackTxHash1 && state === 'beforeAttack') {
             fs.writeFileSync(`${savePath}${state}.json`, JSON.stringify(convertUserInfoToReadable(users)))
             convertUserInfoToBignum(users)
-        } else if (txHash === attackTxHash4) {
+            state = "enterAttack"
+        } else if (txHash === attackTxHash4 && state === "enterAttack") {
             state = "afterAttack"
         } else if (txHash != attackTxHash4 && state === 'afterAttack') {
             fs.writeFileSync(`${savePath}${state}.json`, JSON.stringify(convertUserInfoToReadable(users)))
