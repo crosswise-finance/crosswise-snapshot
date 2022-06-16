@@ -13,6 +13,8 @@ const PCSCrssBusd = "0x4ad41fB0F62cDCb5F81B7741554169Daf822ac67".toLowerCase() /
 const BSCrssBnb = "0x73C02124d38538146aE2D807a3F119A0fAd3209c".toLowerCase() // Biswap Crss-BNB LP
 
 const CRSS = "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb".toLowerCase() // Crss token
+const BUSD = "0xe9e7cea3dedca5984780bafc599bd69add087d56".toLowerCase()
+const USDT = "0x55d398326f99059ff775485246999027b3197955".toLowerCase()
 
 const transferHash = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
 
@@ -60,36 +62,82 @@ const main = async () => {
     fs.writeFileSync(`./_snapshot/report/dipbuy/busdTx.json`, JSON.stringify(busdTxs))
     fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
 
-    await getBNBMovement(bnbTxs, transfersAfter)
+    // await getBNBMovement(bnbTxs, transfersAfter)
+    await getBUDSMovement(bnbTxs, transfersAfter)
 
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
 
-const getTokenMovement = async (txs) => {
+const getBUDSMovement = async (txs, transfersAfter) => {
     const rpcProvider = "https://bsc-dataseed1.defibit.io/";
     const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
 
-    fs.writeFileSync("bnbDipBuyers.json", "[")
-    for (let i = 0; i < txs.length; i++) {
-        console.log("Tx: ", txs[i])
-        const data = await provider.getTransaction(txs[i])
+    const dipBuyers = []
 
-        console.log(data)
+    let totalBusd = 0
+    let totalCrss = 0
+
+    for (let i = 0; i < txs.length; i++) {
+        const tx = txs[i]
+        console.log("Tx: ", txs[i], i)
+        const data = await provider.getTransactionReceipt(txs[i])
+
         const logs = data.logs.filter(log => log.topics[0] === transferHash)
+        const tokenTransfers = logs.map(log => ({
+            from: `0x${log.topics[1].slice(26)}`,
+            to: `0x${log.topics[2].slice(26)}`,
+            amount: utils.formatEther(log.data),
+            token: log.address
+        }))
         const caller = data.from
         const to = data.to
 
-        if (crssPools.indexOf(to) < 0) {
-            console.log("Not a pool action: ", to)
+        let busd = 0
+        let crss = 0
+        let transfers = transfersAfter.filter(t => tx === t.transactionHash)
+
+        // Calculate crss token output throughout transaction
+        transfers = transfers.filter(t => {
+            const fromPool = busdPools.indexOf(t.args[0].toLowerCase()) >= 0
+            const isCrss = t.address.toLowerCase() === CRSS
+            const toCaller = t.args[1].toLowerCase() === caller.toLowerCase()
+
+            if (fromPool && isCrss && toCaller) {
+                crss += Number(utils.formatEther(t.args[2]))
+                return true
+            } else return false
+        })
+
+
+        if (transfers.length === 0 || crss === 0) {
+            console.log("Zero Crss minted")
             continue
         }
 
-        const crssTransfer = logs.forEach(log => {
-            const token = log.address
-            const amount = utils.formatEther()
+        // Calculate Busd token output
+        transfers = tokenTransfers.filter(t => {
+            const toPool = busdPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const isBusd = t.token.toLowerCase() === BUSD
+            const fromCaller = t.args[0].toLowerCase() === caller.toLowerCase()
+            if (toPool && isBusd && fromCaller) {
+                busd += Number(t.amount)
+                return true
+            } else return false
         })
-        console.log(transfers, transfers.length)
+
+        console.log("Busd: ", busd, "CRSS: ", crss)
+        totalBusd += busd
+        totalCrss += crss
+        console.log("Total: ", totalBusd, totalCrss)
+
+        dipBuyers.push({
+            account: caller,
+            amount: crss,
+            busd: busd,
+            txHash: tx
+        })
     }
+    fs.writeFileSync("./_snapshot/report/dipBuy/busdSeller.json", JSON.stringify(dipBuyers))
 }
 
 const getBNBMovement = async (txs, transfersAfter) => {
@@ -101,7 +149,6 @@ const getBNBMovement = async (txs, transfersAfter) => {
     let totalBNB = 0
     let totalCrss = 0
 
-    fs.writeFileSync("bnbDipBuyers.json", "[")
     for (let i = 0; i < txs.length; i++) {
         const tx = txs[i]
         // const tx = "0xf19e321ddd422a2ed5723e3576a2cd06e46354c09ccb2ddd6b1bdc119c34b1be"
