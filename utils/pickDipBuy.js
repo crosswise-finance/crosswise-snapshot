@@ -104,8 +104,8 @@ const getBNBMovement = async (txs, transfersAfter) => {
     fs.writeFileSync("bnbDipBuyers.json", "[")
     // for (let i = 0; i < txs.length; i++) {
     for (let i = 500; i < 505; i++) {
-        // const tx = txs[i]
-        const tx = "0xf19e321ddd422a2ed5723e3576a2cd06e46354c09ccb2ddd6b1bdc119c34b1be"
+        const tx = txs[i]
+        // const tx = "0xf19e321ddd422a2ed5723e3576a2cd06e46354c09ccb2ddd6b1bdc119c34b1be"
         console.log("Tx: ", tx, i)
         const data = await provider.getTransaction(tx)
 
@@ -118,9 +118,7 @@ const getBNBMovement = async (txs, transfersAfter) => {
         let crss = 0
         let transfers = transfersAfter.filter(t => tx === t.transactionHash)
 
-        console.log(transfers)
         transfers = transfers.filter(t => {
-            console.log(t.args)
             const fromPool = bnbPools.indexOf(t.args[0].toLowerCase()) >= 0
             const isCrss = t.address.toLowerCase() === CRSS
             const toCaller = t.args[1].toLowerCase() === caller.toLowerCase()
@@ -130,7 +128,6 @@ const getBNBMovement = async (txs, transfersAfter) => {
                 return true
             } else return false
         })
-        console.log(transfers)
 
         console.log("BNB: ", bnb, "CRSS: ", crss)
 
