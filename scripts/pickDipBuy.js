@@ -1,6 +1,6 @@
 const fs = require("fs")
 const ethers = require("ethers")
-const { attackTxHash4 } = require("../scripts/constants")
+const { attackTxHash4 } = require("./constants")
 const { utils } = require("ethers")
 
 const CrssBnb = "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC".toLowerCase() // Crss-bnb

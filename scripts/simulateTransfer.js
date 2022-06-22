@@ -55,8 +55,7 @@ const pools = [
     process.env.BNB_LINK
 ]
 
-const totalShare = []
-const totalLock = []
+const totalEarned = []
 
 const main = () => {
     const transferPath = "./_snapshot/transfer/orderedTransfers.json"
@@ -72,8 +71,8 @@ const main = () => {
     console.log("Total Transactions: ".yellow, txs.length)
 
     // Get Snapshot of assets in users' wallet
-    const users = snapShotWallet(transfers)
-    console.log("Total Users: ", users.length)
+    // const users = snapShotWallet(transfers)
+    // console.log("Total Users: ", users.length)
 
     let msTxs = fs.readFileSync(msTxPath, 'utf-8')
     msTxs = JSON.parse(msTxs)
@@ -81,6 +80,8 @@ const main = () => {
 
     // Get Snapshot of assets deposited in masterchef contract
     snapshotMasterchef(msTxs, transfers)
+
+    console.log("totalEarned: ", totalEarned)
 
 }
 
@@ -94,10 +95,9 @@ const snapshotMasterchef = (txs, transfers) => {
     const txType = ["deposit", "withdraw", "emergencyWithdraw", "earn"]
     const depositType = ["deposit"]
 
-    // Prepare total share and total locked value for simulate deposit and withdraw as contract does
+    // Prepare total earned value for simulate deposit and withdraw as contract does
     for (let i = 0; i < pools.length; i++) {
-        totalShare.push(utils.parseEther("0"))
-        totalLock.push(utils.parseEther("0"))
+        totalEarned.push(0)
     }
 
     const masterchefTx = txs.filter((tx) => txType.indexOf(tx.Method) >= 0 && tx.ErrCode === "")
@@ -200,27 +200,27 @@ const snapshotMasterchef = (txs, transfers) => {
                 index = users.length - 1
             }
 
-            // User deposit action
-            if (masterchefTx[i].params[4]) {
+            // // User deposit action
+            // if (masterchefTx[i].params[4]) {
 
-                // If user select auto compound on, register auto compound pool to this user and manipulate total share and lock
-                if (users[index].autoPool && users[index].autoPool.indexOf(pid) < 0) {
-                    users[index].autoPool.push(pid)
-                } else if (!users[index].autoPool) {
-                    users[index].autoPool = [pid]
-                }
+            //     // If user select auto compound on, register auto compound pool to this user and manipulate total share and lock
+            //     if (users[index].autoPool && users[index].autoPool.indexOf(pid) < 0) {
+            //         users[index].autoPool.push(pid)
+            //     } else if (!users[index].autoPool) {
+            //         users[index].autoPool = [pid]
+            //     }
 
-                let share = amount
-                if (toNum(totalLock[pid]) > 0) {
-                    share = amount.mul(totalShare[pid]).div(totalLock[pid])
-                    if (toNum(share) == 0 && toNum(totalShare[pid]) == 0)
-                        share = amount.div(totalLock[pid])
-                }
-                totalShare[pid] = totalShare[pid].add(share)
-                totalLock[pid] = totalLock[pid].add(amount)
-                moveToken(caller, tokenName, share, direction, txHash, users)
-            } else
-                moveToken(caller, tokenName, amount, direction, txHash, users)
+            //     let share = amount
+            //     if (toNum(totalLock[pid]) > 0) {
+            //         share = amount.mul(totalShare[pid]).div(totalLock[pid])
+            //         if (toNum(share) == 0 && toNum(totalShare[pid]) == 0)
+            //             share = amount.div(totalLock[pid])
+            //     }
+            //     totalShare[pid] = totalShare[pid].add(share)
+            //     totalLock[pid] = totalLock[pid].add(amount)
+            //     moveToken(caller, tokenName, share, direction, txHash, users)
+            // } else
+            moveToken(caller, tokenName, amount, direction, txHash, users)
 
         } else if (method === 'withdraw') {
             const index = users.map(u => u.address).indexOf(caller)
@@ -280,12 +280,12 @@ const snapshotMasterchef = (txs, transfers) => {
         } else {
             const index = users.map(u => u.address).indexOf(caller)
             const userAmount = users[index].assets[tokenName]
-            const isAuto = users[index].autoPool && users[index].autoPool.indexOf(pid) >= 0
-            if (isAuto) {
-                const amount = userAmount.mul(totalLock[pid]).div(totalShare[pid])
-                totalShare[pid] = totalShare[pid].sub(userAmount)
-                totalLock[pid] = totalLock[pid].sub(amount)
-            }
+            // const isAuto = users[index].autoPool && users[index].autoPool.indexOf(pid) >= 0
+            // if (isAuto) {
+            //     const amount = userAmount.mul(totalLock[pid]).div(totalShare[pid])
+            //     totalShare[pid] = totalShare[pid].sub(userAmount)
+            //     totalLock[pid] = totalLock[pid].sub(amount)
+            // }
             users[index].assets[tokenName] = utils.parseEther("0")
 
             users[index].transactions.push({
@@ -305,8 +305,8 @@ const earn = (tx, pid, transfers) => {
     const transfer = transfers.filter((transfer) => transfer.transactionHash === tx && transfer.address === token)
     if (transfer.length === 0) return
 
-    const amount = utils.parseEther(utils.formatEther(transfer[0].args[2]))
-    totalLock[pid] = totalLock[pid].add(amount)
+    const amount = utils.formatEther(transfer[0].args[2])
+    totalEarned[pid] = totalEarned[pid] + Number(amount)
 }
 /**
  * 
