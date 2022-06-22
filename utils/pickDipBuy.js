@@ -284,13 +284,19 @@ const analysisDip = (path) => {
     let bnb = 0
     let busd = 0
     let crss = 0
+
+    let bnbThre = 0
+    let busdThre = 0
     for (let i = 0; i < data.length; i++) {
+        if (data[i].bnb > 0.2) bnbThre++
+        if (data[i].busd > 100) busdThre++
+
         bnb += data[i].bnb
         busd += data[i].busd
         crss += data[i].amount
     }
 
-    console.log("Total: ", bnb, busd, crss)
+    console.log("Total: ", bnb, busd, crss, bnbThre, busdThre, data.length)
     data = data.sort((a, b) => b.bnb - a.bnb)
     fs.writeFileSync(`${path}Sorted.json`, JSON.stringify(data))
 }

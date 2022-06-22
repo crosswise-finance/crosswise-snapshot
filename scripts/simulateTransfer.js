@@ -116,6 +116,22 @@ const snapshotMasterchef = (txs, transfers) => {
         const method = masterchefTx[i].Method
         const pid = Number(masterchefTx[i].params[0].hex)
 
+        // Pick out main transfer that delievered token to masterchef addressconst txHash = transfers[i].transactionHash
+        console.log(`Transaction ${i}: ${txHash}`)
+        if (txHash === lastFarmTxBeforeExploit) {
+            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
+            state = "afterAttack"
+            convertUserInfoToBignum(users)
+        } else if (state === 'afterAttack' && txHash === firstFarmTxAfterExploit) {
+            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
+            convertUserInfoToBignum(users)
+            state = "current"
+        }
+        else if (i === masterchefTx.length - 1) {
+            console.log("Ended: ", i === masterchefTx.length, i, masterchefTx.length)
+            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
+            convertUserInfoToBignum(users)
+        }
 
         if (method === 'earn') {
             earn(txHash, pid, transfers)
@@ -131,22 +147,6 @@ const snapshotMasterchef = (txs, transfers) => {
                 continue
             }
 
-        }
-
-        // Pick out main transfer that delievered token to masterchef addressconst txHash = transfers[i].transactionHash
-        console.log(`Transaction ${i}: ${txHash}`)
-        if (txHash === lastFarmTxBeforeExploit) {
-            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
-            state = "afterAttack"
-            convertUserInfoToBignum(users)
-        } else if (state === 'afterAttack' && txHash === firstFarmTxAfterExploit) {
-            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
-            convertUserInfoToBignum(users)
-            state = "current"
-        }
-        else if (i === masterchefTx.length - 1) {
-            fs.writeFileSync(`${savePath}${state}_masterchef.json`, JSON.stringify(convertUserInfoToReadable(users)))
-            convertUserInfoToBignum(users)
         }
 
         let transfer = transfers.filter((transfer) => {
@@ -224,42 +224,55 @@ const snapshotMasterchef = (txs, transfers) => {
 
         } else if (method === 'withdraw') {
             const index = users.map(u => u.address).indexOf(caller)
+            const userAmount = users[index].assets[tokenName]
 
             // When user withdraw
-            let lockedAmount, shareRemoved
-            const userAmount = users[index].assets[tokenName]
-            const isAuto = users[index].autoPool && users[index].autoPool.indexOf(pid) >= 0
+            // let lockedAmount, shareRemoved
+            // const isAuto = users[index].autoPool && users[index].autoPool.indexOf(pid) >= 0
 
-            if (isAuto) {
-                lockedAmount = userAmount.mul(totalLock[pid]).div(totalShare[pid])
-                shareRemoved = amount.mul(totalShare[pid]).div(totalLock[pid])
+            // if (isAuto) {
+            //     lockedAmount = userAmount.mul(totalLock[pid]).div(totalShare[pid])
+            //     shareRemoved = amount.mul(totalShare[pid]).div(totalLock[pid])
 
-                if (lockedAmount.eq(userAmount)) users[index].assets[tokenName] = utils.parseEther("0")
+            //     if (lockedAmount.eq(userAmount)) users[index].assets[tokenName] = utils.parseEther("0")
 
-                totalShare[pid] = totalShare[pid].sub(shareRemoved)
-                totalLock[pid] = totalLock[pid].sub(amount)
-            } else {
-                lockedAmount = userAmount
-                shareRemoved = amount
-            }
-            // console.log(users[index], tokenName)
-            if (userAmount.lt(shareRemoved)) {
-                const minus = Number(utils.formatEther(shareRemoved.sub(userAmount)))
-                minusAmount[tokenName] = minusAmount[tokenName] ? minusAmount[tokenName] + minus : minus
+            //     totalShare[pid] = totalShare[pid].sub(shareRemoved)
+            //     totalLock[pid] = totalLock[pid].sub(amount)
+            // } else {
+            //     lockedAmount = userAmount
+            //     shareRemoved = amount
+            // }
+            // // console.log(users[index], tokenName)
+            // if (userAmount.lt(shareRemoved)) {
+            // const minus = Number(utils.formatEther(shareRemoved.sub(userAmount)))
+            // minusAmount[tokenName] = minusAmount[tokenName] ? minusAmount[tokenName] + minus : minus
 
+            //     users[index].assets[tokenName] = utils.parseEther("0")
+            //     // if (toLower(transfer[0].address) === toLower(process.env.CRSSV11)) {
+            //     //     continue
+            //     // } else {
+            //     //     console.log(isAuto, users[index], txHash, requestAmount, utils.formatEther(shareRemoved), totalShare[pid], totalLock[pid])
+            //     //     throw (Error("Not enough LP"))
+            //     // }
+            // } else
+            // if (txHash == "0x2638f48b5c99f66322ecf10cdc4ee39ca43d023d9a65226cbe1513ecdd02940f") {
+            //     console.log(utils.formatEther(users[index].assets[tokenName]), utils.formatEther(amount), users[index].assets[tokenName].lt(amount))
+            // }
+            if (users[index].assets[tokenName].lt(amount)) {
                 users[index].assets[tokenName] = utils.parseEther("0")
-                // if (toLower(transfer[0].address) === toLower(process.env.CRSSV11)) {
-                //     continue
-                // } else {
-                //     console.log(isAuto, users[index], txHash, requestAmount, utils.formatEther(shareRemoved), totalShare[pid], totalLock[pid])
-                //     throw (Error("Not enough LP"))
-                // }
-            }
-            users[index].assets[tokenName] = userAmount.sub(shareRemoved)
 
-            if (Number(utils.formatEther(users[index].assets[tokenName])) == 0 && isAuto) {
-                autoPool = users[index].autoPool.splice(users[index].autoPool.indexOf(pid), 1)
+                const minus = Number(utils.formatEther(amount.sub(userAmount)))
+                minusAmount[tokenName] = minusAmount[tokenName] ? minusAmount[tokenName] + minus : minus
             }
+            else users[index].assets[tokenName] = userAmount.sub(amount)
+
+            // if (txHash == "0x2638f48b5c99f66322ecf10cdc4ee39ca43d023d9a65226cbe1513ecdd02940f") {
+            //     console.log(utils.formatEther(users[index].assets[tokenName]), utils.formatEther(amount))
+            // break
+            // }
+            // if (Number(utils.formatEther(users[index].assets[tokenName])) == 0 && isAuto) {
+            //     autoPool = users[index].autoPool.splice(users[index].autoPool.indexOf(pid), 1)
+            // }
 
             users[index].transactions.push({
                 from: utils.formatEther(userAmount), token: tokenName, to: utils.formatEther(users[index].assets[tokenName]), txHash

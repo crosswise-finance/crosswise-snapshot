@@ -46,6 +46,7 @@ const excludeAddr = [
     "0x47b30B5eD46101473ED2AEc7b9046aaCb6fd4bBC".toLowerCase(), // Factory
     "0x9cbed1220E01F457772cEe3AAd8B94A142fc975F".toLowerCase(), // Pancake Crss-BNB LP
     "0x73C02124d38538146aE2D807a3F119A0fAd3209c".toLowerCase(), // Biswap Crss-BNB LP
+    "0x000000000000000000000000000000000000dEaD".toLowerCase(),
     "0x0000000000000000000000000000000000000000"
 ]
 
@@ -106,6 +107,7 @@ function calcUsdBal(fileName, users, total, fund) {
         BNB_LINK: 0,
         USDT_BUSD: 0
     }
+    let devAsset = {}
     for (let i = 0; i < users.length; i++) {
         if (excludeAddr.indexOf(users[i].address.toLowerCase()) >= 0) continue;
         const assets = {}
@@ -113,7 +115,7 @@ function calcUsdBal(fileName, users, total, fund) {
         const keys = Object.keys(users[i].assets)
         for (let j = 0; j < keys.length; j++) {
             if (keys[j] == 'CRSS' || keys[j] == 'XCRSS') {
-                const bal = users[i].assets[keys[j]] * crssPrice
+                const bal = users[i].assets[keys[j]]
                 assets[keys[j]] = bal
                 usdTotal += bal
 
@@ -144,11 +146,14 @@ function calcUsdBal(fileName, users, total, fund) {
             address: users[i].address,
             assets
         })
+        if (users[i].address.toLowerCase() === devWallet) devAsset = assets
     }
     usdBal.sort((a, b) => (b.assets.crss_bnb - a.assets.crss_bnb))
     fs.writeFileSync(`_snapshot/report/Sum_USD_${fileName}.json`, JSON.stringify(usdBal))
     console.log("\nSum USD for Total: ".blue, sumUsdTotal)
     console.log("\nSum USD for Users: ".blue, sumUsd)
+    console.log("\nSum USD for Dev: ".blue, devAsset)
+
 
 }
 
@@ -217,6 +222,7 @@ function calcV1Holder(version) {
     const users = []
     let total = 0
 
+    let devAmount = 0;
     list.forEach(info => {
         const user = info.trim().split(",")
         if (user.length == 3 && user[0].toLowerCase() != presale1.toLowerCase() && user[0].toLowerCase() != presale2.toLowerCase() && user[0].toLowerCase() != deadAddress) {
@@ -225,13 +231,15 @@ function calcV1Holder(version) {
                 amount: user[1]
             })
 
-            total += Number(user[1])
+            if (user[0].toLowerCase() !== devWallet)
+                total += Number(user[1])
+            else devAmount = Number(user[1])
         }
     })
 
     users.sort((a, b) => Number(b.amount) - Number(a.amount))
 
-    console.log(`Total ${version} holders: `, users.filter(u => Number(u.amount) > 0.00000001).length, total)
+    console.log(`Total ${version} holders: `, users.filter(u => Number(u.amount) > 0.00000001).length, total, devAmount)
     fs.writeFileSync(`./_snapshot/report/${version}holder.json`, JSON.stringify(users))
 }
 
