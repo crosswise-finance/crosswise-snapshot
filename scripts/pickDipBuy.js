@@ -57,17 +57,17 @@ const main = async () => {
         }
     })
 
-    // fs.writeFileSync(`./_snapshot/report/dipbuy/bnbTx.json`, JSON.stringify(bnbTxs))
-    // fs.writeFileSync(`./_snapshot/report/dipbuy/busdTx.json`, JSON.stringify(busdTxs))
-    // fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
+    fs.writeFileSync(`./_snapshot/report/dipbuy/bnbTx.json`, JSON.stringify(bnbTxs))
+    fs.writeFileSync(`./_snapshot/report/dipbuy/busdTx.json`, JSON.stringify(busdTxs))
+    fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
 
-    // await getBNBMovement(bnbTxs, transfersAfter)
-    // await getBUDSMovement(busdTxs, transfersAfter)
-    // await getUSDTMovement(usdtTxs, transfersAfter)
+    await getBNBMovement(bnbTxs, transfersAfter)
+    await getBUDSMovement(busdTxs, transfersAfter)
+    await getUSDTMovement(usdtTxs, transfersAfter)
 
     analysisDip('./_snapshot/report/dipBuy/bnbSeller')
     analysisDip('./_snapshot/report/dipBuy/busdSeller')
-    // analysisDip('./_snapshot/report/dipBuy/usdtSeller.json')
+    analysisDip('./_snapshot/report/dipBuy/usdtSeller.json')
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
 
