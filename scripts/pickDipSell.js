@@ -67,12 +67,12 @@ const main = async () => {
     // fs.writeFileSync(`./_snapshot/report/dipSell/usdtTx.json`, JSON.stringify(usdtTxs))
 
     await getBNBMovement(bnbTxs, transfersAfter)
-    await getBUDSMovement(busdTxs, transfersAfter)
-    await getUSDTMovement(usdtTxs, transfersAfter)
+    // await getBUDSMovement(busdTxs, transfersAfter)
+    // await getUSDTMovement(usdtTxs, transfersAfter)
 
     analysisDip('./_snapshot/report/dipSell/bnbSeller')
-    // analysisDip('./_snapshot/report/dipSell/busdSeller')
-    // analysisDip('./_snapshot/report/dipSell/usdtSeller.json')
+    analysisDip('./_snapshot/report/dipSell/busdSeller')
+    analysisDip('./_snapshot/report/dipSell/usdtSeller.json')
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
 
@@ -236,6 +236,7 @@ const getBNBMovement = async (txs, transfersAfter) => {
     for (let i = 0; i < txs.length; i++) {
         const tx = txs[i]
         console.log("Tx: ", txs[i], i)
+        // const data = await provider.getTransactionReceipt("0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f")
         const data = await provider.getTransactionReceipt(txs[i])
 
         const logs = data.logs.filter(log => log.topics[0] === transferHash)
@@ -256,7 +257,7 @@ const getBNBMovement = async (txs, transfersAfter) => {
         transfers = transfers.filter(t => {
             const fromPool = bnbPools.indexOf(t.args[1].toLowerCase()) >= 0
             const isCrss = t.address.toLowerCase() === WBNB
-            const toCaller = t.args[0].toLowerCase() === caller.toLowerCase()
+            const toCaller = t.args[0].toLowerCase() === to.toLowerCase()
 
             if (fromPool && isCrss && toCaller) {
                 bnb += Number(utils.formatEther(t.args[2]))
