@@ -54,7 +54,7 @@ const main = async () => {
     console.log("Swap Txs: ", swapTxs.length)
 
     fs.writeFileSync(`./_snapshot/report/dipSell/swapTxs.json`, JSON.stringify(swapTxs))
-    // const txInfo = await downTxInfo(swapTxs)
+    // await downTxInfo(swapTxs)
     let txInfo = fs.readFileSync('./_snapshot/report/dipSell/swapTxInfo.json', 'utf-8')
     txInfo = JSON.parse(txInfo)
 
@@ -96,8 +96,6 @@ const getMovement = async (txs, transfersAfter) => {
     let totalUsdt = 0
     let totalCrss = 0
 
-    let isBNBOut, isBUSDOut, isUSDTOut;
-
     for (let i = 0; i < txs.length; i++) {
         const tx = txs[i].transactionHash
         // if (txs[i] != "0x788aff5fa0cf11b68e2b880132e5629af4bc2e06781e56beb24518b2d1937921") continue
@@ -119,6 +117,9 @@ const getMovement = async (txs, transfersAfter) => {
         let busd = 0
         let usdt = 0
         let crss = 0
+        let isBNBOut = false
+        let isBUSDOut = false
+        let isUSDTOut = false
         let transfers = transfersAfter.filter(t => tx === t.transactionHash)
 
         // Calculate Csss token inputt throughout transaction
@@ -165,7 +166,7 @@ const getMovement = async (txs, transfersAfter) => {
             } else return false
         })
 
-        if (transfers.length === 0 || (bnb === 0 && busd === 0 && usdt === 0)) {
+        if (transfers.length === 0 || (bnb === 0 && isBNBOut) || (isBUSDOut && busd === 0) && (isUSDTOut && usdt === 0)) {
             console.log("Zero bnb sent")
             continue
         }
