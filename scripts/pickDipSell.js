@@ -42,38 +42,61 @@ const main = async () => {
     })
 
     console.log("Total: ", transfersAfter.length)
-    const bnbTxs = []
-    const busdTxs = []
-    const usdtTxs = []
+    // const bnbTxs = []
+    // const busdTxs = []
+    // const usdtTxs = []
+    const swapTxs = []
 
     transfersAfter.forEach(t => {
         const txHash = t.transactionHash
         const pool = t.args[1].toLowerCase()
-        if (bnbPools.indexOf(pool) >= 0 && bnbTxs.indexOf(txHash) < 0) {
-            bnbTxs.push(txHash)
-        } else if (busdPools.indexOf(pool) >= 0 && busdTxs.indexOf(txHash) < 0) {
-            busdTxs.push(txHash)
-        } else if (usdtPools.indexOf(pool) >= 0 && usdtTxs.indexOf(txHash) < 0) {
-            usdtTxs.push(txHash)
-        }
+        // if (bnbPools.indexOf(pool) >= 0 && bnbTxs.indexOf(txHash) < 0) {
+        //     bnbTxs.push(txHash)
+        // } else if (busdPools.indexOf(pool) >= 0 && busdTxs.indexOf(txHash) < 0) {
+        //     busdTxs.push(txHash)
+        // } else if (usdtPools.indexOf(pool) >= 0 && usdtTxs.indexOf(txHash) < 0) {
+        //     usdtTxs.push(txHash)
+        // }
+        if (swapTxs.indexOf(txHash) < 0)
+            swapTxs.push(txHash)
     })
 
-    console.log("BNB txs: ", bnbTxs.length)
-    console.log("busdTxs txs: ", busdTxs.length)
-    console.log("usdtTxs txs: ", usdtTxs.length)
+    console.log("Swap Txs: ", swapTxs.length)
+    // console.log("BNB txs: ", bnbTxs.length)
+    // console.log("busdTxs txs: ", busdTxs.length)
+    // console.log("usdtTxs txs: ", usdtTxs.length)
 
-    fs.writeFileSync(`./_snapshot/report/dipSell/bnbTx.json`, JSON.stringify(bnbTxs))
+    fs.writeFileSync(`./_snapshot/report/dipSell/swapTxs.json`, JSON.stringify(swapTxs))
+    // fs.writeFileSync(`./_snapshot/report/dipSell/bnbTx.json`, JSON.stringify(bnbTxs))
     // fs.writeFileSync(`./_snapshot/report/dipSell/busdTx.json`, JSON.stringify(busdTxs))
     // fs.writeFileSync(`./_snapshot/report/dipSell/usdtTx.json`, JSON.stringify(usdtTxs))
+    downTxInfo(swapTxs)
 
-    await getBNBMovement(bnbTxs, transfersAfter)
-    // await getBUDSMovement(busdTxs, transfersAfter)
+    // await getMovement(swapTxs, transfersAfter)
+    // await getBUDSMovement(swapTxs, transfersAfter)
     // await getUSDTMovement(usdtTxs, transfersAfter)
 
-    analysisDip('./_snapshot/report/dipSell/bnbSeller', true)
+    // analysisDip('./_snapshot/report/dipSell/bnbSeller', true)
     // analysisDip('./_snapshot/report/dipSell/busdSeller')
     // analysisDip('./_snapshot/report/dipSell/usdtSeller')
-    console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
+    console.log("Total: ", swapTxs.length)
+    // console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
+}
+
+const downTxInfo = async (txs) => {
+    const txInfo = []
+    const rpcProvider = "https://bsc-dataseed1.defibit.io/";
+    const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
+    // for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < txs.length; i++) {
+        const tx = txs[i]
+        console.log("Tx: ", tx, i)
+        const data = await provider.getTransactionReceipt(tx)
+        txInfo.push(data)
+    }
+
+    fs.writeFileSync(`./_snapshot/report/dipSell/swapTxInfo.json`, JSON.stringify(txInfo))
+
 }
 
 const getBUDSMovement = async (txs, transfersAfter) => {
@@ -87,6 +110,7 @@ const getBUDSMovement = async (txs, transfersAfter) => {
 
     for (let i = 0; i < txs.length; i++) {
         const tx = txs[i]
+        // if (txs[i] != "0x788aff5fa0cf11b68e2b880132e5629af4bc2e06781e56beb24518b2d1937921") continue
         console.log("Tx: ", tx, i)
         const data = await provider.getTransactionReceipt(tx)
 
@@ -106,7 +130,7 @@ const getBUDSMovement = async (txs, transfersAfter) => {
 
         // Calculate crss token input throughout transaction
         transfers = transfers.filter(t => {
-            const fromPool = busdPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const fromPool = [...busdPools, ...bnbPools, ...usdtPools].indexOf(t.args[1].toLowerCase()) >= 0
             const isCrss = t.address.toLowerCase() === CRSS
             const fromCaller = t.args[0].toLowerCase() === caller.toLowerCase()
 
@@ -124,20 +148,20 @@ const getBUDSMovement = async (txs, transfersAfter) => {
 
         // Calculate Busd token output
         transfers = tokenTransfers.filter(t => {
-            const fromPool = busdPools.indexOf(t.from.toLowerCase()) >= 0
+            // const fromPool = busdPools.indexOf(t.from.toLowerCase()) >= 0
             const isBusd = t.token.toLowerCase() === BUSD
             const toCaller = t.to.toLowerCase() === caller.toLowerCase()
-            if (fromPool && isBusd && toCaller) {
+            if (isBusd && toCaller) {
                 busd += Number(t.amount)
                 return true
             } else return false
         })
 
-        console.log("Busd: ", busd, "CRSS: ", crss)
         if (transfers.length === 0 || busd === 0) {
             console.log("Zero BUSD sent")
             continue
         }
+        console.log("Busd: ", busd, "CRSS: ", crss)
 
         totalBusd += busd
         totalCrss += crss
@@ -182,11 +206,11 @@ const getUSDTMovement = async (txs, transfersAfter) => {
 
         // Calculate crss token output throughout transaction
         transfers = transfers.filter(t => {
-            const fromPool = usdtPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const fromPool = [...busdPools, ...bnbPools, ...usdtPools].indexOf(t.args[1].toLowerCase()) >= 0
             const isCrss = t.address.toLowerCase() === CRSS
             const toCaller = t.args[0].toLowerCase() === caller.toLowerCase()
 
-            if (fromPool && isCrss && toCaller) {
+            if (isCrss && toCaller) {
                 crss += Number(utils.formatEther(t.args[2]))
                 return true
             } else return false
@@ -200,7 +224,7 @@ const getUSDTMovement = async (txs, transfersAfter) => {
 
         // Calculate Busd token output
         transfers = tokenTransfers.filter(t => {
-            const fromPool = usdtPools.indexOf(t.from.toLowerCase()) >= 0
+            // const fromPool = usdtPools.indexOf(t.from.toLowerCase()) >= 0
             const isUsdt = t.token.toLowerCase() === USDT
             const toCaller = t.to.toLowerCase() === caller.toLowerCase()
             if (fromPool && isUsdt && toCaller) {
@@ -209,6 +233,10 @@ const getUSDTMovement = async (txs, transfersAfter) => {
             } else return false
         })
 
+        if (transfers.length === 0 || usdt === 0) {
+            console.log("Zero usdt sent")
+            continue
+        }
         console.log("USDT: ", usdt, "CRSS: ", crss)
         totalUsdt += usdt
         totalCrss += crss
@@ -224,18 +252,20 @@ const getUSDTMovement = async (txs, transfersAfter) => {
     fs.writeFileSync("./_snapshot/report/dipSell/usdtSeller.json", JSON.stringify(dipSellers))
 }
 
-const getBNBMovement = async (txs, transfersAfter) => {
+const getMovement = async (txs, transfersAfter) => {
     const rpcProvider = "https://bsc-dataseed1.defibit.io/";
     const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
 
     const dipSellers = []
 
     let totalBnb = 0
+    let totalBusd = 0
+    let totalUsdt = 0
     let totalCrss = 0
 
     for (let i = 0; i < txs.length; i++) {
         const tx = txs[i]
-        // if (txs[i] != "0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f") continue
+        if (txs[i] != "0x788aff5fa0cf11b68e2b880132e5629af4bc2e06781e56beb24518b2d1937921") continue
         // const data = await provider.getTransactionReceipt("0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f")
         console.log("Tx: ", txs[i], i)
         const data = await provider.getTransactionReceipt(txs[i])
@@ -251,12 +281,14 @@ const getBNBMovement = async (txs, transfersAfter) => {
         const to = data.to
 
         let bnb = 0
+        let busd = 0
+        let usdt = 0
         let crss = 0
         let transfers = transfersAfter.filter(t => tx === t.transactionHash)
 
         // Calculate Csss token inputt throughout transaction
         transfers = transfers.filter(t => {
-            const toPool = bnbPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const toPool = [...busdPools, ...bnbPools, ...usdtPools].indexOf(t.args[1].toLowerCase()) >= 0
             const isCrss = t.address.toLowerCase() === CRSS
             const fromCaller = t.args[0].toLowerCase() === caller.toLowerCase()
 
@@ -274,19 +306,35 @@ const getBNBMovement = async (txs, transfersAfter) => {
 
         // Calculate BNB token output
         transfers = tokenTransfers.filter(t => {
-            const fromPool = bnbPools.indexOf(t.from.toLowerCase()) >= 0
+            // const fromPool = bnbPools.indexOf(t.from.toLowerCase()) >= 0
             const isBNB = t.token.toLowerCase() === WBNB
-            const toCaller = t.to.toLowerCase() === to.toLowerCase()
-            if (fromPool && isBNB && toCaller) {
+            const isUSDT = t.token.toLowerCase() === USDT
+            const isBUSD = t.token.toLowerCase() === BUSD
+            const toRouter = t.to.toLowerCase() === to.toLowerCase()
+            const toCaller = t.to.toLowerCase() === caller.toLowerCase()
+            if (isBNB && toRouter) {
                 bnb += Number(t.amount)
+                totalBnb += bnb
+                return true
+            } else if (isBUSD && toCaller) {
+                busd += Number(t.amount)
+                totalBusd += busd
+                return true
+            } else if (isUSDT && toCaller) {
+                usdt += Number(t.amount)
+                totalUsdt += usdt
                 return true
             } else return false
         })
 
-        console.log("BNB: ", bnb, "CRSS: ", crss)
-        totalBnb += bnb
+        if (transfers.length === 0 || (bnb === 0 && busd === 0 && usdt === 0)) {
+            console.log("Zero bnb sent")
+            continue
+        }
+        console.log("Token: ", bnb, busd, usdt, "CRSS: ", crss)
+        console.log("Token: ", bnb || busd || usdt, "CRSS: ", crss)
         totalCrss += crss
-        console.log("Total: ", totalBnb, totalCrss)
+        console.log("Total: ", totalBnb, totalBusd, totalUsdt, totalCrss)
 
         dipSellers.push({
             account: caller,
