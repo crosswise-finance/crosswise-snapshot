@@ -70,9 +70,9 @@ const main = async () => {
     // await getBUDSMovement(busdTxs, transfersAfter)
     // await getUSDTMovement(usdtTxs, transfersAfter)
 
-    analysisDip('./_snapshot/report/dipSell/bnbSeller')
+    analysisDip('./_snapshot/report/dipSell/bnbSeller', true)
     analysisDip('./_snapshot/report/dipSell/busdSeller')
-    analysisDip('./_snapshot/report/dipSell/usdtSeller.json')
+    analysisDip('./_snapshot/report/dipSell/usdtSeller')
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
 
@@ -146,7 +146,7 @@ const getBUDSMovement = async (txs, transfersAfter) => {
         dipSellers.push({
             account: caller,
             amount: crss,
-            busd: busd,
+            sold: busd,
             txHash: tx
         })
     }
@@ -217,7 +217,7 @@ const getUSDTMovement = async (txs, transfersAfter) => {
         dipSellers.push({
             account: caller,
             amount: crss,
-            usdt: usdt,
+            sold: usdt,
             txHash: tx
         })
     }
@@ -235,8 +235,9 @@ const getBNBMovement = async (txs, transfersAfter) => {
 
     for (let i = 0; i < txs.length; i++) {
         const tx = txs[i]
-        console.log("Tx: ", txs[i], i)
+        if (txs[i] != "0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f") continue
         // const data = await provider.getTransactionReceipt("0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f")
+        console.log("Tx: ", txs[i], i)
         const data = await provider.getTransactionReceipt(txs[i])
 
         const logs = data.logs.filter(log => log.topics[0] === transferHash)
@@ -253,36 +254,36 @@ const getBNBMovement = async (txs, transfersAfter) => {
         let crss = 0
         let transfers = transfersAfter.filter(t => tx === t.transactionHash)
 
-        // Calculate bnb token output throughout transaction
+        // Calculate Csss token inputt throughout transaction
         transfers = transfers.filter(t => {
-            const fromPool = bnbPools.indexOf(t.args[1].toLowerCase()) >= 0
-            const isCrss = t.address.toLowerCase() === WBNB
-            const toCaller = t.args[0].toLowerCase() === to.toLowerCase()
+            const toPool = bnbPools.indexOf(t.args[1].toLowerCase()) >= 0
+            const isCrss = t.address.toLowerCase() === CRSS
+            const fromCaller = t.args[0].toLowerCase() === caller.toLowerCase()
 
-            if (fromPool && isCrss && toCaller) {
-                bnb += Number(utils.formatEther(t.args[2]))
+            if (toPool && isCrss && fromCaller) {
+                crss += Number(utils.formatEther(t.args[2]))
                 return true
             } else return false
         })
 
 
-        if (transfers.length === 0 || bnb === 0) {
+        if (transfers.length === 0 || crss === 0) {
             console.log("Zero Crss minted")
             continue
         }
 
-        // Calculate Crss token output
+        // Calculate BNB token output
         transfers = tokenTransfers.filter(t => {
             const fromPool = bnbPools.indexOf(t.from.toLowerCase()) >= 0
-            const isUsdt = t.token.toLowerCase() === CRSS
-            const toCaller = t.to.toLowerCase() === caller.toLowerCase()
-            if (fromPool && isUsdt && toCaller) {
-                crss += Number(t.amount)
+            const isBNB = t.token.toLowerCase() === WBNB
+            const toCaller = t.to.toLowerCase() === to.toLowerCase()
+            if (fromPool && isBNB && toCaller) {
+                bnb += Number(t.amount)
                 return true
             } else return false
         })
 
-        console.log("USDT: ", bnb, "CRSS: ", crss)
+        console.log("BNB: ", bnb, "CRSS: ", crss)
         totalBnb += bnb
         totalCrss += crss
         console.log("Total: ", totalBnb, totalCrss)
@@ -290,7 +291,7 @@ const getBNBMovement = async (txs, transfersAfter) => {
         dipSellers.push({
             account: caller,
             amount: crss,
-            bnb: bnb,
+            sold: bnb,
             txHash: tx
         })
     }
@@ -298,27 +299,25 @@ const getBNBMovement = async (txs, transfersAfter) => {
 
 }
 
-const analysisDip = (path) => {
+const analysisDip = (path, isBNB) => {
     let data = fs.readFileSync(`${path}.json`, 'utf-8')
     data = JSON.parse(data)
 
-    let bnb = 0
-    let busd = 0
+    let sold = 0
     let crss = 0
 
     let bnbThre = 0
     let busdThre = 0
     for (let i = 0; i < data.length; i++) {
-        if (data[i].bnb > 0.2) bnbThre++
-        if (data[i].busd > 100) busdThre++
+        if (data[i].sold > 0.2 && isBNB) bnbThre++
+        if (data[i].sold > 100 && !isBNB) busdThre++
 
-        bnb += data[i].bnb
-        busd += data[i].busd
+        sold += data[i].sold
         crss += data[i].amount
     }
 
-    console.log("Total: ", bnb, busd, crss, bnbThre, busdThre, data.length)
-    data = data.sort((a, b) => b.bnb - a.bnb)
+    console.log("Total: ", sold, crss, bnbThre, busdThre, data.length)
+    data = data.sort((a, b) => b.sold - a.sold)
     fs.writeFileSync(`${path}Sorted.json`, JSON.stringify(data))
 }
 
