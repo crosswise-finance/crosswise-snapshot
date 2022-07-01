@@ -71,8 +71,8 @@ const main = async () => {
     // await getUSDTMovement(usdtTxs, transfersAfter)
 
     analysisDip('./_snapshot/report/dipSell/bnbSeller', true)
-    analysisDip('./_snapshot/report/dipSell/busdSeller')
-    analysisDip('./_snapshot/report/dipSell/usdtSeller')
+    // analysisDip('./_snapshot/report/dipSell/busdSeller')
+    // analysisDip('./_snapshot/report/dipSell/usdtSeller')
     console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
 }
 
@@ -235,7 +235,7 @@ const getBNBMovement = async (txs, transfersAfter) => {
 
     for (let i = 0; i < txs.length; i++) {
         const tx = txs[i]
-        if (txs[i] != "0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f") continue
+        // if (txs[i] != "0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f") continue
         // const data = await provider.getTransactionReceipt("0x211de84281497338556e0e5d55571d478a40cab92e9f4acd00976d2a27dcc81f")
         console.log("Tx: ", txs[i], i)
         const data = await provider.getTransactionReceipt(txs[i])
