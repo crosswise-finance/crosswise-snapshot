@@ -32,43 +32,55 @@ const main = async () => {
 
     const lastAttackIndex = transfers.map(t => t.transactionHash).lastIndexOf(attackTxHash4)
 
-    // Slice transfers after the last attack and filter only those reacted with crss pools
     const transfersAfter = transfers.slice(lastAttackIndex + 1).filter(t => {
-        const fromPool = crssPools.indexOf(t.args[0].toLowerCase()) >= 0
+        const toPool = crssPools.indexOf(t.args[0].toLowerCase()) >= 0
         const isCrss = t.address.toLowerCase() === CRSS
-        if (fromPool && isCrss) return true
+        if (toPool && isCrss) return true
         else return false
     })
 
     console.log("Total: ", transfersAfter.length)
-    const bnbTxs = []
-    const busdTxs = []
-    const usdtTxs = []
+    const swapTxs = []
 
     transfersAfter.forEach(t => {
         const txHash = t.transactionHash
         const pool = t.args[0].toLowerCase()
-        if (bnbPools.indexOf(pool) >= 0 && bnbTxs.indexOf(txHash) < 0) {
-            bnbTxs.push(txHash)
-        } else if (busdPools.indexOf(pool) >= 0 && busdTxs.indexOf(txHash) < 0) {
-            busdTxs.push(txHash)
-        } else if (usdtPools.indexOf(pool) >= 0 && usdtTxs.indexOf(txHash) < 0) {
-            usdtTxs.push(txHash)
-        }
+        if (swapTxs.indexOf(txHash) < 0)
+            swapTxs.push(txHash)
     })
 
-    fs.writeFileSync(`./_snapshot/report/dipbuy/bnbTx.json`, JSON.stringify(bnbTxs))
-    fs.writeFileSync(`./_snapshot/report/dipbuy/busdTx.json`, JSON.stringify(busdTxs))
-    fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
+    console.log("Swap Txs: ", swapTxs.length)
 
-    await getBNBMovement(bnbTxs, transfersAfter)
-    await getBUDSMovement(busdTxs, transfersAfter)
-    await getUSDTMovement(usdtTxs, transfersAfter)
+    fs.writeFileSync(`./_snapshot/report/dipBuy/swapTxs.json`, JSON.stringify(swapTxs))
+    const txInfo = await downTxInfo(swapTxs)
+    // fs.writeFileSync(`./_snapshot/report/dipbuy/bnbTx.json`, JSON.stringify(bnbTxs))
+    // fs.writeFileSync(`./_snapshot/report/dipbuy/busdTx.json`, JSON.stringify(busdTxs))
+    // fs.writeFileSync(`./_snapshot/report/dipbuy/usdtTx.json`, JSON.stringify(usdtTxs))
 
-    analysisDip('./_snapshot/report/dipBuy/bnbSeller')
-    analysisDip('./_snapshot/report/dipBuy/busdSeller')
-    analysisDip('./_snapshot/report/dipBuy/usdtSeller.json')
-    console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
+    // await getBNBMovement(bnbTxs, transfersAfter)
+    // await getBUDSMovement(busdTxs, transfersAfter)
+    // await getUSDTMovement(usdtTxs, transfersAfter)
+
+    // analysisDip('./_snapshot/report/dipBuy/bnbSeller')
+    // analysisDip('./_snapshot/report/dipBuy/busdSeller')
+    // analysisDip('./_snapshot/report/dipBuy/usdtSeller.json')
+    // console.log("Total: ", bnbTxs.length + busdTxs.length + usdtTxs.length, `BNB: ${bnbTxs.length}, BUSD: ${busdTxs.length}, USDT: ${usdtTxs.length}`)
+}
+
+const downTxInfo = async (txs) => {
+    const txInfo = []
+    const rpcProvider = "https://bsc-dataseed1.defibit.io/";
+    const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
+    // for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < txs.length; i++) {
+        const tx = txs[i]
+        console.log("Tx: ", tx, i)
+        const data = await provider.getTransactionReceipt(tx)
+        txInfo.push(data)
+    }
+
+    fs.writeFileSync(`./_snapshot/report/dipSell/swapTxInfo.json`, JSON.stringify(txInfo))
+
 }
 
 const getBUDSMovement = async (txs, transfersAfter) => {
