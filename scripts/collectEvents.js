@@ -75,30 +75,38 @@ async function main() {
 
 	// The list of tokens to get transfer history
 	const tokenList = [
-		'CRSSV11',
-		'XCRSS',
-		'CRSS_USDT',
-		'CRSS_BNB',
-		'CRSS_BUSD',
-		'BNB_BUSD',
-		'USDT_BUSD',
-		'BNB_ETH',
-		'BNB_BTCB',
-		'BNB_CAKE',
-		'BNB_ADA',
-		'BNB_DOT',
-		'BNB_LINK'
+		// 'CRSSV11',
+		// 'XCRSS',
+		// 'CRSS_USDT',
+		// 'CRSS_BNB',
+		// 'CRSS_BUSD',
+		// 'BNB_BUSD',
+		// 'USDT_BUSD',
+		// 'BNB_ETH',
+		// 'BNB_BTCB',
+		// 'BNB_CAKE',
+		// 'BNB_ADA',
+		// 'BNB_DOT',
+		// 'BNB_LINK',
+		"CRSS_LINK",
+		"CRSS_DOT",
+		"CRSS_ADA",
+		"CRSS_CAKE",
+		"CRSS_BTCB",
+		"CRSS_ETH",
+		"CROSS_BNB",
+		"WBNB_USDT"
 	];
 	/**
 	 * Loop through Token List 
 	 */
 	for (let i = 0; i < tokenList.length; i++) {
-		if (i === 0)
-			await getTransferHistory(tokenList[0], process.env[tokenList[0]], abi_crss, theOwner);
-		else if (i === 1)
-			await getTransferHistory(tokenList[1], process.env[tokenList[1]], abi_xcrss, theOwner);
-		else
-			await getTransferHistory(tokenList[i], process.env[tokenList[i]], abi_lp, theOwner);
+		// if (i === 0)
+		// 	await getTransferHistory(tokenList[0], process.env[tokenList[0]], abi_crss, theOwner);
+		// else if (i === 1)
+		// 	await getTransferHistory(tokenList[1], process.env[tokenList[1]], abi_xcrss, theOwner);
+		// else
+		await getTransferHistory(tokenList[i], process.env[tokenList[i]], abi_lp, theOwner);
 	}
 }
 

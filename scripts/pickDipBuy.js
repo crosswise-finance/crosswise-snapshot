@@ -156,12 +156,7 @@ const getMovement = async (txs, transfersAfter) => {
             const isBUSD = t.token.toLowerCase() === BUSD
             const fromRouter = t.from.toLowerCase() === to.toLowerCase()
             const fromCaller = t.from.toLowerCase() === caller.toLowerCase()
-            if (isBNB && fromRouter) {
-                bnb += Number(t.amount)
-                totalBnb += bnb
-                isBNBOut = true
-                return true
-            } else if (isBUSD && fromCaller) {
+            if (isBUSD && fromCaller) {
                 busd += Number(t.amount)
                 totalBusd += busd
                 isBUSDOut = true
@@ -170,6 +165,11 @@ const getMovement = async (txs, transfersAfter) => {
                 usdt += Number(t.amount)
                 isUSDTOut = true
                 totalUsdt += usdt
+                return true
+            } else if (!isBUSD && !isUSDT && isBNB && fromRouter) {
+                bnb += Number(t.amount)
+                totalBnb += bnb
+                isBNBOut = true
                 return true
             } else return false
         })
@@ -185,18 +185,7 @@ const getMovement = async (txs, transfersAfter) => {
         totalCrss += crss
         console.log("Total: ", totalBnb, totalBusd, totalUsdt, totalCrss)
 
-        if (isBNBOut) {
-
-            if (txs[i].transactionHash == "0x5fca505508ad8b67dfa448b6dc3487bf967e31d4710d47c4d3f147bbedc16014") {
-                toConsole += ", " + tx
-            }
-            dipBNBSellers.push({
-                account: caller,
-                amount: crss,
-                sold: bnb,
-                txHash: tx
-            })
-        } else if (isBUSDOut) {
+        if (isBUSDOut) {
             dipBUSDSellers.push({
                 account: caller,
                 amount: crss,
@@ -208,6 +197,17 @@ const getMovement = async (txs, transfersAfter) => {
                 account: caller,
                 amount: crss,
                 sold: usdt,
+                txHash: tx
+            })
+        } else if (isBNBOut) {
+
+            if (txs[i].transactionHash == "0x5fca505508ad8b67dfa448b6dc3487bf967e31d4710d47c4d3f147bbedc16014") {
+                toConsole += ", " + tx
+            }
+            dipBNBSellers.push({
+                account: caller,
+                amount: crss,
+                sold: bnb,
                 txHash: tx
             })
         }

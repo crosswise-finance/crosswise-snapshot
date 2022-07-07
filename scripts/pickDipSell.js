@@ -148,12 +148,7 @@ const getMovement = async (txs, transfersAfter) => {
             const isBUSD = t.token.toLowerCase() === BUSD
             const toRouter = t.to.toLowerCase() === to.toLowerCase()
             const toCaller = t.to.toLowerCase() === caller.toLowerCase()
-            if (isBNB && toRouter) {
-                bnb += Number(t.amount)
-                totalBnb += bnb
-                isBNBOut = true
-                return true
-            } else if (isBUSD && toCaller) {
+            if (isBUSD && toCaller) {
                 busd += Number(t.amount)
                 totalBusd += busd
                 isBUSDOut = true
@@ -162,6 +157,11 @@ const getMovement = async (txs, transfersAfter) => {
                 usdt += Number(t.amount)
                 isUSDTOut = true
                 totalUsdt += usdt
+                return true
+            } else if (!isBUSD && !isUSDT && isBNB && toRouter) {
+                bnb += Number(t.amount)
+                totalBnb += bnb
+                isBNBOut = true
                 return true
             } else return false
         })
@@ -174,11 +174,11 @@ const getMovement = async (txs, transfersAfter) => {
         totalCrss += crss
         console.log("Total: ", totalBnb, totalBusd, totalUsdt, totalCrss)
 
-        if (isBNBOut) {
-            dipBNBSellers.push({
+        if (isUSDTOut) {
+            dipUSDTSellers.push({
                 account: caller,
                 amount: crss,
-                sold: bnb,
+                sold: usdt,
                 txHash: tx
             })
         } else if (isBUSDOut) {
@@ -188,11 +188,11 @@ const getMovement = async (txs, transfersAfter) => {
                 sold: busd,
                 txHash: tx
             })
-        } else if (isUSDTOut) {
-            dipUSDTSellers.push({
+        } else if (isBNBOut) {
+            dipBNBSellers.push({
                 account: caller,
                 amount: crss,
-                sold: usdt,
+                sold: bnb,
                 txHash: tx
             })
         }
