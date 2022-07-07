@@ -30,7 +30,7 @@ async function getTransferHistory(tokenName, tokenAddress, abi, owner) {
 	let transferEvents;
 
 	// Track from 14270000 to 14680000 (Jan 11 - Jan 25)
-	let bn_prev = 14614000, bn_end = 14680000, delta = 1000;
+	let bn_prev = 14270000, bn_end = 14680000, delta = 1000;
 	// let bn_prev = 14270000, bn_end = 14680000, delta = 1000;
 	let totalEvents = 0;
 
