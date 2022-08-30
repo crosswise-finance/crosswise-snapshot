@@ -1,0 +1,102 @@
+[
+    {
+        "address": "0xb5d85ca38a9cbe63156a02650884d92a6e736ddc",
+        "crssOwed": 1337577.3289324755
+    },
+    {
+        "address": "0x2d515004a2d8d93acfcee39e157bcf4290b73809",
+        "crssOwed": 1248610.684121081
+    },
+    {
+        "address": "0xfd3002ce12d81c4e5f62b97f3c72f18122291a65",
+        "crssOwed": 1032097.2557081806
+    },
+    {
+        "address": "0x27df46ddd86d9b7afe3ed550941638172eb2e623",
+        "crssOwed": 383234.0684050546
+    },
+    {
+        "address": "0x9cbed1220e01f457772cee3aad8b94a142fc975f",
+        "crssOwed": 137186.182813783
+    },
+    {
+        "address": "0x000000000000000000000000000000000000dead",
+        "crssOwed": 77784.05875845921
+    },
+    {
+        "address": "0xb9b09264779733b8657b9b86970e3db74561c237",
+        "crssOwed": 70105.81136252108
+    },
+    {
+        "address": "0x04744f5fb8f41be2201893bbb90ecae70af48c0a",
+        "crssOwed": 54796.67758917924
+    },
+    {
+        "address": "0xb124708a3949de4dce98c383aa6b775fb0eb059f",
+        "crssOwed": 47274.03000150388
+    },
+    {
+        "address": "0xe53d3f6098fde7804acd5d068fb84675872651ec",
+        "crssOwed": 30392.821550506138
+    },
+    {
+        "address": "0x73c02124d38538146ae2d807a3f119a0fad3209c",
+        "crssOwed": 30153.11834256927
+    },
+    {
+        "address": "0x862a3fca37413ece95eb317daef9e270f22f8d23",
+        "crssOwed": 28618.030858163555
+    },
+    {
+        "address": "0xb5777c2eb093fd51eba854f144a78ddcf46b3fa2",
+        "crssOwed": 28544.15941021053
+    },
+    {
+        "address": "0xb9f0033df38f2f492143776d94301186a6bc11d9",
+        "crssOwed": 26496.32694332151
+    },
+    {
+        "address": "0x9887bc8f3c87d8f2489f5441abe395ff0f0889d7",
+        "crssOwed": 22751.382136603283
+    },
+    {
+        "address": "0x6c428b4a5f1478278399481ac9f1d4f0fa0d7404",
+        "crssOwed": 21832.153059429973
+    },
+    {
+        "address": "0xc087c9a3f03a6918e906468ddbb4cb836881033a",
+        "crssOwed": 20176.008674558278
+    },
+    {
+        "address": "0xe4acb1a14098b48eb546e750e2bb0655f6984eff",
+        "crssOwed": 19705.616136815865
+    },
+    {
+        "address": "0x2a479056fac97b62806cc740b11774e6598b1649",
+        "crssOwed": 19482.29751898916
+    },
+    {
+        "address": "0xc7a5075aeed4e5b3b17f334574cca563c68a5895",
+        "crssOwed": 19449.730933056027
+    },
+    {
+        "address": "0xcf2001a16b69543fd4bfb54f1d4528b6c5307a3b",
+        "crssOwed": 18915.467660804883
+    },
+    {
+        "address": "0x2b86d782236469b008a8505e7f290098990f2cb4",
+        "crssOwed": 16502.085991108273
+    },
+    {
+        "address": "0xf7158d79a9939b880cc79dac9492a466d9d587a0",
+        "crssOwed": 13469.991004484604
+    },
+    {
+        "address": "0x9ff251fd3363632626e96ce5ccc82cee6c80a732",
+        "crssOwed": 13456.294117503523
+    },
+    {
+        "address": "0xdaae97bacc4a4888b049ecbf2164be462a1e3a3e",
+        "crssOwed": 13366.636848030314
+    }
+]
