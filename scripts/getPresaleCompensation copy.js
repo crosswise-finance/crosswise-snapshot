@@ -43,9 +43,9 @@ const getPresaleInfo = async (address, abi, round) => {
     investors = await contract.methods.allInvestors().call()
 
     //get total amounts of BUSD and CRSS directly from presale view functions to store them in a separate json file 
-    const totalBusdDeposited = ethers.utils.formatEther(await contract.methods.totalDepositedBusdBalance().call())
-    const totalPresaleCrss = ethers.utils.formatEther(await contract.methods.totalRewardAmount().call())
-    const totalWithdrawn = ethers.utils.formatEther(await contract.methods.totalWithdrawedAmount().call())
+    const totalBusdDeposited = (await contract.methods.totalDepositedBusdBalance().call()) / (10 ** 18)
+    const totalPresaleCrss = (await contract.methods.totalRewardAmount().call()) / (10 ** 18)
+    const totalWithdrawn = (await contract.methods.totalWithdrawedAmount().call()) / (10 ** 18)
     const totalCrssOwed = totalPresaleCrss - totalWithdrawn
     const total = { "addressCount": investors.length, "totalOwed": totalCrssOwed, "totalCrss": totalPresaleCrss, "totalBusd": totalBusdDeposited, "totalWithdrawn": totalWithdrawn }
     let objectArray = []
@@ -59,7 +59,9 @@ const getPresaleInfo = async (address, abi, round) => {
         let userObject = {}
 
         userObject.address = investors[i]
-        userObject.crssOwed = (ethers.utils.formatEther(userInfo.totalRewardAmount) - ethers.utils.formatEther(userInfo.withdrawAmount))
+        const reward = (userInfo.totalRewardAmount) / (10 ** 18)
+        const withdrawn = (userInfo.withdrawAmount) / (10 ** 18)
+        userObject.crssOwed = reward - withdrawn
         objectArray.push(userObject);
     }
     objectArray.sort(sort_by('crssOwed', true, parseInt));

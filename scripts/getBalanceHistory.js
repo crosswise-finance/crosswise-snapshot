@@ -2,13 +2,13 @@ require("dotenv").config();
 const fs = require("fs");
 const tokenConstants = require('./constants.js');
 const axios = require('axios').default;
-let finalList = require("../_snapshot/holders/WalletBalanceBefore.json");
-//const outputJson = require("../_snapshot/holders/WalletBalanceBefore.json")
+let finalListAfter = require("../_snapshot/holders/WalletBalanceAfter.json");
+let finalListBefore = require("../_snapshot/holders/WalletBalanceBefore.json")
 const fullAddressList = require("../_snapshot/fullAddressList.json")
 
 //this gets us all the token addresses involved
 const tokenAddresses = tokenConstants.TokensInScope;
-//this give us the names of all involved addresses (addressOfToken1 = tokenAddresses[i] => nameOfToken1 tokenNames[i]), useful for creating 14 separate lists of holders by contract address if needed
+//this give us the names of all involved addresses (addressOfToken1 = tokenAddresses[i] => nameOfToken1 tokenNames[i])
 const tokenNames = tokenConstants.TokensInScopeName;
 const tokenPrices = tokenConstants.TokensInScopePrice;
 const crssPrice = 1.26;
@@ -42,6 +42,7 @@ const sort_by = (field, reverse, primer) => {
 }
 
 //gets us historical balances of all 12 relevant token at target timestamp (block) for each user 
+//takes 5h+ to complete, but it's written in a way that the progress of the script can be stopped and resumed with no issues
 const getAddressHistoricalBalances = async (addr, timestamp) => {
 
     let contractBalances = []
@@ -61,21 +62,37 @@ const getAddressHistoricalBalances = async (addr, timestamp) => {
         "BNB_BUSD": contractBalances[5], "BNB_USDT": contractBalances[6], "BNB_DOT": contractBalances[7],
         "BNB_LINK": contractBalances[8], "BNB_ETH": contractBalances[9], "BNB_ADA": contractBalances[10], "BNB_BTCB": contractBalances[11]
     }
-    finalList.push(userObject)
-    fs.writeFileSync("_snapshot/holders/WalletBalanceBefore.json", JSON.stringify(finalList))
+
+    if (timestamp == timestamp1) {
+        finalListBefore.push(userObject)
+        fs.writeFileSync("_snapshot/holders/WalletBalanceBefore.json", JSON.stringify(finalListBefore))
+    } else if (timestamp == timestamp2) {
+        finalListAfter.push(userObject)
+        fs.writeFileSync("_snapshot/holders/WalletBalanceAfter.json", JSON.stringify(finalListAfter))
+    }
+
     console.log(`done with ${addr}`)
 
 }
 //takes list of addresses (totalAddressList.json) and a timestamp as inputs
 const getWalletBalances = async (arr = [], timestamp) => {
-
-    for (let i = finalList.length; i < fullAddressList.length; i++) {
-        addr = arr[i]
-        await getAddressHistoricalBalances(addr, timestamp)
-        console.log(`done with ${i}`);
+    if (timestamp == timestamp1) {
+        const finalList = finalListBefore;
+        for (let i = finalList.length; i < 20; i++) {
+            addr = arr[i]
+            await getAddressHistoricalBalances(addr, timestamp)
+            console.log(`done with ${i}`);
+        }
+    } else if (timestamp == timestamp2) {
+        const finalList = finalListAfter;
+        for (let i = finalList.length; i < 20; i++) {//fullAddressList.length
+            addr = arr[i]
+            await getAddressHistoricalBalances(addr, timestamp)
+            console.log(`done with ${i}`);
+        }
     }
-}
 
+}
 //gets us global data
 function getGlobalData(objectArray) {
     let globalObject = {
@@ -115,9 +132,13 @@ function getGlobalData(objectArray) {
     fs.appendFileSync("_snapshot/holders/globalAmountsBefore.json", JSON.stringify(globalObject))
 }
 
+function sortAll() {
+    finalListAfter.sort
+}
+//needs full address list to work
 const main = async () => {
-    //getWalletBalances(fullAddressList, timestamp1)
-    getWalletBalances(fullAddressList, timestamp2)
+    await getWalletBalances(fullAddressList, timestamp1)
+    //await getWalletBalances(fullAddressList, timestamp2)
     //getGlobalData(finalList)
 }
 main()

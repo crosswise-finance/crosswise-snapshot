@@ -2,10 +2,9 @@ require("dotenv").config();
 const fs = require("fs");
 const tokenConstants = require('./constants.js');
 const axios = require('axios').default;
-//json files containing eligible addresses
+//json object arrays containing relevant addresses 
 const presaleList1 = require("../_snapshot/presale/presaleCRSSEnitlement1.json")
 const presaleList2 = require("../_snapshot/presale/presaleCRSSEnitlement2.json")
-const masterchefAddresses = require("../_snapshot/smartContracts/usersCRSSStaked.json")
 const sumBalanceList = require("../Sum_balance_current.json")
 const { assert } = require("console");
 //this gets us all the token addresses involved
@@ -111,7 +110,6 @@ const getAllTokenHolders = async () => {
 const getAllAddresses = async () => {
     await getAllAddressesFromJsons(presaleList1)
     await getAllAddressesFromJsons(presaleList2)
-    await getAllAddressesFromJsons(masterchefAddresses)
     await getAllAddressesFromJsons(sumBalanceList)
 }
 
