@@ -1,53 +1,38 @@
-CRSS PROTOCOL COMPENSATION
- 
- 
-The compensation is split into 4 structural parts, based on location of user's entitled value
+Instruction manual for recreating Crosswise protocol's user compensation
+-----------------------------------
+------------------
+------
 
--This is how to use javascripts inside the repo to obtain all parts of the compensation,except for dip buyers/sellers (handled externally)
--Run the scripts in described order 
-* MUST FIRST RUN 1.PRESALE COMPENSATION and then 5.B) GET ALL HOLDER ADDRESSES (if you want to generate your own address list instead of using the address list provided in the repo)
-* Order of other functions after those 2 above is irrelevant
-* You may need to create folders and json files manually for some of the scripts for data to get saved
- 
- 1. PRESALE COMPENSATION
-- requires installing web3 
-- this is the most simple script as it simply reads from the blockchain (web3 is used here to perform this task, install with npm install web3 )
-- once you got ABIs, addresses and web3 you can run the script, output will be 4json files, 2 object arrays containing all presale holders and their entitlement and 2 objects with global values for each presale contract
+Following dependencies need to be installed to run all the scripts
+1. You need a code editor to read all the files and run the scripts, we recommend VSCode, this is what we used
 
+2. In addition to NPM, you need something to run JS scripts,  you can use Node with "node scripts/getPresaleCompensation.js",you can use hardhat with "npx hardhat run scripts/getPresaleCompensation.js",or any other tool you prefer
+----------------------------------
+https://nodejs.org/en/ - includes NPM
+https://www.npmjs.com/package/hardhat - if you want to use hardhat
 
-2. USER WALLET COMPENSATION
-* requires BSC Pro Api for request "Get Historical BEP-20 Token Account Balance by ContractAddress & BlockNo"
-* requires full address list (_snapshot/fullAddressList.json)
+3. Following dependencies were used in the code : - FS - install with "npm install fs" in VSCode terminal 
+                                                  -Web3 - install with "npm install web3"
+                                                       - also install "npm install web3-eth-contract"
+                                                  -Axios (or some other HTTP client for sending API requests if you can make the necessary adjustments in the code) - install with "npm install axios"
+                                                  -dotenv - install with "npm install dotenv"
+                                                         - inside .env file add your own API keys to BSC_PUBLIC_API and MORALIS_API (and, if you want to run getBalanceHistory.js you also need to add BSC_PREMIUM_API) 
+4. All the other dependencies will be written into this Github repo, for those who don't want to wait 4h+ or don't have BSC Pro API, we included historic wallet balances for block before the attack so you don't have to run getBalanceHistory.js 
 
-- this one requires installing the following plugins: dotenv, fs and an API plugin for sending requests to BSC Pro Api service(we used axios for the compensation)
-- in addition to the fullAddressList we are also fetching all token addresses and prices (used to automatically convert between different assets to CRSS) from the constants.js file
-- run the main function once for each relevant timestamp (takes above 4h for each timestamp, since it has to fetch 12 requests per user for 2398 addresses, and this BSC Api call is limited to 2/s)
-- run the global function 
+The scripts must be run in the correct order, as some scripts rely on other scripts to execute
 
+1. Run getPresaleCompensation.js => this will output two different lists for each of the two deployed presale contracts, containing CRSS owed amounts for each user
 
+2. Run getSmartContractCompensation.js => this will output a list of all eligible staked CRSS for each user
+- After this you need to run getMasterchefDepositAdjustment.js to get depositAdjustedStaking.json, which is the final result of smart contract compensation
 
-3. MASTERCHEF STAKING COMPENSATION
+3. Run getAllHolderAddresses.js, if you want to generate your own list, you can also skip this step and use the address list we provided in the Repo as "FullAddressList.json"
 
-- requires installing following plugins: dotenv, fs and web3
-- run getMasterchefWeb3Data
-- run getMasterchefGlobalData  
+4. Run getBalanceHistory.js, for this you need BSC Pro API, takes 4h+ per timestamp, if you want to skip this part, the output json file you would get if you ran the script will be provided in the Repo as "totalAmountsBefore.json"
 
-4. DIP BUYERS
-* after more than 4 different developers spending months on trying to get data by gathering, organising and calculating values for each address through event logs and address BEP20 token transfers, we relised the current architecture of the protocol at that time makes it impossible for us to proceed with this method
-* the core of the issues are the following:  A) passage of funds through multiple contracts for each swap, making tracking of those funds next to impossible
-                                             B) scope for all dip buys and sells contained multiple different DEX protocols as well as 12 different tokens
-                                             C) it is not neccesary to use the router contract when swapping, so minority of users were also swapping with the pairs directly which changes the way the transaction is recorded
-                                             D) some tranfers included not only more then 2 pairs (for example trading from LINK to CRSS and CRSS to WBTC to swap LINK to WBTC directly when there is no such pair) but also multiple dexes (for example LINK to CRSS on cross exchange and then CRSS to WBTC on pancakeswap)
-* the issue will be mitigated by retreiving buyer and seller amounts in BUSD for the timeframe in scope externally, details revealed when the compensation protocol is live
+5. Run getDipBuyersAndSellers.js => this will combine and calculate gathered buyers and sellers data and output total amounts of CRSS to be added or deducted from each user
 
-5. EXTRA
+6. Run getCompensation.js => this will output compensationV1.json
 
-A) GET HISTORICAL SUPPLY VALUES
-* requires BSC Pro Api
-- requires : dotenv, fs and axios (or other API request service)
-- this will get you historical supply levels of CRSS token, using BSC "Get Historical BEP-20 Token TotalSupply by ContractAddress & BlockNo " request
-
-B) GET ALL HOLDER ADDRESSES
-* this provides the fullAddressList.json required in compensation parts 2. and 3. 
-* has to be run after presale compensation
-* draws from presale json files and Sum_balance_current.json in addition to fetching all current token holders of the 12 within scope to combine this into the full list of 2398 addresses, with no duplicates
+* Note
+-These are preliminary results, and the scripts are not necessarily final, we will allow for you as the community to let us know if we missed any of your funds, as the system is very robust and there is plenty of room for errors

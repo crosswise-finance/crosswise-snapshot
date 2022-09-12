@@ -114,7 +114,7 @@ cache
 artifacts
 
 # snapshot files
-_snapshot/
+
 
 events/
 _aux/
