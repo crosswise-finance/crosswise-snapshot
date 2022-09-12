@@ -49,7 +49,48 @@ exports.CRSSV11 = "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb"
 exports.CRSS_Router = "0x8B6e0Aa1E9363765Ea106fa42Fc665C691443b63"
 exports.CRSS_Masterchef = "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B"
 exports.XCRSS = "0x27DF46ddd86D9b7afe3ED550941638172eB2e623"
-//its important that both these arrays are in order and of matching length, because the name is mapped to corresponding token address by array index number
+
+exports.excludedAddr = [
+    "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B".toLowerCase(), // Masterchef
+
+    "0x530B338261F8686e49403D1b5264E7a1E169F06b".toLowerCase(), // Exploiter contract
+    "0x748346113b6d61870aa0961c6d3fb38742fc5089".toLowerCase(), // Exploiter
+
+    "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC".toLowerCase(), // Crss-bnb
+    "0xB9B09264779733B8657b9B86970E3DB74561c237".toLowerCase(), // Crss-busd
+    "0x21d398F619a7A97e0CAb6443fd76Ef702B6dCE8D".toLowerCase(), // Crss-usdt
+    "0x8151D70B5806E3C957d9deB8bbB01352482a4741".toLowerCase(), // Bnb-Eth
+    "0xDE0356A496a8d492431b808c758ed5075Dd85040".toLowerCase(), // Bnb-Ada
+    "0x290E1ad05b4D906B1E65B41e689FC842C9962825".toLowerCase(), // Bnb-Busd
+    "0x278D7d1834E008864cfB247704cF34a171F39a2C".toLowerCase(), // Bnb-Link
+    "0x9Ba0DcE71930E6593aB34A1EBc71C5CebEffDeAF".toLowerCase(), // Bnb-Btcb
+    "0xef5be81A2B5441ff817Dc3C15FEF0950DD88b9bD".toLowerCase(), // Busd-usdt
+    "0x0458498C2cCbBe4731048751896A052e2a5CC041".toLowerCase(), // Bnb-Cake
+    "0xCB7Ad3af3aE8d6A04ac8ECA9a77a95B2a72B06DE".toLowerCase(), // Bnb-Dot
+    "0x8B6e0Aa1E9363765Ea106fa42Fc665C691443b63".toLowerCase(), // Crss Router
+    "0x27DF46ddd86D9b7afe3ED550941638172eB2e623".toLowerCase(), // XCrss
+    "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c".toLowerCase(), // WBnb
+    "0x47b30B5eD46101473ED2AEc7b9046aaCb6fd4bBC".toLowerCase(), // Factory
+    "0x9cbed1220E01F457772cEe3AAd8B94A142fc975F".toLowerCase(), // Pancake Crss-BNB LP
+    "0x73C02124d38538146aE2D807a3F119A0fAd3209c".toLowerCase(), // Biswap Crss-BNB LP
+    "0x000000000000000000000000000000000000dead",
+    "0x0000000000000000000000000000000000000000",
+    "0xeE608a79adaF1C4Fc1415092896D58471Ef28480".toLowerCase(),
+    "0x5aa2b981463D35724676aC7Fd399d3043a3F4299".toLowerCase(),
+    "0xfD3002cE12D81c4e5F62B97F3c72f18122291A65".toLowerCase(),
+    "0x22216a348647a297089970dfad28064baBF01495".toLowerCase(),
+    "0xCd35552932af41714480f436Ac8cbA2F14890CdE".toLowerCase(),
+    "0x16d8DF4E23a21e54CdB9E32cc878Df9f5d48d44E".toLowerCase(),
+    "0x2d515004a2D8D93ACFcEe39E157BCF4290b73809".toLowerCase(),
+    "0x9618Ce1Cf75F0D9090325Ba4C26a0e782F4Ea7Ad".toLowerCase(),
+    "0xdC945BeA36371D3c72E5E7FB2e07D20D178FE751".toLowerCase(),
+    "0x4c4a3c0f7bbc623ed9d694b4616da8722c8f210c".toLowerCase(),
+    "0xc24f9D5C5D53AA69B2911dB8b2cDA3528d03b71e".toLowerCase(),
+    "0x60Ac04C1019558ca8536fA314AEAe9e6e1a2ae67".toLowerCase(),
+    "0x55eCCd64324d35CB56F3d3e5b1544a9D18489f71".toLowerCase(),//crss v1
+    "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb".toLowerCase(), //crss V11
+]
+
 
 CRSS_BNB = "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC"
 CRSS_BUSD = "0xB9B09264779733B8657b9B86970E3DB74561c237"
@@ -75,7 +116,7 @@ CRSSV11 = "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb"
 CRSS_Router = "0x8B6e0Aa1E9363765Ea106fa42Fc665C691443b63"
 CRSS_Masterchef = "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B"
 XCRSS = "0x27DF46ddd86D9b7afe3ED550941638172eB2e623"
-
+//its important that both these arrays are in order and of matching length, because the name is mapped to corresponding token address by array index number
 exports.TokensInScope = [CRSSV11, CRSSV1, XCRSS, CRSS_BUSD, CRSS_BNB, BNB_BUSD, BNB_USDT, BNB_DOT, BNB_LINK, BNB_ETH, BNB_ADA, BNB_BTCB]
 exports.TokensInScopeName = ["CRSSV11", "CRSSV1", "XCRSS", "CRSS_BUSD", "CRSS_BNB", "BNB_BUSD", "BNB_USDT", "BNB_DOT", "BNB_LINK", "BNB_ETH", "BNB_ADA", "BNB_BTCB"]
 exports.TokensInScopePrice = [1.26, 1.26, 1.26, 2.29, 49.64, 40.85, 40.85, 175.4, 158.5, 2302.1, 39.6, 8470.1]

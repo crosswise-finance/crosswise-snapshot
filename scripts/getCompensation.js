@@ -1,14 +1,16 @@
 const fs = require("fs");
-const finalListBefore = require("../_snapshot/holders/totalAmountsBefore.json")
+const finalListBefore = require("../_snapshot/holders/walletBalanceBefore.json")
 let fullAddressList = require("../_snapshot/fullAddressList.json")
 const stakingArray = require('../_snapshot/smartContracts/depositAdjustedStaking.json')
 const presaleList1 = require("../_snapshot/presale/presaleCRSSEnitlement1.json")
 const presaleList2 = require("../_snapshot/presale/presaleCRSSEnitlement2.json")
 const dipList = require("../_snapshot/dip/DipCompensationCrss.json")
+const tokenConstants = require('./constants.js');
+const excludedAddresses = tokenConstants.excludedAddr
 
 let numOfIncluded = 0
 let objectArray = []
-let totalCrssValue = 0
+let checkedArray = []
 let newAdded = 0
 let newValueAdded = 0
 
@@ -108,6 +110,23 @@ function createObjectArray() {
     objectArray.push(userObject)
   }
 }
+
+function doubleCheckForExcludedAddresses() {
+  for (let i = 0; i < objectArray.length; i++) {
+    let excluded = false;
+    const userAddress = objectArray[i].address
+    for (let x = 0; x < excludedAddresses.length; x++) {
+      if (userAddress == excludedAddresses[x]) {
+        excluded = true
+        console.log("Found excluded address")
+      }
+    }
+    if (excluded == false) {
+      checkedArray.push(objectArray[i])
+    }
+
+  }
+}
 function getCompensation() {
   createObjectArray()
   calculateAll(finalListBefore)
@@ -115,15 +134,17 @@ function getCompensation() {
   calculateAll(presaleList1)
   calculateAll(presaleList2)
   calculateAll(dipList)
+  doubleCheckForExcludedAddresses()
   let totalCrssToRefund = 0
-  for (let i = 0; i < objectArray.length; i++) {
-    totalCrssToRefund += objectArray[i].crssOwed
+  for (let i = 0; i < checkedArray.length; i++) {
+    totalCrssToRefund += checkedArray[i].crssOwed
   }
-  console.log(`Included ${numOfIncluded} different compensations for total ${fullAddressList.length} number of addresses we checked and ${totalCrssValue} CRSS in value`)
+  console.log(`Included ${numOfIncluded} different compensations for total ${fullAddressList.length} number of addresses we checked and ${totalCrssToRefund} CRSS in value`)
   console.log(`Included ${newAdded} new addresses from dip buyers for ${newValueAdded} CRSS`)
   console.log(`Total crss to refund: ${totalCrssToRefund}`)
   console.log(fullAddressList.length)
-  objectArray.sort(sort_by('crssOwed', true, parseInt));
-  fs.writeFileSync("_snapshot/compensationV1.json", JSON.stringify(objectArray))
+  checkedArray.sort(sort_by('crssOwed', true, parseInt));
+
+  fs.writeFileSync("_snapshot/compensationV12.json", JSON.stringify(checkedArray))
 }
 getCompensation()

@@ -11,7 +11,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed2.def
 //very important, used as storage for all addresses in compensation
 const userList = require("../_snapshot/fullAddressList.json")
 //this is where total CRSS staker list is stored, used for getting global staked CRSS values
-const stakingArray = require('../_snapshot/smartContracts/usersCRSSStaked.json')
+
 
 
 
@@ -74,7 +74,7 @@ const getMasterchefWeb3Data = async () => {
    fs.appendFileSync('_snapshot/smartContracts/usersCRSSStaked.json', JSON.stringify(objectArray))
 }
 const getMasterchefGlobalData = async () => {
-
+   const stakingArray = require('../_snapshot/smartContracts/usersCRSSStaked.json')
    let globalObject = { "totalCRSSStaked": 0, "totalAddressesInStaking": stakingArray.length }
 
    for (let i = 0; i < stakingArray.length; i++) {
@@ -86,12 +86,10 @@ const getMasterchefGlobalData = async () => {
 
 const main = async () => {
 
-   //this function gets us all current CRSS staking addresses and corresponding staked CRSS amount
-   //can be used to determine Masterchef staked CRSS compensation values because historical balances for all 3 relevant timestamps remained the same 
    //this takes a minute or two
    await getMasterchefWeb3Data(masterchefAbi, masterchef)
 
-   //this gives us global data for staked CRSS in Masterchef
+   //this gives us global data for staked CRSS in Masterchef, note that values are hugely oversized because of many people who exploited the contract directly or deposited CRSS after attack
    await getMasterchefGlobalData()
 
 }
