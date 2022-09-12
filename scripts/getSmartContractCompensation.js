@@ -10,7 +10,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed2.def
 
 //very important, used as storage for all addresses in compensation
 const userList = require("../_snapshot/fullAddressList.json")
-//this is where total CRSS staker list is stored, used for getting global staked CRSS values
+
 
 
 
@@ -54,14 +54,14 @@ const getMasterchefWeb3Data = async () => {
       const userStakedBalance = (userInfo.amount) / (10 ** 18)
       userObject.crssOwed = userStakedBalance
 
-      //userObject.crssOwed = userStakedBalance
+
       if (userObject.crssOwed > 0) {
          objectArray.push(userObject)
 
       }
       console.log(`done with  ${address} for ${userObject.crssOwed} CRSS`)
    }
-   //userList.length
+
    for (let i = 0; i < userList.length; i++) {
       const userAddress = userList[i]
       await innerFunction(userAddress)

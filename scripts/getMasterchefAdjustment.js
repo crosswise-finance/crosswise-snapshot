@@ -5,7 +5,7 @@ const abiDecoder = require('abi-decoder');
 
 const Web3 = require("web3")
 const masterchefAbi = require("../_supporting/abi_masterchef.json");
-const { uploadFolder } = require("@moralisweb3/evm-api/lib/resolvers/storage/uploadFolder");
+
 const masterchef = "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B".toLowerCase()
 const crssTokenAddress = "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb".toLowerCase();
 //const dataToDecode = require("../_snapshot/smartContracts/temp2.json")
