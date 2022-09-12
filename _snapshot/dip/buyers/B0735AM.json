@@ -1,0 +1,770 @@
+[
+    {
+        "address": "0xa7d5fb43537092a0d751af0820962a59f256e700",
+        "usdValue": 3232.54
+    },
+    {
+        "address": "0xcfb4950ba834f122b732a05c7b654f70313ce2b3",
+        "usdValue": 2851.47
+    },
+    {
+        "address": "0x0bfcaef9d3eec80ead1e7077ba5d3c10bffa8b53",
+        "usdValue": 2119.50
+    },
+    {
+        "address": "0xe0a16074cb22dae8a05781977bc49a1445b822e8",
+        "usdValue": 1642.62
+    },
+    {
+        "address": "0x125326b148ded3a5cbbb58a1d071164831be8a8d",
+        "usdValue": 1280.76
+    },
+    {
+        "address": "0xba713d8638c2b6790a58c683927bad6a39b68407",
+        "usdValue": 1279.33
+    },
+    {
+        "address": "0x73ba16c2396efad9770883c6da3da7494bfc1069",
+        "usdValue": 1278.14
+    },
+    {
+        "address": "0x45163aa7eb561321e104b7305a299dcf7de107db",
+        "usdValue": 1177.50
+    },
+    {
+        "address": "0x2c61569026ca8da02911fd991d2ff695c435d031",
+        "usdValue": 1096.30
+    },
+    {
+        "address": "0x04744f5fb8f41be2201893bbb90ecae70af48c0a",
+        "usdValue": 1094.38
+    },
+    {
+        "address": "0xad976d2c1f7afe1d7dac46ff52fa0d4c003c47fc",
+        "usdValue": 975.12
+    },
+    {
+        "address": "0xc38d2d22a64ab407d1a34e4a50ecbacfe079dc8e",
+        "usdValue": 942.00
+    },
+    {
+        "address": "0x6c428b4a5f1478278399481ac9f1d4f0fa0d7404",
+        "usdValue": 898.92
+    },
+    {
+        "address": "0xa8bba7e570c85e0d9cdb17f2f5531f6240aaaff3",
+        "usdValue": 847.35
+    },
+    {
+        "address": "0x43e963487cd3599e8f58cfe9e34b2eed59451e97",
+        "usdValue": 807.05
+    },
+    {
+        "address": "0xc43473ca9c8f44ed3c9e989bc40e35d29bd92831",
+        "usdValue": 738.15
+    },
+    {
+        "address": "0x3d018f8da672ce43bd40c94ac5d92d9703699cc2",
+        "usdValue": 723.09
+    },
+    {
+        "address": "0x690269bed7d3092f292e247a46144abc870bbcd4",
+        "usdValue": 659.40
+    },
+    {
+        "address": "0xe72ba59c7b2c21066c068ec7f018b96b1741cfed",
+        "usdValue": 625.38
+    },
+    {
+        "address": "0x111128cfa6e46f4d0e4cab61ce026072d696f8fb",
+        "usdValue": 561.73
+    },
+    {
+        "address": "0x9945aa4e740100132ac0730ce30d8fc10f497f8e",
+        "usdValue": 511.72
+    },
+    {
+        "address": "0xa0c7bf1d17467cbb65fa2b9eecf52bf8474805a0",
+        "usdValue": 509.04
+    },
+    {
+        "address": "0x333338d6ffe41bf45369f5034a577183b4512966",
+        "usdValue": 507.31
+    },
+    {
+        "address": "0x5203957bd43c5f571b829af52f3081c08777a793",
+        "usdValue": 496.83
+    },
+    {
+        "address": "0x58617d224052b9dd785d6c4d1595de87759e9e4b",
+        "usdValue": 495.24
+    },
+    {
+        "address": "0xf6eae088dd00ffae013b59b037ea6bb46f2f63e8",
+        "usdValue": 490.15
+    },
+    {
+        "address": "0xe4acb1a14098b48eb546e750e2bb0655f6984eff",
+        "usdValue": 478.99
+    },
+    {
+        "address": "0x5e5584321c8d5c34c4180d851d15f1e8704ca927",
+        "usdValue": 471.00
+    },
+    {
+        "address": "0xe37181d00a690766bc499a49ffcfb74c00679724",
+        "usdValue": 471.00
+    },
+    {
+        "address": "0xbf69c2dfaed8f3dc7fec703d7b030cb703b0f7d0",
+        "usdValue": 463.85
+    },
+    {
+        "address": "0x4c6b0e16d1c5c98f20d91ecbdc0a65653f8340e2",
+        "usdValue": 423.90
+    },
+    {
+        "address": "0x1243b78f1353814e80d76e7601b08a6fe6124582",
+        "usdValue": 416.83
+    },
+    {
+        "address": "0x0bcc834938c7b8730cb40f0da08f5672a5e9e17a",
+        "usdValue": 392.70
+    },
+    {
+        "address": "0x4e3da7947fd8a23ae42a19a56906baf0c7f363c1",
+        "usdValue": 383.63
+    },
+    {
+        "address": "0x44440c8e832602a6c26e81a1e9bfe1546660f3d9",
+        "usdValue": 381.77
+    },
+    {
+        "address": "0xb2f7e5c11205e1bde2b22981e97f3256b65afa91",
+        "usdValue": 371.40
+    },
+    {
+        "address": "0x40568d0b8acfc7ffcd38a73c45d2650c5c85fee1",
+        "usdValue": 369.29
+    },
+    {
+        "address": "0x22cf370fb6ccc5c4bef12a8d4d79deb1b7f39251",
+        "usdValue": 365.31
+    },
+    {
+        "address": "0xf8bf5bd96f9bf89e9ac4a6c8d54ceda374a32c53",
+        "usdValue": 360.03
+    },
+    {
+        "address": "0x80c2a8783da287d505dbc62f41b958799d972d22",
+        "usdValue": 357.39
+    },
+    {
+        "address": "0x08129c5ae04b62d28ab0246ca98eb3059e849fd1",
+        "usdValue": 354.92
+    },
+    {
+        "address": "0xc7c7e4ac0fa13b17dda6a51b0d3a6009a8b91563",
+        "usdValue": 343.60
+    },
+    {
+        "address": "0xf928e8fdf2436e3d588f1dc3c0556a615679d43f",
+        "usdValue": 339.95
+    },
+    {
+        "address": "0xe7fcbb38db770c7d8043170337dc2b9fc62627ee",
+        "usdValue": 333.86
+    },
+    {
+        "address": "0x152f6a1c63b7acc5f05271eca4330d5cf0c2fc98",
+        "usdValue": 328.23
+    },
+    {
+        "address": "0xf0a84929bb7c6c5f7b5e8b17f647597f8d052182",
+        "usdValue": 323.77
+    },
+    {
+        "address": "0x9778af33fa2c914570571f6735b1ada0121e3c60",
+        "usdValue": 320.62
+    },
+    {
+        "address": "0x1111d77a2f5ba820cab504bbfbef67201c3f1917",
+        "usdValue": 303.69
+    },
+    {
+        "address": "0xf1a20442518266a58349874384aa0d2a3d403ef3",
+        "usdValue": 301.03
+    },
+    {
+        "address": "0x0c21fe678f5eb80497b5939c7767ceb1c21fbdd0",
+        "usdValue": 298.08
+    },
+    {
+        "address": "0x4c7b7ec3686af1270a3473fc592406156965b6e3",
+        "usdValue": 282.60
+    },
+    {
+        "address": "0x111106662c6602d1cd4417dd8945f6daa873f846",
+        "usdValue": 280.47
+    },
+    {
+        "address": "0x74885d1fcc291aab02c83767b98281f892e7ce9e",
+        "usdValue": 259.03
+    },
+    {
+        "address": "0x62bac93b4626fb2bfdd11e239e7e2cb672557e5b",
+        "usdValue": 258.74
+    },
+    {
+        "address": "0x918230348810284b1bffc5e7ca24fe01bc8a0180",
+        "usdValue": 249.62
+    },
+    {
+        "address": "0x77ff5f5b778358cb8090d48c31eb6b819e92944c",
+        "usdValue": 248.49
+    },
+    {
+        "address": "0x5555e2b18123b17add22420dfae3e1c09817b4a2",
+        "usdValue": 245.02
+    },
+    {
+        "address": "0xa0fa1c6d7520435bd3edc14628e322b311c714a1",
+        "usdValue": 240.21
+    },
+    {
+        "address": "0xff707035faa6103a78e900569f31a6d8750e29b2",
+        "usdValue": 235.72
+    },
+    {
+        "address": "0x55b4a6820f13688c734e0e9142e1cf63bc526661",
+        "usdValue": 235.50
+    },
+    {
+        "address": "0x3a985653c9e363eff83cdb0fdb200b0ca9e6e485",
+        "usdValue": 235.50
+    },
+    {
+        "address": "0x9a0b797e017e849719013e7a5ea3b4fc07171136",
+        "usdValue": 235.50
+    },
+    {
+        "address": "0x6d4b3946902c2da6edc3bc66cbf8695490a70690",
+        "usdValue": 233.38
+    },
+    {
+        "address": "0x90209ec83262b85bb11ca11bb995ef09eeb059ce",
+        "usdValue": 227.48
+    },
+    {
+        "address": "0x1111e0115f9f77a2b7a1556bd4d3af12c6981683",
+        "usdValue": 223.89
+    },
+    {
+        "address": "0x85e666b5248053ae1fa5023f734984eac75ba320",
+        "usdValue": 220.88
+    },
+    {
+        "address": "0x71ecef1bda33287483f69194de3cd0fde4186e93",
+        "usdValue": 217.90
+    },
+    {
+        "address": "0x5a32b1999f30a96303f1a62d32d9fcb9aa882ce6",
+        "usdValue": 211.95
+    },
+    {
+        "address": "0x443697bca28890eaee0aee9b3d6ebeca0d2ad6aa",
+        "usdValue": 209.59
+    },
+    {
+        "address": "0xd0b7e38574967d2dcd5bcfedd39c9275b67fec33",
+        "usdValue": 206.59
+    },
+    {
+        "address": "0x4f631cf8c046f1565ce587c7688a29867f784001",
+        "usdValue": 199.98
+    },
+    {
+        "address": "0xd818889199adbb7ac79b1b8059f46de62e81a55a",
+        "usdValue": 198.40
+    },
+    {
+        "address": "0x7c03e74461c06751d5f7987e70d2565f1050878b",
+        "usdValue": 192.04
+    },
+    {
+        "address": "0x1e1df22c0ac877ecbb9aad9a21b1ceb11fa8a3ec",
+        "usdValue": 190.09
+    },
+    {
+        "address": "0x044fdd67f999be204cec0b8bb44a2828982677f9",
+        "usdValue": 188.40
+    },
+    {
+        "address": "0x6ce2ee71b87c8b18fae4350e70697baa3e129d9c",
+        "usdValue": 188.40
+    },
+    {
+        "address": "0xd4d50342c08b5f2d283709c4f30b14412a01f89f",
+        "usdValue": 188.33
+    },
+    {
+        "address": "0xab7bcf98ca1bb3d208b1c2f10b971caf8cea64f9",
+        "usdValue": 185.32
+    },
+    {
+        "address": "0x301c1293a628e67735725fab533dc93474841694",
+        "usdValue": 172.61
+    },
+    {
+        "address": "0x3333b2643ce319d4a8321469ecfdcb9a10b1991f",
+        "usdValue": 169.90
+    },
+    {
+        "address": "0xe30e336dd2d98d8b07fedb26fe9357be25eca118",
+        "usdValue": 169.56
+    },
+    {
+        "address": "0x222285908f2ea66c6232c9fdd9810c60659b9ab8",
+        "usdValue": 168.92
+    },
+    {
+        "address": "0xb8f2e5b73ada180abe4919baea974eb50e35f012",
+        "usdValue": 168.68
+    },
+    {
+        "address": "0xd5db077540fcd49e94c065f33f0ca8491333c4a2",
+        "usdValue": 159.52
+    },
+    {
+        "address": "0x7eee2acc10613025fde276b0b0bcb345ff7b4971",
+        "usdValue": 159.23
+    },
+    {
+        "address": "0x966dd3485b61a1e8f262ff13c9d78107b9299b81",
+        "usdValue": 156.18
+    },
+    {
+        "address": "0x4444e901a79afc91b8ce83af88e74126688b5fb9",
+        "usdValue": 154.67
+    },
+    {
+        "address": "0x85c416dccb40ab05de0cd3e6529d7bd2bc4205d2",
+        "usdValue": 147.72
+    },
+    {
+        "address": "0x07533d4175fb2b530276a651c7b9ab36a039d473",
+        "usdValue": 141.36
+    },
+    {
+        "address": "0xe1b901565004d19af495daa4be03722a2f2e7b69",
+        "usdValue": 141.30
+    },
+    {
+        "address": "0xf15f84f330bf9a5aab85c8a8667bdc60e4af6fa0",
+        "usdValue": 141.30
+    },
+    {
+        "address": "0x9fc992e8f7fb8a99b0392bfbfb8ed97101149ec4",
+        "usdValue": 141.30
+    },
+    {
+        "address": "0x75c5bc090874218d94da049cbed4377b374148f1",
+        "usdValue": 139.04
+    },
+    {
+        "address": "0xc08bbf1063d569834b6834449555227841520511",
+        "usdValue": 126.52
+    },
+    {
+        "address": "0x4106c21bb94a098b2d9f4015144fe685bf8019d2",
+        "usdValue": 126.41
+    },
+    {
+        "address": "0x2d313f64c80b8150bf0dfea3741eb42f98de2252",
+        "usdValue": 124.52
+    },
+    {
+        "address": "0xb8ba6df6d552b545955b1cff8dcf4a2a5c5cdaef",
+        "usdValue": 117.75
+    },
+    {
+        "address": "0x52af411f863fd97419b6e4decb3a68ffa9246806",
+        "usdValue": 116.15
+    },
+    {
+        "address": "0xfadd0bd3468cdd5d4050f4884eab2c6b390f9de8",
+        "usdValue": 113.62
+    },
+    {
+        "address": "0xaab19dcfeb4ad60ba4b749e598d592248f4f9703",
+        "usdValue": 106.04
+    },
+    {
+        "address": "0x2ee25e1f58ad2ae3dede5c9810ee9e8d8bfc2bf6",
+        "usdValue": 103.05
+    },
+    {
+        "address": "0xf31e2f16c369c0cb47fae0ab8d277776d35d1053",
+        "usdValue": 103.03
+    },
+    {
+        "address": "0x6c9850b464d6b89b10e1adebdc81ebe03854a9a2",
+        "usdValue": 102.17
+    },
+    {
+        "address": "0x22117d7c4da67a7b8d31f1c4784c3cd77fec9c9e",
+        "usdValue": 99.03
+    },
+    {
+        "address": "0x71d715db8c24b0460abf074a7654a9cbf6ae6d31",
+        "usdValue": 97.54
+    },
+    {
+        "address": "0x82b729a952e47d8b29e27e890ef84f730ea07e96",
+        "usdValue": 96.00
+    },
+    {
+        "address": "0x86cc8704c8b8c1fb44ff28eaa7712dd4c57af6b3",
+        "usdValue": 94.20
+    },
+    {
+        "address": "0xd54e9019a16b355d8fcbaa4b11fc8212ebd236c5",
+        "usdValue": 94.20
+    },
+    {
+        "address": "0xccb0c076ca520e3fd227da225ae84dcef96bbf8e",
+        "usdValue": 94.20
+    },
+    {
+        "address": "0x16164188792fe02a608c8cc58cffb164e8a8fb0c",
+        "usdValue": 94.20
+    },
+    {
+        "address": "0x39cb3520f6347884d87b48c9fc511f9cd70845bc",
+        "usdValue": 89.46
+    },
+    {
+        "address": "0x47ef0959557920bd9faf1c88d886589b23b30309",
+        "usdValue": 84.78
+    },
+    {
+        "address": "0x1043cc0bc9a1788fa8c126da67bc45188725ec4d",
+        "usdValue": 82.19
+    },
+    {
+        "address": "0x1c9668fa477171dc2d0dd32d7f3a4a8ed68b41c1",
+        "usdValue": 82.01
+    },
+    {
+        "address": "0xa1b0e434536529d3b19d87a698cb7e4df2a98a83",
+        "usdValue": 80.00
+    },
+    {
+        "address": "0x44bf2d2816e354701f21263c786935eacbad9ac0",
+        "usdValue": 73.67
+    },
+    {
+        "address": "0xa7684e31464e3c589aac40d534f3b9a55a6ac079",
+        "usdValue": 69.11
+    },
+    {
+        "address": "0xf85067a30352bf13e46e8042f30d29784f2a4fc3",
+        "usdValue": 67.47
+    },
+    {
+        "address": "0x73085b79b41ce51d18d3e8c1181ddf0e8e3d7222",
+        "usdValue": 61.49
+    },
+    {
+        "address": "0x979d9dd23d71a414eb6aad8b5543f42348315093",
+        "usdValue": 59.74
+    },
+    {
+        "address": "0x12ab46ea196bfb4abdec638285d9f2b47633de1a",
+        "usdValue": 59.60
+    },
+    {
+        "address": "0x0b8cdf6c8fce44bd4a8049ba5326cf6903824a04",
+        "usdValue": 58.90
+    },
+    {
+        "address": "0x8bfbc9549cab2f47231baa743d7ff82aa8e50150",
+        "usdValue": 56.52
+    },
+    {
+        "address": "0x6aedaee6b15973087b01d8a7d47f3065e81adb81",
+        "usdValue": 53.69
+    },
+    {
+        "address": "0x3251d79ece5b2163b7ff46b8f7029118db1b6040",
+        "usdValue": 52.16
+    },
+    {
+        "address": "0x3ad3f6faefbd80cc5f279a463aeba5f423b6640a",
+        "usdValue": 52.00
+    },
+    {
+        "address": "0x1ce0211c62f51090291f7efa70a0610e576e6460",
+        "usdValue": 51.45
+    },
+    {
+        "address": "0x2222878bcdcdf36a2492be05d281b57bc245c673",
+        "usdValue": 50.62
+    },
+    {
+        "address": "0x14c99956f1d58c4b7d6eae814989d55ad43703e6",
+        "usdValue": 49.69
+    },
+    {
+        "address": "0xcb1a39edc2ecd30b6cdda538154d7bd22e20b4c9",
+        "usdValue": 49.66
+    },
+    {
+        "address": "0x74850e8383590ef57f6a166431e7c827911732cf",
+        "usdValue": 49.58
+    },
+    {
+        "address": "0xcc3c70184e3907b64aff15fe72ce74109fe5f7d2",
+        "usdValue": 49.51
+    },
+    {
+        "address": "0x72761b58a4a65c069e9b92fa83b15548cb318b23",
+        "usdValue": 48.71
+    },
+    {
+        "address": "0x48354348c77d8f58918c6d431af05474d51e4ec2",
+        "usdValue": 48.05
+    },
+    {
+        "address": "0x6dcefeb4015441bd1cf62d5c24dee36fa7faab1c",
+        "usdValue": 47.31
+    },
+    {
+        "address": "0x719cb9520758fa718191b5e5c92a7d397896753d",
+        "usdValue": 47.10
+    },
+    {
+        "address": "0x2c47e26adc0e9fa34561e56ee1c615426737dd8b",
+        "usdValue": 47.10
+    },
+    {
+        "address": "0x8241c6bb5c32dbbcb94d57cd9024a8da47a16daf",
+        "usdValue": 47.10
+    },
+    {
+        "address": "0x11116b5f9c6789e88ea833bcda59a91aea180112",
+        "usdValue": 41.50
+    },
+    {
+        "address": "0xa1f75f181453fb501ab47d19cc2057a7202c9fd3",
+        "usdValue": 40.02
+    },
+    {
+        "address": "0x1043f5c092f589f445223f1dd66dc2e7d4807341",
+        "usdValue": 39.49
+    },
+    {
+        "address": "0x6543fd61d4dfa81908a3b63b1763cccb0e0d53a2",
+        "usdValue": 37.71
+    },
+    {
+        "address": "0x7142485a4d22c7947721c90cdbba39141d08d4c9",
+        "usdValue": 37.68
+    },
+    {
+        "address": "0xe813bdf079a28fa572d1803c2d6c511cb74ae3f2",
+        "usdValue": 36.54
+    },
+    {
+        "address": "0xb8705520e7bf06a4d351d95d135565600c57d793",
+        "usdValue": 36.28
+    },
+    {
+        "address": "0x6cf83fe2db8a4f40ff98f9fe3e6315f3dcd5cbf6",
+        "usdValue": 36.09
+    },
+    {
+        "address": "0xb078ba9d298d5f9fcd1815e1f5ca162a221b8681",
+        "usdValue": 34.84
+    },
+    {
+        "address": "0xf246767838648c3ad06c6acf915994e0f7574400",
+        "usdValue": 34.56
+    },
+    {
+        "address": "0x5c3acc3dd80f4998e5d8e10868484d4bbb14a9a1",
+        "usdValue": 32.97
+    },
+    {
+        "address": "0x0126ba24d87fee57bfe3608c4fa410ef4f72421f",
+        "usdValue": 32.95
+    },
+    {
+        "address": "0x4e5f17660681eb6961ce26d3137e9343fea4bc51",
+        "usdValue": 32.41
+    },
+    {
+        "address": "0xe725486361e41581fa9f1cc48273a2d51dee2360",
+        "usdValue": 32.35
+    },
+    {
+        "address": "0x21c4d531bb2bd8273618c8a51a84ea42f8ac72f0",
+        "usdValue": 32.14
+    },
+    {
+        "address": "0xd157c4ecc6a898290e5f7c891fe28fbd51bd1a11",
+        "usdValue": 32.02
+    },
+    {
+        "address": "0xd2991c4cb36080bd21dc2eb12ce400b19b288941",
+        "usdValue": 31.53
+    },
+    {
+        "address": "0x99b4ba3dacf17c59c2d86c448861a2e2a11088b2",
+        "usdValue": 31.42
+    },
+    {
+        "address": "0x9a3616fed0bf277e647879cdecc1c4a2931984e3",
+        "usdValue": 31.32
+    },
+    {
+        "address": "0x80ace62b1b5dff1f3aecda398aabe2157a361d51",
+        "usdValue": 30.92
+    },
+    {
+        "address": "0x65e6beb6dff07c69ec7a720a8c0024c9de755c23",
+        "usdValue": 30.84
+    },
+    {
+        "address": "0x23fccb41bb812459c0d627c5923ad53603fc2534",
+        "usdValue": 30.39
+    },
+    {
+        "address": "0x5abefb43dd981de409e58b13d7ad299d0b6f693f",
+        "usdValue": 30.04
+    },
+    {
+        "address": "0x88f7d1b73ffbe6802ff1f12ea922e886280a5cd3",
+        "usdValue": 29.88
+    },
+    {
+        "address": "0x6ffdb73ca26cc13b5704bd3afbd629525d218590",
+        "usdValue": 28.10
+    },
+    {
+        "address": "0x4c282fb999d3f57d066aafadc91c17e4fe48c902",
+        "usdValue": 27.96
+    },
+    {
+        "address": "0x5e37b647c63803e10b36b725a755089676171992",
+        "usdValue": 26.36
+    },
+    {
+        "address": "0x76690d9335235f49ccb9312511709157daa13803",
+        "usdValue": 26.27
+    },
+    {
+        "address": "0xc580ac506bd2e9cd065d7becf9594ec0dd737b13",
+        "usdValue": 26.12
+    },
+    {
+        "address": "0xb3b6caee6b59eeb4f0b3259ca8e07e3958d472a4",
+        "usdValue": 25.69
+    },
+    {
+        "address": "0x9208785ee3c5e887094986cec5acf11bf44c60a3",
+        "usdValue": 24.35
+    },
+    {
+        "address": "0x608c3c4729f99896853f2907ee41a5f7d61b98be",
+        "usdValue": 23.64
+    },
+    {
+        "address": "0xeed28f0afb6c423db5c360e0e26c84b012c59621",
+        "usdValue": 23.55
+    },
+    {
+        "address": "0xbef291d06cc732bb7263d9ceb2e0560658231375",
+        "usdValue": 23.55
+    },
+    {
+        "address": "0xc8f20ecde1884fe4d0e78afe6e3a1aba976c8587",
+        "usdValue": 23.40
+    },
+    {
+        "address": "0xb9b3c7767fe241f68546f1160008b951d84324a2",
+        "usdValue": 19.87
+    },
+    {
+        "address": "0xb7cfa675b96efd9dade850c2acc1a4d1e6498818",
+        "usdValue": 19.85
+    },
+    {
+        "address": "0x9f3b3e2bc75007b3feb6c057a127546cb8fad59a",
+        "usdValue": 18.84
+    },
+    {
+        "address": "0xcacfcbfa256d70a6a1c663ce0c09052b63d50769",
+        "usdValue": 14.81
+    },
+    {
+        "address": "0x51489717cc222369c5be8985ea33326c5a5d5c94",
+        "usdValue": 14.13
+    },
+    {
+        "address": "0xd72cb798bcbd008b29a7557329945fbcdfac9d02",
+        "usdValue": 14.09
+    },
+    {
+        "address": "0x9f74cb711204f0d5adb8bb5966e4725b0f78ba0b",
+        "usdValue": 13.10
+    },
+    {
+        "address": "0x9a90b19dc61b05ae501934ff59acb767786ddcd4",
+        "usdValue": 12.11
+    },
+    {
+        "address": "0x932de97ebe1b168635fa6e516f99f88b16e210f0",
+        "usdValue": 11.77
+    },
+    {
+        "address": "0x342fb80b04837754825349ffd551a19642bbda62",
+        "usdValue": 10.88
+    },
+    {
+        "address": "0xf416d7c747007807ffa7ce49a5ec6300a97bbc30",
+        "usdValue": 10.03
+    },
+    {
+        "address": "0x2ca2550f326794776e0d00b492203df81ca7add9",
+        "usdValue": 9.69
+    },
+    {
+        "address": "0xeb30fa1c37e15bf056bd071b79fff4055e720eaa",
+        "usdValue": 9.42
+    },
+    {
+        "address": "0x9a5b76ee6a98cbefafd92c93aeab1e4fffd4f892",
+        "usdValue": 9.42
+    },
+    {
+        "address": "0x77b6bb9012a9775c3752ef31619bd949a7beaf83",
+        "usdValue": 9.42
+    },
+    {
+        "address": "0x518bf2e9a4858123cfd7374d45800a5943d85812",
+        "usdValue": 9.41
+    },
+    {
+        "address": "0x81f1719c31878fa1255398df4f5fe78a04af5a7a",
+        "usdValue": 8.81
+    },
+    {
+        "address": "0xc186aa28928462ffdd96763b5f8b3c67da4fee3d",
+        "usdValue": 6.98
+    },
+    {
+        "address": "0xc9ff191cc7940f833ee555f9e6c03a3674c69bde",
+        "usdValue": 4.71
+    }
+]
