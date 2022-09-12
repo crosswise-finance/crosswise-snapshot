@@ -5,7 +5,7 @@ const axios = require('axios').default;
 //json object arrays containing relevant addresses 
 const presaleList1 = require("../_snapshot/presale/presaleCRSSEnitlement1.json")
 const presaleList2 = require("../_snapshot/presale/presaleCRSSEnitlement2.json")
-const sumBalanceList = require("../Sum_balance_current.json")
+const sumBalanceList = require("../utils/Sum_balance_current.json")
 const { assert } = require("console");
 //this gets us all the token addresses involved
 const tokenAddresses = tokenConstants.TokensInScope;

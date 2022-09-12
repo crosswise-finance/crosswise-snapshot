@@ -1,7 +1,6 @@
 require("dotenv").config();
 const fs = require("fs");
 const axios = require('axios').default;
-const abiDecoder = require('abi-decoder');
 
 const Web3 = require("web3")
 const masterchefAbi = require("../_supporting/abi_masterchef.json");
@@ -249,15 +248,7 @@ const getTransactionFromHash = async (hash) => {
         });
 
 }
-function decodeData(data) {
-    abiDecoder.addABI(masterchefAbi);
-    const testData = "0x000000000000000000000000000000000000000000000000b364dacf24951726";
-    const decodedData = abiDecoder.decodeMethod(testData);
-    //const result = web3.utils.hexToNumberString(data);
-    // get staking value in crss
-    const result = web3.utils.hexToNumberString("0x000000000000000000000000000000000000000000000000b364dacf24951726")
-    console.log(result)
-}
+
 const getActivityAfterAttack = async (fromBlock, toBlock, topic0, topic1) => {
 
 

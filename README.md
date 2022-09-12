@@ -4,14 +4,15 @@ Instruction manual for recreating Crosswise protocol's user compensation
 ------
 
 Following dependencies need to be installed to run all the scripts
-1. You need a code editor to read all the files and run the scripts, we recommend VSCode, this is what we used
+1. We recommend installing Git, to clone this repository easily
+2. You need a code editor to read all the files and run the scripts, we recommend VSCode, this is what we used
 
-2. In addition to NPM, you need something to run JS scripts,  you can use Node with "node scripts/getPresaleCompensation.js",you can use hardhat with "npx hardhat run scripts/getPresaleCompensation.js",or any other tool you prefer
+3. In addition to NPM, you need something to run JS scripts,  you can use Node with "node scripts/getPresaleCompensation.js",you can use hardhat with "npx hardhat run scripts/getPresaleCompensation.js",or any other tool you prefer
 ----------------------------------
 https://nodejs.org/en/ - includes NPM
 https://www.npmjs.com/package/hardhat - if you want to use hardhat
 
-3. Following dependencies were used in the code : 
+4. Following dependencies were used in the code : 
 - FS - install with "npm install fs" in VSCode terminal 
 - Web3 - install with "npm install web3"
 - also install "npm install web3-eth-contract"
@@ -19,9 +20,10 @@ https://www.npmjs.com/package/hardhat - if you want to use hardhat
 - dotenv - install with "npm install dotenv"
 - inside .env file add your own API keys to BSC_PUBLIC_API and MORALIS_API (and, if you want to run getBalanceHistory.js you also need to add BSC_PREMIUM_API), you can use    the       ".env.example" file as reference for setting up dotenv API keys
 
-4. All the other dependencies will be written into this Github repo, for those who don't want to wait 4h+ or don't have BSC Pro API, we included historic wallet balances for block before the attack so you don't have to run getBalanceHistory.js 
+* All the other dependencies will be written into this Github repo, for those who don't want to wait 4h+ or don't have BSC Pro API, we included historic wallet balances for block before the attack so you don't have to run getBalanceHistory.js 
 -----------------------------------
 The scripts must be run in the correct order, as some scripts rely on other scripts to execute
+* First extract this repository's data somewhere, easiest way is to type "git clone https://github.com/crosswise-finance/crosswise-snapshot" in VSCode terminal 
 
 1. Run getPresaleCompensation.js => this will output two different lists for each of the two deployed presale contracts, containing CRSS owed amounts for each user
 
