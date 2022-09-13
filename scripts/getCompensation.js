@@ -83,8 +83,6 @@ function calculateAll(arr = []) {
       } else if (arr == dipList) {
         //we apply 30% shave on dip buy compensation
         if (arr[i].crssOwed > 0) {
-          // userObject.dipBuys += (addedValue * 0.7)
-          // userObject.crssOwed += (addedValue * 0.7)
           userObject.dipBuys += (addedValue * 0.7)
           userObject.crssOwed += (addedValue * 0.7)
         } else {
@@ -111,10 +109,10 @@ function createObjectArray() {
   }
 }
 
-function doubleCheckForExcludedAddresses() {
+function checkForExcludedAddresses() {
   for (let i = 0; i < objectArray.length; i++) {
     let excluded = false;
-    const userAddress = objectArray[i].address
+    const userAddress = (objectArray[i].address).toLowerCase()
     for (let x = 0; x < excludedAddresses.length; x++) {
       if (userAddress == excludedAddresses[x]) {
         excluded = true
@@ -134,7 +132,7 @@ function getCompensation() {
   calculateAll(presaleList1)
   calculateAll(presaleList2)
   calculateAll(dipList)
-  doubleCheckForExcludedAddresses()
+  checkForExcludedAddresses()
   let totalCrssToRefund = 0
   for (let i = 0; i < checkedArray.length; i++) {
     totalCrssToRefund += checkedArray[i].crssOwed
