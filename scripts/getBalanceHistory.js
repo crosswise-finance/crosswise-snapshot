@@ -95,10 +95,11 @@ const getWalletBalances = async (arr = [], timestamp) => {
 }
 //gets us global data
 function getGlobalData(objectArray) {
+    const userData = require("../_snapshot/holders/walletBalanceBefore.json")
     let globalObject = {
         "CRSSV11": 0, "CRSSV1": 0, "XCRSS": 0, "CRSS_BUSD": 0, "CRSS_BNB": 0,
         "BNB_BUSD": 0, "BNB_USDT": 0, "BNB_DOT": 0,
-        "BNB_LINK": 0, "BNB_ETH": 0, "BNB_ADA": 0, "BNB_BTCB": 0, "totalAddresses": objectArray.length, "totalCRSSOwed": 0
+        "BNB_LINK": 0, "BNB_ETH": 0, "BNB_ADA": 0, "BNB_BTCB": 0, "totalAddresses": 0, "totalCRSSOwed": 0, "addressesOver10000": 0, "addressesOver1000": 0, "addressesOver100": 0
     }
     for (let i = 0; i < objectArray.length; i++) {
         const addr = objectArray[i]
@@ -117,6 +118,29 @@ function getGlobalData(objectArray) {
 
 
     }
+    let addressesOver10000 = 0;
+    let addressesOver1000 = 0;
+    let addressesOver100 = 0;
+    let addressesOver0 = 0
+    for (let i = 0; i < userData.length; i++) {
+        if (userData[i].crssOwed > 10000) {
+            addressesOver10000++
+        }
+        if (userData[i].crssOwed > 1000) {
+            addressesOver1000++
+        }
+        if (userData[i].crssOwed > 100) {
+            addressesOver100++
+        }
+        if (userData[i].crssOwed > 0) {
+            addressesOver0++
+        }
+    }
+    globalObject.addressesOver10000 = addressesOver10000;
+    globalObject.addressesOver1000 = addressesOver1000;
+    globalObject.addressesOver100 = addressesOver100;
+    globalObject.totalAddresses = addressesOver0
+
     globalObject.totalCRSSOwed += globalObject.CRSSV11
     globalObject.totalCRSSOwed += globalObject.CRSSV1
     globalObject.totalCRSSOwed += globalObject.XCRSS
@@ -139,6 +163,6 @@ function sortAll() {
 const main = async () => {
     await getWalletBalances(fullAddressList, timestamp1)
     //await getWalletBalances(fullAddressList, timestamp2)
-    //getGlobalData(finalList)
+    //getGlobalData(finalListBefore)
 }
 main()

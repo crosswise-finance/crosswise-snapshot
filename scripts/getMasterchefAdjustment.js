@@ -333,6 +333,17 @@ function applyAdjustment() {
     fs.writeFileSync("_snapshot/smartContracts/depositAdjustedStaking.json", JSON.stringify(stakingArr))
 }
 
+function getStakingGlobalData() {
+    const stakingArray = require('../_snapshot/smartContracts/depositAdjustedStaking.json')
+    let globalObject = { "totalCRSSStaked": 0, "totalAddressesInStaking": stakingArray.length }
+
+    for (let i = 0; i < stakingArray.length; i++) {
+        globalObject.totalCRSSStaked += stakingArray[i].crssOwed;
+
+    }
+    fs.appendFileSync("_snapshot/smartContracts/adjustedStakingGlobal.json", JSON.stringify(globalObject))
+}
+
 
 
 function orderAndCalculate() {
@@ -357,7 +368,7 @@ const gatherLogsAndBEP20Transfers = async () => {
 }
 
 gatherLogsAndBEP20Transfers()
-
+getStakingGlobalData()
 
 
 
