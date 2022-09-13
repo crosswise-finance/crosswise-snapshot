@@ -28,7 +28,8 @@ The scripts must be run in the correct order, as some scripts rely on other scri
 1. Run getPresaleCompensation.js => this will output two different lists for each of the two deployed presale contracts, containing CRSS owed amounts for each user
 
 2. Run getSmartContractCompensation.js => this will output a list of all eligible staked CRSS for each user
-- After this you need to run getMasterchefDepositAdjustment.js to get depositAdjustedStaking.json, which is the final result of smart contract compensation
+- After this you need to run getMasterchefAdjustment.js to get depositAdjustedStaking.json, which is the final result of smart contract compensation
+* getSmartContractCompensation takes about 3-4mins, MC adjustment takes about 10-15mins
 
 3. Run getAllHolderAddresses.js, if you want to generate your own list, you can also skip this step and use the address list we provided in the Repo as "FullAddressList.json"
 

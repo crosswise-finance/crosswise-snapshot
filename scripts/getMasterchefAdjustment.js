@@ -360,6 +360,7 @@ const gatherLogsAndBEP20Transfers = async () => {
     await getBEP20Transfers()
     await getAllTransferLogs()
     orderAndCalculate()
+    getStakingGlobalData()
 
 
 
@@ -368,7 +369,7 @@ const gatherLogsAndBEP20Transfers = async () => {
 }
 
 gatherLogsAndBEP20Transfers()
-getStakingGlobalData()
+
 
 
 
