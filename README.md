@@ -10,6 +10,7 @@ Following dependencies need to be installed to run all the scripts
 3. In addition to NPM, you need something to run JS scripts,  you can use Node with "node scripts/getPresaleCompensation.js",you can use hardhat with "npx hardhat run scripts/getPresaleCompensation.js",or any other tool you prefer
 ----------------------------------
 https://nodejs.org/en/ - includes NPM
+
 https://www.npmjs.com/package/hardhat - if you want to use hardhat
 
 4. Following dependencies were used in the code : 
@@ -28,8 +29,8 @@ The scripts must be run in the correct order, as some scripts rely on other scri
 1. Run getPresaleCompensation.js => this will output two different lists for each of the two deployed presale contracts, containing CRSS owed amounts for each user
 
 2. Run getSmartContractCompensation.js => this will output a list of all eligible staked CRSS for each user
-- After this you need to run getMasterchefAdjustment.js to get totalAdjustedStaking.json, which is the final result of smart contract compensation
-* getSmartContractCompensation takes about 3-4mins, MC adjustment takes about 10-15mins
+- After this you need to run getMasterchefAdjustment.js to get totalAdjustedStaking.json, which includes stakingAttackers.js
+* getSmartContractCompensation takes about 3-4mins, MC adjustment takes about 5-6mins
 
 3. Run getAllHolderAddresses.js, if you want to generate your own list, you can also skip this step and use the address list we provided in the Repo as "FullAddressList.json"
 
@@ -37,7 +38,7 @@ The scripts must be run in the correct order, as some scripts rely on other scri
 
 5. Run getDipBuyersAndSellers.js => this will combine and calculate gathered buyers and sellers data and output total amounts of CRSS to be added or deducted from each user
 
-6. Run getCompensation.js => this will output compensationV1.json
+6. Run getCompensation.js => this will output compensationV1.json, and include manualAdjustments.js
 
 * Note
 -These are preliminary results, and the scripts are not necessarily final. We will allow  the community time to report any divergences from expected entitlements. The system and calculations are very robust, but there is scope for errors.
