@@ -1,7 +1,7 @@
 const fs = require("fs");
 const finalListBefore = require("../_snapshot/holders/walletBalanceBefore.json")
 let fullAddressList = require("../_snapshot/fullAddressList.json")
-const stakingArray = require('../_snapshot/smartContracts/depositAdjustedStaking.json')
+const stakingArray = require('../_snapshot/smartContracts/totalAdjustedStaking.json')
 const presaleList1 = require("../_snapshot/presale/presaleCRSSEnitlement1.json")
 const presaleList2 = require("../_snapshot/presale/presaleCRSSEnitlement2.json")
 const dipList = require("../_snapshot/dip/DipCompensationCrss.json")
@@ -137,12 +137,11 @@ function getCompensation() {
   for (let i = 0; i < checkedArray.length; i++) {
     totalCrssToRefund += checkedArray[i].crssOwed
   }
-  console.log(`Included ${numOfIncluded} different compensations for total ${fullAddressList.length} number of addresses we checked and ${totalCrssToRefund} CRSS in value`)
   console.log(`Included ${newAdded} new addresses from dip buyers for ${newValueAdded} CRSS`)
   console.log(`Total crss to refund: ${totalCrssToRefund}`)
-  console.log(fullAddressList.length)
   checkedArray.sort(sort_by('crssOwed', true, parseInt));
+  console.log(`Number of addresses in compensation: ${checkedArray.length}`)
 
-  fs.writeFileSync("_snapshot/compensationV12.json", JSON.stringify(checkedArray))
+  fs.writeFileSync("_snapshot/compensationV1.json", JSON.stringify(checkedArray))
 }
 getCompensation()
