@@ -7,7 +7,7 @@ exports.addressesToChange = [
     { "oldAddress": "0xd6b09f1d6b1f35c2ff09651c221663bce4993204", "newAddress": "0x6740353b66F823C9d30AE96fc32566C3160804A3" },
     { "oldAddress": "0xeBA0DB97eC85ef23049Af7E1270D7240DF4Bb59f", "newAddress": "0xa622216e4Cf0f7A59c93c18B82bB5011ed5B9F51" },
     { "oldAddress": "0xB8CE3fC4D0a60e9e28973D42435daC211b273b87", "newAddress": "0x25747761965f2710FdA9851636F722268925c1A0" },
-    { "oldAddress": "0x2C61569026CA8DA02911fd991d2FF695C435D031", "newAddress": "0xc1Aaf375DdDdE66Fa45794B63260A2E7a8BdeAbA" },
+    { "oldAddress": "0x9FF251fD3363632626E96CE5ccC82CEe6C80A732", "newAddress": "0xe3fdc3fee7ea3c05aaba89c7d65b5351da400164" },
 
 ]
 //address of former business partner 

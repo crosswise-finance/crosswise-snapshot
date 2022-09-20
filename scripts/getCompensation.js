@@ -1,4 +1,6 @@
 const fs = require("fs");
+require("dotenv").config();
+const axios = require('axios').default;
 const finalListBefore = require("../_snapshot/holders/walletBalanceBefore.json")
 let fullAddressList = require("../_snapshot/fullAddressList.json")
 const stakingArray = require('../_snapshot/smartContracts/totalAdjustedStaking.json')
@@ -8,13 +10,14 @@ const dipList = require("../_snapshot/dip/DipCompensationCrss.json")
 const tokenConstants = require('./constants.js');
 const excludedAddresses = tokenConstants.excludedAddr
 const manualAdjustmentsFile = require("./manualAdjustments.js")
+const CRSSV11 = "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb"
 
-let numOfIncluded = 0
+
 let objectArray = []
 let checkedArray = []
 let newAdded = 0
 let newValueAdded = 0
-
+let totalCrssToRefund = 0
 
 //this is a helper function for sorting addresses with descending balance value
 const sort_by = (field, reverse, primer) => {
@@ -65,9 +68,7 @@ function calculateAll(arr = []) {
         }
       }
 
-      if (addedValue > 0 && oldValue == 0) {
-        numOfIncluded++
-      }
+
     }
     else {
       fullAddressList.push(userAddress)
@@ -191,17 +192,79 @@ function getCompensation() {
   calculateAll(presaleList2)
   calculateAll(dipList)
   checkForExcludedAddresses()
-  let totalCrssToRefund = 0
+
+
+
   for (let i = 0; i < checkedArray.length; i++) {
     totalCrssToRefund += checkedArray[i].crssOwed
   }
+
+
   console.log(`Included ${newAdded} new addresses from dip buyers for ${newValueAdded} CRSS`)
   console.log(`Total crss to refund: ${totalCrssToRefund}`)
-  const adjustedArr = manualAdjustments(checkedArray)
+  let adjustedArr = manualAdjustments(checkedArray)
   adjustedArr.sort(sort_by('crssOwed', true, parseInt));
   adjustedArr[0].address = "0xb96235f423Fb407b5f9c3A227de86B2A5057A656".toLowerCase()
   console.log(`Number of addresses in compensation: ${checkedArray.length}`)
+  addLiquidityTokensFromOldPairs(adjustedArr)
 
-  fs.writeFileSync("_snapshot/compensationV1.json", JSON.stringify(adjustedArr))
+}
+const addressArr = [
+  "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC".toLowerCase(), // Crss-bnb
+  "0xB9B09264779733B8657b9B86970E3DB74561c237".toLowerCase(), // Crss-busd
+  "0x21d398F619a7A97e0CAb6443fd76Ef702B6dCE8D".toLowerCase(), // Crss-usdt
+  "0x8151D70B5806E3C957d9deB8bbB01352482a4741".toLowerCase(), // Bnb-Eth
+  "0xDE0356A496a8d492431b808c758ed5075Dd85040".toLowerCase(), // Bnb-Ada
+  "0x290E1ad05b4D906B1E65B41e689FC842C9962825".toLowerCase(), // Bnb-Busd
+  "0x278D7d1834E008864cfB247704cF34a171F39a2C".toLowerCase(), // Bnb-Link
+  "0x9Ba0DcE71930E6593aB34A1EBc71C5CebEffDeAF".toLowerCase(), // Bnb-Btcb
+  "0xef5be81A2B5441ff817Dc3C15FEF0950DD88b9bD".toLowerCase(), // Busd-usdt
+  "0x0458498C2cCbBe4731048751896A052e2a5CC041".toLowerCase(), // Bnb-Cake
+  "0xCB7Ad3af3aE8d6A04ac8ECA9a77a95B2a72B06DE".toLowerCase(), // Bnb-Dot
+  "0x9cbed1220E01F457772cEe3AAd8B94A142fc975F".toLowerCase(), // Pancake Crss-BNB LP
+  "0x73C02124d38538146aE2D807a3F119A0fAd3209c".toLowerCase(),// Biswap Crss-BNB LP
+  "0x99fefbc5ca74cc740395d65d384edd52cb3088bb".toLowerCase()
+
+
+]
+//this part of the script is for adding LP wallet balances to compensation, so we can have enough starting liquidity
+const timestamp1 = 14465247 //6:07:59 AM UTC, 18.1.2022 (bscscan)
+
+//we need this to create space between Api Pro requests to avoid missing data, since the relevant ones are capped to 2 calls per second
+function delay(n) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, n * 1000);
+  });
+}
+const addLiquidityTokensFromOldPairs = async (arr = []) => {
+  await getWalletBalances(arr, timestamp1)
+  fs.writeFileSync("_snapshot/compensationV1a.json", JSON.stringify(arr))
+}
+const getAddressHistoricalBalances = async (addr, timestamp) => {
+  let request = await axios.get(`https://api.bscscan.com/api?module=account&action=tokenbalancehistory&contractaddress=${CRSSV11}&address=${addr}&blockno=${timestamp}&apikey=${process.env.BSC_PREMIUM_API}`);
+  await delay(0.5)
+  let requestData = request.data
+  const holderBalance = (requestData.result) / (10 ** 18);
+
+
+  console.log(`done with ${addr}`)
+  return holderBalance
+
+}
+//takes list of addresses (totalAddressList.json) and a timestamp as inputs
+const getWalletBalances = async (arr = [], timestamp) => {
+
+  const currentCrss = arr[0].crssOwed
+  for (let i = 0; i < addressArr.length; i++) {
+    addr = addressArr[i]
+    const crssForLiquidity = await getAddressHistoricalBalances(addr, timestamp)
+    arr[0].crssOwed += crssForLiquidity
+    console.log(`done with ${i}`);
+  }
+  const newCrss = arr[0].crssOwed
+  const addedValue = newCrss - currentCrss
+  arr[0].reserveForLiquidity = addedValue
+  console.log(`Added ${addedValue} CRSS to dev wallet from previous LP pairs, for liquidity`)
+  console.log(`Total compensation with reserved liquidity: ${totalCrssToRefund + addedValue}`)
 }
 getCompensation()
