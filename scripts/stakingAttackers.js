@@ -1,3 +1,5 @@
+//this was used only in getMasterchefAdjustment, but is not necessary in reconstructStaking.js, these are users that managed to exploit MC contract by withdrawing amounts they didnt own,
+// each hash corresponds to the biggest exploit by the user and the amount of that exploit
 exports.exploiterList = [
     { "address": "0x43e963487cd3599e8f58cfe9e34b2eed59451e97", "hash": "0xfce3d2d1a8072ac57e2c5d2c821a16154fdf16f412100c7b2e5ac96c74b32008", "amount": 546523.094969822548885012 },
     { "address": "0x04744f5fb8f41be2201893bbb90ecae70af48c0a", "hash": "0x5e6696b2dca20dacdb1cb02f8f2ba927a3489cc982ebc3ffc09d46e4f29b0d75", "amount": 547966.644521645240902712 },

@@ -10,7 +10,7 @@ const masterchefExploiters = exploiterFile.exploiterAddresses
 const Web3 = require("web3")
 const masterchef = "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B".toLowerCase()
 const crssTokenAddress = "0x99FEFBC5cA74cc740395D65D384EDD52Cb3088Bb".toLowerCase();
-//const dataToDecode = require("../_snapshot/smartContracts/temp2.json")
+
 
 const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed2.defibit.io/'))
 //const contract = new web3.eth.Contract(masterchefAbi, masterchef);
@@ -57,7 +57,7 @@ const getBEP20Transfers = async () => {
     const arr1 = await getBEP20TransferForBlocks(timestamp1, timestamp3)
     const arr2 = await getBEP20TransfersSingle(timestamp3 + 1, latest)
     const fullArray = arr1.concat(arr2)
-    fs.writeFileSync("_snapshot/smartContracts/masterchefBEP20Transfers.json", JSON.stringify(fullArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/masterchefBEP20Transfers.json", JSON.stringify(fullArray))
 }
 
 const getBEP20TransferForBlocks = async (from, to) => {
@@ -138,14 +138,14 @@ const getBEP20TransfersSingle = async (_from, _to) => {
 //we filter out each address with value sent above 10 CRSS, to get rid of automatic inter contract interaction
 //we also filter each address that sent CRSS token as value, since staking and PID 0 pools in general work only with CRSS
 function filterTokenTransfers() {
-    const tokenTransfers = require("../_snapshot/smartContracts/masterchefBEP20Transfers.json")
+    const tokenTransfers = require("../_snapshot/smartContracts/oldApproach/masterchefBEP20Transfers.json")
     let arr1 = []
     for (let i = 0; i < tokenTransfers.length; i++) {
         if (tokenTransfers[i].from_address == masterchef && tokenTransfers[i].address == crssTokenAddress) {
             arr1.push(tokenTransfers[i])
         }
     }
-    fs.writeFileSync("_snapshot/smartContracts/withdrawFilteredBEP20Transfers.json", JSON.stringify(arr1))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/withdrawFilteredBEP20Transfers.json", JSON.stringify(arr1))
 
     let arr2 = []
     for (let i = 0; i < tokenTransfers.length; i++) {
@@ -153,7 +153,7 @@ function filterTokenTransfers() {
             arr2.push(tokenTransfers[i])
         }
     }
-    fs.writeFileSync("_snapshot/smartContracts/depositFilteredBEP20Transfers.json", JSON.stringify(arr2))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/depositFilteredBEP20Transfers.json", JSON.stringify(arr2))
 }
 
 const getAllTransferLogsWithdraw = async () => {
@@ -204,7 +204,7 @@ const getAllTransferLogsWithdraw = async () => {
     console.log(`Number of empty array responses:${emptyCount}`)
     console.log(`Request array length exceeded ${maxLogPerRequestExceeded} times`)
     console.log(`Error count:${errorCount}`)
-    fs.writeFileSync("_snapshot/smartContracts/masterchefWithdrawTransferLogs.json", JSON.stringify(fullArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/masterchefWithdrawTransferLogs.json", JSON.stringify(fullArray))
 }
 const getAllTransferLogsEmergencyWithdraw = async () => {
     let emptyCount = 0;
@@ -254,7 +254,7 @@ const getAllTransferLogsEmergencyWithdraw = async () => {
     console.log(`Number of empty array responses:${emptyCount}`)
     console.log(`Request array length exceeded ${maxLogPerRequestExceeded} times`)
     console.log(`Error count:${errorCount}`)
-    fs.writeFileSync("_snapshot/smartContracts/masterchefEmergencyWithdrawTransferLogs.json", JSON.stringify(fullArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/masterchefEmergencyWithdrawTransferLogs.json", JSON.stringify(fullArray))
 }
 const getAllTransferLogsDeposit = async () => {
     let emptyCount = 0;
@@ -303,12 +303,12 @@ const getAllTransferLogsDeposit = async () => {
     console.log(`Number of empty array responses:${emptyCount}`)
     console.log(`Request array length exceeded ${maxLogPerRequestExceeded} times`)
     console.log(`Error count:${errorCount}`)
-    fs.writeFileSync("_snapshot/smartContracts/masterchefDepositTransferLogs.json", JSON.stringify(fullArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/masterchefDepositTransferLogs.json", JSON.stringify(fullArray))
 };
 
 function getWithdrawLogTransferHashes() {
-    const logs1 = require("../_snapshot/smartContracts/masterchefEmergencyWithdrawTransferLogs.json")
-    const logs2 = require("../_snapshot/smartContracts/masterchefWithdrawTransferLogs.json")
+    const logs1 = require("../_snapshot/smartContracts/oldApproach/masterchefEmergencyWithdrawTransferLogs.json")
+    const logs2 = require("../_snapshot/smartContracts/oldApproach/masterchefWithdrawTransferLogs.json")
     let newArr = []
 
     for (let i = 0; i < logs1.length; i++) {
@@ -317,22 +317,22 @@ function getWithdrawLogTransferHashes() {
     for (let i = 0; i < logs2.length; i++) {
         newArr.push(logs2[i].transaction_hash)
     }
-    fs.writeFileSync("_snapshot/smartContracts/masterchefWithdrawLogHashes.json", JSON.stringify(newArr))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/masterchefWithdrawLogHashes.json", JSON.stringify(newArr))
 
 }
 function getDepositLogTransferHashes() {
-    const logs = require("../_snapshot/smartContracts/masterchefDepositTransferLogs.json")
+    const logs = require("../_snapshot/smartContracts/oldApproach/masterchefDepositTransferLogs.json")
     let newArr = []
 
     for (let i = 0; i < logs.length; i++) {
         newArr.push(logs[i].transaction_hash)
     }
-    fs.writeFileSync("_snapshot/smartContracts/masterchefDepositLogHashes.json", JSON.stringify(newArr))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/masterchefDepositLogHashes.json", JSON.stringify(newArr))
 
 }
 function filterWithdrawsWithHashes() {
-    const arr = require("../_snapshot/smartContracts/withdrawFilteredBEP20Transfers.json")
-    const logs = require("../_snapshot/smartContracts/masterchefWithdrawLogHashes.json")
+    const arr = require("../_snapshot/smartContracts/oldApproach/withdrawFilteredBEP20Transfers.json")
+    const logs = require("../_snapshot/smartContracts/oldApproach/masterchefWithdrawLogHashes.json")
     let newArr = []
     console.log(`Starting amount of objectArrays: ${arr.length}`)
     for (let i = 0; i < arr.length; i++) {
@@ -344,11 +344,11 @@ function filterWithdrawsWithHashes() {
         }
     }
     console.log(`New amount of objectArrays: ${newArr.length}`)
-    fs.writeFileSync("_snapshot/smartContracts/hashFilteredWithdraws.json", JSON.stringify(newArr))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/hashFilteredWithdraws.json", JSON.stringify(newArr))
 }
 function filterDepositsWithHashes() {
-    const arr = require("../_snapshot/smartContracts/depositFilteredBEP20Transfers.json")
-    const logs = require("../_snapshot/smartContracts/masterchefDepositLogHashes.json")
+    const arr = require("../_snapshot/smartContracts/oldApproach/depositFilteredBEP20Transfers.json")
+    const logs = require("../_snapshot/smartContracts/oldApproach/masterchefDepositLogHashes.json")
     let newArr = []
     console.log(`Starting amount of objectArrays: ${arr.length}`)
     for (let i = 0; i < arr.length; i++) {
@@ -360,7 +360,7 @@ function filterDepositsWithHashes() {
         }
     }
     console.log(`New amount of objectArrays: ${newArr.length}`)
-    fs.writeFileSync("_snapshot/smartContracts/hashFilteredDeposits.json", JSON.stringify(newArr))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/hashFilteredDeposits.json", JSON.stringify(newArr))
 }
 
 
@@ -368,8 +368,8 @@ function filterDepositsWithHashes() {
 
 
 function getUserStakingAfterAttack() {
-    const filteredWithdraws = require("../_snapshot/smartContracts/hashFilteredWithdraws.json")
-    const filteredDeposits = require("../_snapshot/smartContracts/hashFilteredDeposits.json")
+    const filteredWithdraws = require("../_snapshot/smartContracts/oldApproach/hashFilteredWithdraws.json")
+    const filteredDeposits = require("../_snapshot/smartContracts/oldApproach/hashFilteredDeposits.json")
     let userArray = []
     let addrArray = []
     const exploiterAddresses = masterchefExploiters
@@ -405,14 +405,14 @@ function getUserStakingAfterAttack() {
     checkedArray.sort(sort_by('crssAdjustment', true, parseInt));
 
     console.log(`Total addresses adjusted: ${checkedArray.length}`)
-    fs.writeFileSync("_snapshot/smartContracts/crssWithdrawnAfterAttack.json", JSON.stringify(checkedArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/crssWithdrawnAfterAttack.json", JSON.stringify(checkedArray))
 }
 
 
 function calculateTotalAdjustment() {
 
-    const stakingArr = require("../_snapshot/smartContracts/usersCRSSStaked.json")
-    const adjustmentArr = require("../_snapshot/smartContracts/crssWithdrawnAfterAttack.json")
+    const stakingArr = require("../_snapshot/smartContracts/oldApproach/usersCRSSStaked.json")
+    const adjustmentArr = require("../_snapshot/smartContracts/oldApproach/crssWithdrawnAfterAttack.json")
     let addrArray = []
     let userArray = []
     let adjustedArray = []
@@ -453,12 +453,12 @@ function calculateTotalAdjustment() {
     adjustedArray.sort(sort_by('crssOwed', true, parseInt));
     console.log(`Total CRSS owed for staking: ${totalStakingOwed}`)
     console.log(`Total addresses in staking: ${adjustedArray.length}`)
-    fs.writeFileSync("_snapshot/smartContracts/totalAdjustedStaking.json", JSON.stringify(adjustedArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/totalAdjustedStaking.json", JSON.stringify(adjustedArray))
 
 }
 /*function applyAdjustment() {
-    let stakingArr = require("../_snapshot/smartContracts/usersCRSSStaked.json")
-    const adjustmentArr = require("../_snapshot/smartContracts/stakingV1.json")
+    let stakingArr = require("../_snapshot/smartContracts/oldApproach/usersCRSSStaked.json")
+    const adjustmentArr = require("../_snapshot/smartContracts/oldApproach/stakingV1.json")
     let totalAdjusted = 0
     let addrArray = []
     let userArray = []
@@ -506,10 +506,10 @@ function calculateTotalAdjustment() {
         totalStakingOwed += checkedArray[i].crssOwed
     }
     console.log(`Total staking: ${totalStakingOwed}`)
-    fs.writeFileSync("_snapshot/smartContracts/stakingV1.json", JSON.stringify(checkedArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/stakingV1.json", JSON.stringify(checkedArray))
 }
 function calculateAllCRSSTransfers() {
-    const tokenTransfers = require("../_snapshot/smartContracts/masterchefBEP20Transfers.json")
+    const tokenTransfers = require("../_snapshot/smartContracts/oldApproach/masterchefBEP20Transfers.json")
     let totalAdjusted = 0
     let addrArray = []
     let userArray = []
@@ -545,7 +545,7 @@ function calculateAllCRSSTransfers() {
         totalStakingOwed += checkedArray[i].crssOwed
     }
     console.log(`Total staking: ${totalStakingOwed}`)
-    fs.writeFileSync("_snapshot/smartContracts/stakingAdjustmentV1.json", JSON.stringify(checkedArray))
+    fs.writeFileSync("_snapshot/smartContracts/oldApproach/stakingAdjustmentV1.json", JSON.stringify(checkedArray))
 }*/
 function checkForExcludedAddresses(arr = []) {
     let checkedArray = []

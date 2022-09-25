@@ -27,18 +27,22 @@ The scripts must be run in the correct order, as some scripts rely on other scri
 * First extract this repository's data somewhere, easiest way is to type "git clone https://github.com/crosswise-finance/crosswise-snapshot" in VSCode terminal 
 
 1. Run getPresaleCompensation.js => this will output two different lists for each of the two deployed presale contracts, containing CRSS owed amounts for each user
-
-2. Run getSmartContractCompensation.js => this will output a list of all eligible staked CRSS for each user
+2. Run reconstructStaking.js => this will output all token amount and total crss entitlement for each user
+- this is the only thing you need to do to get staking and farming CRSS and LP token amounts, if you want you can also run getSmartContractCompensation.js and getMasterchefAdjustment.js to get only CRSS staking, this was the old approach that didn't include LP tokens in farms, we left it in as it serves as a test script for validity of values derived in reconstruction
+-takes
+* only for testing or deriving CRSS staking exclusively, Run getSmartContractCompensation.js => this will output a list of all eligible staked CRSS for each user
 - After this you need to run getMasterchefAdjustment.js to get totalAdjustedStaking.json, which includes stakingAttackers.js
-* getSmartContractCompensation takes about 3-4mins, MC adjustment takes about 5-6mins
+- getSmartContractCompensation takes about 3-4mins, MC adjustment takes about 5-6mins
 
-3. Run getAllHolderAddresses.js, if you want to generate your own list, you can also skip this step and use the address list we provided in the Repo as "FullAddressList.json"
+3. optional, Run getAllHolderAddresses.js, if you want to generate your own list, you can also skip this step and use the address list we provided in the Repo as "FullAddressList.json"
 
-4. Run getBalanceHistory.js, for this you need BSC Pro API, takes 4h+ per timestamp, if you want to skip this part, the output json file you would get if you ran the script will be provided in the Repo as "totalAmountsBefore.json"
+4. optional, Run getBalanceHistory.js, for this you need BSC Pro API, takes 4h+ per timestamp, if you want to skip this part, the output json file you would get if you ran the script will be provided in the Repo as "totalAmountsBefore.json"
 
 5. Run getDipBuyersAndSellers.js => this will combine and calculate gathered buyers and sellers data and output total amounts of CRSS to be added or deducted from each user
 
 6. Run getCompensation.js => this will output compensationV1.json, and include manualAdjustments.js
+
+- there are some additional scripts we used, like script for getting LP token prices for block before exploit, but these 6 scripts are the only ones needed to get the full compensation values
 
 * Note
 -These are preliminary results, and the scripts are not necessarily final. We will allow  the community time to report any divergences from expected entitlements. The system and calculations are very robust, but there is scope for errors.

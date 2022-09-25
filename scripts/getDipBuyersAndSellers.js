@@ -16,6 +16,8 @@ const S3 = require("../_snapshot/dip/sellers/S0805AM.json")
 const S4 = require("../_snapshot/dip/sellers/S0920AM.json")
 const S5 = require("../_snapshot/dip/sellers/S0500amM1D19M3D22.json")
 const allData = [B1, B2, B3, B4, S1, S2, S3, S4, S5]
+const crssPrice = 1.2605653314300524
+const busdPrice = 1.0008
 //console.log(s5)
 
 
@@ -73,14 +75,14 @@ function combineObjectArrays() {
 
 }
 function convertToCrss() {
-    const BUSDPrice = 0.9993
-    const priceInCrss = 1.2606
+
+
     const arr = require("../_snapshot/dip/DipCompensationUsd.json");
     const convertedArr = []
     for (let i = 0; i < arr.length; i++) {
-        const priceInBusd = arr[i].usdValue / BUSDPrice;
-        const convertedToCrss = priceInBusd / priceInCrss;
-        const userObject = { "address": arr[i].address, "crssOwed": convertedToCrss }
+        const priceInBusd = arr[i].usdValue / busdPrice;
+        const convertedToCrss = priceInBusd / crssPrice;
+        const userObject = { "address": arr[i].address, "crssOwed": convertedToCrss, "busdValue": priceInBusd }
         convertedArr.push(userObject);
 
     }

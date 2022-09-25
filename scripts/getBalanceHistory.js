@@ -14,7 +14,7 @@ const tokenPrices = tokenConstants.TokensInScopePrice;
 const crssPrice = 1.26;
 //exact blocks used as time parameters
 const timestamp1 = 14465247 //6:07:59 AM UTC, 18.1.2022 (bscscan)
-const timestamp2 = 14486353 //11:59:58 PM UTC, 18.1.2022 (bscscan)
+
 
 //we need this to create space between Api Pro requests to avoid missing data, since the relevant ones are capped to 2 calls per second
 function delay(n) {
@@ -78,14 +78,15 @@ const getAddressHistoricalBalances = async (addr, timestamp) => {
 const getWalletBalances = async (arr = [], timestamp) => {
     if (timestamp == timestamp1) {
         const finalList = finalListBefore;
-        for (let i = finalList.length; i < 20; i++) {
+        for (let i = finalList.length; i < fullAddressList.length; i++) {
             addr = arr[i]
             await getAddressHistoricalBalances(addr, timestamp)
             console.log(`done with ${i}`);
         }
+
     } else if (timestamp == timestamp2) {
         const finalList = finalListAfter;
-        for (let i = finalList.length; i < 20; i++) {//fullAddressList.length
+        for (let i = finalList.length; i < fullAddressList.length; i++) {//fullAddressList.length
             addr = arr[i]
             await getAddressHistoricalBalances(addr, timestamp)
             console.log(`done with ${i}`);
@@ -122,6 +123,7 @@ function getGlobalData(objectArray) {
     let addressesOver1000 = 0;
     let addressesOver100 = 0;
     let addressesOver0 = 0
+    globalObject.totalCRSSOwed = convertAllToCrss(globalObject)
     for (let i = 0; i < userData.length; i++) {
         if (userData[i].crssOwed > 10000) {
             addressesOver10000++
@@ -141,19 +143,38 @@ function getGlobalData(objectArray) {
     globalObject.addressesOver100 = addressesOver100;
     globalObject.totalAddresses = addressesOver0
 
-    globalObject.totalCRSSOwed += globalObject.CRSSV11
-    globalObject.totalCRSSOwed += globalObject.CRSSV1
-    globalObject.totalCRSSOwed += globalObject.XCRSS
-    globalObject.totalCRSSOwed += globalObject.CRSS_BUSD / crssPrice * tokenPrices[3]
-    globalObject.totalCRSSOwed += globalObject.CRSS_BNB / crssPrice * tokenPrices[4]
-    globalObject.totalCRSSOwed += globalObject.BNB_BUSD / crssPrice * tokenPrices[5]
-    globalObject.totalCRSSOwed += globalObject.BNB_USDT / crssPrice * tokenPrices[6]
-    globalObject.totalCRSSOwed += globalObject.BNB_DOT / crssPrice * tokenPrices[7]
-    globalObject.totalCRSSOwed += globalObject.BNB_LINK / crssPrice * tokenPrices[8]
-    globalObject.totalCRSSOwed += globalObject.BNB_ETH / crssPrice * tokenPrices[9]
-    globalObject.totalCRSSOwed += globalObject.BNB_ADA / crssPrice * tokenPrices[10]
-    globalObject.totalCRSSOwed += globalObject.BNB_BTCB / crssPrice * tokenPrices[11]
+
     fs.appendFileSync("_snapshot/holders/globalAmountsBefore.json", JSON.stringify(globalObject))
+}
+function convertAllToCrss(object) {
+    object.crssOwed = object.CRSSV11
+    object.crssOwed += object.CRSSV1
+    object.crssOwed += object.XCRSS
+    object.crssOwed += object.CRSS_BUSD / crssPrice * tokenPrices[3]
+    object.crssOwed += object.CRSS_BNB / crssPrice * tokenPrices[4]
+    object.crssOwed += object.BNB_BUSD / crssPrice * tokenPrices[5]
+    object.crssOwed += object.BNB_USDT / crssPrice * tokenPrices[13]
+    object.crssOwed += object.BNB_DOT / crssPrice * tokenPrices[6]
+    object.crssOwed += object.BNB_LINK / crssPrice * tokenPrices[7]
+    object.crssOwed += object.BNB_ETH / crssPrice * tokenPrices[8]
+    object.crssOwed += object.BNB_ADA / crssPrice * tokenPrices[9]
+    object.crssOwed += object.BNB_BTCB / crssPrice * tokenPrices[10]
+    return object.crssOwed
+}
+function crssOwed(arr = []) {
+    let totalArray = arr;
+    for (let i = 0; i < arr.length; i++) {
+        const userObject = totalArray[i]
+        userObject.crssOwed = convertAllToCrss(userObject);
+    }
+    if (arr == finalListBefore) {
+        fs.writeFileSync("_snapshot/holders/totalAmountsBefore.json", JSON.stringify(totalArray))
+
+    } else if (arr == finalListAfter) {
+
+        fs.writeFileSync("_snapshot/holders/totalAmountsAfter.json", JSON.stringify(totalArray))
+    }
+
 }
 
 function sortAll() {
@@ -165,4 +186,5 @@ const main = async () => {
     //await getWalletBalances(fullAddressList, timestamp2)
     //getGlobalData(finalListBefore)
 }
-main()
+//main()
+crssOwed(finalListBefore)

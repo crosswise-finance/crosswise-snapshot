@@ -1,9 +1,12 @@
 const fs = require("fs");
 require("dotenv").config();
 const axios = require('axios').default;
-const finalListBefore = require("../_snapshot/holders/walletBalanceBefore.json")
+const finalListBefore = require("../_snapshot/holders/totalAmountsBefore.json")
 let fullAddressList = require("../_snapshot/fullAddressList.json")
-const stakingArray = require('../_snapshot/smartContracts/totalAdjustedStaking.json')
+//if you are using old approach that only looks at CRSS staking
+//const stakingArray = require('../_snapshot/smartContracts/totalAdjustedStaking.json')
+//for new approach that reconstruct pre-attack staking and farming amounts
+const stakingArray = require("../_snapshot/smartContracts/ReconstructedStakingBlockBeforeAttack.json")
 const presaleList1 = require("../_snapshot/presale/presaleCRSSEnitlement1.json")
 const presaleList2 = require("../_snapshot/presale/presaleCRSSEnitlement2.json")
 const dipList = require("../_snapshot/dip/DipCompensationCrss.json")
@@ -43,6 +46,8 @@ function calculateAll(arr = []) {
     const userAddress = (arr[i].address).toLowerCase()
     const addedValue = arr[i].crssOwed
     if (fullAddressList.includes(userAddress)) {
+      newValueAdded += addedValue
+
       const index = fullAddressList.indexOf(userAddress)
 
       const oldValue = objectArray[index].crssOwed
@@ -93,7 +98,6 @@ function calculateAll(arr = []) {
         }
       }
 
-      objectArray.push()
       newAdded++
       newValueAdded += addedValue
       objectArray.push(userObject)
@@ -199,8 +203,6 @@ function getCompensation() {
     totalCrssToRefund += checkedArray[i].crssOwed
   }
 
-
-  console.log(`Included ${newAdded} new addresses from dip buyers for ${newValueAdded} CRSS`)
   console.log(`Total crss to refund: ${totalCrssToRefund}`)
   let adjustedArr = manualAdjustments(checkedArray)
   adjustedArr.sort(sort_by('crssOwed', true, parseInt));
@@ -209,7 +211,7 @@ function getCompensation() {
   addLiquidityTokensFromOldPairs(adjustedArr)
 
 }
-const addressArr = [
+const pairAddresses = [
   "0xb5d85cA38a9CbE63156a02650884D92A6e736DDC".toLowerCase(), // Crss-bnb
   "0xB9B09264779733B8657b9B86970E3DB74561c237".toLowerCase(), // Crss-busd
   "0x21d398F619a7A97e0CAb6443fd76Ef702B6dCE8D".toLowerCase(), // Crss-usdt
@@ -255,8 +257,8 @@ const getAddressHistoricalBalances = async (addr, timestamp) => {
 const getWalletBalances = async (arr = [], timestamp) => {
 
   const currentCrss = arr[0].crssOwed
-  for (let i = 0; i < addressArr.length; i++) {
-    addr = addressArr[i]
+  for (let i = 0; i < pairAddresses.length; i++) {
+    addr = pairAddresses[i]
     const crssForLiquidity = await getAddressHistoricalBalances(addr, timestamp)
     arr[0].crssOwed += crssForLiquidity
     console.log(`done with ${i}`);

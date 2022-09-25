@@ -6,11 +6,15 @@
 const fs = require("fs")
 const Web3 = require('web3')
 const Contract = require('web3-eth-contract')
+const axios = require('axios').default;
 
 //fetching presale contract addresses and their respective ABIs
 const { presale1, presale2 } = require("./constants")
 const presale1ABI = require("../_supporting/abi_presale1.json")
 const presale2ABI = require("../_supporting/abi_presale2.json")
+const oldCrssAddress = "0x0999ba9aea33dca5b615ffc9f8f88d260eab74f1"
+
+const timestamp1 = 14465247 //6:07:59 AM UTC, 18.1.2022 (bscscan)
 
 //initialize web3
 const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed2.defibit.io/'));
@@ -32,6 +36,63 @@ const sort_by = (field, reverse, primer) => {
         return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
     }
 }
+function delay(n) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, n * 1000);
+    });
+}
+
+//this is where we take into account withdraws from presale contracts made after exploit
+const adjustForAfterAttackWithdrawals = async (presaleAddress, arr = [], num) => {
+    const latest = await web3.eth.getBlockNumber()
+
+
+    let withdraws = 0
+    let withdrawAmountCrss = 0
+    let withdrawArr = []
+    const options = {
+        method: 'GET',
+        url: `https://deep-index.moralis.io/api/v2/${presaleAddress}/erc20/transfers?chain=bsc&from_block=${timestamp1}&to_block=${latest - 10000}&limit=100`,
+        headers: { Accept: 'application/json', 'X-API-Key': process.env.MORALIS_API }
+    };
+
+    axios
+        .request(options)
+        .then(function (response) {
+            const responseArr = (response.data).result;
+            withdrawArr = responseArr
+
+
+            if (responseArr.length >= 100) {
+
+                console.log(`exceeded array length limit ${responseArr.length}`)
+
+            }
+        })
+        .catch(function (error) {
+            console.error(error);
+
+        });
+    await delay(1)
+    for (let i = 0; i < arr.length; i++) {
+        const userAddress = arr[i].address
+        for (let x = 0; x < withdrawArr.length; x++) {
+            const adjustmentAddress = (withdrawArr[x].to_address).toLowerCase()
+            if (userAddress == adjustmentAddress && withdrawArr[x].address == oldCrssAddress && withdrawArr[x].from_address == presaleAddress) {
+
+                const adjustmentAmount = withdrawArr[x].value / 10 ** 18
+                arr[i].crssOwed += adjustmentAmount
+                withdrawAmountCrss += adjustmentAmount
+                withdraws++
+            }
+        }
+    }
+
+    console.log(`Included ${withdraws} withdrawals for a total ${withdrawAmountCrss} CRSS `)
+    fs.writeFileSync(`_snapshot/presale/presaleCRSSWithdrawsx${num}.json`, JSON.stringify(withdrawArr))
+    fs.writeFileSync(`_snapshot/presale/presaleCRSSWithdraws${num}.json`, JSON.stringify(arr))
+    return arr
+}
 
 const getPresaleInfo = async (address, abi, round) => {
     //instantiate presale smart contract
@@ -42,41 +103,51 @@ const getPresaleInfo = async (address, abi, round) => {
     let investors = []
     investors = await contract.methods.allInvestors().call()
 
-    //get total amounts of BUSD and CRSS directly from presale view functions to store them in a separate json file 
-    const totalBusdDeposited = (await contract.methods.totalDepositedBusdBalance().call()) / (10 ** 18)
-    const totalPresaleCrss = (await contract.methods.totalRewardAmount().call()) / (10 ** 18)
-    const totalWithdrawn = (await contract.methods.totalWithdrawedAmount().call()) / (10 ** 18)
-    const totalCrssOwed = totalPresaleCrss - totalWithdrawn
-    const total = { "addressCount": investors.length, "totalOwed": totalCrssOwed, "totalCrss": totalPresaleCrss, "totalBusd": totalBusdDeposited, "totalWithdrawn": totalWithdrawn }
-    let objectArray = []
 
+
+    let objectArray = []
     //loop through all investors, calculate their CRSS entitlement by substracting users withdrawAmount from his/her totalRewardAmount
     //this handles ALL addresses involved in the presale without possibility for error
     // all withdrawn CRSS tokens that entered circulating supply will be handled in user wallet compensation script
-    for (let i = 0; i < investors.length; i++) {
+    const inner = async () => {
+        for (let i = 0; i < investors.length; i++) {
 
-        const userInfo = await contract.methods.userDetail(investors[i]).call()
-        let userObject = {}
+            const userInfo = await contract.methods.userDetail(investors[i]).call()
+            let userObject = {}
 
-        userObject.address = investors[i]
-        const reward = (userInfo.totalRewardAmount) / (10 ** 18)
-        const withdrawn = (userInfo.withdrawAmount) / (10 ** 18)
-        userObject.crssOwed = reward - withdrawn
-        objectArray.push(userObject);
+            userObject.address = investors[i].toLowerCase()
+            const reward = (userInfo.totalRewardAmount) / (10 ** 18)
+            const withdrawn = (userInfo.withdrawAmount) / (10 ** 18)
+            userObject.crssOwed = reward - withdrawn
+            objectArray.push(userObject);
+        }
     }
-    objectArray.sort(sort_by('crssOwed', true, parseInt));
+    await inner()
+
+    const adjustedArr = await adjustForAfterAttackWithdrawals(address, objectArray, round)
+    adjustedArr.sort(sort_by('crssOwed', true, parseInt));
+    //get global values
+    let totalOwed = 0
+    for (let i = 0; i < adjustedArr.length; i++) {
+        totalOwed += adjustedArr[i].crssOwed
+    }
+    const total = { "addressCount": investors.length, "totalOwed": totalOwed }
     //write the data to an empty json object array
-    fs.appendFileSync(`_snapshot/presale/presaleCRSSEnitlement${round}.json`, JSON.stringify(objectArray))
-    fs.appendFileSync(`_snapshot/presale/total${round}.json`, JSON.stringify(total))
+    console.log(`Data for presale ${round}:${totalOwed} CRSS distributed among ${adjustedArr.length} users`)
+    fs.writeFileSync(`_snapshot/presale/presaleCRSSEnitlement${round}.json`, JSON.stringify(adjustedArr))
+    fs.writeFileSync(`_snapshot/presale/total${round}.json`, JSON.stringify(total))
 
 
 }
 
+
+
 const main = async () => {
+
     //takes presale contract address, presale contract abi and round number as inputs
-    await getPresaleInfo(presale1, presale1ABI, 1)
-    await getPresaleInfo(presale2, presale2ABI, 2)
+    getPresaleInfo(presale1, presale1ABI, 1)
+    getPresaleInfo(presale2, presale2ABI, 2)
+
 }
 
 main()
-

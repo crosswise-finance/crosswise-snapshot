@@ -9,7 +9,7 @@ const masterchef = "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B"
 const web3 = new Web3(new Web3.providers.HttpProvider('https://bsc-dataseed2.defibit.io/'))
 
 //very important, used as storage for all addresses in compensation
-const userList = require("../_snapshot/fullAddressList.json")
+const userList = require("../_snapshot/fullAddressLis/oldApproacht.json")
 
 
 
@@ -71,17 +71,17 @@ const getMasterchefWeb3Data = async () => {
    }
    await delay(1)
    objectArray.sort(sort_by('crssOwed', true, parseInt));
-   fs.appendFileSync('_snapshot/smartContracts/usersCRSSStaked.json', JSON.stringify(objectArray))
+   fs.appendFileSync('_snapshot/smartContracts/oldApproach/usersCRSSStaked.json', JSON.stringify(objectArray))
 }
 const getMasterchefGlobalData = async () => {
-   const stakingArray = require('../_snapshot/smartContracts/usersCRSSStaked.json')
+   const stakingArray = require('../_snapshot/smartContracts/oldApproach/usersCRSSStaked.json')
    let globalObject = { "totalCRSSStaked": 0, "totalAddressesInStaking": stakingArray.length }
 
    for (let i = 0; i < stakingArray.length; i++) {
       globalObject.totalCRSSStaked += stakingArray[i].crssOwed;
 
    }
-   fs.appendFileSync("_snapshot/smartContracts/masterchefStakingGlobal.json", JSON.stringify(globalObject))
+   fs.appendFileSync("_snapshot/smartContracts/oldApproach/masterchefStakingGlobal.json", JSON.stringify(globalObject))
 }
 
 const main = async () => {
