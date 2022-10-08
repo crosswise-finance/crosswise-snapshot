@@ -1,7 +1,7 @@
 const fs = require("fs");
 require("dotenv").config();
 const axios = require('axios').default;
-const finalListBefore = require("../_snapshot/holders/totalAmountsBefore.json")
+const finalListBefore = require("../_snapshot/holders/WalletBalanceBeforeV2.json")
 let fullAddressList = require("../_snapshot/fullAddressList.json")
 //if you are using old approach that only looks at CRSS staking
 //const stakingArray = require('../_snapshot/smartContracts/totalAdjustedStaking.json')
@@ -144,7 +144,7 @@ function manualAdjustments(arr = []) {
   }
   //replace addresses
   for (let i = 0; i < arr.length; i++) {
-    const userAddress = arr[i].address
+    const userAddress = arr[i].address.toLowerCase()
     for (let x = 0; x < replaceAddresses.length; x++) {
       if ((replaceAddresses[x].oldAddress).toLowerCase() == userAddress) {
         arr[i].address = (replaceAddresses[x].newAddress).toLowerCase()
@@ -154,6 +154,12 @@ function manualAdjustments(arr = []) {
     }
   }
   arr.push({ "address": "0x10E5Bd7DdE3894a1f99bc24ADeE4674772f3a3EA".toLowerCase(), "crssOwed": toMarketing, "presale": 0, "wallet": 0, "staking": 0, "dipBuys": 0 })
+  //this is for a user that reported a buy missing with transaction hash as proof
+  const userAddress1 = "0xD4105c56dCd0497B3b220Eb2Fc88022465717a2f".toLowerCase()
+  const userIndex1 = addressArr.indexOf(userAddress1)
+  checkedArray[userIndex1].crssOwed += 59.22
+  checkedArray[userIndex1].dipBuys += 59.22
+
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].address == (specialCaseAddress.oldAddress).toLowerCase()) {
 
@@ -165,6 +171,7 @@ function manualAdjustments(arr = []) {
       arr[i].dipBuys = 0
     }
   }
+
   let arrOneFound = false
   let arrTwoFound = false
   for (let i = 0; i < arr.length; i++) {
@@ -202,12 +209,31 @@ function getCompensation() {
   for (let i = 0; i < checkedArray.length; i++) {
     totalCrssToRefund += checkedArray[i].crssOwed
   }
+  let averageComp = totalCrssToRefund / checkedArray.length
+  let over10000 = 0
+  let over1000 = 0
+  let over100 = 0
+
+
 
   console.log(`Total crss to refund: ${totalCrssToRefund}`)
   let adjustedArr = manualAdjustments(checkedArray)
   adjustedArr.sort(sort_by('crssOwed', true, parseInt));
   adjustedArr[0].address = "0xb96235f423Fb407b5f9c3A227de86B2A5057A656".toLowerCase()
-  console.log(`Number of addresses in compensation: ${checkedArray.length}`)
+  for (let i = 0; i < adjustedArr.length; i++) {
+    if (adjustedArr[i].crssOwed >= 10000) {
+      over10000++
+    }
+    if (adjustedArr[i].crssOwed >= 1000) {
+      over1000++
+    }
+    if (adjustedArr[i].crssOwed >= 100) {
+      over100++
+    }
+
+  }
+  console.log(`Number of addresses in compensation: ${adjustedArr.length}`)
+  console.log(`Average compensation : ${averageComp}, there are ${over10000} addresses with more than 10k CRSS, ${over1000} with more than 1k and ${over100} addresses with 100 or more CRSS`)
   addLiquidityTokensFromOldPairs(adjustedArr)
 
 }

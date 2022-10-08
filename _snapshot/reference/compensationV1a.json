@@ -1,9 +1,9 @@
 [
     {
         "address": "0xb96235f423fb407b5f9c3a227de86b2a5057a656",
-        "crssOwed": 1087449.1346677132,
+        "crssOwed": 1091189.2052889806,
         "presale": 320006.25000000006,
-        "wallet": 48740.81127605252,
+        "wallet": 52480.88189732003,
         "staking": 379681.95674677426,
         "dipBuys": 0,
         "reserveForLiquidity": 339020.1166448863
@@ -76,7 +76,7 @@
         "address": "0x3a89408e41f6dd7f1870fe53bee6f01f48fb1da6",
         "crssOwed": 50000.00027997812,
         "presale": 50000,
-        "wallet": 0.000279978123082001,
+        "wallet": 0.00027997812308200196,
         "staking": 0,
         "dipBuys": 0
     },
@@ -92,7 +92,7 @@
         "address": "0xacf729aa410479ba861fa30474b6d2201c21a9a2",
         "crssOwed": 39880.952380952374,
         "presale": 31904.761904761897,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 7976.190476190476,
         "dipBuys": 0
     },
@@ -146,10 +146,10 @@
     },
     {
         "address": "0xf2c3b0e53a9224d041e20b13d4f99b68cf62c5e0",
-        "crssOwed": 30518.63241308194,
+        "crssOwed": 30501.485219057835,
         "presale": 21678.571428571428,
         "wallet": 235.9959051866033,
-        "staking": 8604.065079323911,
+        "staking": 8586.917885299805,
         "dipBuys": 0
     },
     {
@@ -204,7 +204,7 @@
         "address": "0x5cfc938f972ff50af166b191e407440fe4aff9bb",
         "crssOwed": 25943.74127212444,
         "presale": 25943.740999999995,
-        "wallet": 0.000272124445600001,
+        "wallet": 0.000272124445600002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -239,6 +239,14 @@
         "wallet": 327.7399985817764,
         "staking": 6977.526782477415,
         "dipBuys": 1216.5915460802105
+    },
+    {
+        "address": "0x10e5bd7dde3894a1f99bc24adee4674772f3a3ea",
+        "crssOwed": 20716.922088493175,
+        "presale": 0,
+        "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
     },
     {
         "address": "0x4c89dcd8238206f7317ce6727da07571277f6af2",
@@ -294,14 +302,6 @@
         "presale": 10666.666666666668,
         "wallet": 263.39810271073264,
         "staking": 6797.37175574739,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x10e5bd7dde3894a1f99bc24adee4674772f3a3ea",
-        "crssOwed": 17243.969237043213,
-        "presale": 0,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -388,7 +388,7 @@
         "address": "0xd4d50342c08b5f2d283709c4f30b14412a01f89f",
         "crssOwed": 15383.664136196523,
         "presale": 15279.16666666667,
-        "wallet": 0.000212450000000001,
+        "wallet": 0.000212450000000002,
         "staking": 0,
         "dipBuys": 104.49725707985316
     },
@@ -428,7 +428,7 @@
         "address": "0x8923550fb1dac297430e06ea129e5aee4999faac",
         "crssOwed": 14285.714285714286,
         "presale": 11428.57142857143,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 2857.1428571428573,
         "dipBuys": 0
     },
@@ -444,8 +444,16 @@
         "address": "0x38a790d5886e18d9f48092bdade9830b96ce88d4",
         "crssOwed": 13882.795844763023,
         "presale": 6257.142857142857,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 7625.652987620166,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xb34fdaa28c68d4211db4e520e29116c6f4ee3eda",
+        "crssOwed": 13850,
+        "presale": 8810,
+        "wallet": 5040,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -492,7 +500,7 @@
         "address": "0x4092faeab100e5c36cd1fb257c809907877611ca",
         "crssOwed": 12213.333333333334,
         "presale": 7328.000000000001,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 4885.333333333333,
         "dipBuys": 0
     },
@@ -500,7 +508,7 @@
         "address": "0x99dc28a059ca9fff129e79d4c7b4e12d96039c57",
         "crssOwed": 11986.666666666666,
         "presale": 9589.333333333332,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 2397.3333333333335,
         "dipBuys": 0
     },
@@ -537,19 +545,19 @@
         "dipBuys": 0
     },
     {
-        "address": "0xb79252042f6639d02025ec881d52434cbe8cfb70",
-        "crssOwed": 10765.459372632622,
-        "presale": 3278.142857142857,
-        "wallet": 448.0195112580046,
-        "staking": 7039.297004231761,
-        "dipBuys": 0
-    },
-    {
         "address": "0x3a9520541aac9069b469c005dff93bda1824415d",
         "crssOwed": 10763.748406532848,
         "presale": 0,
         "wallet": 509.5923921244472,
         "staking": 10254.156014408401,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xb79252042f6639d02025ec881d52434cbe8cfb70",
+        "crssOwed": 10684.366917189926,
+        "presale": 3278.142857142857,
+        "wallet": 448.0195112580046,
+        "staking": 6958.204548789065,
         "dipBuys": 0
     },
     {
@@ -620,7 +628,7 @@
         "address": "0x1526741ef7fcee10e4709cd0403b301683c8925e",
         "crssOwed": 10000.00014000026,
         "presale": 9999.999999999996,
-        "wallet": 0.000140000264600001,
+        "wallet": 0.000140000264600002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -628,7 +636,15 @@
         "address": "0xf7d170c6c72cf3a1e3a958565c7d7041ca578a9d",
         "crssOwed": 10000.00009380027,
         "presale": 9999.999999999996,
-        "wallet": 0.000093800274302001,
+        "wallet": 0.000093800274302003,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x2d25636ac65fd2aafe8096955779dd41d643ea26",
+        "crssOwed": 10000,
+        "presale": 8000,
+        "wallet": 2000,
         "staking": 0,
         "dipBuys": 0
     },
@@ -644,7 +660,7 @@
         "address": "0x32716a466105d09e2db84094048ee43e128e7b2f",
         "crssOwed": 9980,
         "presale": 9980,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -697,14 +713,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0xb34fdaa28c68d4211db4e520e29116c6f4ee3eda",
-        "crssOwed": 8810,
-        "presale": 8810,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xf91740d13d1d5d5a8fb7b4f437beff9a80e953d7",
         "crssOwed": 8627.409186527437,
         "presale": 3996.8731380000004,
@@ -724,7 +732,7 @@
         "address": "0xc003f36a59e485a34407a1ab9b9e12f1b6a78625",
         "crssOwed": 8571.428571428572,
         "presale": 6857.142857142859,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 1714.2857142857142,
         "dipBuys": 0
     },
@@ -756,7 +764,7 @@
         "address": "0xe9d94dbd538929b1c744f54924354df3c9d1a55c",
         "crssOwed": 8333.333333333332,
         "presale": 6666.666666666665,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 1666.666666666667,
         "dipBuys": 0
     },
@@ -764,7 +772,7 @@
         "address": "0xeed3ce185f6ef84fbf77c78a524e928a0376d5fb",
         "crssOwed": 8244.047619047618,
         "presale": 8244.047619047618,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -789,14 +797,6 @@
         "crssOwed": 8000.003333333333,
         "presale": 6400.002666666666,
         "wallet": 1600.0006666666666,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x2d25636ac65fd2aafe8096955779dd41d643ea26",
-        "crssOwed": 8000,
-        "presale": 8000,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -860,7 +860,7 @@
         "address": "0x9fc992e8f7fb8a99b0392bfbfb8ed97101149ec4",
         "crssOwed": 7637.792073091824,
         "presale": 4535.633999999999,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 3023.7560000000003,
         "dipBuys": 78.4020730918242
     },
@@ -940,7 +940,7 @@
         "address": "0x804711211234219d3219e321c460332920b6b13c",
         "crssOwed": 6785.714285714286,
         "presale": 5428.571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 1357.142857142857,
         "dipBuys": 0
     },
@@ -972,7 +972,7 @@
         "address": "0x1afa957fea269e99dd0ed7bfcc790434b90388b6",
         "crssOwed": 6666.666666666667,
         "presale": 5333.333333333334,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 1333.3333333333333,
         "dipBuys": 0
     },
@@ -1001,6 +1001,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xff12c0d6f18d395c90193c6cde2d1b3ec57b4781",
+        "crssOwed": 6441.071428571428,
+        "presale": 6155.357142857143,
+        "wallet": 285.7142857142857,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x3d9163975fb9beadd4d3466f89e038eaf2ced7af",
         "crssOwed": 6339.646682427112,
         "presale": 1890.2240000000002,
@@ -1022,14 +1030,6 @@
         "presale": 3243.75,
         "wallet": 3.4347501646131824,
         "staking": 2924.9280374830096,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xff12c0d6f18d395c90193c6cde2d1b3ec57b4781",
-        "crssOwed": 6155.357142857143,
-        "presale": 6155.357142857143,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -1077,7 +1077,7 @@
         "crssOwed": 5734.277836689718,
         "presale": 2010,
         "wallet": 48.02081193987885,
-        "staking": 3676.2570247498397,
+        "staking": 3676.2570247498393,
         "dipBuys": 0
     },
     {
@@ -1089,10 +1089,18 @@
         "dipBuys": 553.4476136266104
     },
     {
+        "address": "0xcfdf51d253399692a405f4c6f59470fb3eaca6ab",
+        "crssOwed": 5666.666666666667,
+        "presale": 3400,
+        "wallet": 2266.666666666667,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x89666edb7318ae35fee1459c5d7ceb23f1fd2e9d",
         "crssOwed": 5468.000344219238,
         "presale": 5467.999999999998,
-        "wallet": 0.000344219240064001,
+        "wallet": 0.000344219240064003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -1129,14 +1137,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x84d9dbd0fb282f3884bb663fe4febbceb046440b",
-        "crssOwed": 5372.906569618241,
-        "presale": 2000.0000000000002,
-        "wallet": 7.863795189727073,
-        "staking": 2999.1664333333333,
-        "dipBuys": 365.87634109517955
-    },
-    {
         "address": "0xb9928cebc3cb43f677fcb567f5405ce0f5866f03",
         "crssOwed": 5333.333333333333,
         "presale": 5333.333333333333,
@@ -1153,6 +1153,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xe0a16074cb22dae8a05781977bc49a1445b822e8",
+        "crssOwed": 5181.774566131979,
+        "presale": 2000.0000000000002,
+        "wallet": 1333.3333333333333,
+        "staking": 0,
+        "dipBuys": 1848.441232798645
+    },
+    {
         "address": "0x3ec0bdc1dca363368ba6cbcff90771eb9ea63594",
         "crssOwed": 5170.268880651199,
         "presale": 4015.0000000000005,
@@ -1164,7 +1172,7 @@
         "address": "0x8428f389aed7060e21f78bdb874488aff6d08c26",
         "crssOwed": 5119.04761904762,
         "presale": 4095.2380952380963,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 1023.8095238095239,
         "dipBuys": 0
     },
@@ -1268,7 +1276,7 @@
         "address": "0xefbbf48404fa8977ccf6ae7ecd6d7100c416cc79",
         "crssOwed": 4700.000658000334,
         "presale": 4700,
-        "wallet": 0.000658000333333265,
+        "wallet": 0.000658000333333266,
         "staking": 0,
         "dipBuys": 0
     },
@@ -1396,7 +1404,7 @@
         "address": "0xde3ea553bbd9fae9657a1dbf2206d32633f7c32f",
         "crssOwed": 4209.269753797744,
         "presale": 3333.3333333333326,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 1096.5021960030926,
         "dipBuys": -220.56577553868163
     },
@@ -1476,7 +1484,7 @@
         "address": "0xf406c3df4e5885b18ee0fd63eb5efced6cfa881d",
         "crssOwed": 4166.666666666666,
         "presale": 3333.3333333333326,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 833.3333333333335,
         "dipBuys": 0
     },
@@ -1484,7 +1492,7 @@
         "address": "0x7cf957174fda8fecb811c906fc612d2bbfd40b8e",
         "crssOwed": 4166.666666666666,
         "presale": 3333.3333333333326,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 833.3333333333335,
         "dipBuys": 0
     },
@@ -1492,7 +1500,7 @@
         "address": "0xf3d08683e9a205cd0b89cbcc566cb498a26b4c75",
         "crssOwed": 4166.666666666666,
         "presale": 3333.3333333333326,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 833.3333333333335,
         "dipBuys": 0
     },
@@ -1500,7 +1508,7 @@
         "address": "0x1389a621cbc72385517cb335dbb1ded3515f1153",
         "crssOwed": 4166.666666666666,
         "presale": 2499.999999999999,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 1666.666666666667,
         "dipBuys": 0
     },
@@ -1508,7 +1516,7 @@
         "address": "0x666af2666e3d00892efbf7d0788a13a391f3fa82",
         "crssOwed": 4166.666666666666,
         "presale": 2499.999999999999,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 1666.666666666667,
         "dipBuys": 0
     },
@@ -1588,7 +1596,7 @@
         "address": "0xf8f932b9037d4e5e4cadf49e0682af32300c5291",
         "crssOwed": 3963.3333333333335,
         "presale": 3170.666666666667,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 792.6666666666666,
         "dipBuys": 0
     },
@@ -1615,14 +1623,6 @@
         "wallet": 12.27842711466752,
         "staking": 779.7150848528136,
         "dipBuys": 0
-    },
-    {
-        "address": "0xe0a16074cb22dae8a05781977bc49a1445b822e8",
-        "crssOwed": 3848.441232798645,
-        "presale": 2000.0000000000002,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 1848.441232798645
     },
     {
         "address": "0xf391ded73ebc4e474d528343a2db37b366a90eb1",
@@ -1772,7 +1772,7 @@
         "address": "0xae5e6d0951245d5eaa0650e5e05e828a6e862717",
         "crssOwed": 3411.871557085682,
         "presale": 2476.190476190476,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 935.6810808952052,
         "dipBuys": 0
     },
@@ -1781,14 +1781,6 @@
         "crssOwed": 3400.985946060908,
         "presale": 3333.3333333333326,
         "wallet": 67.65261272757576,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xcfdf51d253399692a405f4c6f59470fb3eaca6ab",
-        "crssOwed": 3400,
-        "presale": 3400,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -1828,7 +1820,7 @@
         "address": "0xca354c6a5e1973d5b7ffeaf28032ff46353f7777",
         "crssOwed": 3333.3335083333327,
         "presale": 3333.3333333333326,
-        "wallet": 0.000175000000000001,
+        "wallet": 0.000175000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -1836,7 +1828,7 @@
         "address": "0x84e20fa92ad10cb460f621d10977410509071e9f",
         "crssOwed": 3333.3335083333327,
         "presale": 3333.3333333333326,
-        "wallet": 0.000175000000000001,
+        "wallet": 0.000175000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -1860,7 +1852,7 @@
         "address": "0x79888c10c1efc21f371120e082714938391d3925",
         "crssOwed": 3333.3333333333335,
         "presale": 2666.666666666667,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 666.6666666666666,
         "dipBuys": 0
     },
@@ -1868,7 +1860,7 @@
         "address": "0x8cc559240c6b111171b9e578e468908a78f0c456",
         "crssOwed": 3333.3333333333335,
         "presale": 2000.0000000000002,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 1333.3333333333333,
         "dipBuys": 0
     },
@@ -1876,7 +1868,7 @@
         "address": "0x6cc71221b844b877e0588bb2744840db72aad681",
         "crssOwed": 3333.3333333333335,
         "presale": 2000.0000000000002,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 1333.3333333333333,
         "dipBuys": 0
     },
@@ -1946,10 +1938,10 @@
     },
     {
         "address": "0x55b4a6820f13688c734e0e9142e1cf63bc526661",
-        "crssOwed": 3221.371168529574,
+        "crssOwed": 3220.9129479427884,
         "presale": 1293.3333333333335,
         "wallet": 135.10765161827652,
-        "staking": 1662.2600617582566,
+        "staking": 1661.801841171471,
         "dipBuys": 130.670121819707
     },
     {
@@ -1965,6 +1957,14 @@
         "crssOwed": 3186.773807324347,
         "presale": 0,
         "wallet": 3186.773807324347,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xcbb3a80bf5912a3fc0296ba9401523f5a6efd347",
+        "crssOwed": 3166.6666666666665,
+        "presale": 2533.333333333333,
+        "wallet": 633.3333333333334,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2076,7 +2076,7 @@
         "address": "0x17739bda9fbca2cc628d746ce3647922c1e29673",
         "crssOwed": 2999.02380952381,
         "presale": 2399.219047619048,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 599.8047619047619,
         "dipBuys": 0
     },
@@ -2092,7 +2092,7 @@
         "address": "0xd7aa178bb566c614d75b3aa0e64ab90c2feff80d",
         "crssOwed": 2961.142926707658,
         "presale": 2961.1428571428573,
-        "wallet": 0.000069564800453199,
+        "wallet": 0.0000695648004532,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2141,7 +2141,7 @@
         "crssOwed": 2915.2588135588567,
         "presale": 2154.666666666667,
         "wallet": 9.907811253668966,
-        "staking": 750.6843356385207,
+        "staking": 750.6843356385209,
         "dipBuys": 0
     },
     {
@@ -2177,6 +2177,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xac4f5b7227ab4eaf0b210a9509d8affc8f64a45b",
+        "crssOwed": 2857.1428571428573,
+        "presale": 2285.714285714286,
+        "wallet": 571.4285714285714,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x5af3fa8c4463c4a55d95c831335fda00360f81d0",
         "crssOwed": 2854.281167972217,
         "presale": 0,
@@ -2199,6 +2207,14 @@
         "wallet": 569,
         "staking": 0,
         "dipBuys": 0
+    },
+    {
+        "address": "0xcd1550d699d7df48002c42a04517ee69bc07cc27",
+        "crssOwed": 2837.832514074621,
+        "presale": 580,
+        "wallet": 386.6666666666667,
+        "staking": 1343.8522581452858,
+        "dipBuys": 527.313589262669
     },
     {
         "address": "0xd3e40967eb547731aae8376731cd37f01c6c8274",
@@ -2239,14 +2255,6 @@
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
-    },
-    {
-        "address": "0x52af411f863fd97419b6e4decb3a68ffa9246806",
-        "crssOwed": 2765.330948990764,
-        "presale": 0,
-        "wallet": 313.9399795188353,
-        "staking": 2545.2657800700968,
-        "dipBuys": -93.87481059816741
     },
     {
         "address": "0x6deffb0fb4c0c476cdece31d3cb67eb5e98f1051",
@@ -2297,12 +2305,28 @@
         "dipBuys": 0
     },
     {
+        "address": "0x52af411f863fd97419b6e4decb3a68ffa9246806",
+        "crssOwed": 2711.937986662626,
+        "presale": 0,
+        "wallet": 313.9399795188353,
+        "staking": 2491.8728177419584,
+        "dipBuys": -93.87481059816741
+    },
+    {
         "address": "0xb6216befccf4d1dc9c83dac3581d747ac34e06ac",
         "crssOwed": 2701.746824291663,
         "presale": 2665.3333333333335,
         "wallet": 36.41349095832946,
         "staking": 0,
         "dipBuys": 0
+    },
+    {
+        "address": "0xc5dd37bcfb33a3cc03b909038400e5bf5cbbeffb",
+        "crssOwed": 2686.4532848091203,
+        "presale": 2000.0000000000002,
+        "wallet": 7.863795189727073,
+        "staking": 2999.1664333333333,
+        "dipBuys": 365.87634109517955
     },
     {
         "address": "0xcbe25d019f1d0a3013eb2b3e4a17e6880ad2546e",
@@ -2324,7 +2348,7 @@
         "address": "0x372ff859a6395d07dac9277ae313fe201fe8e1ac",
         "crssOwed": 2661.904761904762,
         "presale": 2129.5238095238096,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 532.3809523809524,
         "dipBuys": 0
     },
@@ -2340,7 +2364,7 @@
         "address": "0x1c70bbb1902ae2ac9d4e376f6e5acf749a5c24da",
         "crssOwed": 2633.333333333333,
         "presale": 1679.9999999999995,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 953.3333333333335,
         "dipBuys": 0
     },
@@ -2372,7 +2396,7 @@
         "address": "0x566f53ed81935a8b7fb5815dbd4eb3ec9e9c76e8",
         "crssOwed": 2570.285849225714,
         "presale": 2570.285714285714,
-        "wallet": 0.000134940000000002,
+        "wallet": 0.00013494000000000301,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2380,7 +2404,7 @@
         "address": "0x0ff509da2c515a31e5e1d7fb47b7cbad626023dd",
         "crssOwed": 2561.125,
         "presale": 2138.725,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 422.3999999999999,
         "dipBuys": 0
     },
@@ -2393,18 +2417,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0xcbb3a80bf5912a3fc0296ba9401523f5a6efd347",
-        "crssOwed": 2533.333333333333,
-        "presale": 2533.333333333333,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
+        "address": "0xd4105c56dcd0497b3b220eb2fc88022465717a2f",
+        "crssOwed": 2538.7233107067545,
+        "presale": 1923.8095238095239,
+        "wallet": 43.69060502034688,
+        "staking": 512.0031818768837,
+        "dipBuys": 59.22
     },
     {
         "address": "0x74885d1fcc291aab02c83767b98281f892e7ce9e",
         "crssOwed": 2531.5573393646364,
         "presale": 2285.714285714286,
-        "wallet": 0.000120000000000002,
+        "wallet": 0.000120000000000003,
         "staking": 0,
         "dipBuys": 245.84293365035063
     },
@@ -2449,28 +2473,12 @@
         "dipBuys": 0
     },
     {
-        "address": "0xd4105c56dcd0497b3b220eb2fc88022465717a2f",
-        "crssOwed": 2479.5033107067547,
-        "presale": 1923.8095238095239,
-        "wallet": 43.69060502034688,
-        "staking": 512.0031818768837,
-        "dipBuys": 0
-    },
-    {
         "address": "0x782bbcdf6c24e62bead05d830f8ccdefb85925fa",
         "crssOwed": 2461.666666666667,
         "presale": 1969.3333333333337,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 492.33333333333337,
         "dipBuys": 0
-    },
-    {
-        "address": "0xcd1550d699d7df48002c42a04517ee69bc07cc27",
-        "crssOwed": 2451.165847407955,
-        "presale": 580,
-        "wallet": 0,
-        "staking": 1343.8522581452858,
-        "dipBuys": 527.313589262669
     },
     {
         "address": "0x1aee5d7b290b603352d0d3109cde6aa33b7a9ae9",
@@ -2564,7 +2572,7 @@
         "address": "0x03acaf4d716fbe82293b8aa6da3c7940f2a887fa",
         "crssOwed": 2335.4165520176907,
         "presale": 1802.6666666666663,
-        "wallet": 1e-18,
+        "wallet": 2e-18,
         "staking": 532.7498853510243,
         "dipBuys": 0
     },
@@ -2596,7 +2604,7 @@
         "address": "0xcb16f78e18f328d8ef1fd342465afa60c7f4e0ee",
         "crssOwed": 2294.285714285714,
         "presale": 1835.4285714285713,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 458.8571428571428,
         "dipBuys": 0
     },
@@ -2612,15 +2620,7 @@
         "address": "0xa673ae9a2b9ebe6a01691e0280130ffbfc61fc49",
         "crssOwed": 2285.714405714286,
         "presale": 2285.714285714286,
-        "wallet": 0.000120000000000002,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xac4f5b7227ab4eaf0b210a9509d8affc8f64a45b",
-        "crssOwed": 2285.714285714286,
-        "presale": 2285.714285714286,
-        "wallet": 0,
+        "wallet": 0.000120000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2644,7 +2644,7 @@
         "address": "0xdd458c69f8e5206e737c5984d812f74bd69db6d6",
         "crssOwed": 2264.093095238095,
         "presale": 1590.6971428571428,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 673.3959523809524,
         "dipBuys": 0
     },
@@ -2756,7 +2756,7 @@
         "address": "0x9a79f41f3399a9a5a1b874b560ac90b46cff6265",
         "crssOwed": 2066.666666666667,
         "presale": 1240.0000000000005,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 826.6666666666666,
         "dipBuys": 0
     },
@@ -2780,7 +2780,7 @@
         "address": "0x522e8eb2ec3ba5b08b958ac7143faf255ffa33e2",
         "crssOwed": 2054.000140560031,
         "presale": 2054,
-        "wallet": 0.000140560030870001,
+        "wallet": 0.000140560030870002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2788,7 +2788,7 @@
         "address": "0xd1f981c907494bf9bcf8eaa90b350b5d4b5ed0e8",
         "crssOwed": 2050.4756595008007,
         "presale": 1466.6666666666665,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 583.8089928341343,
         "dipBuys": 0
     },
@@ -2812,7 +2812,7 @@
         "address": "0x596514ca2ffe56b96bb1b59c19b32da781ddd934",
         "crssOwed": 2037.201901095968,
         "presale": 2037.2018571428573,
-        "wallet": 0.000043953110730001,
+        "wallet": 0.000043953110730002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2852,7 +2852,7 @@
         "address": "0xb60612590d1410e112ca06f06db4ca1f0827df34",
         "crssOwed": 2003.7715337694285,
         "presale": 2003.7714285714287,
-        "wallet": 0.000105198000000001,
+        "wallet": 0.000105198000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2892,7 +2892,7 @@
         "address": "0x33c4296e5cf9e8dde73911aeede936489798cdce",
         "crssOwed": 2000.0002800000002,
         "presale": 2000.0000000000002,
-        "wallet": 0.000280000000000001,
+        "wallet": 0.000280000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -2910,6 +2910,14 @@
         "presale": 680,
         "wallet": 10.78384571779611,
         "staking": 1308.4687336882985,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xe5d3013770b744b1c8a55faba83da9847fe112ed",
+        "crssOwed": 1990,
+        "presale": 1592,
+        "wallet": 398,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -2956,7 +2964,7 @@
         "address": "0x4e6a93caa0dab50f86f17895ddef4f2e470a443c",
         "crssOwed": 1939.170744068342,
         "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 333.3333333333333,
         "dipBuys": 272.5040774016752
     },
@@ -3020,7 +3028,7 @@
         "address": "0x043f228e56b692d88ee77297ef0ba489ed11d6dc",
         "crssOwed": 1875.0000577500227,
         "presale": 1875,
-        "wallet": 0.000057750022785001,
+        "wallet": 0.000057750022785002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3031,6 +3039,14 @@
         "wallet": 0.02382680558787592,
         "staking": 2509.53784046532,
         "dipBuys": -633.6846963151141
+    },
+    {
+        "address": "0x56cdf5efd539f343fcafde2bd35cb977dfe1a950",
+        "crssOwed": 1873.3333333333333,
+        "presale": 1498.6666666666665,
+        "wallet": 374.6666666666667,
+        "staking": 0,
+        "dipBuys": 0
     },
     {
         "address": "0x297396cc8ded01d9ddd3d8fcb819e030d654eecd",
@@ -3044,7 +3060,7 @@
         "address": "0xb4bb04faa940673da20b8c858f3726ac2174f164",
         "crssOwed": 1860.7764945115669,
         "presale": 0,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 1860.7764945115669,
         "dipBuys": 0
     },
@@ -3105,10 +3121,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0xbda0251f51b2cdcfc3cca41cdb9ed252bc0d89d7",
+        "crssOwed": 1800,
+        "presale": 1080,
+        "wallet": 720,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xcce58276cb701b182c1d728bce8e913d053d0fd6",
         "crssOwed": 1794.2857142857142,
         "presale": 1435.4285714285713,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 358.85714285714283,
         "dipBuys": 0
     },
@@ -3116,7 +3140,7 @@
         "address": "0x305b78b83b711bce08db955259d11bacd07d430c",
         "crssOwed": 1794.2857142857142,
         "presale": 1794.2857142857142,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3166,6 +3190,22 @@
         "presale": 1060,
         "wallet": 706.6666666666666,
         "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xe022bbc734d104f600f1da4af9092678899c1529",
+        "crssOwed": 1765,
+        "presale": 1059,
+        "wallet": 706,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xda54ec322063bf16e1223ec7b82d3338a7cb73c2",
+        "crssOwed": 1757.8039641762175,
+        "presale": 1003.7599999999998,
+        "wallet": 84.87063084288422,
+        "staking": 669.1733333333334,
         "dipBuys": 0
     },
     {
@@ -3228,7 +3268,7 @@
         "address": "0xaf0c62f0e8738ea64cf431c8c92f3edbbecf4793",
         "crssOwed": 1731.3283333333334,
         "presale": 1385.0626666666667,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 346.2656666666667,
         "dipBuys": 0
     },
@@ -3244,7 +3284,7 @@
         "address": "0x75cdc740411afbbdb686ae6d341c5540a03aa252",
         "crssOwed": 1716.6339863470364,
         "presale": 1000.0000000000001,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 716.6339863470363,
         "dipBuys": 0
     },
@@ -3305,14 +3345,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0xda54ec322063bf16e1223ec7b82d3338a7cb73c2",
-        "crssOwed": 1678.4932153440807,
-        "presale": 1003.7599999999998,
-        "wallet": 5.559882010747467,
-        "staking": 669.1733333333334,
-        "dipBuys": 0
-    },
-    {
         "address": "0x593ab301f24337b904da57799241b57b2d613fb4",
         "crssOwed": 1673.521831710667,
         "presale": 1333.3333333333335,
@@ -3324,7 +3356,7 @@
         "address": "0x31c40dec26a231cc1da530b46d7b3874b95d4125",
         "crssOwed": 1673.3333333333333,
         "presale": 1003.9999999999999,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 669.3333333333334,
         "dipBuys": 0
     },
@@ -3332,7 +3364,7 @@
         "address": "0x8436730403bd21afe25b318c940600a80aea14c9",
         "crssOwed": 1672.0001290800221,
         "presale": 1672,
-        "wallet": 0.000129080022050001,
+        "wallet": 0.000129080022050003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3340,7 +3372,7 @@
         "address": "0xfdcddb6644a71bccc422ae1e7917a9c124f255c7",
         "crssOwed": 1672.3545408894838,
         "presale": 1498.5,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 173.85454088948373,
         "dipBuys": 0
     },
@@ -3412,7 +3444,7 @@
         "address": "0x50738f45aeb503157f2ed8eedfb417dc30849f7c",
         "crssOwed": 1666.6666666666667,
         "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 333.3333333333333,
         "dipBuys": 0
     },
@@ -3465,10 +3497,34 @@
         "dipBuys": 0
     },
     {
+        "address": "0x1171cfe78f4dcc18d7abe11198c633cceaa0a250",
+        "crssOwed": 1666.6666666666667,
+        "presale": 1333.3333333333335,
+        "wallet": 333.3333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xec3b9ee16483a6399957d217efa413097a23f8dd",
+        "crssOwed": 1666.6666666666667,
+        "presale": 1333.3333333333335,
+        "wallet": 333.3333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x4a3bb151ac39a46349fd99f4c473a15a6a567d38",
+        "crssOwed": 1666.6666666666667,
+        "presale": 1333.3333333333335,
+        "wallet": 333.3333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xb856d69711e9ac2d57eebc5cd45a74161dfd129a",
         "crssOwed": 1666.6666666666667,
         "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 333.3333333333333,
         "dipBuys": 0
     },
@@ -3476,7 +3532,7 @@
         "address": "0xb22ae03046152173cc984f06c60c729a42a9bee9",
         "crssOwed": 1666.6666666666667,
         "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 333.3333333333333,
         "dipBuys": 0
     },
@@ -3484,7 +3540,7 @@
         "address": "0x1c86e98a4cc451db8a502f31c14327d2b7cec123",
         "crssOwed": 1666.6666666666667,
         "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 333.3333333333333,
         "dipBuys": 0
     },
@@ -3492,7 +3548,7 @@
         "address": "0xc8d4fb1b9d2f1de2a18ca06d85b96febe2f21077",
         "crssOwed": 1666.6666666666667,
         "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 333.3333333333333,
         "dipBuys": 0
     },
@@ -3500,7 +3556,7 @@
         "address": "0x5f69205642340ffa04ed78c5db47978ce7c76183",
         "crssOwed": 1666.6666666666667,
         "presale": 1000.0000000000001,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 666.6666666666666,
         "dipBuys": 0
     },
@@ -3508,7 +3564,7 @@
         "address": "0x75f99a1041c3083ef4e5b8f7ddd66b72d1f6f797",
         "crssOwed": 1666.6666666666667,
         "presale": 1000.0000000000001,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 666.6666666666666,
         "dipBuys": 0
     },
@@ -3537,6 +3593,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0x3464010c0ef748c8aa135195d1ca1a00aaec050e",
+        "crssOwed": 1661.3966666666668,
+        "presale": 996.8380000000002,
+        "wallet": 664.5586666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x466338df61873dab555b068b6a42f45b0ebb7a2c",
         "crssOwed": 1660.741023861825,
         "presale": 0,
@@ -3548,7 +3612,7 @@
         "address": "0x31caf8574c488c5ad2720ad1c48fb12e101e1ef0",
         "crssOwed": 1653.3334621039337,
         "presale": 1653.3333333333337,
-        "wallet": 0.000128770600000001,
+        "wallet": 0.000128770600000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3604,7 +3668,7 @@
         "address": "0x1413b00bbc0ae6c0cf057765f099dad2b584fc0c",
         "crssOwed": 1617.3334182433334,
         "presale": 1617.3333333333335,
-        "wallet": 0.000084910000000001,
+        "wallet": 0.000084910000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3620,7 +3684,7 @@
         "address": "0xd645b460dfdaa50b9274669b1f3868eb578d73d8",
         "crssOwed": 1602.000119280022,
         "presale": 1602,
-        "wallet": 0.000119280022050001,
+        "wallet": 0.000119280022050002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3636,7 +3700,7 @@
         "address": "0x7dcf4ec29d333f392f3b5a10ee99f4999bc6d3ce",
         "crssOwed": 1600,
         "presale": 1600,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3645,14 +3709,6 @@
         "crssOwed": 1593.5049819637072,
         "presale": 0,
         "wallet": 1593.5049819637072,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xe5d3013770b744b1c8a55faba83da9847fe112ed",
-        "crssOwed": 1592,
-        "presale": 1592,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3668,16 +3724,8 @@
         "address": "0xa52f6059247758890ab787e63dd5f897cb1f7a68",
         "crssOwed": 1573.3333333333335,
         "presale": 1573.3333333333335,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xd3137741763cc0eead8cf7b3bcf9e895b61bfb51",
-        "crssOwed": 1572.9991332816858,
-        "presale": 800,
-        "wallet": 88.7836645900673,
-        "staking": 684.2154686916185,
         "dipBuys": 0
     },
     {
@@ -3746,10 +3794,10 @@
     },
     {
         "address": "0xe7fcbb38db770c7d8043170337dc2b9fc62627ee",
-        "crssOwed": 1534.5303985012708,
+        "crssOwed": 1534.530398501271,
         "presale": 0,
         "wallet": 15.506014661286306,
-        "staking": 1074.0246483860353,
+        "staking": 1074.0246483860356,
         "dipBuys": 444.9997354539491
     },
     {
@@ -3772,7 +3820,7 @@
         "address": "0x4291ab8a26efdf45a89f1b4ba2aad8229a778a9b",
         "crssOwed": 1526.000108640022,
         "presale": 1526,
-        "wallet": 0.000108640022050001,
+        "wallet": 0.000108640022050002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3813,14 +3861,6 @@
         "crssOwed": 1499.9997018,
         "presale": 1199.99976144,
         "wallet": 299.99994036,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x56cdf5efd539f343fcafde2bd35cb977dfe1a950",
-        "crssOwed": 1498.6666666666665,
-        "presale": 1498.6666666666665,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3884,7 +3924,7 @@
         "address": "0x432ff38bf48b6af6cf99d5ecc041b8edc229368a",
         "crssOwed": 1451.4286476285713,
         "presale": 1451.4285714285713,
-        "wallet": 0.000076200000000001,
+        "wallet": 0.000076200000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -3932,7 +3972,7 @@
         "address": "0x73187fdffc76559cbebe05d6258af35d64b67743",
         "crssOwed": 1428.5714285714287,
         "presale": 1142.857142857143,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 285.7142857142857,
         "dipBuys": 0
     },
@@ -4060,7 +4100,7 @@
         "address": "0x7cf497a6c9702e6f3f3361a9617ecacb698461a4",
         "crssOwed": 1346.6667373666664,
         "presale": 1346.6666666666665,
-        "wallet": 0.000070700000000001,
+        "wallet": 0.000070700000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4100,7 +4140,7 @@
         "address": "0x40a5ddbd38d938fa9da88625e97c0613f2eb2d24",
         "crssOwed": 1333.3334033333335,
         "presale": 1333.3333333333335,
-        "wallet": 0.000070000000000001,
+        "wallet": 0.000070000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4116,31 +4156,7 @@
         "address": "0xf5bbab0216b69477de1b7b7ae0519f3b527fff77",
         "crssOwed": 1333.3334033333335,
         "presale": 1333.3333333333335,
-        "wallet": 0.000070000000000001,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x1171cfe78f4dcc18d7abe11198c633cceaa0a250",
-        "crssOwed": 1333.3333333333335,
-        "presale": 1333.3333333333335,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xec3b9ee16483a6399957d217efa413097a23f8dd",
-        "crssOwed": 1333.3333333333335,
-        "presale": 1333.3333333333335,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x4a3bb151ac39a46349fd99f4c473a15a6a567d38",
-        "crssOwed": 1333.3333333333335,
-        "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 0.000070000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4148,7 +4164,7 @@
         "address": "0x58c537ae3995369ff2f191fd7d240ad9b4c7e7d1",
         "crssOwed": 1333.3334033333335,
         "presale": 1000.0000000000001,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 333.33340333333337,
         "dipBuys": 0
     },
@@ -4156,7 +4172,7 @@
         "address": "0xf3183ce0247816ac7de96de742a77c56b2d21f03",
         "crssOwed": 1333.3333333333335,
         "presale": 1333.3333333333335,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4212,7 +4228,7 @@
         "address": "0x84ed3ef14b58d3d3b83d62e08ffb737de6eff1eb",
         "crssOwed": 1300.0001820000004,
         "presale": 1300.0000000000005,
-        "wallet": 0.000182000000000001,
+        "wallet": 0.000182000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4220,7 +4236,7 @@
         "address": "0x96bfc0d3b156740bbf708451684fd62b65bd3c1a",
         "crssOwed": 1300.0000000000005,
         "presale": 1300.0000000000005,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4236,7 +4252,7 @@
         "address": "0xbccb36dbbc6b4d8aa95d3591f1e03fb48eb8c40d",
         "crssOwed": 1285.7142857142858,
         "presale": 1028.5714285714287,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 257.1428571428571,
         "dipBuys": 0
     },
@@ -4252,7 +4268,7 @@
         "address": "0xd3b883e92cf00b7d6b47bf86273207ef9a234be2",
         "crssOwed": 1266.285297073363,
         "presale": 1266.2851428571428,
-        "wallet": 0.000154216220000001,
+        "wallet": 0.000154216220000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4276,7 +4292,7 @@
         "address": "0xffd47f2cbbebe9469caec6e7d7681f556d101088",
         "crssOwed": 1256.6667527666668,
         "presale": 1000.0000000000001,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 256.66675276666666,
         "dipBuys": 0
     },
@@ -4369,10 +4385,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0x9ada8d480d89d68898a44ccf894e3287747d6dc2",
+        "crssOwed": 1230,
+        "presale": 738,
+        "wallet": 492,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x69bc73707a9e91a49dac9847369340e6c8545dae",
         "crssOwed": 1228.5714705714286,
         "presale": 1142.857142857143,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 85.71432771428572,
         "dipBuys": 0
     },
@@ -4380,7 +4404,7 @@
         "address": "0xdd395dc340149aba2d64bcaa256ea56b9ab99c64",
         "crssOwed": 1226.6600644014,
         "presale": 919.9999999999999,
-        "wallet": 0.000064401400000001,
+        "wallet": 0.000064401400000002,
         "staking": 306.66,
         "dipBuys": 0
     },
@@ -4388,7 +4412,7 @@
         "address": "0x2fe691560844f4e81aa6963e8e5e957d29090a33",
         "crssOwed": 1226.7369182760322,
         "presale": 457.14285714285717,
-        "wallet": 0.015294610628571428,
+        "wallet": 0.01529461062857143,
         "staking": 769.5787665225465,
         "dipBuys": 0
     },
@@ -4396,7 +4420,7 @@
         "address": "0xecdc1b6801732c1f0f672898947d329562cace45",
         "crssOwed": 1223.6719935720394,
         "presale": 888.3085714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 222.07714285714286,
         "dipBuys": 113.28627928632515
     },
@@ -4404,7 +4428,7 @@
         "address": "0x74264aa892c5c4b596b91f961b1387f94ef3d5a1",
         "crssOwed": 1222.2084042214549,
         "presale": 933.3333333333331,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 233.33333333333337,
         "dipBuys": 55.541737554788405
     },
@@ -4492,7 +4516,7 @@
         "address": "0x77e18e8bf311da07f8fd32c4959ee118c0ce3b56",
         "crssOwed": 1167.7601634864,
         "presale": 1167.76,
-        "wallet": 0.000163486400000001,
+        "wallet": 0.000163486400000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4556,7 +4580,7 @@
         "address": "0x0b6ce8b7c79b383562596ec770bbfeea1172740f",
         "crssOwed": 1142.857202857143,
         "presale": 1142.857142857143,
-        "wallet": 0.000060000000000001,
+        "wallet": 0.000060000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4564,7 +4588,7 @@
         "address": "0x035aea40df83eb8cf6ef4e82ac3d13aa16434719",
         "crssOwed": 1142.857202857143,
         "presale": 1142.857142857143,
-        "wallet": 0.000060000000000002,
+        "wallet": 0.000060000000000003003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4572,7 +4596,7 @@
         "address": "0xa64caf5c465c97bd17b63862eab48e87a7787e7a",
         "crssOwed": 1142.857202857143,
         "presale": 1142.857142857143,
-        "wallet": 0.000060000000000002,
+        "wallet": 0.000060000000000003003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4580,7 +4604,7 @@
         "address": "0x60e1a153690469898c410002aa7b3fe77fe05fa5",
         "crssOwed": 1142.857142857143,
         "presale": 914.2857142857143,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 228.57142857142858,
         "dipBuys": 0
     },
@@ -4644,7 +4668,7 @@
         "address": "0xdb330d3c61cb94b78dae783ad01a00bb5ebb3a17",
         "crssOwed": 1096.6666666666665,
         "presale": 657.9999999999998,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 438.6666666666667,
         "dipBuys": 0
     },
@@ -4681,14 +4705,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0xbda0251f51b2cdcfc3cca41cdb9ed252bc0d89d7",
-        "crssOwed": 1080,
-        "presale": 1080,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x5c338e2d7cf88a4f8d2240a06a97d9d7e8c6fc07",
         "crssOwed": 1073.3333333333335,
         "presale": 1073.3333333333335,
@@ -4716,7 +4732,7 @@
         "address": "0xf2cd22bd2bd655b1469ff1c41d019aed2b6ec735",
         "crssOwed": 1066,
         "presale": 1066,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4724,7 +4740,7 @@
         "address": "0xe71238050736b0156a5d71f5871764348b829531",
         "crssOwed": 1066.6666666666665,
         "presale": 1066.6666666666665,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4732,7 +4748,7 @@
         "address": "0x2d0e50a09be143f5b2c3570afee405ad014d708e",
         "crssOwed": 1066.6666666666665,
         "presale": 639.9999999999998,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 426.66666666666674,
         "dipBuys": 0
     },
@@ -4753,18 +4769,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xe022bbc734d104f600f1da4af9092678899c1529",
-        "crssOwed": 1059,
-        "presale": 1059,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xaf5ec856018ba125c15c48899712a2ad0beb7b1f",
         "crssOwed": 1052.573223110052,
         "presale": 800,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 200,
         "dipBuys": 52.57322311005197
     },
@@ -4780,7 +4788,7 @@
         "address": "0x16177b03bd19a28d7e5bcf53ad7e510074c88d24",
         "crssOwed": 1044.4570035852526,
         "presale": 835.5653333333333,
-        "wallet": 0.0003369185859515,
+        "wallet": 0.000336918585951501,
         "staking": 208.89133333333336,
         "dipBuys": 0
     },
@@ -4788,8 +4796,16 @@
         "address": "0x4f4692720b1e046e554409b99ef261efd5ec8eaf",
         "crssOwed": 1035.7142857142856,
         "presale": 828.5714285714284,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 207.14285714285714,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6fc634ffbd2ec5370ca70897e16ee6e850424411",
+        "crssOwed": 1033.3333333333335,
+        "presale": 620.0000000000002,
+        "wallet": 413.3333333333333,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -4820,9 +4836,17 @@
         "address": "0xba5edf064de4b8ff0c15c54ff34760fa9f031ba5",
         "crssOwed": 1024.00014756,
         "presale": 1024,
-        "wallet": 0.000147560000000001,
+        "wallet": 0.000147560000000002,
         "staking": 0,
         "dipBuys": 0
+    },
+    {
+        "address": "0x44efd9678c30f7722fa815069e83e686bf4b2b16",
+        "crssOwed": 1022.3368970896437,
+        "presale": 0,
+        "wallet": 0,
+        "staking": 658.7243950476463,
+        "dipBuys": 363.61250204199735
     },
     {
         "address": "0xb93b01c000e92c65fe7f31668c828830f11bac57",
@@ -4836,7 +4860,7 @@
         "address": "0xef09d895d64aae55ad8a3ae1ed0674d7fdcfd839",
         "crssOwed": 1020.2829841241556,
         "presale": 800,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 220.2829841241556,
         "dipBuys": 0
     },
@@ -4868,7 +4892,7 @@
         "address": "0x9d238b603cc4d807cfdb4413c59b14a92a451067",
         "crssOwed": 1001.6666666666666,
         "presale": 801.3333333333333,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 200.33333333333334,
         "dipBuys": 0
     },
@@ -4892,7 +4916,7 @@
         "address": "0x796c98c0401e9b0cd6119435ee71f1828cc7d6bb",
         "crssOwed": 1000.0001400000001,
         "presale": 1000.0000000000001,
-        "wallet": 0.000140000000000001,
+        "wallet": 0.000140000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4916,7 +4940,7 @@
         "address": "0x02f47f74dab57effb2cb59c96e850e0b73e85058",
         "crssOwed": 1000.0001400000001,
         "presale": 1000.0000000000001,
-        "wallet": 0.000140000000000001,
+        "wallet": 0.000140000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4940,7 +4964,7 @@
         "address": "0x5b14b9cbad1b562089e230d7f7cc1b3ed4356fd0",
         "crssOwed": 1000.0000000000001,
         "presale": 1000.0000000000001,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -4977,6 +5001,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xda2638b5e65fb14f4ce590c73f51cfec85fcc067",
+        "crssOwed": 1000,
+        "presale": 800,
+        "wallet": 200,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x1f00c4d6e5f0e3ba5e12e130ed34b27f346e9c45",
         "crssOwed": 1000,
         "presale": 800,
@@ -5001,18 +5033,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x3464010c0ef748c8aa135195d1ca1a00aaec050e",
-        "crssOwed": 996.8380000000002,
-        "presale": 996.8380000000002,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xe5b3279be1cabad065c942f0f98f76d4a9e677d9",
         "crssOwed": 992.769465552494,
         "presale": 785.3333333333333,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 196.33333333333334,
         "dipBuys": 11.102798885827333
     },
@@ -5172,7 +5196,7 @@
         "address": "0x1043cc0bc9a1788fa8c126da67bc45188725ec4d",
         "crssOwed": 931.3184356606199,
         "presale": 708.5714285714286,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 177.14285714285714,
         "dipBuys": 45.60414994633426
     },
@@ -5180,7 +5204,7 @@
         "address": "0x0a00834c8473f63918f1215eb50a2e0045d6aa88",
         "crssOwed": 928.5714285714287,
         "presale": 742.8571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 185.71428571428572,
         "dipBuys": 0
     },
@@ -5217,6 +5241,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xc68cae52ad5cb855c7b6b1049e6f6cf2eee72a56",
+        "crssOwed": 896.6666666666667,
+        "presale": 538,
+        "wallet": 358.6666666666667,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xac4be73d4aa60302f1b309897dcc7df5ed77179a",
         "crssOwed": 887.1428571428571,
         "presale": 709.7142857142857,
@@ -5228,7 +5260,7 @@
         "address": "0x51f130408c88447bff2eeed419ee2e2d196c3b9e",
         "crssOwed": 882.357103750682,
         "presale": 571.4285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 261.4292475342717,
         "dipBuys": 49.499284787838896
     },
@@ -5268,7 +5300,7 @@
         "address": "0x376f1816f0c0b6198c69db11bfd919cae2361511",
         "crssOwed": 866.6666666666666,
         "presale": 693.3333333333333,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 173.33333333333334,
         "dipBuys": 0
     },
@@ -5337,10 +5369,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0xd23342747223e85ac8ff4750f8362c8815052574",
+        "crssOwed": 853.3333333333334,
+        "presale": 682.6666666666667,
+        "wallet": 170.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x5fc728126caf1655f8f8c6f0defb3afe636a853f",
         "crssOwed": 852.8571428571429,
         "presale": 682.2857142857143,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 170.57142857142858,
         "dipBuys": 0
     },
@@ -5396,7 +5436,7 @@
         "address": "0x30178fd6f019f6bafbc599afaadeaec8b6228b40",
         "crssOwed": 845,
         "presale": 507,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 338,
         "dipBuys": 0
     },
@@ -5406,6 +5446,14 @@
         "presale": 399.8600489800001,
         "wallet": 24.85542179693768,
         "staking": 415.68789812331664,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x2581b9af49b938de218d2e04ce7bd4cb9a282af7",
+        "crssOwed": 840,
+        "presale": 504,
+        "wallet": 336,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -5420,7 +5468,7 @@
         "address": "0xe9a53330a9a34ab54f3039f80433fe04cf970a13",
         "crssOwed": 838.5714285714287,
         "presale": 670.8571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 167.71428571428572,
         "dipBuys": 0
     },
@@ -5489,10 +5537,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0x554ac8bcdb8eb64b7d5fb9e7d50c907f57fa3b07",
+        "crssOwed": 833.3333333333334,
+        "presale": 666.6666666666667,
+        "wallet": 166.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x01f731785184f0deb06f104b281c78753a270c88",
         "crssOwed": 833.3333333333334,
         "presale": 666.6666666666667,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 166.66666666666666,
         "dipBuys": 0
     },
@@ -5500,7 +5556,7 @@
         "address": "0xa8a85fa9a8947ae617fb9bb27552ca6d1f4d8b09",
         "crssOwed": 833.3333333333334,
         "presale": 500.00000000000006,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 333.3333333333333,
         "dipBuys": 0
     },
@@ -5508,7 +5564,7 @@
         "address": "0xd284aec3989e0f2459a2fb2b260ca534d437808d",
         "crssOwed": 833.3333333333334,
         "presale": 500.00000000000006,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 333.3333333333333,
         "dipBuys": 0
     },
@@ -5516,8 +5572,16 @@
         "address": "0x62a10a28737bb20c7f46949848c71de2516fd015",
         "crssOwed": 833.3333333333334,
         "presale": 500.00000000000006,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 333.3333333333333,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6405b39346519aca6b4a9e74987f3f0e8ca73e9d",
+        "crssOwed": 833.3333333333334,
+        "presale": 666.6666666666667,
+        "wallet": 166.66666666666666,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -5532,7 +5596,7 @@
         "address": "0x284ec15a09627275122a5493e1dfaf686982cac1",
         "crssOwed": 825.3333766633332,
         "presale": 825.3333333333331,
-        "wallet": 0.000043330000000001,
+        "wallet": 0.000043330000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5548,7 +5612,7 @@
         "address": "0x0f08a9d037ba3ced135cab651904f667ae932140",
         "crssOwed": 822.6293765213733,
         "presale": 822.6293333333333,
-        "wallet": 0.000043188040000001,
+        "wallet": 0.000043188040000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5625,18 +5689,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xda2638b5e65fb14f4ce590c73f51cfec85fcc067",
-        "crssOwed": 800,
-        "presale": 800,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x2598651d7337692a7770401c9b8945621f8e441e",
         "crssOwed": 797.1428571428571,
         "presale": 637.7142857142857,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 159.42857142857142,
         "dipBuys": 0
     },
@@ -5665,11 +5721,27 @@
         "dipBuys": 0
     },
     {
+        "address": "0xaed13cea9c3894cce9e9dc33da6e36265643d531",
+        "crssOwed": 787.9166666666665,
+        "presale": 748.5833333333333,
+        "wallet": 39.333333333333336,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x0a450ab5c354360202e4a99a8c6ea14ef082e9ad",
         "crssOwed": 787.1428571428571,
         "presale": 787.1428571428571,
         "wallet": 0,
         "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xf3dc05e6e11e37530d4612182efb397e491bd8b1",
+        "crssOwed": 786.4995666408429,
+        "presale": 800,
+        "wallet": 88.7836645900673,
+        "staking": 684.2154686916185,
         "dipBuys": 0
     },
     {
@@ -5732,7 +5804,7 @@
         "address": "0x73ff4956ba78f279637a49ce07ab8df68d5f715f",
         "crssOwed": 773.6914691902285,
         "presale": 773.6914285714286,
-        "wallet": 0.000040618800000001,
+        "wallet": 0.000040618800000002004,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5756,7 +5828,7 @@
         "address": "0x3353dfa3427fda39e73c3198881b55aa5f7b27d3",
         "crssOwed": 765.3333735133333,
         "presale": 765.3333333333333,
-        "wallet": 0.000040180000000001,
+        "wallet": 0.000040180000000002004,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5812,7 +5884,7 @@
         "address": "0x66419856f6eb867fd64da1556668d932ae8ce760",
         "crssOwed": 757.0451701388553,
         "presale": 434.2857142857142,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 108.57142857142857,
         "dipBuys": 214.18802728171252
     },
@@ -5841,6 +5913,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xbd62ad2c0e2c57de27090a6131714fd78342336c",
+        "crssOwed": 750,
+        "presale": 600,
+        "wallet": 150,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x81ee1176ad31dd58efef903460c7660ff7326c5d",
         "crssOwed": 750,
         "presale": 750,
@@ -5857,18 +5937,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xaed13cea9c3894cce9e9dc33da6e36265643d531",
-        "crssOwed": 748.5833333333333,
-        "presale": 748.5833333333333,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x7121d1aaf2a05af016f9c11e036655153c3c2e55",
         "crssOwed": 747.4285714285714,
         "presale": 747.4285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5884,7 +5956,7 @@
         "address": "0x47340123e0b494d1bb490816b4cac53a3d72d2f8",
         "crssOwed": 740.6658371110889,
         "presale": 474.6666666666667,
-        "wallet": 0.010427818262666666,
+        "wallet": 0.010427818262666668,
         "staking": 265.9887426261595,
         "dipBuys": 0
     },
@@ -5893,14 +5965,6 @@
         "crssOwed": 738.0952380952381,
         "presale": 557.1428571428571,
         "wallet": 180.95238095238096,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x9ada8d480d89d68898a44ccf894e3287747d6dc2",
-        "crssOwed": 738,
-        "presale": 738,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5924,7 +5988,7 @@
         "address": "0x883ecb3dbefca1ccec4f12b30566103da306e719",
         "crssOwed": 734.00010276,
         "presale": 734,
-        "wallet": 0.000102760000000001,
+        "wallet": 0.000102760000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5932,7 +5996,7 @@
         "address": "0x8fda249af3d924dc3a0a41aae82ff6664ac733b2",
         "crssOwed": 733.3263333333334,
         "presale": 500.00000000000006,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 233.32633333333334,
         "dipBuys": 0
     },
@@ -5940,7 +6004,7 @@
         "address": "0x9d3c511223b089e2e4758e18fe53d53deef7cc67",
         "crssOwed": 732.9,
         "presale": 586.3199999999999,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 146.58,
         "dipBuys": 0
     },
@@ -5949,6 +6013,14 @@
         "crssOwed": 730.953636528409,
         "presale": 0,
         "wallet": 730.953636528409,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x3e7f2508ee84db1b17b1bfc87164360349287dd6",
+        "crssOwed": 729.1071428571428,
+        "presale": 583.2857142857142,
+        "wallet": 145.82142857142856,
         "staking": 0,
         "dipBuys": 0
     },
@@ -5972,7 +6044,7 @@
         "address": "0x6a0322ff9d0fc4499161baf993a9a320c0e216e7",
         "crssOwed": 726.581334680925,
         "presale": 19.999999999999993,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 706.581334680925,
         "dipBuys": 0
     },
@@ -6081,10 +6153,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0x23908eaafcae5ed16dc855404819f22eb41341bb",
+        "crssOwed": 714.2857142857143,
+        "presale": 571.4285714285714,
+        "wallet": 142.85714285714286,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x0db65b805dc45a5e81e36b93d0a5f6bd6ce7cf53",
         "crssOwed": 714.2857142857143,
         "presale": 571.4285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 142.85714285714286,
         "dipBuys": 0
     },
@@ -6092,7 +6172,7 @@
         "address": "0xbba35c6fc40445f0f667685b3ed7c8517d755ec1",
         "crssOwed": 714.2857142857143,
         "presale": 571.4285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 142.85714285714286,
         "dipBuys": 0
     },
@@ -6100,7 +6180,7 @@
         "address": "0xad702725635dff555cbb35ee6c8b0fb76c091ce1",
         "crssOwed": 714.2857142857143,
         "presale": 571.4285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 142.85714285714286,
         "dipBuys": 0
     },
@@ -6108,7 +6188,7 @@
         "address": "0xafcc3a39bb4029c424a339fd5a2bd5a563ca99ee",
         "crssOwed": 714.2857142857143,
         "presale": 571.4285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 142.85714285714286,
         "dipBuys": 0
     },
@@ -6140,7 +6220,7 @@
         "address": "0x8e3cbb1a3bf3bb24140da6204da64f32275a9577",
         "crssOwed": 704.0000492800106,
         "presale": 704.0000000000002,
-        "wallet": 0.000049280010348801,
+        "wallet": 0.000049280010348802004,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6180,7 +6260,7 @@
         "address": "0x3692288778c2fc2b9cd49c7d364f8840e06916e3",
         "crssOwed": 685.7143217142857,
         "presale": 685.7142857142857,
-        "wallet": 0.000036000000000002,
+        "wallet": 0.000036000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6188,7 +6268,7 @@
         "address": "0x3cb0173022c32200d159dd99e6be136923192ea9",
         "crssOwed": 685.7143217142857,
         "presale": 685.7142857142857,
-        "wallet": 0.000036000000000001,
+        "wallet": 0.000036000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6206,14 +6286,6 @@
         "presale": 0,
         "wallet": 0,
         "staking": 683.343863386167,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xd23342747223e85ac8ff4750f8362c8815052574",
-        "crssOwed": 682.6666666666667,
-        "presale": 682.6666666666667,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -6260,7 +6332,7 @@
         "address": "0x9fefd55674ebc732075ee6e361b696e891633724",
         "crssOwed": 668.00003507,
         "presale": 668,
-        "wallet": 0.00003507,
+        "wallet": 0.000035070000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6292,7 +6364,7 @@
         "address": "0xa2ee6cf3beeae278dd737d72a93d09da5c245486",
         "crssOwed": 666.6666735966726,
         "presale": 666.6666666666667,
-        "wallet": 0.000006930005894701,
+        "wallet": 0.000006930005894702001,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6300,7 +6372,7 @@
         "address": "0x7583480701d5c8f736926e02398dad26868ac81d",
         "crssOwed": 666.666708333332,
         "presale": 666.6666666666667,
-        "wallet": 0.000041666665266668,
+        "wallet": 0.000041666665266669,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6316,7 +6388,7 @@
         "address": "0x4342fb98e5187985ee84c6573f62785b997c2ded",
         "crssOwed": 666.6666666666667,
         "presale": 666.6666666666667,
-        "wallet": 2e-18,
+        "wallet": 4e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6345,18 +6417,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x554ac8bcdb8eb64b7d5fb9e7d50c907f57fa3b07",
-        "crssOwed": 666.6666666666667,
-        "presale": 666.6666666666667,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x39bfe2279e9ce1f10f8069ec1adb2b463d8f246e",
         "crssOwed": 666.6666666666667,
         "presale": 666.6666666666667,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6369,10 +6433,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0x6405b39346519aca6b4a9e74987f3f0e8ca73e9d",
-        "crssOwed": 666.6666666666667,
-        "presale": 666.6666666666667,
-        "wallet": 0,
+        "address": "0x3578c4401066eae1ac66d2abb3a9e26c8ea7cde3",
+        "crssOwed": 666.6666666666665,
+        "presale": 533.3333333333333,
+        "wallet": 133.33333333333331,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xb58770d55eff61841b6c0b472217bfe7ff936fb8",
+        "crssOwed": 666.6666666666666,
+        "presale": 400,
+        "wallet": 266.66666666666663,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6380,7 +6452,7 @@
         "address": "0x147161996389b78314376ceb185155d6cfda10dc",
         "crssOwed": 666.6666666666666,
         "presale": 400,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 266.66666666666663,
         "dipBuys": 0
     },
@@ -6388,7 +6460,7 @@
         "address": "0x2d9cdb20c6d666c9836bfb6c04304ef235b3af54",
         "crssOwed": 666.3333333333334,
         "presale": 0,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 666.3333333333334,
         "dipBuys": 0
     },
@@ -6404,7 +6476,7 @@
         "address": "0xd13e4b9bbab98997e3d951777d9ec67665c32308",
         "crssOwed": 663.3333333333334,
         "presale": 398,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 265.33333333333337,
         "dipBuys": 0
     },
@@ -6444,7 +6516,7 @@
         "address": "0x68fff469540da3c263379dc88b8f905765567567",
         "crssOwed": 652.0000912799998,
         "presale": 651.9999999999998,
-        "wallet": 0.000091280000000001,
+        "wallet": 0.000091280000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6452,7 +6524,7 @@
         "address": "0x965ba1d83e672c24f10f3d8f74463dffc67823ed",
         "crssOwed": 650,
         "presale": 520,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 130,
         "dipBuys": 0
     },
@@ -6484,7 +6556,15 @@
         "address": "0xe80070a21ac90a0522f0f3549ae3d9f5230f7927",
         "crssOwed": 644.0000901600002,
         "presale": 644.0000000000002,
-        "wallet": 0.000090160000000001,
+        "wallet": 0.000090160000000002,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x7dcf8faac2fcb5c57a93e1ac1dfa1cf82fe366b3",
+        "crssOwed": 642.1428571428571,
+        "presale": 592.1428571428571,
+        "wallet": 50,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6492,7 +6572,7 @@
         "address": "0xad178fbee0383f1b5dd4cc31aec8e080a46ed188",
         "crssOwed": 640.0000895999998,
         "presale": 639.9999999999998,
-        "wallet": 0.000089600000000001,
+        "wallet": 0.000089600000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6500,7 +6580,7 @@
         "address": "0x396f1690ba7e65ef4bdb73087b5cc03a1609b41c",
         "crssOwed": 630.00008400021,
         "presale": 630,
-        "wallet": 0.00008400021,
+        "wallet": 0.000084000210000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6577,17 +6657,17 @@
         "dipBuys": 0
     },
     {
-        "address": "0x617e9b8215bb1da819541695c4687cbb328853a7",
-        "crssOwed": 620,
-        "presale": 620,
-        "wallet": 0,
+        "address": "0x2bbe703074e0e54e9071a75d73e74421d346aa83",
+        "crssOwed": 625,
+        "presale": 500,
+        "wallet": 125,
         "staking": 0,
         "dipBuys": 0
     },
     {
-        "address": "0x6fc634ffbd2ec5370ca70897e16ee6e850424411",
-        "crssOwed": 620.0000000000002,
-        "presale": 620.0000000000002,
+        "address": "0x617e9b8215bb1da819541695c4687cbb328853a7",
+        "crssOwed": 620,
+        "presale": 620,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -6602,10 +6682,10 @@
     },
     {
         "address": "0x3eab10022d6aa6e1a2a7379621f9070d7cd29b25",
-        "crssOwed": 616.0021041993206,
+        "crssOwed": 616.0021041993208,
         "presale": 0,
         "wallet": 12.971862252004044,
-        "staking": 603.0302419473165,
+        "staking": 603.0302419473168,
         "dipBuys": 0
     },
     {
@@ -6628,7 +6708,7 @@
         "address": "0x9e883b3c996e9a1b3593a66f1338a1a2f93cd34b",
         "crssOwed": 610.0000854,
         "presale": 610,
-        "wallet": 0.000085400000000001,
+        "wallet": 0.00008540000000000201,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6636,7 +6716,7 @@
         "address": "0x45edb8fe5385ccd2d956c4b98dcd51c95b5f855a",
         "crssOwed": 608.3333333333334,
         "presale": 486.6666666666667,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 121.66666666666666,
         "dipBuys": 0
     },
@@ -6665,27 +6745,11 @@
         "dipBuys": 0
     },
     {
-        "address": "0xbd62ad2c0e2c57de27090a6131714fd78342336c",
-        "crssOwed": 600,
-        "presale": 600,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x53d1a40476cfc31e83e08b8fb651facb31d24576",
         "crssOwed": 593.3333333333334,
         "presale": 356,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 237.33333333333334,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x7dcf8faac2fcb5c57a93e1ac1dfa1cf82fe366b3",
-        "crssOwed": 592.1428571428571,
-        "presale": 592.1428571428571,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -6708,7 +6772,7 @@
         "address": "0xcf62026311482699df27db798ccd92f0e86b1c46",
         "crssOwed": 584.4940476190476,
         "presale": 467.59523809523813,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 116.89880952380952,
         "dipBuys": 0
     },
@@ -6716,14 +6780,6 @@
         "address": "0x542bf15c95f2bda126bd05feda11d410c4242dd0",
         "crssOwed": 583.3333333333333,
         "presale": 583.3333333333333,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x3e7f2508ee84db1b17b1bfc87164360349287dd6",
-        "crssOwed": 583.2857142857142,
-        "presale": 583.2857142857142,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -6764,7 +6820,7 @@
         "address": "0x4324cb6033dc536ff3d5e80be84e59940ebfebbb",
         "crssOwed": 571.4286014285715,
         "presale": 571.4285714285714,
-        "wallet": 0.000030000000000002,
+        "wallet": 0.000030000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6785,18 +6841,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0x23908eaafcae5ed16dc855404819f22eb41341bb",
+        "address": "0x282ffd72aca524d50cc6b798f3f1f2fb260f2783",
         "crssOwed": 571.4285714285714,
         "presale": 571.4285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
     {
-        "address": "0x282ffd72aca524d50cc6b798f3f1f2fb260f2783",
+        "address": "0xd64590ab973053c1106f741da127bf753ad63cd6",
         "crssOwed": 571.4285714285714,
-        "presale": 571.4285714285714,
-        "wallet": 0,
+        "presale": 457.14285714285717,
+        "wallet": 114.28571428571429,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6812,7 +6868,7 @@
         "address": "0xbbda3cb33797f9cde75c2ab14ff2761e40a9845e",
         "crssOwed": 569.5801737175723,
         "presale": 165.71428571428572,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 278.01752142185245,
         "dipBuys": 125.84836658143415
     },
@@ -6828,7 +6884,7 @@
         "address": "0x3bfc81798bdfbc25c7b09cf74b4ff1d9ec7c2a9e",
         "crssOwed": 566.6666666666667,
         "presale": 420,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 146.66666666666669,
         "dipBuys": 0
     },
@@ -6838,6 +6894,14 @@
         "presale": 130.66666666666666,
         "wallet": 0.4597430096579299,
         "staking": 432.0429334017432,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xde3a987845a47608c121544cdc5df64a9de6783b",
+        "crssOwed": 560,
+        "presale": 448,
+        "wallet": 112,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -6868,8 +6932,16 @@
         "address": "0x4770cd578451b0f546d84177d58c06c46d2a52b9",
         "crssOwed": 551.6666666666667,
         "presale": 441.3333333333334,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 110.33333333333331,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x46c5e35cb03e76abad0e2179f868926fa402bab6",
+        "crssOwed": 550,
+        "presale": 330,
+        "wallet": 220,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -6879,14 +6951,6 @@
         "wallet": 409.59,
         "staking": 0,
         "dipBuys": 131.82978447194984
-    },
-    {
-        "address": "0xc68cae52ad5cb855c7b6b1049e6f6cf2eee72a56",
-        "crssOwed": 538,
-        "presale": 538,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
     },
     {
         "address": "0xe701fea0eebe348d9c69a06c0ee87605c4784068",
@@ -6900,15 +6964,7 @@
         "address": "0x67da9ce2a83537ddb92f2a5cb33dee7b182172c6",
         "crssOwed": 533.3333333333333,
         "presale": 533.3333333333333,
-        "wallet": 2e-18,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x3578c4401066eae1ac66d2abb3a9e26c8ea7cde3",
-        "crssOwed": 533.3333333333333,
-        "presale": 533.3333333333333,
-        "wallet": 0,
+        "wallet": 4e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6916,7 +6972,7 @@
         "address": "0xa74018b76bcdb6befdf06da18572c391a26c5bab",
         "crssOwed": 530.952380952381,
         "presale": 424.7619047619048,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 106.19047619047618,
         "dipBuys": 0
     },
@@ -6924,7 +6980,15 @@
         "address": "0x071fd898ed29f692cee31791a5ff7724631942ce",
         "crssOwed": 525.7142857142857,
         "presale": 525.7142857142857,
-        "wallet": 0,
+        "wallet": 1e-18,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xf1fe6aaa97e095759fbc400450459a19bee21865",
+        "crssOwed": 525.7142857142858,
+        "presale": 420.57142857142867,
+        "wallet": 105.14285714285714,
         "staking": 0,
         "dipBuys": 0
     },
@@ -6980,7 +7044,7 @@
         "address": "0x3058c143e7040135a53700399ad5762a03292999",
         "crssOwed": 513.5714285714286,
         "presale": 410.85714285714283,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 102.71428571428571,
         "dipBuys": 0
     },
@@ -6988,7 +7052,7 @@
         "address": "0x3017874df952ecb806b0abb6cd96a4485dd1422b",
         "crssOwed": 512.8571428571428,
         "presale": 410.2857142857142,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 102.57142857142857,
         "dipBuys": 0
     },
@@ -7017,14 +7081,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x2581b9af49b938de218d2e04ce7bd4cb9a282af7",
-        "crssOwed": 504,
-        "presale": 504,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x34b16e2a8bc7260f34464298e2979d00409b54f8",
         "crssOwed": 502.4757166123857,
         "presale": 500.00000000000006,
@@ -7036,7 +7092,7 @@
         "address": "0x51e517b038e8a4025f4f23912bee971a38589b37",
         "crssOwed": 502.3809523809524,
         "presale": 401.9047619047619,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 100.47619047619048,
         "dipBuys": 0
     },
@@ -7052,7 +7108,7 @@
         "address": "0x77804e227c515443376f20f8fcbeccf6de7380e7",
         "crssOwed": 500.0000364000071,
         "presale": 500.00000000000006,
-        "wallet": 0.000036400007056001,
+        "wallet": 0.000036400007056002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7060,7 +7116,7 @@
         "address": "0xcc2a45c6d92ad5bc2300c8eea1e3e2fc23b4ed28",
         "crssOwed": 500.00007000000005,
         "presale": 500.00000000000006,
-        "wallet": 0.000070000000000001,
+        "wallet": 0.000070000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7068,7 +7124,7 @@
         "address": "0x5cb6eca18d1514300e3f7a49334bcdcc4d7c3273",
         "crssOwed": 500.00007000000005,
         "presale": 500.00000000000006,
-        "wallet": 0.000070000000000001,
+        "wallet": 0.000070000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7076,7 +7132,7 @@
         "address": "0x4a2fefdfe2ea271d401aa934e4385bf580f774f1",
         "crssOwed": 500.00007000000005,
         "presale": 500.00000000000006,
-        "wallet": 0.000070000000000001,
+        "wallet": 0.000070000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7113,6 +7169,22 @@
         "dipBuys": 0
     },
     {
+        "address": "0x6b83e9e59504cdbe496be7681fce9603b908fa48",
+        "crssOwed": 500,
+        "presale": 400,
+        "wallet": 100,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x04064e84bfdf8a3d831f223f90982f9933a56f2e",
+        "crssOwed": 500,
+        "presale": 300,
+        "wallet": 200,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xf686d24afe229ae0b2d20ab681e84d98af06a19d",
         "crssOwed": 500,
         "presale": 500,
@@ -7122,14 +7194,6 @@
     },
     {
         "address": "0x400ffdb4a5d489141179d4c7ce894a3d7769ec0b",
-        "crssOwed": 500,
-        "presale": 500,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x2bbe703074e0e54e9071a75d73e74421d346aa83",
         "crssOwed": 500,
         "presale": 500,
         "wallet": 0,
@@ -7153,6 +7217,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xa1cc78c42a26be0903debc97b682cc93f0767a64",
+        "crssOwed": 491.66666666666663,
+        "presale": 295,
+        "wallet": 196.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x0abba3164b0fb91a26f0683f2ee04c6fa5ebd8e8",
         "crssOwed": 491.6370072515791,
         "presale": 0,
@@ -7172,7 +7244,7 @@
         "address": "0x1c9df4b72de9088b13484d527f2fdafdf5562b15",
         "crssOwed": 487.4166666666667,
         "presale": 464.68333333333334,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 22.73333333333333,
         "dipBuys": 0
     },
@@ -7220,7 +7292,7 @@
         "address": "0x167fb30204c501444713f3fe87634876a3c135d7",
         "crssOwed": 466.66669116666657,
         "presale": 466.6666666666666,
-        "wallet": 0.000024500000000001,
+        "wallet": 0.000024500000000002998,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7249,18 +7321,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xd64590ab973053c1106f741da127bf753ad63cd6",
-        "crssOwed": 457.14285714285717,
-        "presale": 457.14285714285717,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x10640fd9a261db7842e24ea5e93dcafd84bd7eed",
         "crssOwed": 457.14285714285717,
         "presale": 457.14285714285717,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7276,7 +7340,7 @@
         "address": "0x8b93e7a4dbb1bafd39872e643ce76e06b15f4174",
         "crssOwed": 454.6515528264636,
         "presale": 363.7212422611709,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 90.93031056529271,
         "dipBuys": 0
     },
@@ -7289,10 +7353,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0xde3a987845a47608c121544cdc5df64a9de6783b",
-        "crssOwed": 448,
-        "presale": 448,
-        "wallet": 0,
+        "address": "0xd5a30c6993d19902f663ae998ba85dc8387f0c85",
+        "crssOwed": 450,
+        "presale": 360,
+        "wallet": 90,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xe84941fe43faf6c8dc360cd1e4c5448cae98bac1",
+        "crssOwed": 450,
+        "presale": 360,
+        "wallet": 90,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7316,7 +7388,7 @@
         "address": "0x2b18901d7b76b7485357fc13f7565bd31e23f971",
         "crssOwed": 442.85716610714286,
         "presale": 442.85714285714283,
-        "wallet": 0.000023250000000001,
+        "wallet": 0.000023250000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7332,7 +7404,7 @@
         "address": "0x273ef6375d6e93bc87dadccd1d6ced98e0f8cb4d",
         "crssOwed": 440.0000616,
         "presale": 440,
-        "wallet": 0.000061600000000001,
+        "wallet": 0.000061600000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7380,7 +7452,7 @@
         "address": "0xf81b19cd7b9d6a7651c3d6c24a4022a495297ec6",
         "crssOwed": 428.19999999999993,
         "presale": 256.91999999999996,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 171.28,
         "dipBuys": 0
     },
@@ -7389,6 +7461,14 @@
         "crssOwed": 428.57142857142856,
         "presale": 428.57142857142856,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xad7b36b1aa2f1ab7a8c69a751443e430f0269ab5",
+        "crssOwed": 428.57142857142856,
+        "presale": 342.85714285714283,
+        "wallet": 85.71428571428571,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7404,7 +7484,7 @@
         "address": "0x1c5b1d681435ddb9244139f03f09e8ce18a4ac70",
         "crssOwed": 426.2371636084035,
         "presale": 261.06697142857143,
-        "wallet": 0.0034493226891712,
+        "wallet": 0.003449322689171201,
         "staking": 165.16674285714288,
         "dipBuys": 0
     },
@@ -7412,7 +7492,7 @@
         "address": "0x6740353b66f823c9d30ae96fc32566c3160804a3",
         "crssOwed": 426.66666666666663,
         "presale": 512,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 341.3333333333333,
         "dipBuys": 0
     },
@@ -7436,15 +7516,7 @@
         "address": "0xaea3b43960c564a438e51c8cc4867b6edc67bfe4",
         "crssOwed": 420.57142857143333,
         "presale": 420.57142857142867,
-        "wallet": 4.636801e-12,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xf1fe6aaa97e095759fbc400450459a19bee21865",
-        "crssOwed": 420.57142857142867,
-        "presale": 420.57142857142867,
-        "wallet": 0,
+        "wallet": 4.636802e-12,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7513,6 +7585,22 @@
         "dipBuys": 0
     },
     {
+        "address": "0xe37428f14758be2032d28b64b477a5e4a941638c",
+        "crssOwed": 416.6666666666667,
+        "presale": 333.33333333333337,
+        "wallet": 83.33333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xa59b72478377d0d11fa3fa6c72433ea901a3bfc3",
+        "crssOwed": 416.6666666666667,
+        "presale": 333.33333333333337,
+        "wallet": 83.33333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x4699952a7d3182319660e219156ae0fcb84742b3",
         "crssOwed": 416.6666666666667,
         "presale": 250.00000000000003,
@@ -7556,7 +7644,7 @@
         "address": "0x8f67a2d9ab2c6457364b90831e48c4a5cc904870",
         "crssOwed": 405.33333333333337,
         "presale": 405.33333333333337,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7588,7 +7676,7 @@
         "address": "0xbc95a5b8caf376c3135e765a1b8dd015265c61f8",
         "crssOwed": 400.000056,
         "presale": 400,
-        "wallet": 0.000056000000000001,
+        "wallet": 0.000056000000000002005,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7596,7 +7684,7 @@
         "address": "0x63dec9dff3f7890c3d930b5e741f66c9502ec9de",
         "crssOwed": 400.000056,
         "presale": 400,
-        "wallet": 0.000056000000000001,
+        "wallet": 0.000056000000000002005,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7604,23 +7692,7 @@
         "address": "0x64cb7fb5199c83a96210911653ed60dfe5f85fa6",
         "crssOwed": 400.000056,
         "presale": 400,
-        "wallet": 0.000056000000000001,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xb58770d55eff61841b6c0b472217bfe7ff936fb8",
-        "crssOwed": 400,
-        "presale": 400,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x6b83e9e59504cdbe496be7681fce9603b908fa48",
-        "crssOwed": 400,
-        "presale": 400,
-        "wallet": 0,
+        "wallet": 0.000056000000000002005,
         "staking": 0,
         "dipBuys": 0
     },
@@ -7681,11 +7753,27 @@
         "dipBuys": 0
     },
     {
+        "address": "0x67794ef7588c25243cc59dd34b42096171bc8d6b",
+        "crssOwed": 396.6666666666667,
+        "presale": 317.33333333333337,
+        "wallet": 79.33333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xb9558926c1f9b568d8197e6882715ead09344a12",
         "crssOwed": 394.5238095238095,
         "presale": 315.61904761904765,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 78.9047619047619,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x4e52c07a9a699e68694c2c34a8d8cb6cf5401769",
+        "crssOwed": 393.3333333333333,
+        "presale": 314.66666666666663,
+        "wallet": 78.66666666666667,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -7708,8 +7796,16 @@
         "address": "0xc62acd639e9d194894348a6efa663f024446fe51",
         "crssOwed": 391.6666666666667,
         "presale": 313.33333333333337,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 78.33333333333333,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x86e5d910472cd11d26df5678ca920006c0b2c2c6",
+        "crssOwed": 391.6666666666667,
+        "presale": 313.33333333333337,
+        "wallet": 78.33333333333333,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -7764,7 +7860,7 @@
         "address": "0xeeeacfdd9a47ffadb2235dd21a7dd122eb4de9ab",
         "crssOwed": 383.3333333333333,
         "presale": 306.66666666666663,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 76.66666666666667,
         "dipBuys": 0
     },
@@ -7772,7 +7868,7 @@
         "address": "0xf50cf06caf5dc4c1ad2ee60b236a0e5718529e9a",
         "crssOwed": 383.3333333333333,
         "presale": 229.99999999999997,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 153.33333333333334,
         "dipBuys": 0
     },
@@ -7889,35 +7985,11 @@
         "dipBuys": 0
     },
     {
-        "address": "0x44efd9678c30f7722fa815069e83e686bf4b2b16",
-        "crssOwed": 363.61250204199735,
-        "presale": 0,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 363.61250204199735
-    },
-    {
         "address": "0xd17e6f19e4dca06ccd8601003d61a018a2904cd7",
-        "crssOwed": 360.7311535444821,
+        "crssOwed": 360.7311535444822,
         "presale": 0,
         "wallet": 37.138686188108956,
-        "staking": 323.5924673563731,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xd5a30c6993d19902f663ae998ba85dc8387f0c85",
-        "crssOwed": 360,
-        "presale": 360,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xe84941fe43faf6c8dc360cd1e4c5448cae98bac1",
-        "crssOwed": 360,
-        "presale": 360,
-        "wallet": 0,
-        "staking": 0,
+        "staking": 323.5924673563732,
         "dipBuys": 0
     },
     {
@@ -7961,12 +8033,28 @@
         "dipBuys": 0
     },
     {
+        "address": "0x37acfabebff8e2712f7ff804566348b8081178e7",
+        "crssOwed": 358.33333333333326,
+        "presale": 286.66666666666663,
+        "wallet": 71.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x96c70e4d8beb0c8b801bca9ba4937e6c622da205",
         "crssOwed": 356.36547612037725,
         "presale": 0,
         "wallet": 199.9670969752971,
         "staking": 102.71543100895843,
         "dipBuys": 53.68294813612167
+    },
+    {
+        "address": "0x05354de4ed71a3bdfbb2a77b64224b1e37c4ec05",
+        "crssOwed": 356.25,
+        "presale": 285,
+        "wallet": 71.25,
+        "staking": 0,
+        "dipBuys": 0
     },
     {
         "address": "0xcbc038ff181f410d110529618d841098f2dca6bd",
@@ -7988,7 +8076,7 @@
         "address": "0x8bc945b1ef5c30d80fdeb140c3ed64f8924605fa",
         "crssOwed": 354.39463698995206,
         "presale": 259.42857142857144,
-        "wallet": 6.5802286892e-8,
+        "wallet": 6.5802286893e-8,
         "staking": 94.96606549557832,
         "dipBuys": 0
     },
@@ -8020,7 +8108,7 @@
         "address": "0x3c1a21d2bdc48e2609bdddc587f00ebf7b10480a",
         "crssOwed": 342.85716085714284,
         "presale": 342.85714285714283,
-        "wallet": 0.000018000000000001,
+        "wallet": 0.000018000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8041,18 +8129,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xad7b36b1aa2f1ab7a8c69a751443e430f0269ab5",
-        "crssOwed": 342.85714285714283,
-        "presale": 342.85714285714283,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x8c4ec2554f7ea4ead3d9e84b0fa7ce8037f6abad",
         "crssOwed": 342.85714285714283,
         "presale": 274.2857142857143,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 68.57142857142857,
         "dipBuys": 0
     },
@@ -8068,7 +8148,7 @@
         "address": "0x96fdd2d5726bb0cfdceb55dce58bfac103f78ab9",
         "crssOwed": 341.66666666666663,
         "presale": 273.33333333333326,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 68.33333333333334,
         "dipBuys": 0
     },
@@ -8164,7 +8244,7 @@
         "address": "0x82b77eeddf0e878540c688778035780dd20e900f",
         "crssOwed": 333.33333333333326,
         "presale": 266.66666666666663,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 66.66666666666666,
         "dipBuys": 0
     },
@@ -8172,7 +8252,7 @@
         "address": "0x84670e3e4055333d2e8c06e20882321a80f28199",
         "crssOwed": 333.33333333333326,
         "presale": 266.66666666666663,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 66.66666666666666,
         "dipBuys": 0
     },
@@ -8188,7 +8268,7 @@
         "address": "0x48efd5a4fac62512645b471eb14ff7296cc002db",
         "crssOwed": 333.33333333333326,
         "presale": 266.66666666666663,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 66.66666666666666,
         "dipBuys": 0
     },
@@ -8220,14 +8300,6 @@
         "address": "0x4b8af0b7f8a604b81ff945672c545b128d5ef110",
         "crssOwed": 333.3333333333333,
         "presale": 333.3333333333333,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xe37428f14758be2032d28b64b477a5e4a941638c",
-        "crssOwed": 333.33333333333337,
-        "presale": 333.33333333333337,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -8297,10 +8369,26 @@
         "dipBuys": 0
     },
     {
-        "address": "0xa59b72478377d0d11fa3fa6c72433ea901a3bfc3",
-        "crssOwed": 333.33333333333337,
-        "presale": 333.33333333333337,
-        "wallet": 0,
+        "address": "0x15718e9b7624ca651f4e4e0df980cd55c786d7c0",
+        "crssOwed": 333.33333333333326,
+        "presale": 266.66666666666663,
+        "wallet": 66.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xe5b1fb66ed888fe5a0f30748248aa026a61ec480",
+        "crssOwed": 333.33333333333326,
+        "presale": 266.66666666666663,
+        "wallet": 66.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x966b52c972abe244c5bcec54640fa85e6a75de46",
+        "crssOwed": 333.33333333333326,
+        "presale": 266.66666666666663,
+        "wallet": 66.66666666666666,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8308,7 +8396,7 @@
         "address": "0x22057c79e4a9f2856a97c90b8a5d73b5fa14ba6c",
         "crssOwed": 333.3333333333333,
         "presale": 200,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 133.33333333333331,
         "dipBuys": 0
     },
@@ -8321,20 +8409,20 @@
         "dipBuys": 0
     },
     {
-        "address": "0x46c5e35cb03e76abad0e2179f868926fa402bab6",
-        "crssOwed": 330,
-        "presale": 330,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x47033ecfe823eef042f9baab15e9e5fa5f28d43a",
         "crssOwed": 328.0331987352671,
         "presale": 110.64000000000001,
         "wallet": 217.39319873526708,
         "staking": 0,
         "dipBuys": 0
+    },
+    {
+        "address": "0x78f91bcf969ce2355ef8c6b386a3ae341e43934d",
+        "crssOwed": 328.69579634383416,
+        "presale": 0,
+        "wallet": 0,
+        "staking": 371.3885034182013,
+        "dipBuys": -42.69270707436713
     },
     {
         "address": "0x1e8a11c288f87ec5b889e452ec6ee8013aca1e49",
@@ -8364,7 +8452,7 @@
         "address": "0x4cc9d950f296bff3f59fe29b5b09ca28a846c979",
         "crssOwed": 324.37774223196436,
         "presale": 137.14285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 187.2348850891072,
         "dipBuys": 0
     },
@@ -8380,7 +8468,7 @@
         "address": "0x6634867f01eed312b51d3515a577ce21704f2016",
         "crssOwed": 321.42857142857144,
         "presale": 257.14285714285717,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 64.28571428571428,
         "dipBuys": 0
     },
@@ -8396,7 +8484,7 @@
         "address": "0x1e09c8ef31903f4e68b472983ec7a305522a9b84",
         "crssOwed": 319.3556406614413,
         "presale": 228.57142857142858,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 90.78421209001273,
         "dipBuys": 0
     },
@@ -8404,16 +8492,8 @@
         "address": "0x4932d7e73f1cf255ba85f68895d7a95771b767ba",
         "crssOwed": 318.3333333333333,
         "presale": 254.66666666666666,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 63.666666666666664,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x67794ef7588c25243cc59dd34b42096171bc8d6b",
-        "crssOwed": 317.33333333333337,
-        "presale": 317.33333333333337,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -8449,26 +8529,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0x4e52c07a9a699e68694c2c34a8d8cb6cf5401769",
-        "crssOwed": 314.66666666666663,
-        "presale": 314.66666666666663,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x86e5d910472cd11d26df5678ca920006c0b2c2c6",
-        "crssOwed": 313.33333333333337,
-        "presale": 313.33333333333337,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x445896fafb1a504e758507f4cad6be52dc6dbabd",
         "crssOwed": 312.5,
         "presale": 312.5,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xed61f236af0dce885d8fe27596bde5aa115e2e09",
+        "crssOwed": 312.5,
+        "presale": 250,
+        "wallet": 62.5,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8497,10 +8569,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0x9169ae67b8b138d596d9f40915d9e85afe7036ac",
+        "crssOwed": 309.1666666666667,
+        "presale": 247.33333333333334,
+        "wallet": 61.833333333333336,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x8258bd968bb4aa08710a8a218a1d6eb907bb1363",
         "crssOwed": 306.04564588576704,
         "presale": 233.3333333333333,
-        "wallet": 0.000012250000000003,
+        "wallet": 0.000012250000000004,
         "staking": 72.71230030243377,
         "dipBuys": 0
     },
@@ -8553,7 +8633,7 @@
         "dipBuys": 0
     },
     {
-        "address": "0x04064e84bfdf8a3d831f223f90982f9933a56f2e",
+        "address": "0x8c9f1f99cd94847e45a73371a07b9f2bbc3c2c80",
         "crssOwed": 300,
         "presale": 300,
         "wallet": 0,
@@ -8561,10 +8641,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0x8c9f1f99cd94847e45a73371a07b9f2bbc3c2c80",
+        "address": "0x1a338cba269f8270525e123d5b7bf13b4415a1fa",
         "crssOwed": 300,
-        "presale": 300,
-        "wallet": 0,
+        "presale": 240,
+        "wallet": 60,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x0ee983782503aef685c61627228c592293a422f6",
+        "crssOwed": 300,
+        "presale": 240,
+        "wallet": 60,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8593,19 +8681,19 @@
         "dipBuys": 295.88598370096366
     },
     {
-        "address": "0xa1cc78c42a26be0903debc97b682cc93f0767a64",
-        "crssOwed": 295,
-        "presale": 295,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x787e6f236c563ab756dbe1e8afcb7b3f21dd9ea3",
         "crssOwed": 291.4285714285714,
         "presale": 233.1428571428571,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 58.285714285714285,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x1f0c4fb74d1bc12cf218e4516773341d4ff41b39",
+        "crssOwed": 290,
+        "presale": 232,
+        "wallet": 58,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -8620,15 +8708,7 @@
         "address": "0x03d99d263d4fcc26c7106b33ca94a51661502b76",
         "crssOwed": 286.00004004,
         "presale": 286,
-        "wallet": 0.000040040000000001,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x37acfabebff8e2712f7ff804566348b8081178e7",
-        "crssOwed": 286.66666666666663,
-        "presale": 286.66666666666663,
-        "wallet": 0,
+        "wallet": 0.000040040000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8636,7 +8716,7 @@
         "address": "0x816b5e55d41ab5368c84be07125dade79a2ccfc9",
         "crssOwed": 285.71430071428574,
         "presale": 285.7142857142857,
-        "wallet": 0.000015000000000002,
+        "wallet": 0.000015000000000002999,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8660,7 +8740,7 @@
         "address": "0x059eeb25836be36d336455eb462d7d96f52e72a6",
         "crssOwed": 285.71430071428574,
         "presale": 285.7142857142857,
-        "wallet": 0.000015000000000002,
+        "wallet": 0.000015000000000002999,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8681,18 +8761,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x05354de4ed71a3bdfbb2a77b64224b1e37c4ec05",
-        "crssOwed": 285,
-        "presale": 285,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x8c47bfed6a99db3eec412bcb973eca763242c08a",
         "crssOwed": 285.7142857142857,
         "presale": 228.57142857142858,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 57.142857142857146,
         "dipBuys": 0
     },
@@ -8700,7 +8772,7 @@
         "address": "0x70bbb01e587ee2c7f2372632ed35e98286c9e9a9",
         "crssOwed": 285.7142857142857,
         "presale": 228.57142857142858,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 57.142857142857146,
         "dipBuys": 0
     },
@@ -8772,7 +8844,7 @@
         "address": "0xbafccfaf3194ac044e17e43ca28bb639c054775c",
         "crssOwed": 273.33333333333337,
         "presale": 273.33333333333337,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -8796,7 +8868,7 @@
         "address": "0x1c028d417ca648984dea4303550ed3cf2d2807e0",
         "crssOwed": 271.4285714285714,
         "presale": 217.1428571428571,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 54.285714285714285,
         "dipBuys": 0
     },
@@ -8804,7 +8876,7 @@
         "address": "0x21a06bbdbdd77ebcb0627a2e2617fb5af2b5057b",
         "crssOwed": 270.91666666666663,
         "presale": 164.04999999999995,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 106.86666666666667,
         "dipBuys": 0
     },
@@ -8833,31 +8905,7 @@
         "dipBuys": 0
     },
     {
-        "address": "0x15718e9b7624ca651f4e4e0df980cd55c786d7c0",
-        "crssOwed": 266.66666666666663,
-        "presale": 266.66666666666663,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xe5b1fb66ed888fe5a0f30748248aa026a61ec480",
-        "crssOwed": 266.66666666666663,
-        "presale": 266.66666666666663,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xd179e577b5291881144876360297c41777a328c1",
-        "crssOwed": 266.66666666666663,
-        "presale": 266.66666666666663,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x966b52c972abe244c5bcec54640fa85e6a75de46",
         "crssOwed": 266.66666666666663,
         "presale": 266.66666666666663,
         "wallet": 0,
@@ -8868,8 +8916,16 @@
         "address": "0xdae3726a97b806f792187a29259a0541fa14823d",
         "crssOwed": 266.66666666666663,
         "presale": 213.3333333333333,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 53.33333333333334,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x2818ed786cbfa747a9d1313a0f98c0878f06a003",
+        "crssOwed": 266.54761904761904,
+        "presale": 257.8809523809524,
+        "wallet": 8.666666666666668,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -8937,14 +8993,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x2818ed786cbfa747a9d1313a0f98c0878f06a003",
-        "crssOwed": 257.8809523809524,
-        "presale": 257.8809523809524,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x1cba22fed032dc74894e978386171ed9853decf0",
         "crssOwed": 256.9375015331537,
         "presale": 88.75,
@@ -8956,7 +9004,7 @@
         "address": "0x64957bf8965fccfaba86fffe75dd3f49a447a283",
         "crssOwed": 256.66666666666663,
         "presale": 205.33333333333331,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 51.33333333333333,
         "dipBuys": 0
     },
@@ -8966,6 +9014,14 @@
         "presale": 149,
         "wallet": 12.241511306307421,
         "staking": 94.60065001584763,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x808f31f3932ab66127330f927248577ab6ba4c43",
+        "crssOwed": 255,
+        "presale": 204,
+        "wallet": 51,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -9009,6 +9065,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0x123f1f3de970851a2e24ad01e7a264ef08a006cc",
+        "crssOwed": 251.85,
+        "presale": 201.48,
+        "wallet": 50.37,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xc9ac14f458342d31e9ba7d36cb1361bb2152cc5d",
         "crssOwed": 250,
         "presale": 200,
@@ -9041,18 +9105,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xed61f236af0dce885d8fe27596bde5aa115e2e09",
-        "crssOwed": 250,
-        "presale": 250,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x2900015334cb4c1f13276bf5c29a0a8c2db8b68d",
         "crssOwed": 250.7001666666667,
         "presale": 200.56013333333334,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 50.140033333333335,
         "dipBuys": 0
     },
@@ -9113,14 +9169,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x9169ae67b8b138d596d9f40915d9e85afe7036ac",
-        "crssOwed": 247.33333333333334,
-        "presale": 247.33333333333334,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xa7684e31464e3c589aac40d534f3b9a55a6ac079",
         "crssOwed": 245.97818010270385,
         "presale": 14.596875,
@@ -9172,25 +9220,9 @@
         "address": "0x2c47e26adc0e9fa34561e56ee1c615426737dd8b",
         "crssOwed": 240.41973864965567,
         "presale": 171.42857142857142,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 42.857142857142854,
         "dipBuys": 26.1340243639414
-    },
-    {
-        "address": "0x1a338cba269f8270525e123d5b7bf13b4415a1fa",
-        "crssOwed": 240,
-        "presale": 240,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x0ee983782503aef685c61627228c592293a422f6",
-        "crssOwed": 240,
-        "presale": 240,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
     },
     {
         "address": "0x44009d715775a4ba768de65c5551a123c09d90f8",
@@ -9204,7 +9236,7 @@
         "address": "0xc74cd09fc3cfd9e18fea7f4c88c18308b86dafb6",
         "crssOwed": 237.636,
         "presale": 237.636,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9241,10 +9273,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x1f0c4fb74d1bc12cf218e4516773341d4ff41b39",
-        "crssOwed": 232,
-        "presale": 232,
-        "wallet": 0,
+        "address": "0xa504b04ded34fd18bd62899a28d41d01ab52022d",
+        "crssOwed": 233.33333333333334,
+        "presale": 186.66666666666669,
+        "wallet": 46.666666666666664,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9340,7 +9372,7 @@
         "address": "0xaa13b3e71db9f31c6f333103bc784e6ba6d8b3e1",
         "crssOwed": 221.42857142857142,
         "presale": 177.14285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 44.285714285714285,
         "dipBuys": 0
     },
@@ -9385,6 +9417,22 @@
         "dipBuys": 0
     },
     {
+        "address": "0xda31185cbeabad51b4c7e52db258052266f8303c",
+        "crssOwed": 216.66666666666666,
+        "presale": 173.33333333333331,
+        "wallet": 43.333333333333336,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6c846a56b43e3398821943705220bf2c74793861",
+        "crssOwed": 216.66666666666669,
+        "presale": 130,
+        "wallet": 86.66666666666667,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xf1a77573c004862234d3c2b377d9ec8f97a03f19",
         "crssOwed": 215.41666666666666,
         "presale": 140.75,
@@ -9412,7 +9460,7 @@
         "address": "0x214def7d5b7f65b7cfe9f4cf42868efa9b42517e",
         "crssOwed": 214.28571428571428,
         "presale": 171.42857142857142,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 42.857142857142854,
         "dipBuys": 0
     },
@@ -9428,7 +9476,7 @@
         "address": "0x20f2f6fd68652413aa54272203acb72a04eeebd2",
         "crssOwed": 214.43026994659232,
         "presale": 114.28571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 100.14455566087803,
         "dipBuys": 0
     },
@@ -9508,7 +9556,7 @@
         "address": "0x21face3f7d01accd991db9e1471336fad3596d2f",
         "crssOwed": 208.7904761904762,
         "presale": 208.7904761904762,
-        "wallet": 2e-18,
+        "wallet": 3.0000000000000002e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9577,14 +9625,6 @@
         "dipBuys": -0.0317064293162771
     },
     {
-        "address": "0x808f31f3932ab66127330f927248577ab6ba4c43",
-        "crssOwed": 204,
-        "presale": 204,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xa49d2728795c2a316dc8e58e2e9153190a20b578",
         "crssOwed": 203.265,
         "presale": 203.265,
@@ -9596,7 +9636,7 @@
         "address": "0xf59bca3e92406c78559986b0b576e3a246440a4a",
         "crssOwed": 202.3340276757601,
         "presale": 202.33399999999997,
-        "wallet": 0.000027675760136711,
+        "wallet": 0.000027675760136712,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9625,14 +9665,6 @@
         "dipBuys": 72.94222596356128
     },
     {
-        "address": "0x123f1f3de970851a2e24ad01e7a264ef08a006cc",
-        "crssOwed": 201.48,
-        "presale": 201.48,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x5c8918ede14508722aaa47df7efd6fbcb2537cb5",
         "crssOwed": 201.42857142857142,
         "presale": 201.42857142857142,
@@ -9652,7 +9684,7 @@
         "address": "0x2d90c05758c74d0e893d9ce234f9cafdd56f136b",
         "crssOwed": 200.000028,
         "presale": 200,
-        "wallet": 0.000028000000000001,
+        "wallet": 0.000028000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9660,7 +9692,7 @@
         "address": "0x5f378cbc17ff41b1b75dedd6aaac3610cf2fc5fe",
         "crssOwed": 200.000028,
         "presale": 200,
-        "wallet": 0.000028000000000002,
+        "wallet": 0.000028000000000003998,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9668,7 +9700,7 @@
         "address": "0x5d17f21cadc6cf4be1fadf4726586126aa9393ad",
         "crssOwed": 200.000028,
         "presale": 200,
-        "wallet": 0.000028000000000001,
+        "wallet": 0.000028000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9676,7 +9708,7 @@
         "address": "0x65dee3f56a96333f9116e9d9a54c50ce38886cab",
         "crssOwed": 200.00001687,
         "presale": 200,
-        "wallet": 0.000016870000000001,
+        "wallet": 0.000016870000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9684,7 +9716,7 @@
         "address": "0x1914172d1c51412c3fc37ec86989edcc5fdcc0bc",
         "crssOwed": 200,
         "presale": 200,
-        "wallet": 2e-18,
+        "wallet": 4e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9708,7 +9740,7 @@
         "address": "0x3227209fc0352418c82c6f51b1427cf15f8a5845",
         "crssOwed": 200,
         "presale": 120,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 80,
         "dipBuys": 0
     },
@@ -9764,7 +9796,7 @@
         "address": "0x39eff0dd13e43242e6e6bf9c9eecda20b2880cbb",
         "crssOwed": 194.93956252395162,
         "presale": 137.14285714285714,
-        "wallet": 0.00634479864,
+        "wallet": 0.0063447986400000005,
         "staking": 57.79036058245447,
         "dipBuys": 0
     },
@@ -9774,6 +9806,14 @@
         "presale": 0,
         "wallet": 0,
         "staking": 194.35233084951412,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xeed8e5a5e0c2feb4d9133438fd277b24bb36b34e",
+        "crssOwed": 193.33333333333334,
+        "presale": 154.66666666666669,
+        "wallet": 38.666666666666664,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -9796,7 +9836,7 @@
         "address": "0x30a9bdf6c028242a26f99270168217e8a2b1145f",
         "crssOwed": 190.0000266,
         "presale": 380,
-        "wallet": 0.000053200000000001,
+        "wallet": 0.000053200000000002005,
         "staking": 0,
         "dipBuys": 0
     },
@@ -9873,6 +9913,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0x6a4c63fa342fe3c17cdd23a918829eb5f621ee24",
+        "crssOwed": 187.5,
+        "presale": 150,
+        "wallet": 37.5,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x222368ac25193b5e9ac300332be849dfea8f03dc",
         "crssOwed": 186.9547136235252,
         "presale": 0,
@@ -9887,14 +9935,6 @@
         "wallet": 0,
         "staking": 0,
         "dipBuys": 186.61136038388048
-    },
-    {
-        "address": "0xa504b04ded34fd18bd62899a28d41d01ab52022d",
-        "crssOwed": 186.66666666666669,
-        "presale": 186.66666666666669,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
     },
     {
         "address": "0xfb50b58a32a6eea64c9a5507532013815a586479",
@@ -9953,10 +9993,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0x7af3b5ed46636c46bd89289a072922bd20100a09",
+        "crssOwed": 183.33333333333337,
+        "presale": 146.66666666666669,
+        "wallet": 36.66666666666667,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x7795d0909275eae039d25d0345420b603ad8cb00",
         "crssOwed": 182.85714285714286,
         "presale": 146.28571428571428,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 36.57142857142858,
         "dipBuys": 0
     },
@@ -9965,6 +10013,14 @@
         "crssOwed": 181.66666666666666,
         "presale": 109,
         "wallet": 72.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xe88a8a6fe49d64c5ec2783413ab7388b5fd23884",
+        "crssOwed": 181.42857142857142,
+        "presale": 145.14285714285714,
+        "wallet": 36.285714285714285,
         "staking": 0,
         "dipBuys": 0
     },
@@ -10012,7 +10068,7 @@
         "address": "0x19b8b60f3628fc8fd9b43bf2b184b4e6ff24cc9a",
         "crssOwed": 178.28572364571428,
         "presale": 178.28571428571428,
-        "wallet": 0.000009360000000003,
+        "wallet": 0.000009360000000004,
         "staking": 0,
         "dipBuys": 0
     },
@@ -10065,6 +10121,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0x34640f3d8ec3f7991b46329a2cf6f8e9cadc32e4",
+        "crssOwed": 175.71428571428572,
+        "presale": 140.57142857142858,
+        "wallet": 35.14285714285714,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xfd8a2b7cbdd72be9f2c0c19556e5cffa4d516fb4",
         "crssOwed": 174.21,
         "presale": 174.21,
@@ -10073,18 +10137,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xda31185cbeabad51b4c7e52db258052266f8303c",
-        "crssOwed": 173.33333333333331,
-        "presale": 173.33333333333331,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x75b5feea0f2facfc5c73d18f7d4b2110c629c777",
         "crssOwed": 173.33333333333334,
         "presale": 104,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 69.33333333333334,
         "dipBuys": 0
     },
@@ -10116,7 +10172,7 @@
         "address": "0x0786bdb4b70655c623bdf8da754182caa92df181",
         "crssOwed": 171.66666666666666,
         "presale": 103,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 68.66666666666666,
         "dipBuys": 0
     },
@@ -10124,7 +10180,7 @@
         "address": "0xbddfb505088547d1b6bcf68603203455af805a73",
         "crssOwed": 171.55571428571426,
         "presale": 137.24457142857142,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 34.311142857142855,
         "dipBuys": 0
     },
@@ -10133,6 +10189,14 @@
         "crssOwed": 170,
         "presale": 170,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x45193d361865c847cda5c5cec9da168771446deb",
+        "crssOwed": 170,
+        "presale": 102,
+        "wallet": 68,
         "staking": 0,
         "dipBuys": 0
     },
@@ -10156,7 +10220,7 @@
         "address": "0xde3ddfaf74f68539b9e9ab35a1d341df5781e749",
         "crssOwed": 168.57142857142858,
         "presale": 134.85714285714286,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 33.714285714285715,
         "dipBuys": 0
     },
@@ -10220,7 +10284,7 @@
         "address": "0x7b77aabdf3a029c4c545a2abf36a85420978d323",
         "crssOwed": 166.6910763244,
         "presale": 100,
-        "wallet": 0.024409657733333333,
+        "wallet": 0.024409657733333336,
         "staking": 66.66666666666666,
         "dipBuys": 0
     },
@@ -10231,6 +10295,14 @@
         "wallet": 0,
         "staking": 0,
         "dipBuys": 166.1202877775035
+    },
+    {
+        "address": "0x4c309178667477237367c993c1357f575654cba0",
+        "crssOwed": 166.66666666666666,
+        "presale": 100,
+        "wallet": 66.66666666666666,
+        "staking": 0,
+        "dipBuys": 0
     },
     {
         "address": "0xf9ff88d9064ff5cb7d4fa376430244f0b1fcbd9c",
@@ -10369,26 +10441,66 @@
         "dipBuys": 0
     },
     {
+        "address": "0x6a99007848b873bc722c65df23eb0c3800a84a93",
+        "crssOwed": 166.66666666666663,
+        "presale": 133.33333333333331,
+        "wallet": 33.33333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6ffb36de892652ab86dcb3c1a2aea210e20c21e4",
+        "crssOwed": 166.66666666666663,
+        "presale": 133.33333333333331,
+        "wallet": 33.33333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x896d6a17654ef75e184ca6eebdf6e2a248f3667d",
         "crssOwed": 166.66666666666663,
         "presale": 133.33333333333331,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 33.33333333333333,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xcfcd1cbf3c00c8808baed1bf4ded00a41dc72106",
+        "crssOwed": 166.66666666666663,
+        "presale": 133.33333333333331,
+        "wallet": 33.33333333333333,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6c5cb5265251789a8a84e3e853e8d07a42118bbc",
+        "crssOwed": 166.66666666666663,
+        "presale": 133.33333333333331,
+        "wallet": 33.33333333333333,
+        "staking": 0,
         "dipBuys": 0
     },
     {
         "address": "0x5f69e8fe1e03d75a5b68fdf3cd08870187660e11",
         "crssOwed": 166.66666666666663,
         "presale": 133.33333333333331,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 33.33333333333333,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xb8aa2a51ed3e9c1471af89273781db3c94ccafa3",
+        "crssOwed": 166.66666666666663,
+        "presale": 133.33333333333331,
+        "wallet": 33.33333333333333,
+        "staking": 0,
         "dipBuys": 0
     },
     {
         "address": "0x262dc603a1207591a5a12cdcd980a42037772359",
         "crssOwed": 166.66666666666666,
         "presale": 100,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 66.66666666666666,
         "dipBuys": 0
     },
@@ -10396,7 +10508,7 @@
         "address": "0x6fe43a9f54eec22998fdd10c1b90b6c27e40d855",
         "crssOwed": 166.66666666666666,
         "presale": 100,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 66.66666666666666,
         "dipBuys": 0
     },
@@ -10420,7 +10532,7 @@
         "address": "0xf3ac6ed78555762a12e498de9faece69acb2d561",
         "crssOwed": 165.33334201333332,
         "presale": 165.33333333333331,
-        "wallet": 0.000008680000000001,
+        "wallet": 0.000008680000000001999,
         "staking": 0,
         "dipBuys": 0
     },
@@ -10513,6 +10625,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xe310ae09ca3ec256848cf7fc555b4817b2359b42",
+        "crssOwed": 158.33333333333334,
+        "presale": 126.66666666666667,
+        "wallet": 31.666666666666668,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xbcaef7e3d2c7eea75b2fda339d8467a75dc472d3",
         "crssOwed": 157.96008565256946,
         "presale": 0,
@@ -10566,14 +10686,6 @@
         "presale": 0,
         "wallet": 0,
         "staking": 154.54614487181212,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xeed8e5a5e0c2feb4d9133438fd277b24bb36b34e",
-        "crssOwed": 154.66666666666669,
-        "presale": 154.66666666666669,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -10689,14 +10801,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x6a4c63fa342fe3c17cdd23a918829eb5f621ee24",
-        "crssOwed": 150,
-        "presale": 150,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xdf2726c13b2221f5870ce2f417eafb6bf8d1fed7",
         "crssOwed": 150.849,
         "presale": 0,
@@ -10777,14 +10881,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x7af3b5ed46636c46bd89289a072922bd20100a09",
-        "crssOwed": 146.66666666666669,
-        "presale": 146.66666666666669,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x0ada881e94fec4b5cd4e9e4bb34bf8dd6061d2e8",
         "crssOwed": 146.25,
         "presale": 146.25,
@@ -10812,15 +10908,7 @@
         "address": "0x78310847585628ee7f7a051fd1bf77abe4c16036",
         "crssOwed": 145.05445116647655,
         "presale": 145.05066666666667,
-        "wallet": 0.00378449980989,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xe88a8a6fe49d64c5ec2783413ab7388b5fd23884",
-        "crssOwed": 145.14285714285714,
-        "presale": 145.14285714285714,
-        "wallet": 0,
+        "wallet": 0.003784499809890002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -10844,7 +10932,7 @@
         "address": "0x2883648ec5cf06dc6a205a68479677d37c0f7449",
         "crssOwed": 145.7142857142857,
         "presale": 116.57142857142856,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 29.142857142857142,
         "dipBuys": 0
     },
@@ -10956,7 +11044,7 @@
         "address": "0xc63cf58b68bf64bdb5314c9304fff8fb77592530",
         "crssOwed": 142.85714285714286,
         "presale": 114.28571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 28.571428571428573,
         "dipBuys": 0
     },
@@ -10964,15 +11052,23 @@
         "address": "0xe90247d283bb9f3d951e0145c9f8fd315759fa50",
         "crssOwed": 142.85714285714286,
         "presale": 114.28571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 28.571428571428573,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x0e4826475f05d41f68e3edead181c37343b20462",
+        "crssOwed": 142.85714285714286,
+        "presale": 114.28571428571429,
+        "wallet": 28.571428571428573,
+        "staking": 0,
         "dipBuys": 0
     },
     {
         "address": "0x20f5eca6439285ef4bdcb3053f66330659a04d74",
         "crssOwed": 142.85714285714286,
         "presale": 114.28571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 28.571428571428573,
         "dipBuys": 0
     },
@@ -10980,7 +11076,7 @@
         "address": "0x693df2a465f33c52acf77846dc4f5e088809ed6d",
         "crssOwed": 142.85714285714286,
         "presale": 114.28571428571429,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 28.571428571428573,
         "dipBuys": 0
     },
@@ -11004,7 +11100,7 @@
         "address": "0x99aa4f42b3d94c64d6b83896e4cad1fe8bae4dcf",
         "crssOwed": 140.000028,
         "presale": 140,
-        "wallet": 0.000028000000000001,
+        "wallet": 0.000028000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11012,7 +11108,7 @@
         "address": "0xb3cb876176bce80b214a12591861ead4c0fd2039",
         "crssOwed": 140.00849533028443,
         "presale": 39.999999999999986,
-        "wallet": 0.000249410186666666,
+        "wallet": 0.000249410186666668,
         "staking": 46.652666666666676,
         "dipBuys": 53.355579253431095
     },
@@ -11025,18 +11121,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0x34640f3d8ec3f7991b46329a2cf6f8e9cadc32e4",
-        "crssOwed": 140.57142857142858,
-        "presale": 140.57142857142858,
+        "address": "0xb737352fac5e02b633d80d223146be13ba5c94f8",
+        "crssOwed": 140,
+        "presale": 140,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
     {
-        "address": "0xb737352fac5e02b633d80d223146be13ba5c94f8",
+        "address": "0xb6f5268e549fd0b6cec5d0e785be40198906ea2b",
         "crssOwed": 140,
-        "presale": 140,
-        "wallet": 0,
+        "presale": 112,
+        "wallet": 28,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11108,7 +11204,7 @@
         "address": "0xa96e3d67c02422fed61c81a9045efd998afff775",
         "crssOwed": 133.33335239847412,
         "presale": 133.33333333333331,
-        "wallet": 0.000019065140815735,
+        "wallet": 0.000019065140815736,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11116,7 +11212,7 @@
         "address": "0xb0346ac5676e031a55a2842aaf068720f23fc0f4",
         "crssOwed": 133.33334033333333,
         "presale": 133.33333333333331,
-        "wallet": 0.000007000000000001,
+        "wallet": 0.000007000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11124,16 +11220,8 @@
         "address": "0x7cc6999d00e4912aad54c7cbad176b8afe4e133e",
         "crssOwed": 133.14728818387573,
         "presale": 66.66666666666666,
-        "wallet": 0.006519999933333332,
+        "wallet": 0.006519999933333333,
         "staking": 66.47410151727573,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x4c309178667477237367c993c1357f575654cba0",
-        "crssOwed": 133.33333333333331,
-        "presale": 100,
-        "wallet": 33.33333333333333,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -11141,14 +11229,6 @@
         "crssOwed": 133.33333333333331,
         "presale": 106.66666666666664,
         "wallet": 26.666666666666668,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x6a99007848b873bc722c65df23eb0c3800a84a93",
-        "crssOwed": 133.33333333333331,
-        "presale": 133.33333333333331,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11161,34 +11241,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x6ffb36de892652ab86dcb3c1a2aea210e20c21e4",
+        "address": "0xeb6bb45850aac4abd00402de7e1b1dd607fe522b",
         "crssOwed": 133.33333333333331,
-        "presale": 133.33333333333331,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xcfcd1cbf3c00c8808baed1bf4ded00a41dc72106",
-        "crssOwed": 133.33333333333331,
-        "presale": 133.33333333333331,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x6c5cb5265251789a8a84e3e853e8d07a42118bbc",
-        "crssOwed": 133.33333333333331,
-        "presale": 133.33333333333331,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xb8aa2a51ed3e9c1471af89273781db3c94ccafa3",
-        "crssOwed": 133.33333333333331,
-        "presale": 133.33333333333331,
-        "wallet": 0,
+        "presale": 106.66666666666664,
+        "wallet": 26.666666666666668,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11244,7 +11300,7 @@
         "address": "0xc4654da314f77f42560c34ce6eb0285b87533002",
         "crssOwed": 131.85615734076424,
         "presale": 58.60000000000001,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 73.25615734076423,
         "dipBuys": 0
     },
@@ -11252,7 +11308,7 @@
         "address": "0x5d8069b10b5cf0ebc169f66a586465b2050a705e",
         "crssOwed": 131.65491990904874,
         "presale": 62.16100000000001,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 69.49391990904874,
         "dipBuys": 0
     },
@@ -11271,14 +11327,6 @@
         "wallet": 0,
         "staking": 0,
         "dipBuys": 130.670121819707
-    },
-    {
-        "address": "0x6c846a56b43e3398821943705220bf2c74793861",
-        "crssOwed": 130,
-        "presale": 130,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
     },
     {
         "address": "0x54c1dfbae1c401a8a97059dc90a0ef0a36b95db6",
@@ -11300,8 +11348,16 @@
         "address": "0x0ea0ddcad378d367500f722bed63531ed322e4a2",
         "crssOwed": 128.57142857142856,
         "presale": 102.85714285714283,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 25.714285714285715,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xd8c77c1f3cb197f095df317936d605c79554f362",
+        "crssOwed": 127.46766666666667,
+        "presale": 101.97413333333334,
+        "wallet": 25.493533333333332,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -11321,18 +11377,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xe310ae09ca3ec256848cf7fc555b4817b2359b42",
-        "crssOwed": 126.66666666666667,
-        "presale": 126.66666666666667,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xbe8ba22113bfb2dee3ba8b9026da5cd27cb053ec",
         "crssOwed": 126.19047619047618,
         "presale": 100.95238095238093,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 25.238095238095237,
         "dipBuys": 0
     },
@@ -11349,6 +11397,14 @@
         "crssOwed": 125,
         "presale": 125,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xa10aa1fa4a005af55771cb5ca4d975a8521b3cf5",
+        "crssOwed": 125,
+        "presale": 100,
+        "wallet": 25,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11417,6 +11473,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0x793293912b7084efd44710a0c80a2f587a5b3ac6",
+        "crssOwed": 125,
+        "presale": 100,
+        "wallet": 25,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xd3106a0191cd77528d52e48370b66a94c628778c",
         "crssOwed": 124.28571428571429,
         "presale": 99.42857142857143,
@@ -11460,7 +11524,7 @@
         "address": "0xe5849563ae7b71e4cadb4e81f14c56c3cb246e3e",
         "crssOwed": 121.42857142857142,
         "presale": 97.14285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 24.285714285714285,
         "dipBuys": 0
     },
@@ -11505,6 +11569,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0x1963b4e3d6a6d24882262725dc618ba58b056aa9",
+        "crssOwed": 116.66666666666667,
+        "presale": 93.33333333333334,
+        "wallet": 23.333333333333332,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xe8aaec9ea8883c7703071b4a14ccedcc86856306",
         "crssOwed": 116.55000000000001,
         "presale": 93.24000000000001,
@@ -11540,15 +11612,7 @@
         "address": "0x8b8f13f5bd82078b4defd47a4e2c79e1af90be27",
         "crssOwed": 114.28572028571429,
         "presale": 114.28571428571429,
-        "wallet": 0.000006000000000001,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x0e4826475f05d41f68e3edead181c37343b20462",
-        "crssOwed": 114.28571428571429,
-        "presale": 114.28571428571429,
-        "wallet": 0,
+        "wallet": 0.000006000000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11569,6 +11633,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xc6adc623d90d1e53aad5da9b26b04fa7efdee9bc",
+        "crssOwed": 113.33333333333333,
+        "presale": 90.66666666666666,
+        "wallet": 22.666666666666668,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xef593c000c98b9cb5bc22d3ad722e4eef817da7c",
         "crssOwed": 112.43862850891438,
         "presale": 0,
@@ -11577,10 +11649,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xb6f5268e549fd0b6cec5d0e785be40198906ea2b",
-        "crssOwed": 112,
-        "presale": 112,
-        "wallet": 0,
+        "address": "0x3a0ec548050098ea1b377e4feba6c78e06422fe3",
+        "crssOwed": 112.5,
+        "presale": 90,
+        "wallet": 22.5,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11620,7 +11692,7 @@
         "address": "0x253ba4a726af9f07480544e168f31a0fd49671f8",
         "crssOwed": 111.42857142857142,
         "presale": 89.14285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 22.285714285714285,
         "dipBuys": 0
     },
@@ -11628,7 +11700,7 @@
         "address": "0x48e3d8c5da4fc06ebae5faab5a78d08c3a8c4de4",
         "crssOwed": 110.0000154,
         "presale": 110,
-        "wallet": 0.000015400000000001,
+        "wallet": 0.000015400000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11681,18 +11753,26 @@
         "dipBuys": 0
     },
     {
-        "address": "0x1e21bb5e3013a8fc3e805271463f9044b05b6221",
-        "crssOwed": 106.66666666666667,
-        "presale": 85.33333333333334,
-        "wallet": 21.333333333333332,
+        "address": "0xb1f645c46a1d073eb9377a9c901098503a2bd509",
+        "crssOwed": 108.33333333333333,
+        "presale": 86.66666666666666,
+        "wallet": 21.666666666666668,
         "staking": 0,
         "dipBuys": 0
     },
     {
-        "address": "0xeb6bb45850aac4abd00402de7e1b1dd607fe522b",
-        "crssOwed": 106.66666666666664,
-        "presale": 106.66666666666664,
-        "wallet": 0,
+        "address": "0xacc302551d7769ebeb005dff15dba079f9952185",
+        "crssOwed": 107.14285714285714,
+        "presale": 85.71428571428571,
+        "wallet": 21.428571428571427,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x1e21bb5e3013a8fc3e805271463f9044b05b6221",
+        "crssOwed": 106.66666666666667,
+        "presale": 85.33333333333334,
+        "wallet": 21.333333333333332,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11713,10 +11793,18 @@
         "dipBuys": 0
     },
     {
+        "address": "0x6049e4e3f949a63bcb957b626f9f98408112db55",
+        "crssOwed": 103.33333333333333,
+        "presale": 82.66666666666666,
+        "wallet": 20.666666666666668,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x71e1604d63a1edbf8a99f89ce4945bb53293a72e",
         "crssOwed": 102.85714825714284,
         "presale": 102.85714285714283,
-        "wallet": 0.000005400000000002,
+        "wallet": 0.000005400000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11724,23 +11812,15 @@
         "address": "0x9b9259b110afb32f530271e0a8172a94257f72d4",
         "crssOwed": 102.82626785884344,
         "presale": 50.285714285714285,
-        "wallet": 0.009125001700571428,
+        "wallet": 0.00912500170057143,
         "staking": 52.53142857142857,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x45193d361865c847cda5c5cec9da168771446deb",
-        "crssOwed": 102,
-        "presale": 102,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
         "address": "0x6f808c62aa40a7e6e031ee189ab09964f9479ae0",
         "crssOwed": 101.99801427972001,
         "presale": 101.998,
-        "wallet": 0.000014279720000001,
+        "wallet": 0.000014279720000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11748,14 +11828,6 @@
         "address": "0x553977abc57c77c4b4983005d68409b137c06417",
         "crssOwed": 101.66666666666667,
         "presale": 101.66666666666667,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xd8c77c1f3cb197f095df317936d605c79554f362",
-        "crssOwed": 101.97413333333334,
-        "presale": 101.97413333333334,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -11772,7 +11844,7 @@
         "address": "0xe76abcad7f616943f0519a76415f1b8cda05798b",
         "crssOwed": 101.42857142857142,
         "presale": 81.14285714285714,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 20.285714285714285,
         "dipBuys": 0
     },
@@ -11780,7 +11852,7 @@
         "address": "0xcdf16a03a01071de6584cd104884c753715abe7f",
         "crssOwed": 100.000014,
         "presale": 100,
-        "wallet": 0.000014000000000001,
+        "wallet": 0.000014000000000001999,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11788,7 +11860,7 @@
         "address": "0x6718494ad506b711f815b765c3b351854cb655b0",
         "crssOwed": 100.00000700000147,
         "presale": 100,
-        "wallet": 0.000007000001470001,
+        "wallet": 0.000007000001470002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11796,7 +11868,7 @@
         "address": "0x6dfe36d3f73257ef3f62e30280d97e8b9b18457d",
         "crssOwed": 100.000014,
         "presale": 100,
-        "wallet": 0.000014000000000001,
+        "wallet": 0.000014000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11828,7 +11900,7 @@
         "address": "0x1ccf10f23ab17073e4f140372424f8af0cad8f6d",
         "crssOwed": 100.000014,
         "presale": 100,
-        "wallet": 0.000014000000000001,
+        "wallet": 0.000014000000000003,
         "staking": 0,
         "dipBuys": 0
     },
@@ -11881,14 +11953,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0xa10aa1fa4a005af55771cb5ca4d975a8521b3cf5",
-        "crssOwed": 100,
-        "presale": 100,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x3d5aff38a4f868c7e65b6b02154de609f68cd15b",
         "crssOwed": 100,
         "presale": 100,
@@ -11914,14 +11978,6 @@
     },
     {
         "address": "0x5bb93d68ca8c54f22a45bb72746afc7eea83d32c",
-        "crssOwed": 100,
-        "presale": 100,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x793293912b7084efd44710a0c80a2f587a5b3ac6",
         "crssOwed": 100,
         "presale": 100,
         "wallet": 0,
@@ -11978,6 +12034,22 @@
     },
     {
         "address": "0x4a8784e30f2922170c92735389aea8291057bdb2",
+        "crssOwed": 98.33333333333333,
+        "presale": 78.66666666666666,
+        "wallet": 19.666666666666668,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6e0a396ad4f901c807eb0fb84a0b0f8a234f2875",
+        "crssOwed": 98.33333333333333,
+        "presale": 78.66666666666666,
+        "wallet": 19.666666666666668,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xf3284a0371fa6d4b2415c5b95947bbeec7cfc0e5",
         "crssOwed": 98.33333333333333,
         "presale": 78.66666666666666,
         "wallet": 19.666666666666668,
@@ -12057,10 +12129,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x1963b4e3d6a6d24882262725dc618ba58b056aa9",
-        "crssOwed": 93.33333333333334,
-        "presale": 93.33333333333334,
-        "wallet": 0,
+        "address": "0x75af32310985f9e91801ad58165e3eb766cb903b",
+        "crssOwed": 93.50941590852379,
+        "presale": 74.80761904761903,
+        "wallet": 18.70179686090476,
         "staking": 0,
         "dipBuys": 0
     },
@@ -12121,26 +12193,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xc6adc623d90d1e53aad5da9b26b04fa7efdee9bc",
-        "crssOwed": 90.66666666666666,
-        "presale": 90.66666666666666,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x3a0ec548050098ea1b377e4feba6c78e06422fe3",
-        "crssOwed": 90,
-        "presale": 90,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xa622216e4cf0f7a59c93c18b82bb5011ed5b9f51",
         "crssOwed": 89.33333802333334,
         "presale": 178.66666666666669,
-        "wallet": 0.000009380000000001,
+        "wallet": 0.000009380000000001999,
         "staking": 0,
         "dipBuys": 0
     },
@@ -12185,10 +12241,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0xb1f645c46a1d073eb9377a9c901098503a2bd509",
-        "crssOwed": 86.66666666666666,
-        "presale": 86.66666666666666,
-        "wallet": 0,
+        "address": "0xb28a63227a3886db55ccb270d8a36e65a6b808c4",
+        "crssOwed": 86.66666666666669,
+        "presale": 69.33333333333334,
+        "wallet": 17.333333333333336,
         "staking": 0,
         "dipBuys": 0
     },
@@ -12204,14 +12260,6 @@
         "address": "0xeee3cf0d69a39b0c6f01802dbe1693061d8e56fd",
         "crssOwed": 85,
         "presale": 85,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xacc302551d7769ebeb005dff15dba079f9952185",
-        "crssOwed": 85.71428571428571,
-        "presale": 85.71428571428571,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -12409,18 +12457,42 @@
         "dipBuys": 0
     },
     {
+        "address": "0xfb23c698eed88a10f9c677b46f10f375f6388bb3",
+        "crssOwed": 83.33333333333331,
+        "presale": 66.66666666666666,
+        "wallet": 16.666666666666664,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x078c35f0afb581705a23bde4dafff37b840965c7",
+        "crssOwed": 83.33333333333331,
+        "presale": 66.66666666666666,
+        "wallet": 16.666666666666664,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xb27a8aed6bb118f4448c637933385cc31d8ac464",
         "crssOwed": 83.33333333333331,
         "presale": 66.66666666666666,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 16.666666666666664,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x4c0feb2af55daec24117c73521545495276b9265",
+        "crssOwed": 83.33333333333331,
+        "presale": 66.66666666666666,
+        "wallet": 16.666666666666664,
+        "staking": 0,
         "dipBuys": 0
     },
     {
         "address": "0xfdea434aaa2668b0badc32502e41b2d5cda88cfd",
         "crssOwed": 83.33333333333331,
         "presale": 66.66666666666666,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 16.666666666666664,
         "dipBuys": 0
     },
@@ -12441,14 +12513,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x6049e4e3f949a63bcb957b626f9f98408112db55",
-        "crssOwed": 82.66666666666666,
-        "presale": 82.66666666666666,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xa8815cf3c1615815048bb1768e91e3737ed989e3",
         "crssOwed": 81.66666666666667,
         "presale": 49,
@@ -12465,6 +12529,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xabdba2e2b22c036efda11cd4c5388d15209eb425",
+        "crssOwed": 81.66666666666669,
+        "presale": 65.33333333333334,
+        "wallet": 16.333333333333336,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x5488ad7a97eeca612d73e395442ec60790b4a788",
         "crssOwed": 81.74234542029399,
         "presale": 0,
@@ -12476,7 +12548,7 @@
         "address": "0x58036a652d493e1de7b2b5d5860e8f4eef5b6ce8",
         "crssOwed": 80.00001119999997,
         "presale": 79.99999999999997,
-        "wallet": 0.000011200000000001,
+        "wallet": 0.000011200000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -12553,22 +12625,6 @@
         "dipBuys": 78.0136693326998
     },
     {
-        "address": "0x6e0a396ad4f901c807eb0fb84a0b0f8a234f2875",
-        "crssOwed": 78.66666666666666,
-        "presale": 78.66666666666666,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xf3284a0371fa6d4b2415c5b95947bbeec7cfc0e5",
-        "crssOwed": 78.66666666666666,
-        "presale": 78.66666666666666,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x9f0a6eb3959408772141c63f812a9cd2c3815ac2",
         "crssOwed": 78.57142857142857,
         "presale": 78.57142857142857,
@@ -12589,6 +12645,14 @@
         "crssOwed": 78.57142857142857,
         "presale": 78.57142857142857,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x383d8aa245b79b04f29497f9bd94994c03c645bf",
+        "crssOwed": 78.85714285714286,
+        "presale": 63.08571428571429,
+        "wallet": 15.77142857142857,
         "staking": 0,
         "dipBuys": 0
     },
@@ -12641,6 +12705,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xffbcb15cdc66dc9cf603fd87219b7c7e65d2733f",
+        "crssOwed": 76.42857142857143,
+        "presale": 61.142857142857146,
+        "wallet": 15.285714285714286,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x2701a010260914ce546bc86fa87a59afe6796f49",
         "crssOwed": 75.92814025130549,
         "presale": 0,
@@ -12665,6 +12737,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xd5a59e43fc13d568b4d208c4da19ece0c49167d0",
+        "crssOwed": 75,
+        "presale": 45,
+        "wallet": 30,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x5e03503437e11d1e72042cab60393d4965aa6d81",
         "crssOwed": 75,
         "presale": 75,
@@ -12676,7 +12756,7 @@
         "address": "0x8ad0e2d4a9727959b469a40af9f7755175d39f3b",
         "crssOwed": 74.00000567,
         "presale": 74,
-        "wallet": 0.000005670000000001,
+        "wallet": 0.000005670000000002001,
         "staking": 0,
         "dipBuys": 0
     },
@@ -12686,14 +12766,6 @@
         "presale": 0,
         "wallet": 1.2289021411825305,
         "staking": 73.67658466008643,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x75af32310985f9e91801ad58165e3eb766cb903b",
-        "crssOwed": 74.80761904761903,
-        "presale": 74.80761904761903,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -12716,7 +12788,7 @@
         "address": "0x9f3b3e2bc75007b3feb6c057a127546cb8fad59a",
         "crssOwed": 73.78694307890989,
         "presale": 38,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 25.333333333333332,
         "dipBuys": 10.45360974557656
     },
@@ -12817,6 +12889,14 @@
         "dipBuys": 71.69378530923287
     },
     {
+        "address": "0x8e65979914335d970cea9912cae180bdf6bd3fc0",
+        "crssOwed": 71,
+        "presale": 42.6,
+        "wallet": 28.4,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xa822f8d0e2747caf0128d9fdd51c3dc2dbef977a",
         "crssOwed": 71.42857142857143,
         "presale": 71.42857142857143,
@@ -12868,7 +12948,7 @@
         "address": "0x4a51f3c0798a039ac622e07c6844a582c09a1345",
         "crssOwed": 70,
         "presale": 42,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 28,
         "dipBuys": 0
     },
@@ -12892,7 +12972,7 @@
         "address": "0xd61f89b1d59354fb15366fd75c77846be97ba352",
         "crssOwed": 69.32537474717509,
         "presale": 30.666666666666668,
-        "wallet": 0.000932987341,
+        "wallet": 0.0009329873410000009,
         "staking": 38.65777509316742,
         "dipBuys": 0
     },
@@ -12932,7 +13012,7 @@
         "address": "0xa664fc8075185500c4a321f399b49df47454ffa4",
         "crssOwed": 69.43155196602243,
         "presale": 39.999999999999986,
-        "wallet": 2e-18,
+        "wallet": 4e-18,
         "staking": 29.43155196602244,
         "dipBuys": 0
     },
@@ -12948,14 +13028,6 @@
         "address": "0x52e3b129d8f13dc3f9dcd6df11ef00cc3a3ac51e",
         "crssOwed": 69.81,
         "presale": 69.81,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xb28a63227a3886db55ccb270d8a36e65a6b808c4",
-        "crssOwed": 69.33333333333334,
-        "presale": 69.33333333333334,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -13012,7 +13084,7 @@
         "address": "0x930a8f7bd6fa77cb7004163dc63edabe9844cfbe",
         "crssOwed": 68.57142857142857,
         "presale": 54.857142857142854,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 13.714285714285712,
         "dipBuys": 0
     },
@@ -13028,7 +13100,7 @@
         "address": "0x89351671f982bd88bc6d88382dff8a52b342132b",
         "crssOwed": 67.16434066293135,
         "presale": 57.142857142857146,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 10.021483520074213,
         "dipBuys": 0
     },
@@ -13065,23 +13137,7 @@
         "dipBuys": 0
     },
     {
-        "address": "0xfb23c698eed88a10f9c677b46f10f375f6388bb3",
-        "crssOwed": 66.66666666666666,
-        "presale": 66.66666666666666,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x176ae247442791a4d7829bd45ab32af6275ec834",
-        "crssOwed": 66.66666666666666,
-        "presale": 66.66666666666666,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x078c35f0afb581705a23bde4dafff37b840965c7",
         "crssOwed": 66.66666666666666,
         "presale": 66.66666666666666,
         "wallet": 0,
@@ -13105,10 +13161,26 @@
         "dipBuys": 0
     },
     {
-        "address": "0x4c0feb2af55daec24117c73521545495276b9265",
+        "address": "0xffa77394512c8167fd3b933605fe6c042403087a",
         "crssOwed": 66.66666666666666,
-        "presale": 66.66666666666666,
-        "wallet": 0,
+        "presale": 53.33333333333332,
+        "wallet": 13.333333333333334,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x096caa1d19f71716e00809d911db152e25c37edc",
+        "crssOwed": 66.66666666666666,
+        "presale": 53.33333333333332,
+        "wallet": 13.333333333333334,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6e1f244f3e761acde02ecdf4558092553cc31623",
+        "crssOwed": 66,
+        "presale": 39.6,
+        "wallet": 26.4,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13116,8 +13188,16 @@
         "address": "0xd7f74cc157efb2efb845058ad4d341fc6211864f",
         "crssOwed": 66.66666666666666,
         "presale": 39.999999999999986,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 26.66666666666667,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x8c52d04182a307dac0c3c214061fbf16fdea46ed",
+        "crssOwed": 66.66666666666666,
+        "presale": 39.999999999999986,
+        "wallet": 26.666666666666668,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -13140,14 +13220,6 @@
         "address": "0x70560cf42dae41d77b997b7f4890f4381d1c3d85",
         "crssOwed": 65,
         "presale": 65,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xabdba2e2b22c036efda11cd4c5388d15209eb425",
-        "crssOwed": 65.33333333333334,
-        "presale": 65.33333333333334,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -13185,10 +13257,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0x383d8aa245b79b04f29497f9bd94994c03c645bf",
-        "crssOwed": 63.08571428571429,
-        "presale": 63.08571428571429,
-        "wallet": 0,
+        "address": "0x343d2b981fba99649ac7a8b1c2c68ca5fd614cf2",
+        "crssOwed": 63.333333333333336,
+        "presale": 50.66666666666667,
+        "wallet": 12.666666666666666,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x7ce190a38afb65104ffe400d665f769d3ab5b817",
+        "crssOwed": 63.18548,
+        "presale": 50.548384,
+        "wallet": 12.637096,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13236,15 +13316,15 @@
         "address": "0xf032191ae96ee3f4332eb9c497ac38d198d2d387",
         "crssOwed": 61.71428571428571,
         "presale": 61.71428571428571,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
     {
-        "address": "0xffbcb15cdc66dc9cf603fd87219b7c7e65d2733f",
-        "crssOwed": 61.142857142857146,
-        "presale": 61.142857142857146,
-        "wallet": 0,
+        "address": "0xec4250553bb5f7d4376efaee119a7c0019604d4f",
+        "crssOwed": 61.595,
+        "presale": 49.275999999999996,
+        "wallet": 12.319,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13253,6 +13333,14 @@
         "crssOwed": 61.9125,
         "presale": 61.9125,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x4191371c83a8f22bd1336829e494129c37411b53",
+        "crssOwed": 61.25,
+        "presale": 49,
+        "wallet": 12.25,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13372,7 +13460,7 @@
         "address": "0x0934a9cd55df6ab4911275e7d51736ce40c9be26",
         "crssOwed": 58.28571428571428,
         "presale": 58.28571428571428,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13529,18 +13617,10 @@
         "dipBuys": 13.144692933795577
     },
     {
-        "address": "0xffa77394512c8167fd3b933605fe6c042403087a",
-        "crssOwed": 53.33333333333332,
-        "presale": 53.33333333333332,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x096caa1d19f71716e00809d911db152e25c37edc",
-        "crssOwed": 53.33333333333332,
-        "presale": 53.33333333333332,
-        "wallet": 0,
+        "address": "0x14709a0978a99012bc9ed19a22a91d17c293a9c8",
+        "crssOwed": 53.333333333333336,
+        "presale": 42.66666666666667,
+        "wallet": 10.666666666666666,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13697,14 +13777,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x343d2b981fba99649ac7a8b1c2c68ca5fd614cf2",
-        "crssOwed": 50.66666666666667,
-        "presale": 50.66666666666667,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xaa8338aa1b109951267ee42973d57f2d035c8a55",
         "crssOwed": 50,
         "presale": 50,
@@ -13713,11 +13785,19 @@
         "dipBuys": 0
     },
     {
-        "address": "0x7ce190a38afb65104ffe400d665f769d3ab5b817",
-        "crssOwed": 50.548384,
-        "presale": 50.548384,
-        "wallet": 0,
+        "address": "0x596fe1a7321cfb32d2a4626a45525a6b91073df0",
+        "crssOwed": 50,
+        "presale": 40,
+        "wallet": 10,
         "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x09ae291c0597a7f0826d1eb6d5432575163b0521",
+        "crssOwed": 50.68599643290476,
+        "presale": 30,
+        "wallet": 7.5,
+        "staking": 13.185996432904757,
         "dipBuys": 0
     },
     {
@@ -13734,22 +13814,6 @@
         "presale": 0,
         "wallet": 0.021443662514770385,
         "staking": 49.92856812997804,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xec4250553bb5f7d4376efaee119a7c0019604d4f",
-        "crssOwed": 49.275999999999996,
-        "presale": 49.275999999999996,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x4191371c83a8f22bd1336829e494129c37411b53",
-        "crssOwed": 49,
-        "presale": 49,
-        "wallet": 0,
-        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -13796,7 +13860,7 @@
         "address": "0xa8da995c5f5bf2ddc0f2579287b268d6a52b4733",
         "crssOwed": 47.00000658,
         "presale": 47,
-        "wallet": 0.000006580000000001,
+        "wallet": 0.000006580000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13805,6 +13869,14 @@
         "crssOwed": 47.669868491726945,
         "presale": 0,
         "wallet": 47.669868491726945,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x6e51eb0623a8ae08ba9415500591b4a6f0ca1a08",
+        "crssOwed": 47.5,
+        "presale": 38,
+        "wallet": 9.5,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13865,14 +13937,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0xd5a59e43fc13d568b4d208c4da19ece0c49167d0",
-        "crssOwed": 45,
-        "presale": 45,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xdda14d9fe1e4789d6d498472b2171a23caca84b5",
         "crssOwed": 45.83333333333333,
         "presale": 45.83333333333333,
@@ -13897,34 +13961,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x09ae291c0597a7f0826d1eb6d5432575163b0521",
-        "crssOwed": 43.18599643290476,
-        "presale": 30,
-        "wallet": 0,
-        "staking": 13.185996432904757,
-        "dipBuys": 0
-    },
-    {
         "address": "0x4e9137515bcd7d0f8449ea1e698f658acbb2f1a5",
         "crssOwed": 42.47429799163698,
         "presale": 0,
         "wallet": 42.47429799163698,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x8e65979914335d970cea9912cae180bdf6bd3fc0",
-        "crssOwed": 42.6,
-        "presale": 42.6,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x14709a0978a99012bc9ed19a22a91d17c293a9c8",
-        "crssOwed": 42.66666666666667,
-        "presale": 42.66666666666667,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -13937,10 +13977,26 @@
         "dipBuys": 0
     },
     {
+        "address": "0x6c3ceeacba7c0c76b57e401e84ed8dae9ebbef6e",
+        "crssOwed": 42.857142857142854,
+        "presale": 34.285714285714285,
+        "wallet": 8.571428571428571,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x825180fa7e1f68dcaf118d32c5ce62c32df915af",
+        "crssOwed": 42.857142857142854,
+        "presale": 34.285714285714285,
+        "wallet": 8.571428571428571,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xefc94a826f6f6b903de650c9e55051892fe7bd5d",
         "crssOwed": 41.666666666666664,
         "presale": 25,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 16.666666666666664,
         "dipBuys": 0
     },
@@ -13948,7 +14004,7 @@
         "address": "0x6d07e44adff4e33ad903ba10f2b9936a706d0b54",
         "crssOwed": 41.93942857142857,
         "presale": 41.93942857142857,
-        "wallet": 1e-18,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14009,6 +14065,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0xa4478d4e7df42d9185773a0a8f8560f402b4e508",
+        "crssOwed": 41.66666666666666,
+        "presale": 33.33333333333333,
+        "wallet": 8.333333333333332,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xa043ed695a278450e083ae9a9b1e040036042026",
         "crssOwed": 41.875,
         "presale": 41.875,
@@ -14020,7 +14084,7 @@
         "address": "0x8aa0a1c9d2f6ee5802bc62f12af73922dc700b94",
         "crssOwed": 40.0000021,
         "presale": 40,
-        "wallet": 0.000002100000000001,
+        "wallet": 0.000002100000000002,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14065,14 +14129,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x596fe1a7321cfb32d2a4626a45525a6b91073df0",
-        "crssOwed": 40,
-        "presale": 40,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xaf6a965902b027b41ab8705362dd70edbd3858f2",
         "crssOwed": 39.5,
         "presale": 23.7,
@@ -14105,26 +14161,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x6e1f244f3e761acde02ecdf4558092553cc31623",
-        "crssOwed": 39.6,
-        "presale": 39.6,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x21b102e3b01a38fa021edc32063b4d5d4b144fd6",
         "crssOwed": 39.999999999999986,
         "presale": 39.999999999999986,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x8c52d04182a307dac0c3c214061fbf16fdea46ed",
-        "crssOwed": 39.999999999999986,
-        "presale": 39.999999999999986,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14177,10 +14217,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x6e51eb0623a8ae08ba9415500591b4a6f0ca1a08",
-        "crssOwed": 38,
-        "presale": 38,
-        "wallet": 0,
+        "address": "0x31677139ce0397c9efac07b713fc2e03d06bc56a",
+        "crssOwed": 38.542857142857144,
+        "presale": 30.834285714285716,
+        "wallet": 7.708571428571429,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14233,6 +14273,14 @@
         "dipBuys": 36.826224990122945
     },
     {
+        "address": "0x5ddb1f871cdf065d6aefd467e895c1710be263e5",
+        "crssOwed": 36.25,
+        "presale": 29,
+        "wallet": 7.25,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xf9440a3eac1dd1f41e248ca592c6efa6d6046212",
         "crssOwed": 35.20039862403822,
         "presale": 25.333333333333336,
@@ -14245,6 +14293,14 @@
         "crssOwed": 35,
         "presale": 35,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xf5a3f9d6c55160c798a47ed0f93d0f0fb1f6ef2f",
+        "crssOwed": 35.714285714285715,
+        "presale": 28.571428571428573,
+        "wallet": 7.142857142857143,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14276,22 +14332,6 @@
         "address": "0x1c6b45dad589b6675b5bf1357b956065a3e46462",
         "crssOwed": 34.75,
         "presale": 34.75,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x6c3ceeacba7c0c76b57e401e84ed8dae9ebbef6e",
-        "crssOwed": 34.285714285714285,
-        "presale": 34.285714285714285,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x825180fa7e1f68dcaf118d32c5ce62c32df915af",
-        "crssOwed": 34.285714285714285,
-        "presale": 34.285714285714285,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -14401,14 +14441,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0xa4478d4e7df42d9185773a0a8f8560f402b4e508",
-        "crssOwed": 33.33333333333333,
-        "presale": 33.33333333333333,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x7b102e321fdc23d4a429028b67da7acb4c83ad5d",
         "crssOwed": 33.33333333333333,
         "presale": 33.33333333333333,
@@ -14428,7 +14460,7 @@
         "address": "0x34835e679e87a411df95c351aabc8252b3a935a7",
         "crssOwed": 33.33333333333333,
         "presale": 26.66666666666666,
-        "wallet": 0,
+        "wallet": 1e-18,
         "staking": 6.666666666666668,
         "dipBuys": 0
     },
@@ -14438,6 +14470,14 @@
         "presale": 0,
         "wallet": 0,
         "staking": 33.50540929968112,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x12c6bb31cd97ba62312029b2e0e65afcabc32702",
+        "crssOwed": 32.85714285714286,
+        "presale": 26.285714285714292,
+        "wallet": 6.571428571428571,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -14461,6 +14501,14 @@
         "crssOwed": 31.776666666666667,
         "presale": 31.776666666666667,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x19a6cff3e75819446e2134c1364031cab9cf3775",
+        "crssOwed": 31.666666666666668,
+        "presale": 25.333333333333336,
+        "wallet": 6.333333333333333,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14489,10 +14537,10 @@
         "dipBuys": 0
     },
     {
-        "address": "0x31677139ce0397c9efac07b713fc2e03d06bc56a",
-        "crssOwed": 30.834285714285716,
-        "presale": 30.834285714285716,
-        "wallet": 0,
+        "address": "0x383658eb3e3c1a8244bf357ba1a393f1790c3165",
+        "crssOwed": 30,
+        "presale": 18,
+        "wallet": 12,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14533,14 +14581,6 @@
         "crssOwed": 29.979,
         "presale": 0,
         "wallet": 29.979,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x5ddb1f871cdf065d6aefd467e895c1710be263e5",
-        "crssOwed": 29,
-        "presale": 29,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14588,14 +14628,6 @@
         "address": "0x314f4e70606f0aa0fe59d954fb1e4ea259ee09c4",
         "crssOwed": 28.333333333333332,
         "presale": 28.333333333333332,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xf5a3f9d6c55160c798a47ed0f93d0f0fb1f6ef2f",
-        "crssOwed": 28.571428571428573,
-        "presale": 28.571428571428573,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -14652,7 +14684,7 @@
         "address": "0x78096cd2369fd8dd1e74f50adcd762c2075146ab",
         "crssOwed": 26.66666666666666,
         "presale": 26.66666666666666,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14660,14 +14692,6 @@
         "address": "0xde01c238234000c2fe3c237fcdb1ee4a8f1b82de",
         "crssOwed": 26.666666666666668,
         "presale": 26.666666666666668,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x12c6bb31cd97ba62312029b2e0e65afcabc32702",
-        "crssOwed": 26.285714285714292,
-        "presale": 26.285714285714292,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -14737,14 +14761,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x19a6cff3e75819446e2134c1364031cab9cf3775",
-        "crssOwed": 25.333333333333336,
-        "presale": 25.333333333333336,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x89ef4bd2b2a9ef316d65420444a3db571fa1d04f",
         "crssOwed": 25,
         "presale": 25,
@@ -14781,6 +14797,14 @@
         "crssOwed": 25,
         "presale": 25,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x7655a1a398eeb5faf83b4cc966d4e65dc3cb8e4a",
+        "crssOwed": 25,
+        "presale": 20,
+        "wallet": 5,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14833,6 +14857,14 @@
         "dipBuys": 0
     },
     {
+        "address": "0x291f4ab0d6ab677ce97d48fb9cbc1dcd2b64b47e",
+        "crssOwed": 23.75,
+        "presale": 19,
+        "wallet": 4.75,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xc629f66998b9851cba4f5b6955863647b119d4c1",
         "crssOwed": 22.055422918300373,
         "presale": 0,
@@ -14853,6 +14885,14 @@
         "crssOwed": 22.94522709,
         "presale": 0,
         "wallet": 22.94522709,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x2d733d76665414042be9b8cdadf13f27f9d09ac0",
+        "crssOwed": 21.666666666666668,
+        "presale": 13,
+        "wallet": 8.666666666666668,
         "staking": 0,
         "dipBuys": 0
     },
@@ -14929,14 +14969,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x7655a1a398eeb5faf83b4cc966d4e65dc3cb8e4a",
-        "crssOwed": 20,
-        "presale": 20,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x0184f52313f0fa9e0f6f2dc73238dea2df9d3d13",
         "crssOwed": 20.901670866022773,
         "presale": 0,
@@ -14956,14 +14988,6 @@
         "address": "0xc11705b3519285cae389437bad42d1a847d11986",
         "crssOwed": 19.837142857142858,
         "presale": 19.837142857142858,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x291f4ab0d6ab677ce97d48fb9cbc1dcd2b64b47e",
-        "crssOwed": 19,
-        "presale": 19,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -14999,14 +15023,6 @@
         "wallet": 0,
         "staking": 0,
         "dipBuys": 18.743255690317206
-    },
-    {
-        "address": "0x383658eb3e3c1a8244bf357ba1a393f1790c3165",
-        "crssOwed": 18,
-        "presale": 18,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
     },
     {
         "address": "0x7a1781887699ed11418cf0109ba143e84ad36f11",
@@ -15045,6 +15061,14 @@
         "crssOwed": 17.067497253398294,
         "presale": 17.067497253398294,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x275e6f96bf3ef14bdfe20b46d318ee5557a4c3c0",
+        "crssOwed": 17.5,
+        "presale": 14,
+        "wallet": 3.5,
         "staking": 0,
         "dipBuys": 0
     },
@@ -15129,11 +15153,27 @@
         "dipBuys": 0
     },
     {
+        "address": "0xf16e9dd6b1f360fe597bebc037379820e2abbbc1",
+        "crssOwed": 16.666666666666664,
+        "presale": 13.33333333333333,
+        "wallet": 3.3333333333333335,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0xdd75269874e79b434ca75acf9aedef1a8c61ac3a",
         "crssOwed": 16.666666666666664,
         "presale": 9.999999999999996,
-        "wallet": 0,
+        "wallet": 2e-18,
         "staking": 6.666666666666668,
+        "dipBuys": 0
+    },
+    {
+        "address": "0xa21f70abdab907630549bd79cafed72bad44b359",
+        "crssOwed": 16.666666666666664,
+        "presale": 9.999999999999996,
+        "wallet": 6.666666666666667,
+        "staking": 0,
         "dipBuys": 0
     },
     {
@@ -15189,6 +15229,14 @@
         "crssOwed": 15,
         "presale": 15,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x5cbc8f70231e229ac60475b159560d0c4b366941",
+        "crssOwed": 15,
+        "presale": 12,
+        "wallet": 3,
         "staking": 0,
         "dipBuys": 0
     },
@@ -15257,10 +15305,18 @@
         "dipBuys": 0
     },
     {
-        "address": "0x275e6f96bf3ef14bdfe20b46d318ee5557a4c3c0",
-        "crssOwed": 14,
-        "presale": 14,
-        "wallet": 0,
+        "address": "0x63ba5d38b655374022adae8174ab025683bbf049",
+        "crssOwed": 14.285714285714286,
+        "presale": 11.428571428571429,
+        "wallet": 2.857142857142857,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x2c60e17f3db63065e38bb8ad922d9028de25ffd3",
+        "crssOwed": 14.285714285714286,
+        "presale": 11.428571428571429,
+        "wallet": 2.857142857142857,
         "staking": 0,
         "dipBuys": 0
     },
@@ -15361,22 +15417,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x2d733d76665414042be9b8cdadf13f27f9d09ac0",
-        "crssOwed": 13,
-        "presale": 13,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0xf16e9dd6b1f360fe597bebc037379820e2abbbc1",
-        "crssOwed": 13.33333333333333,
-        "presale": 13.33333333333333,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xbb950fb32ad2f60feb3861b858304efe765853d1",
         "crssOwed": 13.166666666666666,
         "presale": 13.166666666666666,
@@ -15429,14 +15469,6 @@
         "crssOwed": 12.160511843543153,
         "presale": 0,
         "wallet": 12.160511843543153,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x5cbc8f70231e229ac60475b159560d0c4b366941",
-        "crssOwed": 12,
-        "presale": 12,
-        "wallet": 0,
         "staking": 0,
         "dipBuys": 0
     },
@@ -15521,22 +15553,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0x63ba5d38b655374022adae8174ab025683bbf049",
-        "crssOwed": 11.428571428571429,
-        "presale": 11.428571428571429,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x2c60e17f3db63065e38bb8ad922d9028de25ffd3",
-        "crssOwed": 11.428571428571429,
-        "presale": 11.428571428571429,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0xc58ae2a59003a30e968c4a3c48205b8bb3630ad1",
         "crssOwed": 10.81638061011964,
         "presale": 0,
@@ -15581,6 +15597,14 @@
         "crssOwed": 10.75,
         "presale": 10.75,
         "wallet": 0,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x0aa4927541cc6530ba4f95ad71dfa914d22a6d10",
+        "crssOwed": 10,
+        "presale": 8,
+        "wallet": 2,
         "staking": 0,
         "dipBuys": 0
     },
@@ -15657,14 +15681,6 @@
         "dipBuys": 0
     },
     {
-        "address": "0xa21f70abdab907630549bd79cafed72bad44b359",
-        "crssOwed": 9.999999999999996,
-        "presale": 9.999999999999996,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
         "address": "0x953480c82d7914176fa146aacbc524aef61ffe17",
         "crssOwed": 8.3916e-7,
         "presale": 0,
@@ -15732,14 +15748,6 @@
         "address": "0x268258c252ca0b4b4420ae8bbd66bd77b04fcb96",
         "crssOwed": 8.333333333333332,
         "presale": 8.333333333333332,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x0aa4927541cc6530ba4f95ad71dfa914d22a6d10",
-        "crssOwed": 8,
-        "presale": 8,
         "wallet": 0,
         "staking": 0,
         "dipBuys": 0
@@ -15985,6 +15993,22 @@
         "dipBuys": 0
     },
     {
+        "address": "0x8746ab3f55f4e909296e82305e0cec8903787c7a",
+        "crssOwed": 5,
+        "presale": 4,
+        "wallet": 1,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
+        "address": "0x9714f6534470fb88b2d017718f69c4b41c853d47",
+        "crssOwed": 5,
+        "presale": 4,
+        "wallet": 1,
+        "staking": 0,
+        "dipBuys": 0
+    },
+    {
         "address": "0x095ad3d17697be667ace2eb11e07e53d5a3cc92c",
         "crssOwed": 4.256196807524558,
         "presale": 0,
@@ -16058,22 +16082,6 @@
     },
     {
         "address": "0x04060af0135d2d3d6d9e5568c6701174933141f1",
-        "crssOwed": 4,
-        "presale": 4,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x8746ab3f55f4e909296e82305e0cec8903787c7a",
-        "crssOwed": 4,
-        "presale": 4,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": 0
-    },
-    {
-        "address": "0x9714f6534470fb88b2d017718f69c4b41c853d47",
         "crssOwed": 4,
         "presale": 4,
         "wallet": 0,
@@ -17826,9 +17834,9 @@
     },
     {
         "address": "0xedeeff704a0c0ae871e615421dd86c769181bb33",
-        "crssOwed": 0.4766983879215449,
+        "crssOwed": 0.4848560763134155,
         "presale": 0,
-        "wallet": 0.4766983879215449,
+        "wallet": 0.4848560763134155,
         "staking": 0,
         "dipBuys": 0
     },
@@ -23071,14 +23079,6 @@
         "wallet": 0,
         "staking": 0,
         "dipBuys": -41.265917755134645
-    },
-    {
-        "address": "0x78f91bcf969ce2355ef8c6b386a3ae341e43934d",
-        "crssOwed": -42.69270707436713,
-        "presale": 0,
-        "wallet": 0,
-        "staking": 0,
-        "dipBuys": -42.69270707436713
     },
     {
         "address": "0xcbb01807691cba73527892247633ace63d52b248",

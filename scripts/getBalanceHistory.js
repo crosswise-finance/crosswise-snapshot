@@ -3,7 +3,7 @@ const fs = require("fs");
 const tokenConstants = require('./constants.js');
 const axios = require('axios').default;
 let finalListAfter = require("../_snapshot/holders/WalletBalanceAfter.json");
-let finalListBefore = require("../_snapshot/holders/WalletBalanceBefore.json")
+let finalListBefore = require("../_snapshot/holders/WalletBalanceBeforeV2.json")
 const fullAddressList = require("../_snapshot/fullAddressList.json")
 
 //this gets us all the token addresses involved
@@ -59,13 +59,14 @@ const getAddressHistoricalBalances = async (addr, timestamp) => {
     }
     let userObject = {
         "address": addr, "CRSSV11": contractBalances[0], "CRSSV1": contractBalances[1], "XCRSS": contractBalances[2], "CRSS_BUSD": contractBalances[3], "CRSS_BNB": contractBalances[4],
-        "BNB_BUSD": contractBalances[5], "BNB_USDT": contractBalances[6], "BNB_DOT": contractBalances[7],
-        "BNB_LINK": contractBalances[8], "BNB_ETH": contractBalances[9], "BNB_ADA": contractBalances[10], "BNB_BTCB": contractBalances[11]
+        "BNB_BUSD": contractBalances[5], "BNB_DOT": contractBalances[6],
+        "BNB_LINK": contractBalances[7], "BNB_ETH": contractBalances[8], "BNB_ADA": contractBalances[9], "BNB_BTCB": contractBalances[10], "BUSD_USDC": contractBalances[11], "BNB_CAKE": contractBalances[12], "BNB_USDC": contractBalances[13],
+        "CRSS_USDC": contractBalances[14], "CRSS": contractBalances[15], "crssOwed": 0
     }
 
     if (timestamp == timestamp1) {
         finalListBefore.push(userObject)
-        fs.writeFileSync("_snapshot/holders/WalletBalanceBefore.json", JSON.stringify(finalListBefore))
+        fs.writeFileSync("_snapshot/holders/WalletBalanceBeforeV2.json", JSON.stringify(finalListBefore))
     } else if (timestamp == timestamp2) {
         finalListAfter.push(userObject)
         fs.writeFileSync("_snapshot/holders/WalletBalanceAfter.json", JSON.stringify(finalListAfter))
@@ -147,19 +148,24 @@ function getGlobalData(objectArray) {
     fs.appendFileSync("_snapshot/holders/globalAmountsBefore.json", JSON.stringify(globalObject))
 }
 function convertAllToCrss(object) {
-    object.crssOwed = object.CRSSV11
-    object.crssOwed += object.CRSSV1
-    object.crssOwed += object.XCRSS
-    object.crssOwed += object.CRSS_BUSD / crssPrice * tokenPrices[3]
-    object.crssOwed += object.CRSS_BNB / crssPrice * tokenPrices[4]
-    object.crssOwed += object.BNB_BUSD / crssPrice * tokenPrices[5]
-    object.crssOwed += object.BNB_USDT / crssPrice * tokenPrices[13]
-    object.crssOwed += object.BNB_DOT / crssPrice * tokenPrices[6]
-    object.crssOwed += object.BNB_LINK / crssPrice * tokenPrices[7]
-    object.crssOwed += object.BNB_ETH / crssPrice * tokenPrices[8]
-    object.crssOwed += object.BNB_ADA / crssPrice * tokenPrices[9]
-    object.crssOwed += object.BNB_BTCB / crssPrice * tokenPrices[10]
-    return object.crssOwed
+    let crssOwed = 0
+    crssOwed += object.CRSSV11
+    crssOwed += object.CRSSV1
+    crssOwed += object.XCRSS
+    crssOwed += object.CRSS_BUSD / crssPrice * tokenPrices[3]
+    crssOwed += object.CRSS_BNB / crssPrice * tokenPrices[4]
+    crssOwed += object.BNB_BUSD / crssPrice * tokenPrices[5]
+    crssOwed += object.BNB_DOT / crssPrice * tokenPrices[6]
+    crssOwed += object.BNB_LINK / crssPrice * tokenPrices[7]
+    crssOwed += object.BNB_ETH / crssPrice * tokenPrices[8]
+    crssOwed += object.BNB_ADA / crssPrice * tokenPrices[9]
+    crssOwed += object.BNB_BTCB / crssPrice * tokenPrices[10]
+    crssOwed += object.BNB_CAKE / crssPrice * tokenPrices[11]
+    crssOwed += object.BNB_USDC / crssPrice * tokenPrices[13]
+    crssOwed += object.CRSS_USDC / crssPrice * tokenPrices[14]
+    crssOwed += object.CRSS
+
+    return crssOwed
 }
 function crssOwed(arr = []) {
     let totalArray = arr;
@@ -167,9 +173,15 @@ function crssOwed(arr = []) {
         const userObject = totalArray[i]
         userObject.crssOwed = convertAllToCrss(userObject);
     }
-    if (arr == finalListBefore) {
-        fs.writeFileSync("_snapshot/holders/totalAmountsBefore.json", JSON.stringify(totalArray))
+    let totalCrss = 0
 
+    for (let i = 0; i < totalArray.length; i++) {
+        totalCrss += totalArray[i].crssOwed
+    }
+    if (arr == finalListBefore) {
+
+        fs.writeFileSync("_snapshot/holders/totalAmountsBeforeV2.json", JSON.stringify(totalArray))
+        console.log(`Total of ${totalCrss} CRSS added from wallet balances`)
     } else if (arr == finalListAfter) {
 
         fs.writeFileSync("_snapshot/holders/totalAmountsAfter.json", JSON.stringify(totalArray))
@@ -182,9 +194,10 @@ function sortAll() {
 }
 //needs full address list to work
 const main = async () => {
-    await getWalletBalances(fullAddressList, timestamp1)
+    // getAddressHistoricalBalances("0x3464010C0Ef748C8AA135195d1Ca1a00AaEc050E", timestamp1)
+    // await getWalletBalances(fullAddressList, timestamp1)
     //await getWalletBalances(fullAddressList, timestamp2)
     //getGlobalData(finalListBefore)
 }
-//main()
+main()
 crssOwed(finalListBefore)
