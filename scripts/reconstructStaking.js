@@ -6,10 +6,10 @@ const tokenConstants = require('../scripts/constants');
 
 const excludedAddresses = tokenConstants.excludedAddr
 //this gets us all the token addresses involved
-const tokenAddresses = tokenConstants.TokensInScope;
+const tokenAddresses = tokenConstants.LPAddresses;
 //this give us the names of all involved addresses (addressOfToken1 = tokenAddresses[i] => nameOfToken1 tokenNames[i])
-const tokenNames = tokenConstants.TokensInScopeName;
-const tokenPrices = tokenConstants.TokensInScopePrice;
+const tokenNames = tokenConstants.LPNames;
+const tokenPrices = tokenConstants.LPPrices;
 const crssPrice = 1.2605653314300524;
 
 const masterchef = "0x70873211CB64c1D4EC027Ea63A399A7d07c4085B".toLowerCase()
@@ -448,8 +448,8 @@ function getUserStakingBeforeAttack() {
                     let userObject = {
                         "address": userAddress
                         , "CRSSV11": 0, "CRSS_BUSD": 0, "CRSS_BNB": 0,
-                        "BNB_BUSD": 0, "BNB_USDC": 0, "BNB_DOT": 0,
-                        "BNB_LINK": 0, "BNB_ETH": 0, "BNB_ADA": 0, "BNB_BTCB": 0, "BUSD_USDC": 0, "BNB_CAKE": 0, "crssOwed": 0
+                        "BNB_BUSD": 0, "BNB_DOT": 0,
+                        "BNB_LINK": 0, "BNB_ETH": 0, "BNB_ADA": 0, "BNB_BTCB": 0, "BUSD_USDC": 0, "BNB_CAKE": 0, "BNB_USDC": 0, "crssOwed": 0
                     }
                     userObject[propertyName] += tokenAmount
                     userObject.crssOwed += crssAmountEquivalent
@@ -503,8 +503,8 @@ const gatherLogsAndBEP20Transfers = async () => {
 
 
 
-    await getBEP20Transfers()
-    await getAllTransferLogs()
+    // await getBEP20Transfers()
+    // await getAllTransferLogs()
     orderAndCalculate()
 
 
